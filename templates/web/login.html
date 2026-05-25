@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHMS Login</title>
+    <link rel="stylesheet" href="{% static 'css/web_app.css' %}">
+</head>
+<body>
+    <div class="auth-shell">
+        <div class="auth-card">
+            <section class="auth-side">
+                <h1>IHMS Enterprise</h1>
+                <p>
+                    Secure hospital operations platform for patients, doctors, pharmacy, laboratory,
+                    billing, appointments, and AI-assisted care decisions.
+                </p>
+                <ul class="bullet-list">
+                    <li>Role-based access for Admin, Doctor, Patient, Reception, Pharmacist, Lab Staff</li>
+                    <li>Unified workflow from consultation to billing and notifications</li>
+                    <li>Secure authentication with audit-friendly account management</li>
+                </ul>
+            </section>
+
+            <section class="auth-form-wrap">
+                <div class="auth-top">
+                    <h2>Sign in</h2>
+                    <p>Enter your account credentials to continue.</p>
+                </div>
+
+                {% if messages %}
+                    <ul class="msg-list">
+                        {% for message in messages %}
+                            <li class="msg {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% if next_url %}
+                        <input type="hidden" name="next" value="{{ next_url }}">
+                    {% endif %}
+                    <div class="form-row">
+                        <label class="form-label" for="id_email">Email</label>
+                        <input id="id_email" class="input" type="email" name="email" placeholder="your-email@ihms.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="form-label" for="id_password">Password</label>
+                        <input id="id_password" class="input" type="password" name="password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Login</button>
+                </form>
+
+                <p class="auth-note">
+                    Demo flow: after login, dashboard modules are shown automatically based on your role.
+                </p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

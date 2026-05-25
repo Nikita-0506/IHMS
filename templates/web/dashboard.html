@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHMS Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/web_app.css' %}">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">IHMS</div>
+            <div class="brand-sub">Intelligent Hospital Platform</div>
+
+            <div class="user-card">
+                <div class="user-name">{{ display_name }}</div>
+                <div class="user-role">{{ user_role }}</div>
+            </div>
+
+            <div class="nav-title">Available Modules</div>
+            {% for module in modules %}
+                <a class="nav-item" href="{{ module.url }}">{{ module.name }}</a>
+            {% empty %}
+                <span class="nav-item">No modules assigned</span>
+            {% endfor %}
+        </aside>
+
+        <main class="app-main">
+            <header class="topbar">
+                <div>
+                    <h1>Welcome, {{ display_name }}</h1>
+                    <p>{{ user_role }} Dashboard · {{ module_count }} module{{ module_count|pluralize }} assigned</p>
+                </div>
+                <a href="{% url 'web-logout' %}" class="logout-btn">Logout</a>
+            </header>
+
+            <section class="content">
+                <div class="kpi-grid">
+                    <article class="kpi"><h3>{{ module_count }}</h3><p>Assigned Modules</p></article>
+                    <article class="kpi"><h3>{{ user_role }}</h3><p>Current Role</p></article>
+                    <article class="kpi"><h3>Live</h3><p>System Status</p></article>
+                    <article class="kpi"><h3>24x7</h3><p>Operational Window</p></article>
+                </div>
+
+                <div class="section-head">
+                    <h2>Your Access Panel</h2>
+                    <p>
+                        This page shows only the parts of the project allowed for your logged-in role.
+                    </p>
+                </div>
+
+                <div class="module-grid">
+                    {% for module in modules %}
+                        <article class="module">
+                            <div class="module-top">
+                                <h3>{{ module.name }}</h3>
+                                <span class="tag">{{ module.tag }}</span>
+                            </div>
+                            <p>{{ module.desc }}</p>
+                            <a class="module-link" href="{{ module.url }}">Open {{ module.name }} →</a>
+                        </article>
+                    {% empty %}
+                        <article class="module">
+                            <div class="module-top">
+                                <h3>No Access Mapped</h3>
+                                <span class="tag">Info</span>
+                            </div>
+                            <p>Your account currently has no mapped module permissions. Contact the admin team.</p>
+                        </article>
+                    {% endfor %}
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
