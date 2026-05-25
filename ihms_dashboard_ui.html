@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IHMS — Integrated Hospital Management System</title>
+<style>
+/* ═══════════════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════════════ */
+:root {
+  --bg:            #f0f4f9;
+  --surface:       #ffffff;
+  --surface-2:     #f5f9fd;
+  --surface-3:     #eaf1fa;
+  --border:        #dce8f4;
+  --text:          #0d1f36;
+  --text-soft:     #4a607c;
+  --text-muted:    #7f9ab5;
+  --brand:         #0077b6;
+  --brand-dark:    #005a8a;
+  --brand-light:   #e0f2fe;
+  --teal:          #00b4d8;
+  --teal-light:    #caf0f8;
+  --green:         #0a9660;
+  --green-light:   #d1fae5;
+  --amber:         #d97706;
+  --amber-light:   #fef3c7;
+  --red:           #dc2626;
+  --red-light:     #fee2e2;
+  --purple:        #7c3aed;
+  --purple-light:  #ede9fe;
+  --pink:          #db2777;
+  --pink-light:    #fce7f3;
+  --orange:        #ea580c;
+  --orange-light:  #ffedd5;
+  --indigo:        #4338ca;
+  --indigo-light:  #e0e7ff;
+  --sidebar-w:     268px;
+  --radius:        14px;
+  --radius-sm:     8px;
+  --shadow:        0 4px 20px rgba(13,31,54,.08);
+  --shadow-md:     0 8px 32px rgba(13,31,54,.12);
+  --transition:    .22s cubic-bezier(.4,0,.2,1);
+}
+[data-theme="dark"] {
+  --bg:            #0b1422;
+  --surface:       #111e31;
+  --surface-2:     #162236;
+  --surface-3:     #1c2c44;
+  --border:        #243650;
+  --text:          #dce9f8;
+  --text-soft:     #7ea8cc;
+  --text-muted:    #4d7398;
+  --brand:         #38bdf8;
+  --brand-dark:    #7dd3fc;
+  --brand-light:   #0c2d45;
+  --teal:          #22d3ee;
+  --teal-light:    #0c2f38;
+  --green:         #34d399;
+  --green-light:   #052e16;
+  --amber:         #fbbf24;
+  --amber-light:   #2d1d04;
+  --red:           #f87171;
+  --red-light:     #2d0a0a;
+  --purple:        #a78bfa;
+  --purple-light:  #1e1050;
+  --pink:          #f472b6;
+  --pink-light:    #2d0b1d;
+  --orange:        #fb923c;
+  --orange-light:  #2c1204;
+  --indigo:        #818cf8;
+  --indigo-light:  #1e1b52;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  transition: background var(--transition), color var(--transition);
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+svg { display: block; }
+
+/* ═══════════════════════════════════════════════════════
+   LAYOUT SHELL
+═══════════════════════════════════════════════════════ */
+.shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr;
+  min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SIDEBAR
+═══════════════════════════════════════════════════════ */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: linear-gradient(175deg, #0a1929 0%, #0d2440 55%, #0f2e50 100%);
+  color: #c8dffa;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 1rem;
+  z-index: 100;
+  transition: width var(--transition);
+  scrollbar-width: thin;
+  scrollbar-color: #1e3d5e transparent;
+}
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: #1e3d5e; border-radius: 4px; }
+
+/* Brand */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: 1.3rem 1.2rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.brand-icon {
+  width: 38px; height: 38px;
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  border-radius: 10px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.brand-icon svg { width: 20px; height: 20px; color: #fff; }
+.brand-name { font-size: 1.15rem; font-weight: 700; color: #e8f4ff; letter-spacing: .03em; }
+.brand-tag  { font-size: .63rem; color: #7bafd6; text-transform: uppercase; letter-spacing: .1em; }
+
+/* Nav sections */
+.nav-section { margin-top: 1rem; }
+.nav-label {
+  font-size: .66rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: #4d7398;
+  padding: .4rem 1.2rem .2rem;
+  font-weight: 600;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .58rem 1.2rem;
+  border-radius: 9px;
+  margin: .1rem .6rem;
+  font-size: .88rem;
+  color: #9fc5e8;
+  transition: background var(--transition), color var(--transition);
+  cursor: pointer;
+}
+.nav-item:hover  { background: rgba(255,255,255,.09); color: #e8f4ff; }
+.nav-item.active { background: linear-gradient(90deg, rgba(0,119,182,.45), rgba(0,180,216,.25)); color: #fff; }
+.nav-item svg { width: 17px; height: 17px; flex-shrink: 0; opacity: .8; }
+.nav-item.active svg { opacity: 1; }
+.nav-badge {
+  margin-left: auto;
+  font-size: .67rem;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 20px;
+  padding: .12rem .45rem;
+  font-weight: 600;
+}
+.nav-badge.green { background: #0a9660; }
+.nav-badge.amber { background: #d97706; }
+
+/* Sidebar footer */
+.sidebar-footer {
+  margin-top: auto;
+  padding: .8rem 1rem 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.sidebar-user {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .6rem .5rem;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.sidebar-user:hover { background: rgba(255,255,255,.08); }
+.avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0077b6, #7c3aed);
+  display: grid; place-items: center;
+  font-size: .8rem; font-weight: 700; color: #fff;
+  flex-shrink: 0;
+}
+.user-name  { font-size: .84rem; font-weight: 600; color: #d4eaf9; }
+.user-role  { font-size: .7rem; color: #5a88b0; }
+
+/* ═══════════════════════════════════════════════════════
+   MAIN AREA
+═══════════════════════════════════════════════════════ */
+.main { display: flex; flex-direction: column; min-height: 100vh; overflow: hidden; }
+
+/* TOP BAR */
+.topbar {
+  position: sticky; top: 0; z-index: 90;
+  display: flex; align-items: center;
+  gap: 1rem;
+  padding: .7rem 1.6rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  transition: background var(--transition), border-color var(--transition);
+}
+.topbar-title { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+.topbar-subtitle { font-size: .75rem; color: var(--text-muted); margin-top: .05rem; }
+
+.search-box {
+  display: flex; align-items: center; gap: .5rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: .45rem .9rem;
+  flex: 1; max-width: 380px;
+  margin-left: auto;
+  transition: border-color var(--transition);
+}
+.search-box:focus-within { border-color: var(--brand); }
+.search-box svg { width: 15px; height: 15px; color: var(--text-muted); flex-shrink: 0; }
+.search-box input {
+  border: none; background: none; outline: none;
+  font: inherit; font-size: .84rem; color: var(--text);
+  width: 100%;
+}
+.search-box input::placeholder { color: var(--text-muted); }
+
+.topbar-actions { display: flex; align-items: center; gap: .6rem; }
+.icon-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  position: relative;
+  color: var(--text-soft);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  transition: all var(--transition);
+}
+.icon-btn:hover { background: var(--brand-light); color: var(--brand); border-color: var(--brand); }
+.icon-btn svg { width: 17px; height: 17px; }
+.notif-dot {
+  position: absolute; top: 5px; right: 5px;
+  width: 8px; height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  border: 2px solid var(--surface);
+}
+
+/* STATUS BAR */
+.status-bar {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .38rem 1.6rem;
+  background: var(--green-light);
+  font-size: .75rem;
+  color: var(--green);
+  border-bottom: 1px solid rgba(10,150,96,.15);
+}
+[data-theme="dark"] .status-bar { background: #052e16; color: #34d399; }
+.status-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50%      { opacity: .4; }
+}
+.status-bar .divider { color: var(--green); opacity: .35; margin: 0 .3rem; }
+
+/* CONTENT */
+.content { padding: 1.4rem 1.6rem; flex: 1; }
+
+/* ═══════════════════════════════════════════════════════
+   SECTION TITLES
+═══════════════════════════════════════════════════════ */
+.section-header {
+  display: flex; align-items: center; gap: .7rem;
+  margin-bottom: 1rem;
+}
+.section-title { font-size: 1rem; font-weight: 700; color: var(--text); }
+.section-sub   { font-size: .78rem; color: var(--text-muted); margin-top: .1rem; }
+.section-icon  {
+  width: 32px; height: 32px;
+  border-radius: 9px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.section-icon svg { width: 16px; height: 16px; }
+.section-divider { flex: 1; height: 1px; background: var(--border); }
+.view-all {
+  font-size: .78rem;
+  color: var(--brand);
+  font-weight: 600;
+  display: flex; align-items: center; gap: .25rem;
+  padding: .25rem .6rem;
+  border-radius: 6px;
+  transition: background var(--transition);
+}
+.view-all:hover { background: var(--brand-light); }
+
+/* ═══════════════════════════════════════════════════════
+   KPI STRIP
+═══════════════════════════════════════════════════════ */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  display: flex; align-items: flex-start; gap: .9rem;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative; overflow: hidden;
+}
+.kpi-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.kpi-card.blue::before  { background: linear-gradient(90deg, #0077b6, #00b4d8); }
+.kpi-card.green::before { background: linear-gradient(90deg, #0a9660, #10b981); }
+.kpi-card.amber::before { background: linear-gradient(90deg, #d97706, #fbbf24); }
+.kpi-card.red::before   { background: linear-gradient(90deg, #dc2626, #f87171); }
+.kpi-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.kpi-icon {
+  width: 44px; height: 44px;
+  border-radius: 11px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.kpi-icon svg { width: 22px; height: 22px; }
+.kpi-value { font-size: 1.75rem; font-weight: 800; line-height: 1; color: var(--text); }
+.kpi-label { font-size: .78rem; color: var(--text-muted); margin-top: .2rem; }
+.kpi-delta {
+  font-size: .72rem; font-weight: 600;
+  display: flex; align-items: center; gap: .15rem;
+  margin-top: .4rem;
+}
+.kpi-delta.up   { color: var(--green); }
+.kpi-delta.down { color: var(--red); }
+.kpi-delta svg  { width: 12px; height: 12px; }
+
+/* ═══════════════════════════════════════════════════════
+   MODULE CARDS GRID
+═══════════════════════════════════════════════════════ */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.module-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex; flex-direction: column; gap: .8rem;
+  cursor: pointer;
+}
+.module-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.module-header { display: flex; align-items: flex-start; justify-content: space-between; }
+.module-icon-wrap {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.module-icon-wrap svg { width: 24px; height: 24px; }
+.module-status {
+  font-size: .67rem; font-weight: 700;
+  padding: .2rem .55rem;
+  border-radius: 20px;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.module-status.live   { background: var(--green-light); color: var(--green); }
+.module-status.ai     { background: var(--purple-light); color: var(--purple); }
+.module-status.beta   { background: var(--amber-light); color: var(--amber); }
+.module-name { font-size: .98rem; font-weight: 700; color: var(--text); }
+.module-desc { font-size: .79rem; color: var(--text-soft); line-height: 1.5; }
+.module-stats { display: flex; gap: .8rem; }
+.mod-stat { display: flex; flex-direction: column; }
+.mod-stat-val { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+.mod-stat-lbl { font-size: .68rem; color: var(--text-muted); }
+.module-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: .5rem;
+  border-top: 1px solid var(--border);
+}
+.module-endpoints {
+  font-size: .72rem; color: var(--text-muted);
+  display: flex; align-items: center; gap: .3rem;
+}
+.module-endpoints svg { width: 13px; height: 13px; }
+.module-link {
+  font-size: .76rem; font-weight: 600; color: var(--brand);
+  display: flex; align-items: center; gap: .2rem;
+}
+.module-link svg { width: 13px; height: 13px; }
+
+/* Mini progress bar inside module cards */
+.mini-progress { height: 4px; border-radius: 4px; background: var(--border); overflow: hidden; }
+.mini-progress-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
+
+/* ═══════════════════════════════════════════════════════
+   TWO-COLUMN ROW
+═══════════════════════════════════════════════════════ */
+.row-2 { display: grid; grid-template-columns: 1.3fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+
+/* ═══════════════════════════════════════════════════════
+   CHART CARD
+═══════════════════════════════════════════════════════ */
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+.chart-card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.chart-tabs { display: flex; gap: .3rem; }
+.chart-tab {
+  font-size: .75rem; padding: .28rem .65rem;
+  border-radius: 6px;
+  color: var(--text-soft);
+  transition: all var(--transition);
+}
+.chart-tab:hover  { background: var(--surface-3); }
+.chart-tab.active { background: var(--brand); color: #fff; }
+
+/* SVG bar chart */
+.bar-chart-wrap { overflow-x: auto; padding-bottom: .5rem; }
+.bar-chart { display: flex; align-items: flex-end; gap: 10px; height: 140px; padding: 0 4px; }
+.bar-group { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; min-width: 32px; }
+.bar-col { width: 100%; border-radius: 5px 5px 0 0; transition: opacity .2s; cursor: pointer; }
+.bar-col:hover { opacity: .75; }
+.bar-lbl { font-size: .65rem; color: var(--text-muted); text-align: center; white-space: nowrap; }
+
+/* Line chart */
+.line-chart-wrap { width: 100%; height: 140px; }
+.line-chart-wrap svg { width: 100%; height: 100%; }
+
+/* Donut */
+.donut-wrap {
+  display: flex; align-items: center; gap: 1.5rem;
+}
+.donut-svg { width: 110px; height: 110px; flex-shrink: 0; }
+.donut-legend { flex: 1; display: flex; flex-direction: column; gap: .5rem; }
+.donut-item { display: flex; align-items: center; gap: .5rem; font-size: .78rem; }
+.donut-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.donut-item-label { color: var(--text-soft); flex: 1; }
+.donut-item-val   { font-weight: 700; color: var(--text); }
+
+/* ═══════════════════════════════════════════════════════
+   ACTIVITY FEED
+═══════════════════════════════════════════════════════ */
+.activity-feed { display: flex; flex-direction: column; gap: .6rem; max-height: 340px; overflow-y: auto; padding-right: .3rem; }
+.activity-feed::-webkit-scrollbar { width: 3px; }
+.activity-feed::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.activity-item {
+  display: flex; align-items: flex-start; gap: .7rem;
+  padding: .55rem .7rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: .8rem;
+}
+.activity-icon {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  font-size: .78rem;
+}
+.activity-body { flex: 1; }
+.activity-title { font-weight: 600; color: var(--text); }
+.activity-meta  { color: var(--text-muted); font-size: .72rem; margin-top: .1rem; }
+.activity-time  { color: var(--text-muted); font-size: .7rem; white-space: nowrap; }
+
+/* ═══════════════════════════════════════════════════════
+   AI PANEL
+═══════════════════════════════════════════════════════ */
+.ai-panel {
+  background: linear-gradient(135deg, #0d1f36 0%, #0f2a48 60%, #1a1048 100%);
+  border: 1px solid #1e3d6a;
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  color: #c8dffa;
+  box-shadow: var(--shadow-md);
+  position: relative; overflow: hidden;
+}
+.ai-panel::before {
+  content: '';
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,119,182,.25) 0%, transparent 70%);
+}
+.ai-panel-title { font-size: .98rem; font-weight: 700; color: #e8f4ff; margin-bottom: .2rem; }
+.ai-panel-sub   { font-size: .76rem; color: #7bafd6; margin-bottom: 1rem; }
+.ai-features { display: flex; flex-direction: column; gap: .5rem; }
+.ai-feat {
+  display: flex; align-items: center; gap: .65rem;
+  padding: .55rem .7rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.07);
+  font-size: .8rem;
+  transition: background var(--transition);
+}
+.ai-feat:hover { background: rgba(255,255,255,.1); }
+.ai-feat-icon {
+  width: 28px; height: 28px;
+  border-radius: 7px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.ai-feat-icon svg { width: 14px; height: 14px; }
+.ai-feat-name   { color: #c8dffa; font-weight: 600; }
+.ai-feat-status {
+  margin-left: auto;
+  font-size: .66rem;
+  padding: .15rem .45rem;
+  border-radius: 12px;
+}
+.ai-feat-status.ready  { background: rgba(10,150,96,.25); color: #34d399; }
+.ai-feat-status.active { background: rgba(0,119,182,.3); color: #60c8f5; }
+
+/* ═══════════════════════════════════════════════════════
+   APPOINTMENT TABLE
+═══════════════════════════════════════════════════════ */
+.data-table-wrap { overflow-x: auto; }
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .8rem;
+}
+.data-table th {
+  text-align: left;
+  padding: .55rem .8rem;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  border-bottom: 1px solid var(--border);
+}
+.data-table td {
+  padding: .6rem .8rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-soft);
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--surface-2); }
+.td-name { font-weight: 600; color: var(--text); }
+.badge {
+  display: inline-flex; align-items: center;
+  font-size: .67rem; font-weight: 700;
+  padding: .18rem .52rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.badge.confirmed { background: var(--green-light); color: var(--green); }
+.badge.pending   { background: var(--amber-light); color: var(--amber); }
+.badge.cancelled { background: var(--red-light);   color: var(--red); }
+.badge.inprog    { background: var(--brand-light);  color: var(--brand); }
+
+/* ═══════════════════════════════════════════════════════
+   INFRASTRUCTURE PANEL
+═══════════════════════════════════════════════════════ */
+.infra-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .7rem;
+}
+.infra-item {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: .8rem 1rem;
+}
+.infra-header { display: flex; align-items: center; gap: .5rem; margin-bottom: .5rem; }
+.infra-icon {
+  width: 26px; height: 26px;
+  border-radius: 7px;
+  display: grid; place-items: center;
+}
+.infra-icon svg { width: 14px; height: 14px; }
+.infra-name { font-size: .8rem; font-weight: 600; color: var(--text); }
+.infra-status { margin-left: auto; }
+.status-pill {
+  font-size: .65rem; font-weight: 700;
+  padding: .15rem .45rem;
+  border-radius: 12px;
+}
+.status-pill.up   { background: var(--green-light); color: var(--green); }
+.status-pill.warn { background: var(--amber-light); color: var(--amber); }
+.status-pill.down { background: var(--red-light);   color: var(--red); }
+.infra-bar { margin-top: .3rem; }
+.infra-bar-label { display: flex; justify-content: space-between; font-size: .68rem; color: var(--text-muted); margin-bottom: .25rem; }
+
+/* ═══════════════════════════════════════════════════════
+   BILLING SUMMARY
+═══════════════════════════════════════════════════════ */
+.bill-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .55rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .8rem;
+}
+.bill-row:last-child { border-bottom: none; }
+.bill-label { color: var(--text-soft); }
+.bill-amount { font-weight: 700; color: var(--text); }
+.bill-total-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .7rem 0 0;
+  font-size: .9rem; font-weight: 800;
+  color: var(--text);
+}
+
+/* ═══════════════════════════════════════════════════════
+   API ENDPOINT LIST
+═══════════════════════════════════════════════════════ */
+.endpoint-list { display: flex; flex-direction: column; gap: .45rem; max-height: 280px; overflow-y: auto; }
+.endpoint-list::-webkit-scrollbar { width: 3px; }
+.endpoint-list::-webkit-scrollbar-thumb { background: var(--border); }
+.endpoint-item {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .45rem .7rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: .77rem;
+  font-family: "Cascadia Code", "Fira Code", "Consolas", monospace;
+}
+.method-badge {
+  font-size: .65rem; font-weight: 700;
+  padding: .12rem .4rem;
+  border-radius: 5px;
+  min-width: 40px;
+  text-align: center;
+}
+.method-badge.get    { background: var(--green-light); color: var(--green); }
+.method-badge.post   { background: var(--brand-light);  color: var(--brand); }
+.method-badge.put    { background: var(--amber-light);  color: var(--amber); }
+.method-badge.delete { background: var(--red-light);    color: var(--red); }
+.endpoint-path { color: var(--text); flex: 1; }
+.endpoint-desc { color: var(--text-muted); font-family: "Segoe UI", sans-serif; font-size: .69rem; }
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════ */
+.footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .8rem 1.6rem;
+  border-top: 1px solid var(--border);
+  font-size: .72rem; color: var(--text-muted);
+  background: var(--surface);
+}
+.footer-pills { display: flex; gap: .5rem; }
+.footer-pill {
+  padding: .18rem .55rem;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+/* ═══════════════════════════════════════════════════════
+   THEME TOGGLE
+═══════════════════════════════════════════════════════ */
+.theme-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  transition: all var(--transition);
+}
+.theme-btn:hover { background: var(--brand-light); color: var(--brand); }
+
+/* ═══════════════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════════════ */
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; box-shadow: var(--shadow); }
+.mb-1 { margin-bottom: 1rem; }
+.flex  { display: flex; }
+.gap-1 { gap: 1rem; }
+.w-full { width: 100%; }
+
+/* Color helpers */
+.bg-blue    { background: var(--brand-light); }
+.bg-teal    { background: var(--teal-light); }
+.bg-green   { background: var(--green-light); }
+.bg-amber   { background: var(--amber-light); }
+.bg-red     { background: var(--red-light); }
+.bg-purple  { background: var(--purple-light); }
+.bg-pink    { background: var(--pink-light); }
+.bg-orange  { background: var(--orange-light); }
+.bg-indigo  { background: var(--indigo-light); }
+.c-blue     { color: var(--brand); }
+.c-teal     { color: var(--teal); }
+.c-green    { color: var(--green); }
+.c-amber    { color: var(--amber); }
+.c-red      { color: var(--red); }
+.c-purple   { color: var(--purple); }
+.c-pink     { color: var(--pink); }
+.c-orange   { color: var(--orange); }
+.c-indigo   { color: var(--indigo); }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .modules-grid { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid     { grid-template-columns: repeat(2, 1fr); }
+  .row-2        { grid-template-columns: 1fr; }
+  .row-3        { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .shell { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .modules-grid { grid-template-columns: 1fr; }
+  .row-3 { grid-template-columns: 1fr; }
+  .infra-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+<!-- ═══════════════════════════════════
+     SIDEBAR
+═══════════════════════════════════ -->
+<aside class="sidebar">
+  <!-- Brand -->
+  <div class="sidebar-brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/>
+        <path d="M12 8v8M8 12h8"/>
+      </svg>
+    </div>
+    <div>
+      <div class="brand-name">IHMS</div>
+      <div class="brand-tag">Enterprise v2.1</div>
+    </div>
+  </div>
+
+  <!-- Core Modules -->
+  <div class="nav-section">
+    <div class="nav-label">Core</div>
+    <a class="nav-item active" onclick="scrollTo('overview')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Overview
+    </a>
+    <a class="nav-item" onclick="scrollTo('patients')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Patients
+      <span class="nav-badge">1,240</span>
+    </a>
+    <a class="nav-item" onclick="scrollTo('doctors')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      Doctors
+      <span class="nav-badge green">86</span>
+    </a>
+    <a class="nav-item" onclick="scrollTo('appointments')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Appointments
+      <span class="nav-badge amber">34</span>
+    </a>
+  </div>
+
+  <!-- Clinical -->
+  <div class="nav-section">
+    <div class="nav-label">Clinical</div>
+    <a class="nav-item" onclick="scrollTo('laboratory')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v11l-5 5h16l-5-5V3"/></svg>
+      Laboratory
+    </a>
+    <a class="nav-item" onclick="scrollTo('pharmacy')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12h6M12 9v6"/></svg>
+      Pharmacy
+    </a>
+    <a class="nav-item" onclick="scrollTo('billing')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Billing
+    </a>
+  </div>
+
+  <!-- Intelligence -->
+  <div class="nav-section">
+    <div class="nav-label">Intelligence</div>
+    <a class="nav-item" onclick="scrollTo('ai')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      AI Analysis
+      <span class="nav-badge" style="background:#7c3aed">5</span>
+    </a>
+    <a class="nav-item" onclick="scrollTo('dashboard')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Dashboard
+    </a>
+    <a class="nav-item" onclick="scrollTo('notifications')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+      Notifications
+    </a>
+  </div>
+
+  <!-- System -->
+  <div class="nav-section">
+    <div class="nav-label">System</div>
+    <a class="nav-item" onclick="scrollTo('api')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+      API Gateway
+    </a>
+    <a class="nav-item" onclick="scrollTo('infrastructure')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Infrastructure
+    </a>
+    <a class="nav-item" onclick="scrollTo('accounts')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Accounts & Auth
+    </a>
+  </div>
+
+  <!-- Sidebar Footer -->
+  <div class="sidebar-footer">
+    <div class="sidebar-user">
+      <div class="avatar">AD</div>
+      <div>
+        <div class="user-name">Admin User</div>
+        <div class="user-role">Super Administrator</div>
+      </div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;margin-left:auto;color:#4d7398"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+    </div>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════
+     MAIN CONTENT
+═══════════════════════════════════ -->
+<div class="main">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div>
+      <div class="topbar-title">Command Center</div>
+      <div class="topbar-subtitle">Integrated Hospital Management System</div>
+    </div>
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search patients, doctors, reports…"/>
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn" title="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        <span class="notif-dot"></span>
+      </button>
+      <button class="icon-btn" title="Reports">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </button>
+      <button class="icon-btn" title="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+      </button>
+      <button class="theme-btn" id="themeBtn" title="Toggle theme">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <div class="avatar" style="width:36px;height:36px;font-size:.8rem;border-radius:10px;cursor:pointer">AD</div>
+    </div>
+  </header>
+
+  <!-- STATUS BAR -->
+  <div class="status-bar">
+    <span class="status-dot"></span>
+    All systems operational
+    <span class="divider">|</span>
+    Django 4.2 · DRF · PostgreSQL · Redis · Celery
+    <span class="divider">|</span>
+    Last sync: 2 min ago
+    <span style="margin-left:auto">May 25, 2026 &nbsp;·&nbsp; Sunday</span>
+  </div>
+
+  <!-- SCROLLABLE CONTENT -->
+  <div class="content">
+
+    <!-- ── OVERVIEW / KPIs ── -->
+    <div id="overview" style="scroll-margin-top:60px">
+      <div class="section-header mb-1">
+        <div class="section-icon bg-blue c-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <div>
+          <div class="section-title">System Overview</div>
+          <div class="section-sub">Real-time operational metrics across all hospital modules</div>
+        </div>
+        <div class="section-divider"></div>
+        <span style="font-size:.74rem;background:var(--green-light);color:var(--green);padding:.2rem .6rem;border-radius:12px;font-weight:600">● Live</span>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card blue">
+          <div class="kpi-icon bg-blue c-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <div class="kpi-value" id="k1">1,240</div>
+            <div class="kpi-label">Total Patients</div>
+            <div class="kpi-delta up">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"/></svg>
+              +12% this month
+            </div>
+          </div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-icon bg-green c-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <div class="kpi-value" id="k2">86</div>
+            <div class="kpi-label">Active Doctors</div>
+            <div class="kpi-delta up">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"/></svg>
+              +3 new this week
+            </div>
+          </div>
+        </div>
+        <div class="kpi-card amber">
+          <div class="kpi-icon bg-amber c-amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="kpi-value" id="k3">348</div>
+            <div class="kpi-label">Appointments Today</div>
+            <div class="kpi-delta down">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="6 9 12 15 18 9"/></svg>
+              −5% vs yesterday
+            </div>
+          </div>
+        </div>
+        <div class="kpi-card red">
+          <div class="kpi-icon bg-red c-red" style="background:var(--green-light)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--green)"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="kpi-value" id="k4">₹4.2L</div>
+            <div class="kpi-label">Monthly Revenue</div>
+            <div class="kpi-delta up" style="color:var(--green)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"/></svg>
+              +18% vs last month
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── MODULES GRID ── -->
+    <div id="modules" style="scroll-margin-top:60px">
+      <div class="section-header mb-1">
+        <div class="section-icon bg-indigo c-indigo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <div class="section-title">System Modules</div>
+          <div class="section-sub">All functional areas of the IHMS platform</div>
+        </div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="modules-grid">
+
+        <!-- PATIENTS -->
+        <div class="module-card" id="patients">
+          <div class="module-header">
+            <div class="module-icon-wrap bg-blue c-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span class="module-status live">Live</span>
+          </div>
+          <div>
+            <div class="module-name">Patient Management</div>
+            <div class="module-desc">Complete patient lifecycle: registration, EMR, medical history, vitals tracking, and family medical records with audit trails.</div>
+          </div>
+          <div class="module-stats">
+            <div class="mod-stat"><span class="mod-stat-val">1,240</span><span class="mod-stat-lbl">Registered</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">38</span><span class="mod-stat-lbl">Admitted</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">97%</span><span class="mod-stat-lbl">Record Complete</span></div>
+          </div>
+          <div class="mini-progress"><div class="mini-progress-fill" style="width:97%;background:var(--brand)"></div></div>
+          <div class="module-footer">
+            <span class="module-endpoints">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              /api/v1/patients/ · 8 endpoints
+            </span>
+            <span class="module-link">
+              Open
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- DOCTORS -->
+        <div class="module-card" id="doctors">
+          <div class="module-header">
+            <div class="module-icon-wrap bg-green c-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <span class="module-status live">Live</span>
+          </div>
+          <div>
+            <div class="module-name">Doctor Management</div>
+            <div class="module-desc">Doctor profiles, specializations, scheduling, availability management, and performance tracking with department mapping.</div>
+          </div>
+          <div class="module-stats">
+            <div class="mod-stat"><span class="mod-stat-val">86</span><span class="mod-stat-lbl">Total Doctors</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">14</span><span class="mod-stat-lbl">Specializations</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">72</span><span class="mod-stat-lbl">On Duty</span></div>
+          </div>
+          <div class="mini-progress"><div class="mini-progress-fill" style="width:84%;background:var(--green)"></div></div>
+          <div class="module-footer">
+            <span class="module-endpoints">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              /api/v1/doctors/ · 7 endpoints
+            </span>
+            <span class="module-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+
+        <!-- APPOINTMENTS -->
+        <div class="module-card" id="appointments">
+          <div class="module-header">
+            <div class="module-icon-wrap bg-amber c-amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <span class="module-status live">Live</span>
+          </div>
+          <div>
+            <div class="module-name">Appointments</div>
+            <div class="module-desc">Smart scheduling with Celery-powered reminders, conflict detection, OPD/IPD tracking, and real-time availability sync.</div>
+          </div>
+          <div class="module-stats">
+            <div class="mod-stat"><span class="mod-stat-val">348</span><span class="mod-stat-lbl">Today</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">34</span><span class="mod-stat-lbl">Pending</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">5</span><span class="mod-stat-lbl">Cancelled</span></div>
+          </div>
+          <div class="mini-progress"><div class="mini-progress-fill" style="width:78%;background:var(--amber)"></div></div>
+          <div class="module-footer">
+            <span class="module-endpoints">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              /api/v1/appointments/ · 9 endpoints
+            </span>
+            <span class="module-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+
+        <!-- LABORATORY -->
+        <div class="module-card" id="laboratory">
+          <div class="module-header">
+            <div class="module-icon-wrap bg-teal c-teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v11l-5 5h16l-5-5V3"/></svg>
+            </div>
+            <span class="module-status live">Live</span>
+          </div>
+          <div>
+            <div class="module-name">Laboratory</div>
+            <div class="module-desc">Test order management, result entry, report generation, critical value alerts, and integration with AI diagnostic analysis.</div>
+          </div>
+          <div class="module-stats">
+            <div class="mod-stat"><span class="mod-stat-val">156</span><span class="mod-stat-lbl">Tests Today</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">12</span><span class="mod-stat-lbl">Pending</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">98%</span><span class="mod-stat-lbl">Accuracy</span></div>
+          </div>
+          <div class="mini-progress"><div class="mini-progress-fill" style="width:92%;background:var(--teal)"></div></div>
+          <div class="module-footer">
+            <span class="module-endpoints">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              /api/v1/laboratory/ · 8 endpoints
+            </span>
+            <span class="module-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+
+        <!-- PHARMACY -->
+        <div class="module-card" id="pharmacy">
+          <div class="module-header">
+            <div class="module-icon-wrap bg-orange c-orange">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span class="module-status live">Live</span>
+          </div>
+          <div>
+            <div class="module-name">Pharmacy</div>
+            <div class="module-desc">Drug inventory management, prescription dispensing, stock alerts, expiry tracking, and drug interaction warnings.</div>
+          </div>
+          <div class="module-stats">
+            <div class="mod-stat"><span class="mod-stat-val">2,400</span><span class="mod-stat-lbl">Drug Items</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">89</span><span class="mod-stat-lbl">Dispensed Today</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">7</span><span class="mod-stat-lbl">Low Stock</span></div>
+          </div>
+          <div class="mini-progress"><div class="mini-progress-fill" style="width:65%;background:var(--orange)"></div></div>
+          <div class="module-footer">
+            <span class="module-endpoints">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              /api/v1/pharmacy/ · 10 endpoints
+            </span>
+            <span class="module-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+
+        <!-- BILLING -->
+        <div class="module-card" id="billing">
+          <div class="module-header">
+            <div class="module-icon-wrap bg-pink c-pink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <span class="module-status live">Live</span>
+          </div>
+          <div>
+            <div class="module-name">Billing & Finance</div>
+            <div class="module-desc">Invoice generation, payment processing, insurance claims, GST compliance, and revenue analytics with audit-ready records.</div>
+          </div>
+          <div class="module-stats">
+            <div class="mod-stat"><span class="mod-stat-val">₹4.2L</span><span class="mod-stat-lbl">This Month</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">423</span><span class="mod-stat-lbl">Invoices</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">18</span><span class="mod-stat-lbl">Pending</span></div>
+          </div>
+          <div class="mini-progress"><div class="mini-progress-fill" style="width:88%;background:var(--pink)"></div></div>
+          <div class="module-footer">
+            <span class="module-endpoints">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              /api/v1/billing/ · 11 endpoints
+            </span>
+            <span class="module-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+
+        <!-- NOTIFICATIONS -->
+        <div class="module-card" id="notifications">
+          <div class="module-header">
+            <div class="module-icon-wrap bg-indigo c-indigo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+            </div>
+            <span class="module-status live">Live</span>
+          </div>
+          <div>
+            <div class="module-name">Notifications</div>
+            <div class="module-desc">Celery-driven async alerts for appointments, lab results, billing events, and system health via email/SMS/in-app channels.</div>
+          </div>
+          <div class="module-stats">
+            <div class="mod-stat"><span class="mod-stat-val">1,890</span><span class="mod-stat-lbl">Sent Today</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">99.1%</span><span class="mod-stat-lbl">Delivery</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">3</span><span class="mod-stat-lbl">Channels</span></div>
+          </div>
+          <div class="mini-progress"><div class="mini-progress-fill" style="width:99%;background:var(--indigo)"></div></div>
+          <div class="module-footer">
+            <span class="module-endpoints">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              /api/v1/notifications/ · 5 endpoints
+            </span>
+            <span class="module-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+
+        <!-- DASHBOARD -->
+        <div class="module-card" id="dashboard">
+          <div class="module-header">
+            <div class="module-icon-wrap bg-teal c-teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <span class="module-status live">Live</span>
+          </div>
+          <div>
+            <div class="module-name">Analytics Dashboard</div>
+            <div class="module-desc">Aggregated KPIs, department performance, revenue analytics, doctor utilization, and patient flow reports with export.</div>
+          </div>
+          <div class="module-stats">
+            <div class="mod-stat"><span class="mod-stat-val">24/7</span><span class="mod-stat-lbl">Monitoring</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">6</span><span class="mod-stat-lbl">Report Types</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">Live</span><span class="mod-stat-lbl">Updates</span></div>
+          </div>
+          <div class="mini-progress"><div class="mini-progress-fill" style="width:100%;background:var(--teal)"></div></div>
+          <div class="module-footer">
+            <span class="module-endpoints">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              /api/v1/dashboard/ · 6 endpoints
+            </span>
+            <span class="module-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+
+        <!-- ACCOUNTS -->
+        <div class="module-card" id="accounts">
+          <div class="module-header">
+            <div class="module-icon-wrap bg-purple c-purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="module-status live">Live</span>
+          </div>
+          <div>
+            <div class="module-name">Accounts & Auth</div>
+            <div class="module-desc">JWT authentication, role-based access control (RBAC), custom user model with doctor/patient/admin roles, and audit logging.</div>
+          </div>
+          <div class="module-stats">
+            <div class="mod-stat"><span class="mod-stat-val">4</span><span class="mod-stat-lbl">Roles</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">JWT</span><span class="mod-stat-lbl">Auth Method</span></div>
+            <div class="mod-stat"><span class="mod-stat-val">100%</span><span class="mod-stat-lbl">RBAC Coverage</span></div>
+          </div>
+          <div class="mini-progress"><div class="mini-progress-fill" style="width:100%;background:var(--purple)"></div></div>
+          <div class="module-footer">
+            <span class="module-endpoints">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              /api/v1/accounts/ · 7 endpoints
+            </span>
+            <span class="module-link">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── AI ANALYSIS + ACTIVITY ── -->
+    <div class="row-2" id="ai" style="scroll-margin-top:60px">
+
+      <!-- AI PANEL -->
+      <div class="ai-panel">
+        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.15rem">
+          <div style="width:32px;height:32px;border-radius:9px;background:rgba(124,58,237,.35);display:grid;place-items:center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" style="width:17px;height:17px"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <div class="ai-panel-title">AI Analysis Engine</div>
+            <div class="ai-panel-sub">Machine-learning powered clinical intelligence</div>
+          </div>
+          <span style="margin-left:auto;font-size:.67rem;background:rgba(124,58,237,.3);color:#a78bfa;padding:.2rem .6rem;border-radius:12px;font-weight:700">5 Models Active</span>
+        </div>
+
+        <div class="ai-features">
+          <div class="ai-feat">
+            <div class="ai-feat-icon" style="background:rgba(0,180,216,.2)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v11l-5 5h16l-5-5V3"/></svg>
+            </div>
+            <div>
+              <div class="ai-feat-name">Disease Prediction</div>
+              <div style="font-size:.7rem;color:#5a88b0">XGBoost · Random Forest · 94.2% accuracy</div>
+            </div>
+            <span class="ai-feat-status active">Active</span>
+          </div>
+          <div class="ai-feat">
+            <div class="ai-feat-icon" style="background:rgba(16,185,129,.2)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <div class="ai-feat-name">OCR Medical Scanner</div>
+              <div style="font-size:.7rem;color:#5a88b0">Tesseract · OpenCV · Prescription digitization</div>
+            </div>
+            <span class="ai-feat-status ready">Ready</span>
+          </div>
+          <div class="ai-feat">
+            <div class="ai-feat-icon" style="background:rgba(251,191,36,.2)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <div>
+              <div class="ai-feat-name">Clinical Chatbot</div>
+              <div style="font-size:.7rem;color:#5a88b0">NLP · Intent classification · Medical QnA</div>
+            </div>
+            <span class="ai-feat-status active">Active</span>
+          </div>
+          <div class="ai-feat">
+            <div class="ai-feat-icon" style="background:rgba(239,68,68,.2)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><heart/><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div>
+              <div class="ai-feat-name">Mental Health Assessment</div>
+              <div style="font-size:.7rem;color:#5a88b0">Sentiment · PHQ-9 · GAD-7 scoring</div>
+            </div>
+            <span class="ai-feat-status ready">Ready</span>
+          </div>
+          <div class="ai-feat">
+            <div class="ai-feat-icon" style="background:rgba(167,139,250,.2)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <div>
+              <div class="ai-feat-name">Feature Extraction & Inference</div>
+              <div style="font-size:.7rem;color:#5a88b0">Pre-processing · Model registry · REST API</div>
+            </div>
+            <span class="ai-feat-status active">Active</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACTIVITY FEED -->
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <div class="section-title">Recent Activity</div>
+            <div style="font-size:.74rem;color:var(--text-muted)">Live system events</div>
+          </div>
+          <a class="view-all" href="#">
+            View all
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+        <div class="activity-feed">
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--brand-light)">🏥</div>
+            <div class="activity-body">
+              <div class="activity-title">New patient registered</div>
+              <div class="activity-meta">Rahul Mehta · OPD Registration · Dr. Sharma</div>
+            </div>
+            <div class="activity-time">2m ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--green-light)">✅</div>
+            <div class="activity-body">
+              <div class="activity-title">Lab result published</div>
+              <div class="activity-meta">CBC Panel · Patient #1098 · Critical: Normal</div>
+            </div>
+            <div class="activity-time">5m ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--amber-light)">📅</div>
+            <div class="activity-body">
+              <div class="activity-title">Appointment rescheduled</div>
+              <div class="activity-meta">Priya Joshi → Dr. Kulkarni · 3:30 PM today</div>
+            </div>
+            <div class="activity-time">12m ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--purple-light)">🤖</div>
+            <div class="activity-body">
+              <div class="activity-title">AI diagnosis flagged</div>
+              <div class="activity-meta">Diabetes risk 87% · Patient #1102 · Review needed</div>
+            </div>
+            <div class="activity-time">18m ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--pink-light)">💳</div>
+            <div class="activity-body">
+              <div class="activity-title">Invoice generated</div>
+              <div class="activity-meta">INV-20260525-1847 · ₹4,200 · Paid</div>
+            </div>
+            <div class="activity-time">25m ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--orange-light)">💊</div>
+            <div class="activity-body">
+              <div class="activity-title">Low stock alert</div>
+              <div class="activity-meta">Metformin 500mg · 8 strips remaining</div>
+            </div>
+            <div class="activity-time">31m ago</div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon" style="background:var(--teal-light)">🔬</div>
+            <div class="activity-body">
+              <div class="activity-title">Celery task completed</div>
+              <div class="activity-meta">appointment_reminder_batch · 128 notifications sent</div>
+            </div>
+            <div class="activity-time">45m ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CHARTS ROW ── -->
+    <div class="row-3" id="analytics" style="scroll-margin-top:60px">
+
+      <!-- BAR CHART - Appointments -->
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <div class="section-title" style="font-size:.9rem">Appointments / Week</div>
+            <div style="font-size:.72rem;color:var(--text-muted)">Mon–Sun breakdown</div>
+          </div>
+        </div>
+        <div class="bar-chart-wrap">
+          <div class="bar-chart" id="barChart"></div>
+        </div>
+      </div>
+
+      <!-- DONUT - Revenue Split -->
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <div class="section-title" style="font-size:.9rem">Revenue Split</div>
+            <div style="font-size:.72rem;color:var(--text-muted)">By department</div>
+          </div>
+        </div>
+        <div class="donut-wrap">
+          <svg class="donut-svg" viewBox="0 0 110 110">
+            <circle cx="55" cy="55" r="40" fill="none" stroke="var(--border)" stroke-width="18"/>
+            <!-- OPD 38% -->
+            <circle cx="55" cy="55" r="40" fill="none" stroke="#0077b6" stroke-width="18"
+              stroke-dasharray="95.3 155.9" stroke-dashoffset="0" transform="rotate(-90 55 55)"/>
+            <!-- Lab 22% -->
+            <circle cx="55" cy="55" r="40" fill="none" stroke="#00b4d8" stroke-width="18"
+              stroke-dasharray="55.3 196" stroke-dashoffset="-95.3" transform="rotate(-90 55 55)"/>
+            <!-- Pharmacy 20% -->
+            <circle cx="55" cy="55" r="40" fill="none" stroke="#0a9660" stroke-width="18"
+              stroke-dasharray="50.3 201" stroke-dashoffset="-150.5" transform="rotate(-90 55 55)"/>
+            <!-- IPD 20% -->
+            <circle cx="55" cy="55" r="40" fill="none" stroke="#d97706" stroke-width="18"
+              stroke-dasharray="50.2 201" stroke-dashoffset="-200.7" transform="rotate(-90 55 55)"/>
+            <text x="55" y="52" text-anchor="middle" fill="var(--text)" font-size="10" font-weight="800">₹4.2L</text>
+            <text x="55" y="64" text-anchor="middle" fill="var(--text-muted)" font-size="7">Monthly</text>
+          </svg>
+          <div class="donut-legend">
+            <div class="donut-item"><div class="donut-dot" style="background:#0077b6"></div><span class="donut-item-label">OPD</span><span class="donut-item-val">38%</span></div>
+            <div class="donut-item"><div class="donut-dot" style="background:#00b4d8"></div><span class="donut-item-label">Lab</span><span class="donut-item-val">22%</span></div>
+            <div class="donut-item"><div class="donut-dot" style="background:#0a9660"></div><span class="donut-item-label">Pharmacy</span><span class="donut-item-val">20%</span></div>
+            <div class="donut-item"><div class="donut-dot" style="background:#d97706"></div><span class="donut-item-label">IPD</span><span class="donut-item-val">20%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BILLING SUMMARY -->
+      <div class="chart-card" id="billing-summary">
+        <div class="chart-card-header">
+          <div>
+            <div class="section-title" style="font-size:.9rem">Billing Summary</div>
+            <div style="font-size:.72rem;color:var(--text-muted)">May 2026</div>
+          </div>
+        </div>
+        <div>
+          <div class="bill-row"><span class="bill-label">OPD Consultations</span><span class="bill-amount c-blue">₹1,58,400</span></div>
+          <div class="bill-row"><span class="bill-label">Lab Investigations</span><span class="bill-amount c-teal">₹92,100</span></div>
+          <div class="bill-row"><span class="bill-label">Pharmacy Sales</span><span class="bill-amount c-orange">₹84,600</span></div>
+          <div class="bill-row"><span class="bill-label">IPD / Surgery</span><span class="bill-amount c-amber">₹84,900</span></div>
+          <div class="bill-row"><span class="bill-label">Pending Collection</span><span class="bill-amount c-red">₹18,200</span></div>
+          <div class="bill-total-row">
+            <span>Total Revenue</span>
+            <span class="c-green">₹4,20,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── APPOINTMENTS TABLE + API ── -->
+    <div class="row-2" id="appt-table" style="scroll-margin-top:60px">
+
+      <!-- APPOINTMENTS TABLE -->
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <div class="section-title">Today's Appointments</div>
+            <div style="font-size:.74rem;color:var(--text-muted)">348 scheduled · 34 pending</div>
+          </div>
+          <a class="view-all" href="#">View all</a>
+        </div>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Time</th>
+                <th>Type</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="td-name">Rahul Mehta</td><td>Dr. Sharma</td><td>09:00</td><td>OPD</td><td><span class="badge confirmed">Confirmed</span></td></tr>
+              <tr><td class="td-name">Priya Joshi</td><td>Dr. Kulkarni</td><td>09:30</td><td>Follow-up</td><td><span class="badge inprog">In Progress</span></td></tr>
+              <tr><td class="td-name">Anil Kumar</td><td>Dr. Reddy</td><td>10:00</td><td>Consultation</td><td><span class="badge confirmed">Confirmed</span></td></tr>
+              <tr><td class="td-name">Sunita Patel</td><td>Dr. Iyer</td><td>10:30</td><td>OPD</td><td><span class="badge pending">Pending</span></td></tr>
+              <tr><td class="td-name">Vikram Singh</td><td>Dr. Shah</td><td>11:00</td><td>Emergency</td><td><span class="badge inprog">In Progress</span></td></tr>
+              <tr><td class="td-name">Meena Roy</td><td>Dr. Verma</td><td>11:30</td><td>Lab Consult</td><td><span class="badge cancelled">Cancelled</span></td></tr>
+              <tr><td class="td-name">Deepak Nair</td><td>Dr. Sharma</td><td>14:00</td><td>OPD</td><td><span class="badge confirmed">Confirmed</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- API ENDPOINTS -->
+      <div class="chart-card" id="api" style="scroll-margin-top:60px">
+        <div class="chart-card-header">
+          <div>
+            <div class="section-title">API Gateway</div>
+            <div style="font-size:.74rem;color:var(--text-muted)">/api/v1/ · REST · JWT secured</div>
+          </div>
+          <span style="font-size:.7rem;background:var(--green-light);color:var(--green);padding:.2rem .55rem;border-radius:10px;font-weight:700">71 endpoints</span>
+        </div>
+        <div class="endpoint-list">
+          <div class="endpoint-item"><span class="method-badge get">GET</span><span class="endpoint-path">/api/v1/patients/</span><span class="endpoint-desc">List patients</span></div>
+          <div class="endpoint-item"><span class="method-badge post">POST</span><span class="endpoint-path">/api/v1/patients/register/</span><span class="endpoint-desc">Register patient</span></div>
+          <div class="endpoint-item"><span class="method-badge get">GET</span><span class="endpoint-path">/api/v1/doctors/</span><span class="endpoint-desc">List doctors</span></div>
+          <div class="endpoint-item"><span class="method-badge post">POST</span><span class="endpoint-path">/api/v1/appointments/</span><span class="endpoint-desc">Create appointment</span></div>
+          <div class="endpoint-item"><span class="method-badge get">GET</span><span class="endpoint-path">/api/v1/laboratory/tests/</span><span class="endpoint-desc">Lab test list</span></div>
+          <div class="endpoint-item"><span class="method-badge post">POST</span><span class="endpoint-path">/api/v1/billing/invoices/</span><span class="endpoint-desc">Generate invoice</span></div>
+          <div class="endpoint-item"><span class="method-badge post">POST</span><span class="endpoint-path">/api/v1/ai-tools/predict/</span><span class="endpoint-desc">AI diagnosis</span></div>
+          <div class="endpoint-item"><span class="method-badge post">POST</span><span class="endpoint-path">/api/v1/ai-tools/ocr/</span><span class="endpoint-desc">Scan document</span></div>
+          <div class="endpoint-item"><span class="method-badge get">GET</span><span class="endpoint-path">/api/v1/dashboard/kpis/</span><span class="endpoint-desc">Dashboard KPIs</span></div>
+          <div class="endpoint-item"><span class="method-badge post">POST</span><span class="endpoint-path">/api/v1/accounts/token/</span><span class="endpoint-desc">Obtain JWT token</span></div>
+          <div class="endpoint-item"><span class="method-badge put">PUT</span><span class="endpoint-path">/api/v1/pharmacy/stock/</span><span class="endpoint-desc">Update stock</span></div>
+          <div class="endpoint-item"><span class="method-badge delete">DEL</span><span class="endpoint-path">/api/v1/appointments/{id}/</span><span class="endpoint-desc">Cancel appointment</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── INFRASTRUCTURE ── -->
+    <div id="infrastructure" style="scroll-margin-top:60px;margin-bottom:1.5rem">
+      <div class="section-header mb-1">
+        <div class="section-icon bg-teal c-teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <div class="section-title">Infrastructure & Services</div>
+          <div class="section-sub">Docker · Nginx · PostgreSQL · Redis · Celery</div>
+        </div>
+        <div class="section-divider"></div>
+      </div>
+      <div class="chart-card">
+        <div class="infra-grid">
+          <div class="infra-item">
+            <div class="infra-header">
+              <div class="infra-icon bg-blue c-blue" style="border-radius:7px">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <span class="infra-name">Django + DRF</span>
+              <span class="infra-status"><span class="status-pill up">Up</span></span>
+            </div>
+            <div class="infra-bar">
+              <div class="infra-bar-label"><span>CPU</span><span>28%</span></div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width:28%;background:var(--brand)"></div></div>
+            </div>
+          </div>
+          <div class="infra-item">
+            <div class="infra-header">
+              <div class="infra-icon bg-teal c-teal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6"/></svg>
+              </div>
+              <span class="infra-name">PostgreSQL 15</span>
+              <span class="infra-status"><span class="status-pill up">Up</span></span>
+            </div>
+            <div class="infra-bar">
+              <div class="infra-bar-label"><span>DB Size</span><span>1.4 GB</span></div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width:14%;background:var(--teal)"></div></div>
+            </div>
+          </div>
+          <div class="infra-item">
+            <div class="infra-header">
+              <div class="infra-icon bg-red c-red">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+              </div>
+              <span class="infra-name">Redis Cache</span>
+              <span class="infra-status"><span class="status-pill up">Up</span></span>
+            </div>
+            <div class="infra-bar">
+              <div class="infra-bar-label"><span>Memory</span><span>42%</span></div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width:42%;background:var(--red)"></div></div>
+            </div>
+          </div>
+          <div class="infra-item">
+            <div class="infra-header">
+              <div class="infra-icon bg-green c-green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <span class="infra-name">Celery Worker</span>
+              <span class="infra-status"><span class="status-pill up">Up</span></span>
+            </div>
+            <div class="infra-bar">
+              <div class="infra-bar-label"><span>Queue</span><span>12 tasks</span></div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width:20%;background:var(--green)"></div></div>
+            </div>
+          </div>
+          <div class="infra-item">
+            <div class="infra-header">
+              <div class="infra-icon bg-amber c-amber">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <span class="infra-name">Celery Beat</span>
+              <span class="infra-status"><span class="status-pill up">Up</span></span>
+            </div>
+            <div class="infra-bar">
+              <div class="infra-bar-label"><span>Scheduled</span><span>8 tasks</span></div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width:30%;background:var(--amber)"></div></div>
+            </div>
+          </div>
+          <div class="infra-item">
+            <div class="infra-header">
+              <div class="infra-icon bg-indigo c-indigo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+              <span class="infra-name">Nginx Proxy</span>
+              <span class="infra-status"><span class="status-pill up">Up</span></span>
+            </div>
+            <div class="infra-bar">
+              <div class="infra-bar-label"><span>Req/min</span><span>320</span></div>
+              <div class="mini-progress"><div class="mini-progress-fill" style="width:55%;background:var(--indigo)"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TECH STACK BANNER ── -->
+    <div class="chart-card" style="margin-bottom:1.5rem">
+      <div class="chart-card-header" style="margin-bottom:.7rem">
+        <div class="section-title">Technology Stack</div>
+        <span style="font-size:.74rem;color:var(--text-muted)">Production-ready enterprise architecture</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:.5rem">
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--brand-light);color:var(--brand)">Django 4.2</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--teal-light);color:var(--teal)">Django REST Framework</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--green-light);color:var(--green)">PostgreSQL 15</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--red-light);color:var(--red)">Redis 7</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--green-light);color:var(--green)">Celery 5</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--surface-3);color:var(--text-soft)">Gunicorn</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--surface-3);color:var(--text-soft)">Nginx</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--brand-light);color:var(--brand)">Docker + Compose</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--purple-light);color:var(--purple)">JWT Auth</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--purple-light);color:var(--purple)">scikit-learn</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--amber-light);color:var(--amber)">XGBoost</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--teal-light);color:var(--teal)">Tesseract OCR</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--indigo-light);color:var(--indigo)">OpenCV</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--orange-light);color:var(--orange)">Swagger / ReDoc</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--green-light);color:var(--green)">RBAC / Permissions</span>
+        <span style="padding:.3rem .75rem;border-radius:20px;font-size:.76rem;font-weight:600;background:var(--surface-3);color:var(--text-soft)">Audit Logging</span>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>IHMS — Integrated Hospital Management System &nbsp;·&nbsp; v2.1.0 &nbsp;·&nbsp; Django 4.2 + DRF</div>
+    <div class="footer-pills">
+      <span class="footer-pill">MIT License</span>
+      <span class="footer-pill">REST API</span>
+      <span class="footer-pill">Docker Ready</span>
+      <span class="footer-pill">AI Enabled</span>
+    </div>
+  </footer>
+
+</div><!-- /main -->
+</div><!-- /shell -->
+
+<script>
+/* ── THEME TOGGLE ── */
+const btn = document.getElementById('themeBtn');
+const icon = document.getElementById('themeIcon');
+const moonSVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>`;
+const sunSVG  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
+btn.addEventListener('click', () => {
+  const html = document.documentElement;
+  const isDark = html.dataset.theme === 'dark';
+  html.dataset.theme = isDark ? 'light' : 'dark';
+  btn.innerHTML = isDark ? sunSVG : moonSVG;
+});
+
+/* ── SMOOTH NAV SCROLL ── */
+function scrollTo(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+}
+
+/* ── BAR CHART ── */
+const apptData = [
+  { day: 'Mon', val: 52, pct: 74 },
+  { day: 'Tue', val: 48, pct: 69 },
+  { day: 'Wed', val: 61, pct: 87 },
+  { day: 'Thu', val: 70, pct: 100 },
+  { day: 'Fri', val: 65, pct: 93 },
+  { day: 'Sat', val: 45, pct: 64 },
+  { day: 'Sun', val: 30, pct: 43 },
+];
+const barChart = document.getElementById('barChart');
+apptData.forEach(d => {
+  const g = document.createElement('div');
+  g.className = 'bar-group';
+  g.innerHTML = `
+    <div style="font-size:.7rem;color:var(--text-soft);font-weight:600">${d.val}</div>
+    <div class="bar-col" style="height:${d.pct}%;background:linear-gradient(180deg,#0077b6,#00b4d8)" title="${d.day}: ${d.val}"></div>
+    <div class="bar-lbl">${d.day}</div>
+  `;
+  barChart.appendChild(g);
+});
+
+/* ── KPI COUNTER ANIMATION ── */
+function animateCount(el, target, prefix = '', suffix = '') {
+  const isNum = !isNaN(target);
+  if (!isNum) return;
+  let start = 0;
+  const step = Math.ceil(target / 40);
+  const t = setInterval(() => {
+    start = Math.min(start + step, target);
+    el.textContent = prefix + start.toLocaleString() + suffix;
+    if (start >= target) clearInterval(t);
+  }, 30);
+}
+window.addEventListener('load', () => {
+  animateCount(document.getElementById('k1'), 1240);
+  animateCount(document.getElementById('k2'), 86);
+  animateCount(document.getElementById('k3'), 348);
+});
+
+/* ── PROGRESS BARS (animate in) ── */
+setTimeout(() => {
+  document.querySelectorAll('.mini-progress-fill').forEach(bar => {
+    const w = bar.style.width;
+    bar.style.width = '0';
+    setTimeout(() => { bar.style.width = w; }, 100);
+  });
+}, 200);
+</script>
+
+</body>
+</html>
