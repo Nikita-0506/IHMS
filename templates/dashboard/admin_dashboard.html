@@ -1,0 +1,17 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<section class="dashboard-head">
+    <h1>Administration Dashboard</h1>
+    <p>Operational visibility across patients, appointments, billing, and AI workflows.</p>
+</section>
+<div class="kpi-grid">
+    <article class="kpi-card"><h3 data-chart-value="0">0</h3><p>Total Patients</p></article>
+    <article class="kpi-card"><h3 data-chart-value="0">0</h3><p>Total Doctors</p></article>
+    <article class="kpi-card"><h3 data-chart-value="0">0</h3><p>Appointments</p></article>
+    <article class="kpi-card"><h3 data-chart-value="0">0</h3><p>Revenue</p></article>
+</div>
+<div id="chart-root" class="chart-panel" aria-label="Performance trend chart"></div>
+{% endblock %}

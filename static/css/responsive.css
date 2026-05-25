@@ -1,0 +1,15 @@
+﻿@media (max-width: 1024px) {
+  .app-shell { grid-template-columns: 72px 1fr; }
+  .sidebar .nav-item { font-size: 0.85rem; padding: 0.5rem; }
+  .brand { font-size: 0.85rem; }
+  .hero-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .app-shell { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .app-content { padding: 0.8rem; }
+  .topbar { flex-wrap: wrap; gap: 0.5rem; }
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .hero-actions { flex-direction: column; }
+}

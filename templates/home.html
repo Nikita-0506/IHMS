@@ -1,0 +1,26 @@
+﻿{% extends "base.html" %}
+
+{% block title %}IHMS Command Center{% endblock %}
+
+{% block content %}
+<section class="hero-grid">
+    <div class="hero-card">
+        <p class="eyebrow">Integrated Hospital Management</p>
+        <h1>Enterprise Command Center For Clinical Operations</h1>
+        <p class="hero-copy">
+            Unified patient workflows, secure access controls, AI-supported diagnostics,
+            and operational dashboards in one professional platform.
+        </p>
+        <div class="hero-actions">
+            <a href="/swagger/" class="btn btn-primary">Open API Docs</a>
+            <a href="/api/dashboard/" class="btn btn-secondary">Open Dashboard API</a>
+        </div>
+    </div>
+    <div class="stat-panel">
+        <article class="stat-card"><h3>24x7</h3><p>System Monitoring</p></article>
+        <article class="stat-card"><h3>99.9%</h3><p>Service Reliability Goal</p></article>
+        <article class="stat-card"><h3>Role Based</h3><p>Enterprise Access Control</p></article>
+        <article class="stat-card"><h3>Audit Ready</h3><p>Compliance Log Coverage</p></article>
+    </div>
+</section>
+{% endblock %}

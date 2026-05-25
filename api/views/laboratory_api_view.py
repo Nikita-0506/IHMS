@@ -1,0 +1,2 @@
+﻿from laboratory.views import LaboratoryAPIView, LaboratoryReportDetailView, LaboratoryReportListCreateView
+

@@ -1,0 +1,20 @@
+﻿.dashboard-head { margin-bottom: 1rem; }
+.dashboard-head p { color: #4e5f75; }
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.kpi-card { padding: 1rem; }
+.kpi-card h3 { margin: 0; color: #005b66; font-size: 1.7rem; }
+.kpi-card p { margin: 0.35rem 0 0; color: #4e5f75; }
+
+.chart-panel {
+  min-height: 280px;
+  border: 1px solid #d9e8f5;
+  background: linear-gradient(180deg, #ffffff 0%, #f5fafe 100%);
+  padding: 1rem;
+}

@@ -1,0 +1,2 @@
+﻿from appointments.serializers import AppointmentCreateSerializer, AppointmentDetailSerializer, AppointmentListSerializer, AppointmentUpdateSerializer
+

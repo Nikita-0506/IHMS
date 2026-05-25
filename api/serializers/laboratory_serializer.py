@@ -1,0 +1,2 @@
+﻿from laboratory.serializers import LaboratoryReportSerializer
+

@@ -1,0 +1,2 @@
+﻿from accounts.serializers import RegisterSerializer as AuthRegisterSerializer
+
