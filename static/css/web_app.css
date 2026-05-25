@@ -147,6 +147,58 @@ a {
   box-shadow: 0 0 0 3px rgba(10, 111, 184, 0.13);
 }
 
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap .input {
+  padding-right: 2.8rem;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #7b8ea7;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.password-toggle svg {
+  width: 17px;
+  height: 17px;
+}
+
+.password-toggle .eye-closed {
+  display: none;
+}
+
+.password-toggle.showing .eye-open {
+  display: none;
+}
+
+.password-toggle.showing .eye-closed {
+  display: block;
+}
+
+.password-toggle:hover {
+  color: var(--brand);
+  background: rgba(10, 111, 184, 0.09);
+}
+
+.password-toggle:focus-visible {
+  outline: 2px solid rgba(10, 111, 184, 0.45);
+  outline-offset: 1px;
+}
+
 .btn-primary {
   width: 100%;
   border: none;

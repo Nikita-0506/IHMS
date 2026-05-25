@@ -22,6 +22,30 @@
             margin-top: 10px;
         }
 
+        .password-wrap{
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .password-wrap input{
+            margin-top: 0;
+            padding-right: 42px;
+        }
+
+        .password-toggle{
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-top: 0;
+            padding: 4px;
+            border: none;
+            background: transparent;
+            font-size: 18px;
+            line-height: 1;
+            cursor: pointer;
+        }
+
         button{
             margin-top: 10px;
             padding: 10px 20px;
@@ -45,7 +69,10 @@
 
     <input type="text" id="username" placeholder="Username">
 
-    <input type="password" id="password" placeholder="Password">
+    <div class="password-wrap">
+        <input type="password" id="password" placeholder="Password">
+        <button type="button" class="password-toggle" onclick="toggleLoginPassword()" aria-label="Show password" id="loginPasswordToggle">👁️</button>
+    </div>
 
     <button onclick="loginUser()">Login</button>
 
@@ -119,6 +146,25 @@ function toggleToken(){
 
         field.type = "password";
         eyeIcon.innerHTML = "👁️";
+    }
+}
+
+function toggleLoginPassword(){
+
+    const field = document.getElementById('password');
+    const toggleBtn = document.getElementById('loginPasswordToggle');
+
+    if(field.type === "password"){
+
+        field.type = "text";
+        toggleBtn.textContent = "🙈";
+        toggleBtn.setAttribute('aria-label', 'Hide password');
+
+    } else {
+
+        field.type = "password";
+        toggleBtn.textContent = "👁️";
+        toggleBtn.setAttribute('aria-label', 'Show password');
     }
 }
 
