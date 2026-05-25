@@ -1,4 +1,4 @@
-# Hospital AI Management System (IHMS)
+# Intelligent Hospital Management System (IHMS)
 
 A Django-based hospital management platform with AI-assisted analysis modules.
 
