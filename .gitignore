@@ -68,6 +68,7 @@ ml_models/**/runs/
 ml_models/**/outputs/
 ml_models/**/tmp/
 ml_models/**/cache/
+ml_models/trained_models/*.joblib
 
 # Docker overrides
 .docker/

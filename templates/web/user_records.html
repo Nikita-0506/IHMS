@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All User Records | IHMS</title>
+    <link rel="stylesheet" href="{% static 'css/web_app.css' %}">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">IHMS</div>
+            <div class="brand-sub">User Directory Console</div>
+
+            <div class="user-card">
+                <div class="user-name">{{ display_name }}</div>
+                <div class="user-role">{{ user_role }}</div>
+            </div>
+
+            <div class="nav-title">Navigation</div>
+            <a class="nav-item" href="{% url 'web-dashboard' %}">Unified Dashboard</a>
+            <a class="nav-item active" href="{% url 'web-user-records' %}">All User Records</a>
+            {% for module in modules %}
+                <a class="nav-item" href="{{ module.route_url }}">{{ module.name }}</a>
+            {% endfor %}
+            <a class="nav-item" href="{% url 'web-logout' %}">Logout</a>
+        </aside>
+
+        <main class="app-main">
+            <header class="topbar">
+                <div>
+                    <h1>All User Records</h1>
+                    <p>Single project location for every stored user account and linked doctor or patient profile details.</p>
+                </div>
+                <div class="topbar-actions">
+                    <a href="/admin/accounts/user/" class="logout-btn" target="_blank" rel="noopener">Open Django Admin</a>
+                    <a href="{% url 'web-dashboard' %}" class="logout-btn">Back To Dashboard</a>
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="kpi-grid">
+                    <article class="kpi"><h3>{{ total_users }}</h3><p>Total Users</p></article>
+                    <article class="kpi"><h3>{{ doctor_count }}</h3><p>Doctor Profiles</p></article>
+                    <article class="kpi"><h3>{{ patient_count }}</h3><p>Patient Profiles</p></article>
+                    <article class="kpi"><h3>{{ role_directory|length }}</h3><p>Role Groups</p></article>
+                </div>
+
+                {% for group in role_directory %}
+                    <article class="panel user-records-panel">
+                        <div class="panel-head">
+                            <h3>{{ group.role_label }}</h3>
+                            <span class="tag">{{ group.count }} record{{ group.count|pluralize }}</span>
+                        </div>
+
+                        {% if group.records %}
+                            <div class="records-table-wrap">
+                                <table class="records-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Patient ID</th>
+                                            <th>Patient Status</th>
+                                            <th>Department</th>
+                                            <th>Specialization</th>
+                                            <th>Verified</th>
+                                            <th>Active</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for record in group.records %}
+                                            <tr>
+                                                <td>{{ record.username }}</td>
+                                                <td>{{ record.email }}</td>
+                                                <td>{{ record.phone_number }}</td>
+                                                <td>{{ record.patient_id }}</td>
+                                                <td>{{ record.patient_status }}</td>
+                                                <td>{{ record.doctor_department }}</td>
+                                                <td>{{ record.doctor_specialization }}</td>
+                                                <td>{% if record.is_verified %}Yes{% else %}No{% endif %}</td>
+                                                <td>{% if record.is_active %}Yes{% else %}No{% endif %}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <p class="panel-copy">No records stored for this role yet.</p>
+                        {% endif %}
+                    </article>
+                {% endfor %}
+            </section>
+        </main>
+    </div>
+</body>
+</html>

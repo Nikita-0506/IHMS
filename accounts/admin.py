@@ -1,10 +1,15 @@
 from django.contrib import admin
+from django.contrib import messages
 from django.contrib.auth.admin import UserAdmin
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from .models import User, UserLoginActivity
 
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
+
+    actions = ('edit_selected_user',)
 
     list_display = (
         'username',
@@ -76,6 +81,22 @@ class UserAdmin(UserAdmin):
             )
         }),
     )
+
+    @admin.action(description='Edit selected user details')
+    def edit_selected_user(self, request, queryset):
+        selected_count = queryset.count()
+
+        if selected_count != 1:
+            self.message_user(
+                request,
+                'Please select exactly one user to open the edit page.',
+                level=messages.WARNING,
+            )
+            return None
+
+        selected_user = queryset.first()
+        change_url = reverse('admin:accounts_user_change', args=[selected_user.pk])
+        return HttpResponseRedirect(change_url)
 
 @admin.register(UserLoginActivity)
 class UserLoginActivityAdmin(admin.ModelAdmin):

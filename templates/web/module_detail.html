@@ -20,6 +20,9 @@
 
             <div class="nav-title">Module Navigation</div>
             <a class="nav-item" href="{% url 'web-dashboard' %}">Unified Dashboard</a>
+            <a class="nav-item" href="#summary">Summary</a>
+            <a class="nav-item" href="#operations">Operations</a>
+            <a class="nav-item" href="#permissions">Permissions</a>
             {% for item in modules %}
                 <a class="nav-item {% if item.key == module.key %}active{% endif %}" href="{{ item.route_url }}">{{ item.name }}</a>
             {% endfor %}
@@ -33,18 +36,32 @@
                     <p>Enterprise module console for {{ user_role }} role.</p>
                 </div>
                 <div class="topbar-actions">
-                    <a href="{{ module.url }}" class="logout-btn" target="_blank" rel="noopener">Open API</a>
+                    {% if request.user.role == 'admin' %}
+                        <a href="{{ module.url }}" class="logout-btn" target="_blank" rel="noopener">Open API</a>
+                    {% endif %}
                     <a href="{% url 'web-dashboard' %}" class="logout-btn">Back To Dashboard</a>
                 </div>
             </header>
 
             <section class="content">
-                <article class="panel hero-panel">
+                <article class="panel hero-panel section-anchor" id="summary">
                     <div class="module-top">
                         <h2>{{ module.name }}</h2>
                         <span class="tag">{{ module.tag }}</span>
                     </div>
                     <p class="panel-copy">{{ module.desc }}</p>
+                    <div class="section-head module-headline">
+                        <h2>{{ module_blueprint.headline }}</h2>
+                        <p>Enterprise workspace aligned with role-based access control and governed execution pathways.</p>
+                    </div>
+                    <div class="kpi-grid module-kpi-grid">
+                        {% for item in module_blueprint.kpis %}
+                            <article class="kpi">
+                                <h3>{{ item.value }}</h3>
+                                <p>{{ item.label }}</p>
+                            </article>
+                        {% endfor %}
+                    </div>
                     <div class="profile-grid">
                         <div><span>Module Key</span><b>{{ module.key }}</b></div>
                         <div><span>Assigned Role</span><b>{{ user_role }}</b></div>
@@ -53,16 +70,15 @@
                     </div>
                 </article>
 
-                <div class="grid-2">
+                <div class="grid-2 section-anchor" id="operations">
                     <article class="panel">
                         <div class="panel-head">
                             <h3>Operational Checklist</h3>
                         </div>
-                        <ul class="event-list">
-                            <li>Review module-specific records and permissions.</li>
-                            <li>Use the API endpoint to perform create/read/update actions.</li>
-                            <li>Validate notifications and audit flow for this module.</li>
-                            <li>Return to unified dashboard for cross-module navigation.</li>
+                        <ul class="event-list compact-list">
+                            {% for step in module_blueprint.workflows %}
+                                <li>{{ step }}</li>
+                            {% endfor %}
                         </ul>
                     </article>
 
@@ -72,11 +88,25 @@
                         </div>
                         <div class="module-actions">
                             <a class="module-link" href="{{ module.url }}" target="_blank" rel="noopener">Open Module API →</a>
-                            <a class="module-link muted" href="/swagger/" target="_blank" rel="noopener">Open Swagger</a>
-                            <a class="module-link muted" href="/admin/" target="_blank" rel="noopener">Open Admin</a>
+                            {% if request.user.role == 'admin' %}
+                                <a class="module-link muted" href="/swagger/" target="_blank" rel="noopener">Open Swagger</a>
+                                <a class="module-link muted" href="/admin/" target="_blank" rel="noopener">Open Admin</a>
+                            {% endif %}
                         </div>
                     </article>
                 </div>
+
+                <article class="panel section-anchor" id="permissions">
+                    <div class="panel-head">
+                        <h3>Permission and Governance View</h3>
+                    </div>
+                    <p class="panel-copy">This workspace inherits your role scope and enforces module-level control boundaries.</p>
+                    <ul class="event-list compact-list">
+                        {% for capability in role_capabilities %}
+                            <li>{{ capability }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
 
                 {% if module.key == 'docker-services' and docker_enabled %}
                     <article class="panel">

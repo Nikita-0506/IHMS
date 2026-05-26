@@ -10,21 +10,12 @@
 <body>
     <div class="auth-shell">
         <div class="auth-card">
-            <section class="auth-side">
+            <section class="auth-side auth-side-animated">
                 <h1>IHMS Unified Access</h1>
-                <p>
-                    Enterprise portal for authentication, role-based access, and complete hospital operations control.
-                </p>
-                <ul class="bullet-list">
-                    <li>Single interface for Login, Signup, Dashboard, and Modules</li>
-                    <li>Role-aware visibility across Patient, Doctor, Admin, and staff workflows</li>
-                    <li>Integrated API, notifications, profile, and infrastructure touchpoints</li>
-                </ul>
-                <div class="auth-side-meta">
-                    <span class="pill">Role-Based</span>
-                    <span class="pill">Secure Auth</span>
-                    <span class="pill">Enterprise UI</span>
-                </div>
+                <p class="auth-side-subtitle">Healthcare Operations Platform</p>
+                <div class="auth-orb auth-orb-one"></div>
+                <div class="auth-orb auth-orb-two"></div>
+                <div class="auth-grid-shine"></div>
             </section>
 
             <section class="auth-form-wrap">
@@ -65,8 +56,8 @@
                         {% endif %}
 
                         <div class="form-row">
-                            <label class="form-label" for="id_email">Email</label>
-                            <input id="id_email" class="input" type="email" name="email" placeholder="your-email@ihms.com" required>
+                            <label class="form-label" for="id_username_login">Username</label>
+                            <input id="id_username_login" class="input" type="text" name="username" placeholder="Enter your username" required>
                         </div>
 
                         <div class="form-row">
@@ -156,7 +147,7 @@
                     </form>
                 </div>
 
-                <p class="auth-note">After successful authentication, role-based dashboard and accessible modules are automatically shown.</p>
+                <p class="auth-note"><a href="{% url 'web-admin-login' %}">Admin sign in</a></p>
             </section>
         </div>
     </div>

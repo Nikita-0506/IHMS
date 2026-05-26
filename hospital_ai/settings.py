@@ -19,6 +19,7 @@ import os
 from pathlib import Path
 
 from decouple import config
+from celery.schedules import crontab
 
 from datetime import timedelta
 
@@ -248,21 +249,25 @@ DATABASES = {
 }
      
 # =========================================================
-# 7.1 REDIS CACHE CONFIGURATION
+# 7.1 CACHE CONFIGURATION
+# Use Redis in production; fall back to LocMemCache in development
 # =========================================================
 
-CACHES = {
+_REDIS_URL = config('CACHES_DEFAULT_LOCATION', default='')
 
-    'default': {
-
-        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-
-        'LOCATION': config(
-            'CACHES_DEFAULT_LOCATION',
-            default='redis://127.0.0.1:6379/1'
-        ),
+if _REDIS_URL:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': _REDIS_URL,
+        }
     }
-}
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        }
+    }
 
 # =========================================================
 # 8. AUTHENTICATION
@@ -620,6 +625,32 @@ CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 
 CELERY_RESULT_SERIALIZER = 'json'
+
+AUTO_RETRAIN_ENABLED = config(
+    'AUTO_RETRAIN_ENABLED',
+    default=True,
+    cast=bool,
+)
+
+AUTO_RETRAIN_HOUR = config(
+    'AUTO_RETRAIN_HOUR',
+    default=2,
+    cast=int,
+)
+
+AUTO_RETRAIN_MINUTE = config(
+    'AUTO_RETRAIN_MINUTE',
+    default=0,
+    cast=int,
+)
+
+CELERY_BEAT_SCHEDULE = {
+    'ihms-auto-retrain-models': {
+        'task': 'ai_analysis.retrain_all_models',
+        'schedule': crontab(minute=AUTO_RETRAIN_MINUTE, hour=AUTO_RETRAIN_HOUR),
+        'options': {'expires': 3600},
+    },
+} if AUTO_RETRAIN_ENABLED else {}
 
 # =========================================================
 # 17. AI / OCR CONFIGURATION

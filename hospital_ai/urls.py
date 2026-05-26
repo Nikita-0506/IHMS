@@ -19,10 +19,10 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
-from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from accounts.views import web_login, web_dashboard, web_module_view, web_logout
+from accounts.views import web_login, web_admin_login, web_dashboard, web_user_records, web_module_view, web_logout
+from api.permissions.swagger_permission import IsSwaggerAdmin
 
 schema_view = get_schema_view(
 
@@ -32,9 +32,9 @@ schema_view = get_schema_view(
         description='Hospital Management System APIs',
     ),
 
-    public=True,
+    public=False,
 
-    permission_classes=(permissions.AllowAny,),
+    permission_classes=(IsSwaggerAdmin,),
 )
 
 urlpatterns = [
@@ -46,9 +46,21 @@ urlpatterns = [
     ),
 
     path(
+        'admin-login/',
+        web_admin_login,
+        name='web-admin-login'
+    ),
+
+    path(
         'dashboard/',
         web_dashboard,
         name='web-dashboard'
+    ),
+
+    path(
+        'dashboard/users/',
+        web_user_records,
+        name='web-user-records'
     ),
 
     path(

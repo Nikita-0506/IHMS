@@ -2,8 +2,6 @@
 
 from django.urls import path, re_path
 
-from rest_framework import permissions
-
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView,
@@ -12,6 +10,7 @@ from rest_framework_simplejwt.views import (
 
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from api.permissions.swagger_permission import IsSwaggerAdmin
 
 from .views import (
 
@@ -59,10 +58,10 @@ schema_view = get_schema_view(
         ),
     ),
 
-    public=True,
+    public=False,
 
     permission_classes=[
-        permissions.AllowAny
+        IsSwaggerAdmin
     ],
 )
 

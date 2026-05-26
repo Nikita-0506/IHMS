@@ -21,6 +21,8 @@
             <div class="nav-title">Core Navigation</div>
             <a class="nav-item" href="#overview">Overview</a>
             <a class="nav-item" href="#modules">Role Modules</a>
+            <a class="nav-item" href="#departments">Departments</a>
+            <a class="nav-item" href="#access-model">Access Model</a>
             <a class="nav-item" href="#notifications">Notifications</a>
             {% if docker_enabled %}
                 <a class="nav-item" href="#services">Docker Services</a>
@@ -36,8 +38,10 @@
             {% endfor %}
 
             <div class="nav-title">Shortcuts</div>
-            <a class="nav-item" href="/swagger/" target="_blank" rel="noopener">Swagger UI</a>
-            <a class="nav-item" href="/admin/" target="_blank" rel="noopener">Admin Console</a>
+            {% if request.user.role == 'admin' %}
+                <a class="nav-item" href="/swagger/" target="_blank" rel="noopener">Swagger UI</a>
+                <a class="nav-item" href="/admin/" target="_blank" rel="noopener">Admin Console</a>
+            {% endif %}
             <a class="nav-item" href="{% url 'web-logout' %}">Logout</a>
         </aside>
 
@@ -48,7 +52,9 @@
                     <p>{{ user_role }} Workspace · {{ module_count }} module{{ module_count|pluralize }} mapped by permissions</p>
                 </div>
                 <div class="topbar-actions">
-                    <a href="/swagger/" target="_blank" rel="noopener" class="logout-btn">API Docs</a>
+                    {% if request.user.role == 'admin' %}
+                        <a href="/swagger/" target="_blank" rel="noopener" class="logout-btn">API Docs</a>
+                    {% endif %}
                     <a href="{% url 'web-logout' %}" class="logout-btn">Logout</a>
                 </div>
             </header>
@@ -66,6 +72,22 @@
                     <article class="kpi"><h3>24x7</h3><p>Operational Support</p></article>
                 </div>
 
+                <div id="access-model" class="section-head section-anchor">
+                    <h2>Role and Access Model</h2>
+                    <p>Permission-driven architecture where each user can only operate in mapped departments and workflows.</p>
+                </div>
+
+                <article class="panel access-panel">
+                    <div class="panel-head">
+                        <h3>{{ user_role }} Capabilities</h3>
+                    </div>
+                    <ul class="event-list compact-list">
+                        {% for capability in role_capabilities %}
+                            <li>{{ capability }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+
                 <div id="modules" class="section-head section-anchor">
                     <h2>Role-Based Modules</h2>
                     <p>This interface only shows the modules your authenticated role can access.</p>
@@ -81,7 +103,9 @@
                             <p>{{ module.desc }}</p>
                             <div class="module-actions">
                                 <a class="module-link" href="{{ module.route_url }}">Open Workspace →</a>
-                                <a class="module-link muted" href="{{ module.url }}" target="_blank" rel="noopener">Open API</a>
+                                {% if request.user.role == 'admin' %}
+                                    <a class="module-link muted" href="{{ module.url }}" target="_blank" rel="noopener">Open API</a>
+                                {% endif %}
                             </div>
                         </article>
                     {% empty %}
@@ -95,11 +119,42 @@
                     {% endfor %}
                 </div>
 
+                <div id="departments" class="section-head section-anchor">
+                    <h2>Department Lanes</h2>
+                    <p>All units are integrated in one product while preserving role-based boundaries and process ownership.</p>
+                </div>
+
+                <div class="lane-grid">
+                    {% for lane in department_lanes %}
+                        <article class="lane-card">
+                            <div class="lane-top">
+                                <h3>{{ lane.name }}</h3>
+                                <span class="tag">{{ lane.module_count }} module{{ lane.module_count|pluralize }}</span>
+                            </div>
+                            <div class="lane-chip-wrap">
+                                {% for lane_module in lane.modules %}
+                                    <a class="lane-chip" href="{{ lane_module.route_url }}">{{ lane_module.name }}</a>
+                                {% endfor %}
+                            </div>
+                        </article>
+                    {% empty %}
+                        <article class="lane-card">
+                            <div class="lane-top">
+                                <h3>No department mapping</h3>
+                                <span class="tag">Info</span>
+                            </div>
+                            <p class="panel-copy">Department mapping will appear once module permissions are assigned.</p>
+                        </article>
+                    {% endfor %}
+                </div>
+
                 <div class="grid-2">
                     <article class="panel section-anchor" id="notifications">
                         <div class="panel-head">
                             <h3>Notifications Center</h3>
-                            <a href="/api/notifications/" target="_blank" rel="noopener">Open API</a>
+                            {% if request.user.role == 'admin' %}
+                                <a href="/api/notifications/" target="_blank" rel="noopener">Open API</a>
+                            {% endif %}
                         </div>
                         <p class="panel-copy">Operational alerts, reminders, and event visibility in one place.</p>
                         <ul class="event-list">
@@ -112,7 +167,9 @@
                     <article class="panel section-anchor" id="settings">
                         <div class="panel-head">
                             <h3>Application Settings</h3>
-                            <a href="/admin/" target="_blank" rel="noopener">Open Admin</a>
+                            {% if request.user.role == 'admin' %}
+                                <a href="/admin/" target="_blank" rel="noopener">Open Admin</a>
+                            {% endif %}
                         </div>
                         <p class="panel-copy">Manage platform-level settings, security posture, and integration endpoints.</p>
                         <ul class="setting-list">
@@ -141,7 +198,9 @@
                 <article class="panel section-anchor" id="profile">
                     <div class="panel-head">
                         <h3>Profile Management</h3>
-                        <a href="/api/accounts/test/" target="_blank" rel="noopener">Validate Session</a>
+                        {% if request.user.role == 'admin' %}
+                            <a href="/api/accounts/test/" target="_blank" rel="noopener">Validate Session</a>
+                        {% endif %}
                     </div>
                     <p class="panel-copy">Signed in as <strong>{{ display_name }}</strong> with role <strong>{{ user_role }}</strong>.</p>
                     <div class="profile-grid">
