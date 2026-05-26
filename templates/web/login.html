@@ -4,29 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IHMS Login</title>
+    <title>IHMS Access Portal</title>
     <link rel="stylesheet" href="{% static 'css/web_app.css' %}">
 </head>
 <body>
     <div class="auth-shell">
         <div class="auth-card">
             <section class="auth-side">
-                <h1>IHMS Enterprise</h1>
+                <h1>IHMS Unified Access</h1>
                 <p>
-                    Secure hospital operations platform for patients, doctors, pharmacy, laboratory,
-                    billing, appointments, and AI-assisted care decisions.
+                    Enterprise portal for authentication, role-based access, and complete hospital operations control.
                 </p>
                 <ul class="bullet-list">
-                    <li>Role-based access for Admin, Doctor, Patient, Reception, Pharmacist, Lab Staff</li>
-                    <li>Unified workflow from consultation to billing and notifications</li>
-                    <li>Secure authentication with audit-friendly account management</li>
+                    <li>Single interface for Login, Signup, Dashboard, and Modules</li>
+                    <li>Role-aware visibility across Patient, Doctor, Admin, and staff workflows</li>
+                    <li>Integrated API, notifications, profile, and infrastructure touchpoints</li>
                 </ul>
+                <div class="auth-side-meta">
+                    <span class="pill">Role-Based</span>
+                    <span class="pill">Secure Auth</span>
+                    <span class="pill">Enterprise UI</span>
+                </div>
             </section>
 
             <section class="auth-form-wrap">
                 <div class="auth-top">
-                    <h2>Sign in</h2>
-                    <p>Enter your account credentials to continue.</p>
+                    <h2>Welcome To IHMS</h2>
+                    <p>Sign in if you already have an account, or create a new user profile to continue.</p>
+                </div>
+
+                <div class="auth-tabs">
+                    <button
+                        type="button"
+                        class="auth-tab {% if active_tab != 'register' %}active{% endif %}"
+                        id="loginTabBtn"
+                        aria-controls="loginPanel"
+                    >Sign In</button>
+                    <button
+                        type="button"
+                        class="auth-tab {% if active_tab == 'register' %}active{% endif %}"
+                        id="registerTabBtn"
+                        aria-controls="registerPanel"
+                    >Create User</button>
                 </div>
 
                 {% if messages %}
@@ -37,62 +56,152 @@
                     </ul>
                 {% endif %}
 
-                <form method="post" novalidate>
-                    {% csrf_token %}
-                    {% if next_url %}
-                        <input type="hidden" name="next" value="{{ next_url }}">
-                    {% endif %}
-                    <div class="form-row">
-                        <label class="form-label" for="id_email">Email</label>
-                        <input id="id_email" class="input" type="email" name="email" placeholder="your-email@ihms.com" required>
-                    </div>
+                <div class="auth-panels">
+                    <form method="post" novalidate id="loginPanel" class="auth-panel {% if active_tab != 'register' %}active{% endif %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_type" value="login">
+                        {% if next_url %}
+                            <input type="hidden" name="next" value="{{ next_url }}">
+                        {% endif %}
 
-                    <div class="form-row">
-                        <label class="form-label" for="id_password">Password</label>
-                        <div class="password-wrap">
-                            <input id="id_password" class="input" type="password" name="password" placeholder="••••••••" required>
-                            <button type="button" class="password-toggle" id="passwordToggle" aria-label="Show password" aria-pressed="false" title="Show password">
-                                <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
-                                <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <path d="M17.94 17.94A10.88 10.88 0 0112 19C5 19 1 12 1 12a21.77 21.77 0 015.06-6.94"></path>
-                                    <path d="M9.9 4.24A10.95 10.95 0 0112 4c7 0 11 8 11 8a21.89 21.89 0 01-2.16 3.19"></path>
-                                    <path d="M14.12 14.12a3 3 0 01-4.24-4.24"></path>
-                                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                                </svg>
-                            </button>
+                        <div class="form-row">
+                            <label class="form-label" for="id_email">Email</label>
+                            <input id="id_email" class="input" type="email" name="email" placeholder="your-email@ihms.com" required>
                         </div>
-                    </div>
 
-                    <button type="submit" class="btn-primary">Login</button>
-                </form>
+                        <div class="form-row">
+                            <label class="form-label" for="id_password">Password</label>
+                            <div class="password-wrap">
+                                <input id="id_password" class="input" type="password" name="password" placeholder="Enter your password" required>
+                                <button type="button" class="password-toggle" data-toggle="id_password" aria-label="Show password" aria-pressed="false" title="Show password">
+                                    <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M17.94 17.94A10.88 10.88 0 0112 19C5 19 1 12 1 12a21.77 21.77 0 015.06-6.94"></path>
+                                        <path d="M9.9 4.24A10.95 10.95 0 0112 4c7 0 11 8 11 8a21.89 21.89 0 01-2.16 3.19"></path>
+                                        <path d="M14.12 14.12a3 3 0 01-4.24-4.24"></path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
 
-                <p class="auth-note">
-                    Demo flow: after login, dashboard modules are shown automatically based on your role.
-                </p>
+                        <button type="submit" class="btn-primary">Sign In</button>
+                    </form>
+
+                    <form method="post" novalidate id="registerPanel" class="auth-panel {% if active_tab == 'register' %}active{% endif %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_type" value="register">
+
+                        <div class="form-row">
+                            <label class="form-label" for="id_username">Username</label>
+                            <input id="id_username" class="input" type="text" name="username" placeholder="Choose a username" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="form-label" for="id_register_email">Email</label>
+                            <input id="id_register_email" class="input" type="email" name="register_email" placeholder="new-user@ihms.com" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="form-label" for="id_role">Role</label>
+                            <select id="id_role" class="input" name="role" required>
+                                {% for value, label in role_choices %}
+                                    <option value="{{ value }}">{{ label }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="form-label" for="id_register_password">Password</label>
+                            <div class="password-wrap">
+                                <input id="id_register_password" class="input" type="password" name="register_password" placeholder="Create a secure password" required>
+                                <button type="button" class="password-toggle" data-toggle="id_register_password" aria-label="Show password" aria-pressed="false" title="Show password">
+                                    <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M17.94 17.94A10.88 10.88 0 0112 19C5 19 1 12 1 12a21.77 21.77 0 015.06-6.94"></path>
+                                        <path d="M9.9 4.24A10.95 10.95 0 0112 4c7 0 11 8 11 8a21.89 21.89 0 01-2.16 3.19"></path>
+                                        <path d="M14.12 14.12a3 3 0 01-4.24-4.24"></path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="form-label" for="id_confirm_password">Confirm Password</label>
+                            <div class="password-wrap">
+                                <input id="id_confirm_password" class="input" type="password" name="confirm_password" placeholder="Repeat password" required>
+                                <button type="button" class="password-toggle" data-toggle="id_confirm_password" aria-label="Show password" aria-pressed="false" title="Show password">
+                                    <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M17.94 17.94A10.88 10.88 0 0112 19C5 19 1 12 1 12a21.77 21.77 0 015.06-6.94"></path>
+                                        <path d="M9.9 4.24A10.95 10.95 0 0112 4c7 0 11 8 11 8a21.89 21.77 0 01-2.16 3.19"></path>
+                                        <path d="M14.12 14.12a3 3 0 01-4.24-4.24"></path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Create Account</button>
+                    </form>
+                </div>
+
+                <p class="auth-note">After successful authentication, role-based dashboard and accessible modules are automatically shown.</p>
             </section>
         </div>
     </div>
 
     <script>
         (function () {
-            const passwordInput = document.getElementById('id_password');
-            const toggleBtn = document.getElementById('passwordToggle');
+            const loginTabBtn = document.getElementById('loginTabBtn');
+            const registerTabBtn = document.getElementById('registerTabBtn');
+            const loginPanel = document.getElementById('loginPanel');
+            const registerPanel = document.getElementById('registerPanel');
 
-            if (!passwordInput || !toggleBtn) {
-                return;
+            function setTab(tabName) {
+                const showRegister = tabName === 'register';
+                loginPanel.classList.toggle('active', !showRegister);
+                registerPanel.classList.toggle('active', showRegister);
+                loginTabBtn.classList.toggle('active', !showRegister);
+                registerTabBtn.classList.toggle('active', showRegister);
             }
 
-            toggleBtn.addEventListener('click', function () {
-                const showPassword = passwordInput.type === 'password';
-                passwordInput.type = showPassword ? 'text' : 'password';
-                toggleBtn.classList.toggle('showing', showPassword);
-                toggleBtn.setAttribute('aria-pressed', String(showPassword));
-                toggleBtn.setAttribute('aria-label', showPassword ? 'Hide password' : 'Show password');
-                toggleBtn.setAttribute('title', showPassword ? 'Hide password' : 'Show password');
+            loginTabBtn.addEventListener('click', function () {
+                setTab('login');
             });
+
+            registerTabBtn.addEventListener('click', function () {
+                setTab('register');
+            });
+
+            document.querySelectorAll('.password-toggle').forEach(function (toggleBtn) {
+                const fieldId = toggleBtn.getAttribute('data-toggle');
+                const field = document.getElementById(fieldId);
+                if (!field) {
+                    return;
+                }
+
+                toggleBtn.addEventListener('click', function () {
+                    const showPassword = field.type === 'password';
+                    field.type = showPassword ? 'text' : 'password';
+                    toggleBtn.classList.toggle('showing', showPassword);
+                    toggleBtn.setAttribute('aria-pressed', String(showPassword));
+                    toggleBtn.setAttribute('aria-label', showPassword ? 'Hide password' : 'Show password');
+                    toggleBtn.setAttribute('title', showPassword ? 'Hide password' : 'Show password');
+                });
+            });
+
+            setTab('{% if active_tab == "register" %}register{% else %}login{% endif %}');
         })();
     </script>
 </body>

@@ -16,6 +16,32 @@
             margin: auto;
         }
 
+        .auth-switch{
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .auth-switch button{
+            flex: 1;
+            margin-top: 0;
+            border: 1px solid #9ea4ab;
+            background: #f1f3f5;
+        }
+
+        .auth-switch button.active{
+            background: #dbeafe;
+            border-color: #3b82f6;
+        }
+
+        .panel{
+            display: none;
+        }
+
+        .panel.active{
+            display: block;
+        }
+
         input{
             width: 100%;
             padding: 10px;
@@ -52,9 +78,16 @@
             cursor: pointer;
         }
 
-        #tokenBox{
-            margin-top: 20px;
-            display: none;
+        select{
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .hint{
+            margin-top: 10px;
+            font-size: 13px;
+            color: #4b5563;
         }
 
     </style>
@@ -65,42 +98,78 @@
 
 <div class="container">
 
-    <h2>Login</h2>
+    <h2>Account Access</h2>
 
-    <input type="text" id="username" placeholder="Username">
-
-    <div class="password-wrap">
-        <input type="password" id="password" placeholder="Password">
-        <button type="button" class="password-toggle" onclick="toggleLoginPassword()" aria-label="Show password" id="loginPasswordToggle">👁️</button>
+    <div class="auth-switch">
+        <button type="button" id="loginTab" class="active" onclick="setMode('login')">Login</button>
+        <button type="button" id="registerTab" onclick="setMode('register')">Create User</button>
     </div>
 
-    <button onclick="loginUser()">Login</button>
+    <div id="loginPanel" class="panel active">
+        <input type="email" id="email" placeholder="Email">
 
-   <div id="tokenBox">
+        <div class="password-wrap">
+            <input type="password" id="password" placeholder="Password">
+            <button type="button" class="password-toggle" onclick="togglePassword('password','loginPasswordToggle')" aria-label="Show password" id="loginPasswordToggle">👁️</button>
+        </div>
 
-    <h3>Access Token</h3>
-
-    <div class="token-container">
-
-        <input type="password" id="tokenField" readonly>
-
-        <button class="icon-btn" onclick="toggleToken()">
-
-            <span id="eyeIcon">👁️</span>
-
-        </button>
-
+        <button type="button" onclick="loginUser()">Login</button>
+        <div class="hint">Already registered users can login here.</div>
     </div>
 
-</div>
+    <div id="registerPanel" class="panel">
+        <input type="text" id="regUsername" placeholder="Username">
+        <input type="email" id="regEmail" placeholder="Email">
+        <select id="regRole">
+            <option value="patient">Patient</option>
+            <option value="doctor">Doctor</option>
+            <option value="receptionist">Receptionist</option>
+            <option value="pharmacist">Pharmacist</option>
+            <option value="lab_staff">Lab Staff</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <div class="password-wrap">
+            <input type="password" id="regPassword" placeholder="Password">
+            <button type="button" class="password-toggle" onclick="togglePassword('regPassword','regPasswordToggle')" aria-label="Show password" id="regPasswordToggle">👁️</button>
+        </div>
+
+        <div class="password-wrap">
+            <input type="password" id="regPassword2" placeholder="Confirm Password">
+            <button type="button" class="password-toggle" onclick="togglePassword('regPassword2','regPassword2Toggle')" aria-label="Show password" id="regPassword2Toggle">👁️</button>
+        </div>
+
+        <button type="button" onclick="registerUser()">Create User</button>
+        <div class="hint">New users should create an account first, then login.</div>
+    </div>
 
 </div>
 
 <script>
 
+function setMode(mode){
+
+    const loginPanel = document.getElementById('loginPanel');
+    const registerPanel = document.getElementById('registerPanel');
+    const loginTab = document.getElementById('loginTab');
+    const registerTab = document.getElementById('registerTab');
+
+    if(mode === 'register'){
+        loginPanel.classList.remove('active');
+        registerPanel.classList.add('active');
+        loginTab.classList.remove('active');
+        registerTab.classList.add('active');
+    } else {
+        registerPanel.classList.remove('active');
+        loginPanel.classList.add('active');
+        registerTab.classList.remove('active');
+        loginTab.classList.add('active');
+    }
+}
+
 async function loginUser(){
 
-    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     const response = await fetch('/api/accounts/login/', {
@@ -112,7 +181,7 @@ async function loginUser(){
         },
 
         body: JSON.stringify({
-            username: username,
+            email: email,
             password: password
         })
     });
@@ -121,38 +190,93 @@ async function loginUser(){
 
     if(data.access){
 
-        document.getElementById('tokenBox').style.display = 'block';
+        localStorage.setItem('ihms_access_token', data.access);
+        if (data.refresh) {
+            localStorage.setItem('ihms_refresh_token', data.refresh);
+        }
 
-        document.getElementById('tokenField').value = data.access;
+        window.location.href = '/home/';
 
     } else {
-
-        alert("Invalid Credentials");
+        if (data.detail) {
+            alert(data.detail);
+        } else if (data.email && Array.isArray(data.email)) {
+            alert(data.email.join(', '));
+        } else {
+            alert("Invalid Credentials");
+        }
 
     }
 }
 
-function toggleToken(){
+async function registerUser(){
 
-    const field = document.getElementById('tokenField');
-    const eyeIcon = document.getElementById('eyeIcon');
+    const username = document.getElementById('regUsername').value.trim();
+    const email = document.getElementById('regEmail').value.trim();
+    const role = document.getElementById('regRole').value;
+    const password = document.getElementById('regPassword').value;
+    const password2 = document.getElementById('regPassword2').value;
 
-    if(field.type === "password"){
+    const response = await fetch('/api/accounts/register/', {
 
-        field.type = "text";
-        eyeIcon.innerHTML = "🙈";
+        method: 'POST',
 
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            username: username,
+            email: email,
+            role: role,
+            password: password,
+            password2: password2
+        })
+    });
+
+    const data = await response.json();
+
+    if(response.ok){
+        alert('User created successfully. Please login now.');
+        document.getElementById('email').value = email;
+        document.getElementById('password').value = password;
+        setMode('login');
     } else {
-
-        field.type = "password";
-        eyeIcon.innerHTML = "👁️";
+        alert(extractErrorMessage(data));
     }
 }
 
-function toggleLoginPassword(){
+function extractErrorMessage(data){
 
-    const field = document.getElementById('password');
-    const toggleBtn = document.getElementById('loginPasswordToggle');
+    if (!data || typeof data !== 'object') {
+        return 'Unable to process request.';
+    }
+
+    if (data.detail) {
+        return data.detail;
+    }
+
+    const firstKey = Object.keys(data)[0];
+    if (!firstKey) {
+        return 'Request failed.';
+    }
+
+    const message = data[firstKey];
+    if (Array.isArray(message)) {
+        return message.join(', ');
+    }
+
+    if (typeof message === 'string') {
+        return message;
+    }
+
+    return 'Request failed.';
+}
+
+function togglePassword(fieldId, toggleId){
+
+    const field = document.getElementById(fieldId);
+    const toggleBtn = document.getElementById(toggleId);
 
     if(field.type === "password"){
 

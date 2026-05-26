@@ -380,6 +380,10 @@ svg { display: block; }
   cursor: pointer;
 }
 .module-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.module-card.is-selected {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand) 20%, transparent), var(--shadow-md);
+}
 .module-header { display: flex; align-items: flex-start; justify-content: space-between; }
 .module-icon-wrap {
   width: 46px; height: 46px;
@@ -411,12 +415,15 @@ svg { display: block; }
 .module-endpoints {
   font-size: .72rem; color: var(--text-muted);
   display: flex; align-items: center; gap: .3rem;
+  cursor: pointer;
 }
 .module-endpoints svg { width: 13px; height: 13px; }
 .module-link {
   font-size: .76rem; font-weight: 600; color: var(--brand);
   display: flex; align-items: center; gap: .2rem;
+  cursor: pointer;
 }
+.module-link:hover { text-decoration: underline; }
 .module-link svg { width: 13px; height: 13px; }
 
 /* Mini progress bar inside module cards */
@@ -777,21 +784,21 @@ svg { display: block; }
   <!-- Core Modules -->
   <div class="nav-section">
     <div class="nav-label">Core</div>
-    <a class="nav-item active" onclick="scrollTo('overview')">
+    <a class="nav-item active" href="#" onclick="goToSection('overview', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
       Overview
     </a>
-    <a class="nav-item" onclick="scrollTo('patients')">
+    <a class="nav-item" href="#" onclick="goToSection('patients', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       Patients
       <span class="nav-badge">1,240</span>
     </a>
-    <a class="nav-item" onclick="scrollTo('doctors')">
+    <a class="nav-item" href="#" onclick="goToSection('doctors', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
       Doctors
       <span class="nav-badge green">86</span>
     </a>
-    <a class="nav-item" onclick="scrollTo('appointments')">
+    <a class="nav-item" href="#" onclick="goToSection('appointments', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Appointments
       <span class="nav-badge amber">34</span>
@@ -801,15 +808,15 @@ svg { display: block; }
   <!-- Clinical -->
   <div class="nav-section">
     <div class="nav-label">Clinical</div>
-    <a class="nav-item" onclick="scrollTo('laboratory')">
+    <a class="nav-item" href="#" onclick="goToSection('laboratory', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v11l-5 5h16l-5-5V3"/></svg>
       Laboratory
     </a>
-    <a class="nav-item" onclick="scrollTo('pharmacy')">
+    <a class="nav-item" href="#" onclick="goToSection('pharmacy', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12h6M12 9v6"/></svg>
       Pharmacy
     </a>
-    <a class="nav-item" onclick="scrollTo('billing')">
+    <a class="nav-item" href="#" onclick="goToSection('billing', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
       Billing
     </a>
@@ -818,16 +825,16 @@ svg { display: block; }
   <!-- Intelligence -->
   <div class="nav-section">
     <div class="nav-label">Intelligence</div>
-    <a class="nav-item" onclick="scrollTo('ai')">
+    <a class="nav-item" href="#" onclick="goToSection('ai', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
       AI Analysis
       <span class="nav-badge" style="background:#7c3aed">5</span>
     </a>
-    <a class="nav-item" onclick="scrollTo('dashboard')">
+    <a class="nav-item" href="#" onclick="goToSection('dashboard', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       Dashboard
     </a>
-    <a class="nav-item" onclick="scrollTo('notifications')">
+    <a class="nav-item" href="#" onclick="goToSection('notifications', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
       Notifications
     </a>
@@ -836,15 +843,15 @@ svg { display: block; }
   <!-- System -->
   <div class="nav-section">
     <div class="nav-label">System</div>
-    <a class="nav-item" onclick="scrollTo('api')">
+    <a class="nav-item" href="#" onclick="goToSection('api', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
       API Gateway
     </a>
-    <a class="nav-item" onclick="scrollTo('infrastructure')">
+    <a class="nav-item" href="#" onclick="goToSection('infrastructure', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       Infrastructure
     </a>
-    <a class="nav-item" onclick="scrollTo('accounts')">
+    <a class="nav-item" href="#" onclick="goToSection('accounts', this); return false;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       Accounts & Auth
     </a>
@@ -852,7 +859,7 @@ svg { display: block; }
 
   <!-- Sidebar Footer -->
   <div class="sidebar-footer">
-    <div class="sidebar-user">
+    <div class="sidebar-user" onclick="goToSection('accounts');" role="button" tabindex="0" title="Open Accounts & Auth">
       <div class="avatar">AD</div>
       <div>
         <div class="user-name">Admin User</div>
@@ -879,20 +886,20 @@ svg { display: block; }
       <input type="text" placeholder="Search patients, doctors, reports…"/>
     </div>
     <div class="topbar-actions">
-      <button class="icon-btn" title="Notifications">
+      <button class="icon-btn" title="Notifications" onclick="goToSection('notifications');">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
         <span class="notif-dot"></span>
       </button>
-      <button class="icon-btn" title="Reports">
+      <button class="icon-btn" title="Reports" onclick="goToSection('analytics');">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       </button>
-      <button class="icon-btn" title="Settings">
+      <button class="icon-btn" title="Settings" onclick="goToSection('infrastructure');">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
       </button>
       <button class="theme-btn" id="themeBtn" title="Toggle theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:17px;height:17px"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
-      <div class="avatar" style="width:36px;height:36px;font-size:.8rem;border-radius:10px;cursor:pointer">AD</div>
+      <div class="avatar" style="width:36px;height:36px;font-size:.8rem;border-radius:10px;cursor:pointer" onclick="goToSection('accounts');" title="Open Accounts & Auth">AD</div>
     </div>
   </header>
 
@@ -1675,11 +1682,101 @@ btn.addEventListener('click', () => {
 });
 
 /* ── SMOOTH NAV SCROLL ── */
-function scrollTo(id) {
+function goToSection(id, sourceEl = null) {
   const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  if (sourceEl) {
+    document.querySelectorAll('.nav-item').forEach((n) => n.classList.remove('active'));
+    sourceEl.classList.add('active');
+  }
+}
+
+const moduleNavigationMap = {
+  patients: { pageKey: 'patients' },
+  doctors: { pageKey: 'doctors' },
+  appointments: { pageKey: 'appointments' },
+  laboratory: { pageKey: 'laboratory' },
+  pharmacy: { pageKey: 'pharmacy' },
+  billing: { pageKey: 'billing' },
+  notifications: { pageKey: 'notifications' },
+  dashboard: { pageKey: 'dashboard' },
+  accounts: { pageKey: 'accounts' }
+};
+
+function openModulePage(moduleKey) {
+  if (!moduleKey) {
+    return;
+  }
+  window.location.href = `ihms_module_view.html?module=${encodeURIComponent(moduleKey)}`;
+}
+
+function bindDashboardInteractions() {
+  const moduleCards = document.querySelectorAll('.module-card[id]');
+
+  moduleCards.forEach((card) => {
+    const moduleId = card.id;
+    const config = moduleNavigationMap[moduleId];
+
+    if (!config) {
+      return;
+    }
+
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+
+    const activateCard = () => {
+      document.querySelectorAll('.module-card').forEach((c) => c.classList.remove('is-selected'));
+      card.classList.add('is-selected');
+      openModulePage(config.pageKey);
+    };
+
+    card.addEventListener('click', (event) => {
+      if (event.target.closest('.module-link')) {
+        return;
+      }
+      activateCard();
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        activateCard();
+      }
+    });
+
+    const openLink = card.querySelector('.module-link');
+    if (openLink) {
+      openLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        openModulePage(config.pageKey);
+      });
+    }
+
+    const endpointText = card.querySelector('.module-endpoints');
+    if (endpointText) {
+      endpointText.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        openModulePage(config.pageKey);
+      });
+    }
+  });
+
+  document.querySelectorAll('.view-all').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const section = link.closest('.chart-card')?.querySelector('.section-title')?.textContent || '';
+      if (section.includes('Recent Activity')) {
+        goToSection('notifications');
+      } else if (section.includes("Today's Appointments")) {
+        goToSection('appt-table');
+      }
+    });
+  });
 }
 
 /* ── BAR CHART ── */
@@ -1720,6 +1817,7 @@ window.addEventListener('load', () => {
   animateCount(document.getElementById('k1'), 1240);
   animateCount(document.getElementById('k2'), 86);
   animateCount(document.getElementById('k3'), 348);
+  bindDashboardInteractions();
 });
 
 /* ── PROGRESS BARS (animate in) ── */

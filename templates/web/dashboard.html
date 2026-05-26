@@ -4,61 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IHMS Dashboard</title>
+    <title>IHMS Unified Console</title>
     <link rel="stylesheet" href="{% static 'css/web_app.css' %}">
 </head>
 <body>
     <div class="app-layout">
         <aside class="sidebar">
             <div class="brand">IHMS</div>
-            <div class="brand-sub">Intelligent Hospital Platform</div>
+            <div class="brand-sub">Unified Enterprise Console</div>
 
             <div class="user-card">
                 <div class="user-name">{{ display_name }}</div>
                 <div class="user-role">{{ user_role }}</div>
             </div>
 
-            <div class="nav-title">Available Modules</div>
+            <div class="nav-title">Core Navigation</div>
+            <a class="nav-item" href="#overview">Overview</a>
+            <a class="nav-item" href="#modules">Role Modules</a>
+            <a class="nav-item" href="#notifications">Notifications</a>
+            {% if docker_enabled %}
+                <a class="nav-item" href="#services">Docker Services</a>
+            {% endif %}
+            <a class="nav-item" href="#settings">Settings</a>
+            <a class="nav-item" href="#profile">Profile</a>
+
+            <div class="nav-title">Accessible Modules</div>
             {% for module in modules %}
-                <a class="nav-item" href="{{ module.url }}">{{ module.name }}</a>
+                <a class="nav-item" href="{{ module.route_url }}">{{ module.name }}</a>
             {% empty %}
                 <span class="nav-item">No modules assigned</span>
             {% endfor %}
+
+            <div class="nav-title">Shortcuts</div>
+            <a class="nav-item" href="/swagger/" target="_blank" rel="noopener">Swagger UI</a>
+            <a class="nav-item" href="/admin/" target="_blank" rel="noopener">Admin Console</a>
+            <a class="nav-item" href="{% url 'web-logout' %}">Logout</a>
         </aside>
 
         <main class="app-main">
             <header class="topbar">
                 <div>
                     <h1>Welcome, {{ display_name }}</h1>
-                    <p>{{ user_role }} Dashboard · {{ module_count }} module{{ module_count|pluralize }} assigned</p>
+                    <p>{{ user_role }} Workspace · {{ module_count }} module{{ module_count|pluralize }} mapped by permissions</p>
                 </div>
-                <a href="{% url 'web-logout' %}" class="logout-btn">Logout</a>
+                <div class="topbar-actions">
+                    <a href="/swagger/" target="_blank" rel="noopener" class="logout-btn">API Docs</a>
+                    <a href="{% url 'web-logout' %}" class="logout-btn">Logout</a>
+                </div>
             </header>
 
             <section class="content">
+                <div id="overview" class="section-head section-anchor">
+                    <h2>Unified Command Overview</h2>
+                    <p>Single integrated experience for authentication, role access, operations, and service visibility.</p>
+                </div>
+
                 <div class="kpi-grid">
                     <article class="kpi"><h3>{{ module_count }}</h3><p>Assigned Modules</p></article>
                     <article class="kpi"><h3>{{ user_role }}</h3><p>Current Role</p></article>
-                    <article class="kpi"><h3>Live</h3><p>System Status</p></article>
-                    <article class="kpi"><h3>24x7</h3><p>Operational Window</p></article>
+                    <article class="kpi"><h3>{% if docker_enabled %}Enabled{% else %}Not Configured{% endif %}</h3><p>Docker Services</p></article>
+                    <article class="kpi"><h3>24x7</h3><p>Operational Support</p></article>
                 </div>
 
-                <div class="section-head">
-                    <h2>Your Access Panel</h2>
-                    <p>
-                        This page shows only the parts of the project allowed for your logged-in role.
-                    </p>
+                <div id="modules" class="section-head section-anchor">
+                    <h2>Role-Based Modules</h2>
+                    <p>This interface only shows the modules your authenticated role can access.</p>
                 </div>
 
                 <div class="module-grid">
                     {% for module in modules %}
-                        <article class="module">
+                        <article class="module module-{{ module.accent|default:'blue' }}">
                             <div class="module-top">
                                 <h3>{{ module.name }}</h3>
                                 <span class="tag">{{ module.tag }}</span>
                             </div>
                             <p>{{ module.desc }}</p>
-                            <a class="module-link" href="{{ module.url }}">Open {{ module.name }} →</a>
+                            <div class="module-actions">
+                                <a class="module-link" href="{{ module.route_url }}">Open Workspace →</a>
+                                <a class="module-link muted" href="{{ module.url }}" target="_blank" rel="noopener">Open API</a>
+                            </div>
                         </article>
                     {% empty %}
                         <article class="module">
@@ -70,6 +94,63 @@
                         </article>
                     {% endfor %}
                 </div>
+
+                <div class="grid-2">
+                    <article class="panel section-anchor" id="notifications">
+                        <div class="panel-head">
+                            <h3>Notifications Center</h3>
+                            <a href="/api/notifications/" target="_blank" rel="noopener">Open API</a>
+                        </div>
+                        <p class="panel-copy">Operational alerts, reminders, and event visibility in one place.</p>
+                        <ul class="event-list">
+                            <li><strong>Appointment Reminder:</strong> Next schedule sync in 5 minutes.</li>
+                            <li><strong>Billing Update:</strong> Pending invoices queued for follow-up.</li>
+                            <li><strong>Lab Pipeline:</strong> New reports published to patient records.</li>
+                        </ul>
+                    </article>
+
+                    <article class="panel section-anchor" id="settings">
+                        <div class="panel-head">
+                            <h3>Application Settings</h3>
+                            <a href="/admin/" target="_blank" rel="noopener">Open Admin</a>
+                        </div>
+                        <p class="panel-copy">Manage platform-level settings, security posture, and integration endpoints.</p>
+                        <ul class="setting-list">
+                            <li>Authentication Mode: Session + JWT</li>
+                            <li>API Documentation: Enabled</li>
+                            <li>Audit Visibility: Active</li>
+                        </ul>
+                    </article>
+                </div>
+
+                {% if docker_enabled %}
+                    <article class="panel section-anchor" id="services">
+                        <div class="panel-head">
+                            <h3>Docker / Services Management</h3>
+                            <a href="/dashboard/module/docker-services/">Open Service Workspace</a>
+                        </div>
+                        <p class="panel-copy">Detected services from docker-compose for deployment-aware operations.</p>
+                        <div class="chip-wrap">
+                            {% for service in docker_services %}
+                                <span class="chip">{{ service }}</span>
+                            {% endfor %}
+                        </div>
+                    </article>
+                {% endif %}
+
+                <article class="panel section-anchor" id="profile">
+                    <div class="panel-head">
+                        <h3>Profile Management</h3>
+                        <a href="/api/accounts/test/" target="_blank" rel="noopener">Validate Session</a>
+                    </div>
+                    <p class="panel-copy">Signed in as <strong>{{ display_name }}</strong> with role <strong>{{ user_role }}</strong>.</p>
+                    <div class="profile-grid">
+                        <div><span>Name</span><b>{{ display_name }}</b></div>
+                        <div><span>Role</span><b>{{ user_role }}</b></div>
+                        <div><span>Accessible Modules</span><b>{{ module_count }}</b></div>
+                        <div><span>Environment</span><b>{% if docker_enabled %}Docker Integrated{% else %}Standard Runtime{% endif %}</b></div>
+                    </div>
+                </article>
             </section>
         </main>
     </div>

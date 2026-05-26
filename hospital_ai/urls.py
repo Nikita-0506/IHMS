@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from accounts.views import web_login, web_dashboard, web_logout
+from accounts.views import web_login, web_dashboard, web_module_view, web_logout
 
 schema_view = get_schema_view(
 
@@ -49,6 +49,12 @@ urlpatterns = [
         'dashboard/',
         web_dashboard,
         name='web-dashboard'
+    ),
+
+    path(
+        'dashboard/module/<str:module_key>/',
+        web_module_view,
+        name='web-module-view'
     ),
 
     path(

@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IHMS Module View</title>
+<style>
+:root {
+  --bg: #f3f7fc;
+  --surface: #ffffff;
+  --surface-soft: #f7fbff;
+  --border: #dce7f3;
+  --text: #0f223c;
+  --muted: #5b7694;
+  --brand: #0b75b8;
+  --brand-dark: #07598f;
+  --ok: #11a36a;
+  --warn: #d97706;
+  --danger: #d23a3a;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(15, 34, 60, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(11, 117, 184, 0.12), transparent 36%),
+    radial-gradient(circle at 90% 0%, rgba(17, 163, 106, 0.08), transparent 30%),
+    var(--bg);
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.2rem 1rem 1.8rem;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.brand-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(135deg, #0b75b8, #0cc0de);
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.brand p {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+
+.hero {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 1.2rem 1.2rem 1rem;
+}
+
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.hero p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.status {
+  font-size: 0.72rem;
+  padding: 0.24rem 0.65rem;
+  border-radius: 999px;
+  background: #d9f7ea;
+  color: var(--ok);
+  font-weight: 700;
+}
+
+.stats {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(130px, 1fr));
+  gap: 0.7rem;
+}
+
+.stat {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-soft);
+  padding: 0.7rem;
+}
+
+.stat h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.stat p {
+  margin: 0.2rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.sub {
+  margin: 0.3rem 0 0.8rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.table th,
+.table td {
+  padding: 0.55rem 0.45rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.table th {
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tag {
+  padding: 0.25rem 0.62rem;
+  border-radius: 999px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  background: #e8f3ff;
+  color: var(--brand-dark);
+}
+
+.kpi {
+  margin-top: 0.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.kpi .item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.6rem;
+  background: var(--surface-soft);
+}
+
+.kpi .item b {
+  font-size: 1rem;
+}
+
+.kpi .item div {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .stats { grid-template-columns: 1fr; }
+  .top { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="brand">
+      <div class="brand-badge">IH</div>
+      <div>
+        <h1 id="pageTitle">IHMS Module</h1>
+        <p>Clean operational view for module details</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn" type="button" onclick="window.location.href='ihms_dashboard_ui.html'">Back To Dashboard</button>
+      <button class="btn primary" id="openEndpointBtn" type="button">Open Endpoint</button>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-top">
+      <div>
+        <h2 id="moduleName">Module Name</h2>
+        <p id="moduleDesc">Module details and operations.</p>
+      </div>
+      <span class="status" id="moduleStatus">LIVE</span>
+    </div>
+
+    <div class="stats" id="statsGrid"></div>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h3>Recent Records</h3>
+      <p class="sub">Relevant sample records for this module</p>
+      <div class="table-wrap">
+        <table class="table" id="recordsTable"></table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Quick Overview</h3>
+      <p class="sub">Operational summary and integrations</p>
+      <div class="tag-list" id="tagList"></div>
+      <div class="kpi" id="kpiGrid"></div>
+    </section>
+  </div>
+</div>
+
+<script>
+const moduleData = {
+  patients: {
+    title: 'Patient Management',
+    desc: 'View registrations, admissions, demographics, and patient history snapshots in a clean workspace.',
+    endpoint: '/api/v1/patients/',
+    stats: [
+      ['1,240', 'Registered Patients'],
+      ['38', 'Current Admissions'],
+      ['97%', 'Record Completeness'],
+      ['142', 'New This Month']
+    ],
+    tags: ['EMR', 'Admissions', 'Audit Logs', 'Family History', 'Vitals'],
+    kpis: [['98%', 'Data Accuracy'], ['2.1m', 'Avg Registration Time']],
+    columns: ['Patient', 'MRN', 'Ward', 'Status'],
+    rows: [
+      ['Rahul Mehta', 'MRN-10098', 'General', 'Admitted'],
+      ['Priya Joshi', 'MRN-10110', 'Outpatient', 'Follow-up'],
+      ['Anil Kumar', 'MRN-10124', 'ICU', 'Critical Watch']
+    ]
+  },
+  doctors: {
+    title: 'Doctor Management',
+    desc: 'Monitor doctor availability, specializations, and active assignments.',
+    endpoint: '/api/v1/doctors/',
+    stats: [['86', 'Total Doctors'], ['14', 'Specializations'], ['72', 'On Duty'], ['11', 'On Leave']],
+    tags: ['Rota', 'Schedules', 'Departments', 'Profiles'],
+    kpis: [['88%', 'Utilization'], ['4.6', 'Avg OPD Rating']],
+    columns: ['Doctor', 'Department', 'Shift', 'Availability'],
+    rows: [
+      ['Dr. Sharma', 'Cardiology', '09:00 - 17:00', 'Available'],
+      ['Dr. Kulkarni', 'Neurology', '10:00 - 18:00', 'In Consultation'],
+      ['Dr. Iyer', 'Pediatrics', '08:00 - 16:00', 'Available']
+    ]
+  },
+  appointments: {
+    title: 'Appointments',
+    desc: 'Track appointment flow, pending slots, and consultation efficiency.',
+    endpoint: '/api/v1/appointments/',
+    stats: [['348', 'Today'], ['34', 'Pending'], ['5', 'Cancelled'], ['309', 'Completed']],
+    tags: ['Scheduling', 'Reminders', 'Queue', 'Rescheduling'],
+    kpis: [['91%', 'On-time Start'], ['17m', 'Avg Wait Time']],
+    columns: ['Patient', 'Doctor', 'Time', 'Status'],
+    rows: [
+      ['Sunita Patel', 'Dr. Iyer', '10:30', 'Pending'],
+      ['Vikram Singh', 'Dr. Shah', '11:00', 'In Progress'],
+      ['Deepak Nair', 'Dr. Sharma', '14:00', 'Confirmed']
+    ]
+  },
+  laboratory: {
+    title: 'Laboratory',
+    desc: 'Follow test orders, sample pipelines, and report publication status.',
+    endpoint: '/api/v1/laboratory/tests/',
+    stats: [['156', 'Tests Today'], ['12', 'Pending'], ['98%', 'Accuracy'], ['41', 'Critical Alerts']],
+    tags: ['Diagnostics', 'Sample Queue', 'TAT', 'Critical Values'],
+    kpis: [['42m', 'Avg Report TAT'], ['99.2%', 'Result Integrity']],
+    columns: ['Test', 'Patient', 'Priority', 'Status'],
+    rows: [
+      ['CBC Panel', 'Rahul Mehta', 'Normal', 'Reported'],
+      ['LFT', 'Priya Joshi', 'High', 'In Process'],
+      ['HbA1c', 'Anil Kumar', 'Normal', 'Collected']
+    ]
+  },
+  pharmacy: {
+    title: 'Pharmacy',
+    desc: 'Manage inventory movement, dispensing, and low-stock alerts cleanly.',
+    endpoint: '/api/v1/pharmacy/',
+    stats: [['2,400', 'Drug Items'], ['89', 'Dispensed Today'], ['7', 'Low Stock'], ['99.1%', 'Batch Traceability']],
+    tags: ['Inventory', 'Dispensing', 'Expiry', 'Interactions'],
+    kpis: [['6', 'Critical Low Stock'], ['13%', 'Restock Due']],
+    columns: ['Medicine', 'Batch', 'Stock', 'Status'],
+    rows: [
+      ['Metformin 500mg', 'B-741', '8 strips', 'Low'],
+      ['Atorvastatin 10mg', 'B-220', '46 strips', 'Normal'],
+      ['Amoxicillin 500mg', 'B-996', '15 strips', 'Monitor']
+    ]
+  },
+  billing: {
+    title: 'Billing & Finance',
+    desc: 'Review invoice pipeline, collections, and pending amounts.',
+    endpoint: '/api/v1/billing/invoices/',
+    stats: [['₹4.2L', 'Monthly Revenue'], ['423', 'Invoices'], ['18', 'Pending'], ['₹18,200', 'Pending Collection']],
+    tags: ['Invoices', 'Payments', 'Insurance', 'GST'],
+    kpis: [['96%', 'Collection Efficiency'], ['11m', 'Invoice Generation']],
+    columns: ['Invoice', 'Patient', 'Amount', 'Status'],
+    rows: [
+      ['INV-1847', 'Rahul Mehta', '₹4,200', 'Paid'],
+      ['INV-1853', 'Priya Joshi', '₹2,850', 'Pending'],
+      ['INV-1860', 'Vikram Singh', '₹8,100', 'Paid']
+    ]
+  },
+  notifications: {
+    title: 'Notifications',
+    desc: 'Observe outbound communication performance across channels.',
+    endpoint: '/api/v1/notifications/',
+    stats: [['1,890', 'Sent Today'], ['99.1%', 'Delivery'], ['3', 'Channels'], ['28', 'Failed Attempts']],
+    tags: ['Email', 'SMS', 'In-app', 'Retry Queue'],
+    kpis: [['1.4s', 'Dispatch Delay'], ['99.7%', 'Retry Recovery']],
+    columns: ['Event', 'Channel', 'Recipient', 'Status'],
+    rows: [
+      ['Appointment Reminder', 'SMS', '+91-98xxxxxx21', 'Delivered'],
+      ['Lab Ready Alert', 'Email', 'priya@domain.com', 'Delivered'],
+      ['Invoice Notice', 'In-app', 'Deepak Nair', 'Read']
+    ]
+  },
+  dashboard: {
+    title: 'Analytics Dashboard',
+    desc: 'Get a focused analytical view of KPIs, trends, and performance metrics.',
+    endpoint: '/api/v1/dashboard/kpis/',
+    stats: [['24/7', 'Monitoring'], ['6', 'Report Types'], ['Live', 'Refresh Mode'], ['15', 'Alert Rules']],
+    tags: ['KPIs', 'Trends', 'Comparisons', 'Forecast'],
+    kpis: [['87%', 'Target Achievement'], ['3.8%', 'MoM Growth']],
+    columns: ['Metric', 'Current', 'Target', 'Variance'],
+    rows: [
+      ['Patient Throughput', '1,240', '1,300', '-4.6%'],
+      ['Appointment Utilization', '88%', '85%', '+3.0%'],
+      ['Revenue', '₹4.2L', '₹4.0L', '+5.0%']
+    ]
+  },
+  accounts: {
+    title: 'Accounts & Auth',
+    desc: 'Central view for users, roles, and authentication posture.',
+    endpoint: '/api/v1/accounts/token/',
+    stats: [['4', 'Roles'], ['JWT', 'Auth Type'], ['100%', 'RBAC Coverage'], ['0', 'Critical Auth Alerts']],
+    tags: ['JWT', 'RBAC', 'Sessions', 'Audit Trail'],
+    kpis: [['100%', 'Policy Compliance'], ['2', 'Locked Accounts']],
+    columns: ['User', 'Role', 'Last Login', 'State'],
+    rows: [
+      ['Admin User', 'Admin', '2m ago', 'Active'],
+      ['Dr. Sharma', 'Doctor', '12m ago', 'Active'],
+      ['Priya Joshi', 'Patient', '1h ago', 'Active']
+    ]
+  }
+};
+
+function getModuleFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('module') || 'patients';
+}
+
+function renderModule(moduleKey) {
+  const data = moduleData[moduleKey] || moduleData.patients;
+
+  document.getElementById('pageTitle').textContent = `IHMS | ${data.title}`;
+  document.title = `IHMS | ${data.title}`;
+  document.getElementById('moduleName').textContent = data.title;
+  document.getElementById('moduleDesc').textContent = data.desc;
+
+  document.getElementById('openEndpointBtn').onclick = () => {
+    window.open(data.endpoint, '_blank');
+  };
+
+  const statsGrid = document.getElementById('statsGrid');
+  statsGrid.innerHTML = data.stats
+    .map(([value, label]) => `<div class="stat"><h3>${value}</h3><p>${label}</p></div>`)
+    .join('');
+
+  const tagList = document.getElementById('tagList');
+  tagList.innerHTML = data.tags.map((t) => `<span class="tag">${t}</span>`).join('');
+
+  const kpiGrid = document.getElementById('kpiGrid');
+  kpiGrid.innerHTML = data.kpis
+    .map(([value, label]) => `<div class="item"><b>${value}</b><div>${label}</div></div>`)
+    .join('');
+
+  const table = document.getElementById('recordsTable');
+  const head = `<thead><tr>${data.columns.map((c) => `<th>${c}</th>`).join('')}</tr></thead>`;
+  const body = `<tbody>${data.rows.map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody>`;
+  table.innerHTML = head + body;
+}
+
+renderModule(getModuleFromURL());
+</script>
+</body>
+</html>

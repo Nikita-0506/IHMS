@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ module.name }} | IHMS Workspace</title>
+    <link rel="stylesheet" href="{% static 'css/web_app.css' %}">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">IHMS</div>
+            <div class="brand-sub">Module Workspace</div>
+
+            <div class="user-card">
+                <div class="user-name">{{ display_name }}</div>
+                <div class="user-role">{{ user_role }}</div>
+            </div>
+
+            <div class="nav-title">Module Navigation</div>
+            <a class="nav-item" href="{% url 'web-dashboard' %}">Unified Dashboard</a>
+            {% for item in modules %}
+                <a class="nav-item {% if item.key == module.key %}active{% endif %}" href="{{ item.route_url }}">{{ item.name }}</a>
+            {% endfor %}
+            <a class="nav-item" href="{% url 'web-logout' %}">Logout</a>
+        </aside>
+
+        <main class="app-main">
+            <header class="topbar">
+                <div>
+                    <h1>{{ module.name }} Workspace</h1>
+                    <p>Enterprise module console for {{ user_role }} role.</p>
+                </div>
+                <div class="topbar-actions">
+                    <a href="{{ module.url }}" class="logout-btn" target="_blank" rel="noopener">Open API</a>
+                    <a href="{% url 'web-dashboard' %}" class="logout-btn">Back To Dashboard</a>
+                </div>
+            </header>
+
+            <section class="content">
+                <article class="panel hero-panel">
+                    <div class="module-top">
+                        <h2>{{ module.name }}</h2>
+                        <span class="tag">{{ module.tag }}</span>
+                    </div>
+                    <p class="panel-copy">{{ module.desc }}</p>
+                    <div class="profile-grid">
+                        <div><span>Module Key</span><b>{{ module.key }}</b></div>
+                        <div><span>Assigned Role</span><b>{{ user_role }}</b></div>
+                        <div><span>Entry Point</span><b>{{ module.url }}</b></div>
+                        <div><span>Permission</span><b>Granted</b></div>
+                    </div>
+                </article>
+
+                <div class="grid-2">
+                    <article class="panel">
+                        <div class="panel-head">
+                            <h3>Operational Checklist</h3>
+                        </div>
+                        <ul class="event-list">
+                            <li>Review module-specific records and permissions.</li>
+                            <li>Use the API endpoint to perform create/read/update actions.</li>
+                            <li>Validate notifications and audit flow for this module.</li>
+                            <li>Return to unified dashboard for cross-module navigation.</li>
+                        </ul>
+                    </article>
+
+                    <article class="panel">
+                        <div class="panel-head">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="module-actions">
+                            <a class="module-link" href="{{ module.url }}" target="_blank" rel="noopener">Open Module API →</a>
+                            <a class="module-link muted" href="/swagger/" target="_blank" rel="noopener">Open Swagger</a>
+                            <a class="module-link muted" href="/admin/" target="_blank" rel="noopener">Open Admin</a>
+                        </div>
+                    </article>
+                </div>
+
+                {% if module.key == 'docker-services' and docker_enabled %}
+                    <article class="panel">
+                        <div class="panel-head">
+                            <h3>Detected Docker Services</h3>
+                        </div>
+                        <p class="panel-copy">Services auto-discovered from docker-compose configuration.</p>
+                        <div class="chip-wrap">
+                            {% for service in docker_services %}
+                                <span class="chip">{{ service }}</span>
+                            {% endfor %}
+                        </div>
+                    </article>
+                {% endif %}
+            </section>
+        </main>
+    </div>
+</body>
+</html>
