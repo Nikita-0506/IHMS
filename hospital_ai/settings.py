@@ -15,8 +15,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 # =========================================================
 
 import os
+import socket
 
 from pathlib import Path
+from urllib.parse import urlparse
 
 from decouple import config
 from celery.schedules import crontab
@@ -29,6 +31,26 @@ def csv_env(var_name, default=''):
     raw_value = config(var_name, default=default)
 
     return [item.strip() for item in raw_value.split(',') if item.strip()]
+
+
+def redis_url_is_reachable(redis_url):
+
+    if not redis_url:
+        return False
+
+    parsed = urlparse(redis_url)
+
+    if parsed.scheme not in ('redis', 'rediss'):
+        return False
+
+    host = parsed.hostname or '127.0.0.1'
+    port = parsed.port or 6379
+
+    try:
+        with socket.create_connection((host, port), timeout=0.5):
+            return True
+    except OSError:
+        return False
 
 
 # =========================================================
@@ -254,8 +276,9 @@ DATABASES = {
 # =========================================================
 
 _REDIS_URL = config('CACHES_DEFAULT_LOCATION', default='')
+_REDIS_CACHE_REACHABLE = redis_url_is_reachable(_REDIS_URL)
 
-if _REDIS_URL:
+if _REDIS_URL and (_REDIS_CACHE_REACHABLE or not DEBUG):
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.redis.RedisCache',
@@ -610,14 +633,17 @@ DEFAULT_FROM_EMAIL = config(
 # 16. CELERY CONFIGURATION
 # ========================================================= 
 
+_LOCAL_DEFAULT_CELERY_BROKER = 'redis://127.0.0.1:6379/0'
+_USE_MEMORY_BROKER_IN_DEBUG = DEBUG and not redis_url_is_reachable(_LOCAL_DEFAULT_CELERY_BROKER)
+
 CELERY_BROKER_URL = config(
     'CELERY_BROKER_URL',
-    default='redis://127.0.0.1:6379/0'
+    default='memory://' if _USE_MEMORY_BROKER_IN_DEBUG else _LOCAL_DEFAULT_CELERY_BROKER
 )
 
 CELERY_RESULT_BACKEND = config(
     'CELERY_RESULT_BACKEND',
-    default=CELERY_BROKER_URL
+    default='cache+memory://' if CELERY_BROKER_URL == 'memory://' else CELERY_BROKER_URL
 )
 
 CELERY_ACCEPT_CONTENT = ['json']
