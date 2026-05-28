@@ -6,6 +6,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All User Records | IHMS</title>
     <link rel="stylesheet" href="{% static 'css/web_app.css' %}">
+    <style>
+        .admin-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .admin-card {
+            background: #f8fbff;
+            border: 1px solid #d8e8fb;
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        .admin-card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1rem;
+        }
+        .admin-card p {
+            margin: 0 0 0.8rem;
+            color: #47627f;
+            font-size: 0.88rem;
+        }
+        .admin-card label {
+            display: block;
+            font-size: 0.78rem;
+            margin: 0.55rem 0 0.2rem;
+            color: #315072;
+            font-weight: 600;
+        }
+        .admin-card input,
+        .admin-card textarea,
+        .admin-card select {
+            width: 100%;
+            border: 1px solid #b7d0ec;
+            border-radius: 8px;
+            padding: 0.5rem 0.7rem;
+            font-size: 0.85rem;
+            box-sizing: border-box;
+            background: #fff;
+        }
+        .admin-card textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+        .admin-card select[multiple] {
+            min-height: 140px;
+        }
+        .is-hidden {
+            display: none;
+        }
+        .admin-card .submit-btn {
+            margin-top: 0.8rem;
+            width: 100%;
+            border: 0;
+            background: #0f4c81;
+            color: #fff;
+            border-radius: 8px;
+            padding: 0.55rem 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .alert-box {
+            border-radius: 10px;
+            padding: 0.75rem 0.9rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        .alert-success {
+            background: #d8f9ea;
+            border: 1px solid #64d9a4;
+            color: #0d6d43;
+        }
+        .alert-error {
+            background: #ffe3e3;
+            border: 1px solid #f3a1a1;
+            color: #8b1e1e;
+        }
+        .records-table th,
+        .records-table td {
+            vertical-align: top;
+        }
+        .row-actions {
+            display: grid;
+            gap: 0.45rem;
+            min-width: 300px;
+        }
+        .action-form {
+            display: flex;
+            gap: 0.35rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .action-form input,
+        .action-form select,
+        .action-form textarea {
+            border: 1px solid #b7d0ec;
+            border-radius: 7px;
+            padding: 0.32rem 0.45rem;
+            font-size: 0.78rem;
+        }
+        .action-form textarea {
+            width: 100%;
+            min-height: 54px;
+            resize: vertical;
+        }
+        .action-form .tiny {
+            width: 90px;
+        }
+        .action-form .wide {
+            width: 130px;
+        }
+        .action-btn {
+            border: 0;
+            border-radius: 7px;
+            padding: 0.33rem 0.5rem;
+            font-size: 0.74rem;
+            color: #fff;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .btn-grant { background: #0a7d46; }
+        .btn-reject { background: #b45019; }
+        .btn-role { background: #4b57b9; }
+        .btn-edit { background: #16617c; }
+        .btn-remove { background: #b12929; }
+        .btn-notify { background: #6f3db3; }
+        .muted {
+            font-size: 0.75rem;
+            color: #5c7fa1;
+        }
+    </style>
 </head>
 <body>
     <div class="app-layout">
@@ -30,8 +161,8 @@
         <main class="app-main">
             <header class="topbar">
                 <div>
-                    <h1>All User Records</h1>
-                    <p>Single project location for every stored user account and linked doctor or patient profile details.</p>
+                    <h1>All User Records and Authority Control</h1>
+                    <p>Admin can edit users, remove users, grant or reject access, change authority role, and send notifications to selected or all users.</p>
                 </div>
                 <div class="topbar-actions">
                     <a href="/admin/accounts/user/" class="logout-btn" target="_blank" rel="noopener">Open Django Admin</a>
@@ -40,6 +171,89 @@
             </header>
 
             <section class="content">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert-box {% if message.tags == 'success' %}alert-success{% else %}alert-error{% endif %}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="admin-actions">
+                    <article class="admin-card">
+                        <h3>Bulk Notification Center</h3>
+                        <p>Send one announcement to selected users (checkbox rows) or all users.</p>
+                        <form method="post" id="bulkNotifyForm">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="send_notification_bulk">
+                            <label for="recipient_scope">Recipient Scope</label>
+                            <select id="recipient_scope" name="recipient_scope">
+                                <option value="selected">Selected Users</option>
+                                <option value="all">All Users</option>
+                                <option value="department">Department</option>
+                                <option value="users">Specific Users</option>
+                            </select>
+
+                            <div id="departmentTargetGroup" class="bulk-target-group is-hidden">
+                                <label for="target_department">Department</label>
+                                <select id="target_department" name="target_department">
+                                    <option value="">Choose department</option>
+                                    {% for department in department_choices %}
+                                        <option value="{{ department }}">{{ department }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div id="usersTargetGroup" class="bulk-target-group is-hidden">
+                                <label for="bulk_user_ids">Specific Users</label>
+                                <select id="bulk_user_ids" name="bulk_user_ids" multiple>
+                                    {% for user_item in user_choices %}
+                                        <option value="{{ user_item.id }}">{{ user_item.label }}</option>
+                                    {% endfor %}
+                                </select>
+                                <p class="muted">Use Ctrl (Windows) or Cmd (Mac) to select multiple users.</p>
+                            </div>
+
+                            <label for="bulk_title">Notification Title</label>
+                            <input id="bulk_title" type="text" name="title" placeholder="System update" required>
+
+                            <label for="bulk_message">Notification Message</label>
+                            <textarea id="bulk_message" name="message" placeholder="Write details to send..." required></textarea>
+
+                            <label for="bulk_type">Type</label>
+                            <select id="bulk_type" name="notification_type">
+                                {% for value, label in notification_type_choices %}
+                                    <option value="{{ value }}">{{ label }}</option>
+                                {% endfor %}
+                            </select>
+
+                            <label for="bulk_priority">Priority</label>
+                            <select id="bulk_priority" name="priority">
+                                {% for value, label in priority_choices %}
+                                    <option value="{{ value }}">{{ label }}</option>
+                                {% endfor %}
+                            </select>
+
+                            <button type="submit" class="submit-btn">Send Notification</button>
+                        </form>
+                    </article>
+
+                    <article class="admin-card">
+                        <h3>Authority Guide</h3>
+                        <p>Every row has direct admin control actions.</p>
+                        <p class="muted">
+                            1. Grant Access: activate and verify user.<br>
+                            2. Reject Access: deactivate user login.<br>
+                            3. Change Role: switch authority/permission role.<br>
+                            4. Edit: update profile details quickly.<br>
+                            5. Remove: soft-delete user from active records.<br>
+                            6. Notify: send direct notification to one user.
+                        </p>
+                        <label>
+                            <input type="checkbox" id="selectAllRows"> Select all visible users
+                        </label>
+                        <p class="muted">When "Selected Users" scope is used, checked users receive the bulk notification.</p>
+                    </article>
+                </div>
+
                 <div class="kpi-grid">
                     <article class="kpi"><h3>{{ total_users }}</h3><p>Total Users</p></article>
                     <article class="kpi"><h3>{{ doctor_count }}</h3><p>Doctor Profiles</p></article>
@@ -59,29 +273,105 @@
                                 <table class="records-table">
                                     <thead>
                                         <tr>
+                                            <th>Select</th>
+                                            <th>Name</th>
                                             <th>Username</th>
                                             <th>Email</th>
                                             <th>Phone</th>
+                                            <th>Role</th>
                                             <th>Patient ID</th>
                                             <th>Patient Status</th>
                                             <th>Department</th>
                                             <th>Specialization</th>
                                             <th>Verified</th>
                                             <th>Active</th>
+                                            <th>Admin Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {% for record in group.records %}
                                             <tr>
+                                                <td>
+                                                    <input type="checkbox" class="user-select" value="{{ record.id }}">
+                                                </td>
+                                                <td>{{ record.full_name }}</td>
                                                 <td>{{ record.username }}</td>
                                                 <td>{{ record.email }}</td>
                                                 <td>{{ record.phone_number }}</td>
+                                                <td>{{ record.role|title }}</td>
                                                 <td>{{ record.patient_id }}</td>
                                                 <td>{{ record.patient_status }}</td>
                                                 <td>{{ record.doctor_department }}</td>
                                                 <td>{{ record.doctor_specialization }}</td>
                                                 <td>{% if record.is_verified %}Yes{% else %}No{% endif %}</td>
                                                 <td>{% if record.is_active %}Yes{% else %}No{% endif %}</td>
+                                                <td>
+                                                    <div class="row-actions">
+                                                        <form method="post" class="action-form">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="action" value="grant_access">
+                                                            <input type="hidden" name="target_user_id" value="{{ record.id }}">
+                                                            <button type="submit" class="action-btn btn-grant">Give Access</button>
+                                                        </form>
+
+                                                        <form method="post" class="action-form">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="action" value="reject_access">
+                                                            <input type="hidden" name="target_user_id" value="{{ record.id }}">
+                                                            <button type="submit" class="action-btn btn-reject">Reject Access</button>
+                                                        </form>
+
+                                                        <form method="post" class="action-form">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="action" value="change_role">
+                                                            <input type="hidden" name="target_user_id" value="{{ record.id }}">
+                                                            <select name="new_role" class="wide">
+                                                                {% for value, label in role_choices %}
+                                                                    <option value="{{ value }}" {% if value == record.role %}selected{% endif %}>{{ label }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                            <button type="submit" class="action-btn btn-role">Change Authority</button>
+                                                        </form>
+
+                                                        <form method="post" class="action-form">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="action" value="edit_user">
+                                                            <input type="hidden" name="target_user_id" value="{{ record.id }}">
+                                                            <input class="tiny" type="text" name="first_name" placeholder="First" value="{{ record.first_name }}">
+                                                            <input class="tiny" type="text" name="last_name" placeholder="Last" value="{{ record.last_name }}">
+                                                            <input class="wide" type="text" name="username" placeholder="Username" value="{{ record.username }}">
+                                                            <input class="wide" type="email" name="email" placeholder="Email" value="{{ record.email }}">
+                                                            <input class="wide" type="text" name="phone_number" placeholder="Phone" value="{{ record.phone_number }}">
+                                                            <button type="submit" class="action-btn btn-edit">Edit</button>
+                                                        </form>
+
+                                                        <form method="post" class="action-form" onsubmit="return confirm('Remove this user from active records?');">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="action" value="remove_user">
+                                                            <input type="hidden" name="target_user_id" value="{{ record.id }}">
+                                                            <button type="submit" class="action-btn btn-remove">Remove</button>
+                                                        </form>
+
+                                                        <form method="post" class="action-form">
+                                                            {% csrf_token %}
+                                                            <input type="hidden" name="action" value="send_notification_user">
+                                                            <input type="hidden" name="target_user_id" value="{{ record.id }}">
+                                                            <input class="wide" type="text" name="title" placeholder="Notification title" required>
+                                                            <select name="notification_type" class="tiny">
+                                                                {% for value, label in notification_type_choices %}
+                                                                    <option value="{{ value }}">{{ label }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                            <select name="priority" class="tiny">
+                                                                {% for value, label in priority_choices %}
+                                                                    <option value="{{ value }}">{{ label }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                            <textarea name="message" placeholder="Message to this user" required></textarea>
+                                                            <button type="submit" class="action-btn btn-notify">Send</button>
+                                                        </form>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         {% endfor %}
                                     </tbody>
@@ -95,5 +385,89 @@
             </section>
         </main>
     </div>
+
+    <script>
+        (function () {
+            function readCookie(name) {
+                const cookieValue = `; ${document.cookie}`;
+                const parts = cookieValue.split(`; ${name}=`);
+                if (parts.length === 2) {
+                    return parts.pop().split(';').shift();
+                }
+                return '';
+            }
+
+            function syncCsrfTokens() {
+                const cookieToken = readCookie('csrftoken');
+                if (!cookieToken) {
+                    return;
+                }
+                document.querySelectorAll('input[name="csrfmiddlewaretoken"]').forEach(function (input) {
+                    input.value = cookieToken;
+                });
+            }
+
+            const selectAll = document.getElementById('selectAllRows');
+            const checkboxes = Array.from(document.querySelectorAll('.user-select'));
+            const bulkForm = document.getElementById('bulkNotifyForm');
+            const recipientScope = document.getElementById('recipient_scope');
+            const departmentTargetGroup = document.getElementById('departmentTargetGroup');
+            const usersTargetGroup = document.getElementById('usersTargetGroup');
+
+            function syncRecipientScopeFields() {
+                if (!recipientScope) {
+                    return;
+                }
+                const scope = recipientScope.value;
+                if (departmentTargetGroup) {
+                    departmentTargetGroup.classList.toggle('is-hidden', scope !== 'department');
+                }
+                if (usersTargetGroup) {
+                    usersTargetGroup.classList.toggle('is-hidden', scope !== 'users');
+                }
+            }
+
+            if (selectAll) {
+                selectAll.addEventListener('change', function () {
+                    checkboxes.forEach(function (box) {
+                        box.checked = selectAll.checked;
+                    });
+                });
+            }
+
+            if (bulkForm) {
+                syncRecipientScopeFields();
+                if (recipientScope) {
+                    recipientScope.addEventListener('change', syncRecipientScopeFields);
+                }
+
+                bulkForm.addEventListener('submit', function () {
+                    syncCsrfTokens();
+                    const existingHidden = bulkForm.querySelectorAll('input[name="selected_user_ids"]');
+                    existingHidden.forEach(function (item) {
+                        item.remove();
+                    });
+
+                    checkboxes.filter(function (box) {
+                        return box.checked;
+                    }).forEach(function (box) {
+                        const hidden = document.createElement('input');
+                        hidden.type = 'hidden';
+                        hidden.name = 'selected_user_ids';
+                        hidden.value = box.value;
+                        bulkForm.appendChild(hidden);
+                    });
+                });
+            }
+
+            document.querySelectorAll('form[method="post"]').forEach(function (form) {
+                form.addEventListener('submit', function () {
+                    syncCsrfTokens();
+                });
+            });
+
+            syncCsrfTokens();
+        })();
+    </script>
 </body>
 </html>

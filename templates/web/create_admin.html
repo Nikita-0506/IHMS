@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Admin | IHMS</title>
+    <link rel="stylesheet" href="{% static 'css/web_app.css' %}">
+    <style>
+        .form-card {
+            background: var(--panel-bg, #1e2a3a);
+            border: 1px solid var(--border, #2c3e55);
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            max-width: 560px;
+        }
+        .form-card h2 {
+            margin: 0 0 0.25rem;
+            font-size: 1.3rem;
+            color: var(--text-primary, #e2e8f0);
+        }
+        .form-card p.sub {
+            margin: 0 0 1.75rem;
+            font-size: 0.85rem;
+            color: var(--text-muted, #94a3b8);
+        }
+        .field-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .field-group.full { grid-template-columns: 1fr; }
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .field label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted, #94a3b8);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .field input {
+            background: var(--input-bg, #131d2b);
+            border: 1px solid var(--border, #2c3e55);
+            border-radius: 7px;
+            color: var(--text-primary, #e2e8f0);
+            padding: 0.55rem 0.85rem;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .field input:focus { border-color: #3b82f6; }
+        .field .err {
+            font-size: 0.78rem;
+            color: #f87171;
+            margin-top: 0.15rem;
+        }
+        .field input.invalid { border-color: #f87171; }
+        .btn-submit {
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 0.7rem;
+            background: #3b82f6;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-submit:hover { background: #2563eb; }
+        .alert-success {
+            background: #064e3b;
+            border: 1px solid #10b981;
+            color: #6ee7b7;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+        }
+        .alert-error {
+            background: #450a0a;
+            border: 1px solid #ef4444;
+            color: #fca5a5;
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+        }
+        .admin-badge {
+            display: inline-block;
+            background: #1e3a5f;
+            color: #60a5fa;
+            border: 1px solid #3b82f6;
+            border-radius: 20px;
+            padding: 0.2rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">IHMS</div>
+            <div class="brand-sub">Admin Control Panel</div>
+
+            <div class="user-card">
+                <div class="user-name">{{ display_name }}</div>
+                <div class="user-role">{{ user_role }}</div>
+            </div>
+
+            <div class="nav-title">Navigation</div>
+            <a class="nav-item" href="{% url 'web-dashboard' %}">Unified Dashboard</a>
+            <a class="nav-item" href="{% url 'web-user-records' %}">All User Records</a>
+            <a class="nav-item active" href="{% url 'web-create-admin' %}">Create Admin</a>
+            {% for module in modules %}
+                <a class="nav-item" href="{{ module.route_url }}">{{ module.name }}</a>
+            {% endfor %}
+
+            <div class="nav-title">Shortcuts</div>
+            <a class="nav-item" href="/swagger/" target="_blank" rel="noopener">Swagger UI</a>
+            <a class="nav-item" href="/admin/" target="_blank" rel="noopener">Admin Console</a>
+            <a class="nav-item" href="{% url 'web-logout' %}">Logout</a>
+        </aside>
+
+        <main class="app-main">
+            <header class="topbar">
+                <div>
+                    <h1>Create Admin Account</h1>
+                    <p>Provision a new administrator with full system access and superuser privileges.</p>
+                </div>
+                <div class="topbar-actions">
+                    <a href="{% url 'web-user-records' %}" class="logout-btn">All User Records</a>
+                    <a href="{% url 'web-dashboard' %}" class="logout-btn">Back To Dashboard</a>
+                </div>
+            </header>
+
+            <section class="content">
+
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <div class="alert-success">{{ message }}</div>
+                        {% else %}
+                            <div class="alert-error">{{ message }}</div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                <div class="form-card">
+                    <div class="admin-badge">ADMIN ROLE</div>
+                    <h2>New Administrator</h2>
+                    <p class="sub">This account will have full access to all modules, user management, and system settings.</p>
+
+                    <form method="post" autocomplete="off" novalidate>
+                        {% csrf_token %}
+
+                        <div class="field-group">
+                            <div class="field">
+                                <label for="id_first_name">First Name</label>
+                                <input
+                                    type="text"
+                                    id="id_first_name"
+                                    name="first_name"
+                                    placeholder="e.g. Nikita"
+                                    value="{{ form_data.first_name|default:'' }}"
+                                    class="{% if errors.first_name %}invalid{% endif %}"
+                                    required
+                                >
+                                {% if errors.first_name %}<span class="err">{{ errors.first_name }}</span>{% endif %}
+                            </div>
+                            <div class="field">
+                                <label for="id_last_name">Last Name</label>
+                                <input
+                                    type="text"
+                                    id="id_last_name"
+                                    name="last_name"
+                                    placeholder="e.g. Pachkate"
+                                    value="{{ form_data.last_name|default:'' }}"
+                                    class="{% if errors.last_name %}invalid{% endif %}"
+                                    required
+                                >
+                                {% if errors.last_name %}<span class="err">{{ errors.last_name }}</span>{% endif %}
+                            </div>
+                        </div>
+
+                        <div class="field-group full">
+                            <div class="field">
+                                <label for="id_email">Email Address</label>
+                                <input
+                                    type="email"
+                                    id="id_email"
+                                    name="email"
+                                    placeholder="e.g. admin@hospital.com"
+                                    value="{{ form_data.email|default:'' }}"
+                                    class="{% if errors.email %}invalid{% endif %}"
+                                    required
+                                >
+                                {% if errors.email %}<span class="err">{{ errors.email }}</span>{% endif %}
+                            </div>
+                        </div>
+
+                        <div class="field-group full">
+                            <div class="field">
+                                <label for="id_username">Username</label>
+                                <input
+                                    type="text"
+                                    id="id_username"
+                                    name="username"
+                                    placeholder="e.g. nikita_admin"
+                                    value="{{ form_data.username|default:'' }}"
+                                    class="{% if errors.username %}invalid{% endif %}"
+                                    required
+                                >
+                                {% if errors.username %}<span class="err">{{ errors.username }}</span>{% endif %}
+                            </div>
+                        </div>
+
+                        <div class="field-group full">
+                            <div class="field">
+                                <label for="id_phone">Phone Number (optional)</label>
+                                <input
+                                    type="text"
+                                    id="id_phone"
+                                    name="phone_number"
+                                    placeholder="e.g. +919876543210"
+                                    value="{{ form_data.phone_number|default:'' }}"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field">
+                                <label for="id_password">Password</label>
+                                <input
+                                    type="password"
+                                    id="id_password"
+                                    name="password"
+                                    placeholder="Min 8 characters"
+                                    class="{% if errors.password %}invalid{% endif %}"
+                                    required
+                                >
+                                {% if errors.password %}<span class="err">{{ errors.password }}</span>{% endif %}
+                            </div>
+                            <div class="field">
+                                <label for="id_confirm">Confirm Password</label>
+                                <input
+                                    type="password"
+                                    id="id_confirm"
+                                    name="confirm_password"
+                                    placeholder="Re-enter password"
+                                    class="{% if errors.confirm_password %}invalid{% endif %}"
+                                    required
+                                >
+                                {% if errors.confirm_password %}<span class="err">{{ errors.confirm_password }}</span>{% endif %}
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Create Admin Account</button>
+                    </form>
+                </div>
+
+            </section>
+        </main>
+    </div>
+</body>
+<script>
+    (function () {
+        function readCookie(name) {
+            const cookieValue = `; ${document.cookie}`;
+            const parts = cookieValue.split(`; ${name}=`);
+            if (parts.length === 2) {
+                return parts.pop().split(';').shift();
+            }
+            return '';
+        }
+
+        function syncCsrfTokens() {
+            const cookieToken = readCookie('csrftoken');
+            if (!cookieToken) {
+                return;
+            }
+            document.querySelectorAll('input[name="csrfmiddlewaretoken"]').forEach(function (input) {
+                input.value = cookieToken;
+            });
+        }
+
+        document.querySelectorAll('form[method="post"]').forEach(function (form) {
+            form.addEventListener('submit', function () {
+                syncCsrfTokens();
+            });
+        });
+
+        syncCsrfTokens();
+    })();
+</script>
+</html>

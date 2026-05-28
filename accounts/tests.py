@@ -45,7 +45,8 @@ class AuthenticationTestCase(APITestCase):
 
         self.assertEqual(
             response.status_code,
-            status.HTTP_201_CREATED
+            status.HTTP_201_CREATED,
+            response.data
         )
 
         self.assertTrue(
@@ -69,7 +70,7 @@ class AuthenticationTestCase(APITestCase):
 
             password='StrongPassword@123',
 
-            role='admin'
+            role='doctor'
         )
 
         duplicate_data = {
@@ -95,6 +96,69 @@ class AuthenticationTestCase(APITestCase):
             response.status_code,
             status.HTTP_400_BAD_REQUEST
         )
+
+    # =========================================
+    # RE-REGISTER SOFT-DELETED USER TEST
+    # =========================================
+
+    def test_soft_deleted_user_can_register_again(self):
+
+        requester = User.objects.create_user(
+
+            username='request_admin',
+
+            email='request_admin@gmail.com',
+
+            password='StrongPassword@123',
+
+            role='admin'
+        )
+
+        self.client.force_authenticate(user=requester)
+
+        deleted_user = User.objects.create_user(
+
+            username='deleted_user',
+
+            email='deleted@gmail.com',
+
+            password='StrongPassword@123',
+
+            role='admin'
+        )
+
+        deleted_user.is_deleted = True
+        deleted_user.is_active = False
+        deleted_user.save(update_fields=['is_deleted', 'is_active', 'updated_at'])
+
+        payload = {
+
+            "username": "deleted_user",
+
+            "email": "deleted@gmail.com",
+
+            "password": "StrongPassword@123",
+
+            "password2": "StrongPassword@123",
+
+            "role": "doctor"
+        }
+
+        response = self.client.post(
+            self.register_url,
+            payload,
+            format='json'
+        )
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_201_CREATED,
+            f"Unexpected response: {response.data}"
+        )
+
+        deleted_user.refresh_from_db()
+        self.assertFalse(deleted_user.is_deleted)
+        self.assertTrue(deleted_user.is_active)
 
     # =========================================
     # PASSWORD MISMATCH TEST

@@ -154,6 +154,25 @@
 
     <script>
         (function () {
+            function readCookie(name) {
+                const cookieValue = `; ${document.cookie}`;
+                const parts = cookieValue.split(`; ${name}=`);
+                if (parts.length === 2) {
+                    return parts.pop().split(';').shift();
+                }
+                return '';
+            }
+
+            function syncCsrfTokens() {
+                const cookieToken = readCookie('csrftoken');
+                if (!cookieToken) {
+                    return;
+                }
+                document.querySelectorAll('input[name="csrfmiddlewaretoken"]').forEach(function (input) {
+                    input.value = cookieToken;
+                });
+            }
+
             const loginTabBtn = document.getElementById('loginTabBtn');
             const registerTabBtn = document.getElementById('registerTabBtn');
             const loginPanel = document.getElementById('loginPanel');
@@ -192,6 +211,13 @@
                 });
             });
 
+            document.querySelectorAll('form[method="post"]').forEach(function (form) {
+                form.addEventListener('submit', function () {
+                    syncCsrfTokens();
+                });
+            });
+
+            syncCsrfTokens();
             setTab('{% if active_tab == "register" %}register{% else %}login{% endif %}');
         })();
     </script>

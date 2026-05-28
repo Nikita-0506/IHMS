@@ -127,6 +127,8 @@ CSRF_COOKIE_SECURE = config(
     cast=bool,
 )
 
+CSRF_FAILURE_VIEW = 'accounts.views.web_csrf_failure'
+
 # Security Headers
 
 SECURE_BROWSER_XSS_FILTER = True
@@ -397,6 +399,7 @@ REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
 
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 

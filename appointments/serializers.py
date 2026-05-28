@@ -4,6 +4,11 @@ from django.utils.timezone import now
 from .models import Appointment
 
 
+def _user_display_name(user):
+    full_name = user.get_full_name().strip()
+    return full_name or user.username or user.email
+
+
 class AppointmentCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -57,13 +62,15 @@ class AppointmentCreateSerializer(serializers.ModelSerializer):
 
 class AppointmentListSerializer(serializers.ModelSerializer):
 
-    patient_name = serializers.CharField(
-        source='patient.user.username'
-    )
+    patient_name = serializers.SerializerMethodField()
 
-    doctor_name = serializers.CharField(
-        source='doctor.user.username'
-    )
+    doctor_name = serializers.SerializerMethodField()
+
+    def get_patient_name(self, obj):
+        return _user_display_name(obj.patient.user)
+
+    def get_doctor_name(self, obj):
+        return _user_display_name(obj.doctor.user)
 
     class Meta:
 
@@ -82,11 +89,68 @@ class AppointmentListSerializer(serializers.ModelSerializer):
 
 class AppointmentDetailSerializer(serializers.ModelSerializer):
 
+    patient_name = serializers.SerializerMethodField()
+
+    doctor_name = serializers.SerializerMethodField()
+
+    patient_medical_history = serializers.CharField(
+        source='patient.medical_history',
+        read_only=True,
+    )
+
+    patient_history_with_doctor = serializers.SerializerMethodField()
+
+    def get_patient_name(self, obj):
+        return _user_display_name(obj.patient.user)
+
+    def get_doctor_name(self, obj):
+        return _user_display_name(obj.doctor.user)
+
+    def get_patient_history_with_doctor(self, obj):
+        history_qs = Appointment.objects.filter(
+            patient=obj.patient,
+            doctor=obj.doctor,
+            is_deleted=False,
+        ).exclude(id=obj.id).order_by('-date', '-time')[:10]
+
+        return [
+            {
+                'id': str(item.id),
+                'date': item.date,
+                'time': item.time,
+                'status': item.status,
+                'symptoms': item.symptoms,
+                'notes': item.notes,
+            }
+            for item in history_qs
+        ]
+
     class Meta:
 
         model = Appointment
 
-        fields = '__all__'
+        fields = (
+            'id',
+            'patient',
+            'doctor',
+            'appointment_type',
+            'date',
+            'time',
+            'symptoms',
+            'notes',
+            'meeting_link',
+            'status',
+            'priority_level',
+            'is_deleted',
+            'created_by',
+            'updated_by',
+            'created_at',
+            'updated_at',
+            'patient_name',
+            'doctor_name',
+            'patient_medical_history',
+            'patient_history_with_doctor',
+        )
 
 
 class AppointmentUpdateSerializer(serializers.ModelSerializer):

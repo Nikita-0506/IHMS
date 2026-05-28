@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from accounts.views import web_login, web_admin_login, web_dashboard, web_user_records, web_module_view, web_logout
+from accounts.views import web_login, web_admin_login, web_dashboard, web_user_records, web_module_view, web_logout, web_create_admin
 from api.permissions.swagger_permission import IsSwaggerAdmin
 
 schema_view = get_schema_view(
@@ -61,6 +61,12 @@ urlpatterns = [
         'dashboard/users/',
         web_user_records,
         name='web-user-records'
+    ),
+
+    path(
+        'dashboard/create-admin/',
+        web_create_admin,
+        name='web-create-admin'
     ),
 
     path(

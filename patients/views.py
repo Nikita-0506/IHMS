@@ -54,7 +54,7 @@ class PatientListCreateView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ['gender', 'blood_group']
-    search_fields = ['patient_id', 'user__username']
+    search_fields = ['patient_id', 'user__username', 'user__first_name', 'user__last_name', 'user__email']
     ordering_fields = ['created_at', 'updated_at']
     ordering = ['-created_at']
 

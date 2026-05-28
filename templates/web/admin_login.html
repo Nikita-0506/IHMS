@@ -72,6 +72,25 @@
 
     <script>
         (function () {
+            function readCookie(name) {
+                const cookieValue = `; ${document.cookie}`;
+                const parts = cookieValue.split(`; ${name}=`);
+                if (parts.length === 2) {
+                    return parts.pop().split(';').shift();
+                }
+                return '';
+            }
+
+            function syncCsrfTokens() {
+                const cookieToken = readCookie('csrftoken');
+                if (!cookieToken) {
+                    return;
+                }
+                document.querySelectorAll('input[name="csrfmiddlewaretoken"]').forEach(function (input) {
+                    input.value = cookieToken;
+                });
+            }
+
             document.querySelectorAll('.password-toggle').forEach(function (toggleBtn) {
                 const fieldId = toggleBtn.getAttribute('data-toggle');
                 const field = document.getElementById(fieldId);
@@ -88,6 +107,14 @@
                     toggleBtn.setAttribute('title', showPassword ? 'Hide password' : 'Show password');
                 });
             });
+
+            document.querySelectorAll('form[method="post"]').forEach(function (form) {
+                form.addEventListener('submit', function () {
+                    syncCsrfTokens();
+                });
+            });
+
+            syncCsrfTokens();
         })();
     </script>
 </body>

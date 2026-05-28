@@ -4,8 +4,12 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
 from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.middleware.csrf import rotate_token
 from pathlib import Path
 import re
+import uuid
 
 from rest_framework import generics
 from rest_framework.views import APIView
@@ -16,6 +20,7 @@ from .serializers import RegisterSerializer
 from .models import User
 from doctors.models import Doctor
 from patients.models import Patient
+from notifications.models import Notification
 
 from rest_framework_simplejwt.views import TokenObtainPairView
 
@@ -359,6 +364,26 @@ def _get_docker_services():
     return services
 
 
+def _get_display_name(user):
+    """Return a human-friendly display name with role-based prefix."""
+    full_name = user.get_full_name().strip()
+    if not full_name:
+        # Try building from first/last individually
+        parts = [p for p in (user.first_name.strip(), user.last_name.strip()) if p]
+        full_name = ' '.join(parts)
+    if full_name:
+        role_prefixes = {
+            'doctor': 'Dr.',
+            'admin': 'Admin',
+        }
+        prefix = role_prefixes.get(user.role)
+        if prefix and not full_name.startswith(prefix):
+            return f"{prefix} {full_name}"
+        return full_name
+    # Fall back to username, then email
+    return user.username or user.email
+
+
 def _enrich_modules(modules):
     enriched = []
     for module in modules:
@@ -373,7 +398,7 @@ def _enrich_modules(modules):
 
 
 def _build_role_directory():
-    users = User.objects.all().select_related('doctor_profile', 'patient_profile').order_by('role', 'username', 'email')
+    users = User.objects.filter(is_deleted=False).select_related('doctor_profile', 'patient_profile').order_by('role', 'username', 'email')
     grouped = []
 
     for role_value, role_label in User.ROLE_CHOICES:
@@ -386,6 +411,11 @@ def _build_role_directory():
 
             records.append(
                 {
+                    'id': str(user.id),
+                    'first_name': user.first_name or '',
+                    'last_name': user.last_name or '',
+                    'full_name': user.get_full_name().strip() or '-',
+                    'role': user.role,
                     'username': user.username or '-',
                     'email': user.email,
                     'phone_number': user.phone_number or '-',
@@ -477,6 +507,17 @@ def _authenticate_by_username_or_email(request, identifier, password):
     return authenticate(request, email=identifier.lower(), password=password)
 
 
+@never_cache
+@ensure_csrf_cookie
+def web_csrf_failure(request, reason=''):
+    # Regenerate CSRF token and return users to a safe entry page.
+    rotate_token(request)
+    messages.error(request, 'Your session token expired. Please try signing in again.')
+    return redirect('web-login')
+
+
+@never_cache
+@ensure_csrf_cookie
 def web_login(request):
 
     if request.user.is_authenticated:
@@ -502,19 +543,57 @@ def web_login(request):
                 messages.error(request, 'Passwords do not match.')
             elif role == 'admin':
                 messages.error(request, 'Admin account cannot be created from public sign up.')
-            elif User.objects.filter(email=email).exists():
+            elif User.objects.filter(email=email, is_deleted=False).exists():
                 messages.error(request, 'An account with this email already exists.')
-            elif User.objects.filter(username=username).exists():
+            elif User.objects.filter(username=username, is_deleted=False).exists():
                 messages.error(request, 'This username is already taken.')
             else:
                 try:
+                    deleted_email_user = User.objects.filter(email=email, is_deleted=True).first()
+                    deleted_username_user = User.objects.filter(username=username, is_deleted=True).first()
+
+                    if (
+                        deleted_email_user
+                        and deleted_username_user
+                        and deleted_email_user.id != deleted_username_user.id
+                    ):
+                        messages.error(
+                            request,
+                            'Email and username belong to different deleted accounts. Use a different username or email.',
+                        )
+                        return redirect('web-login')
+
                     validate_password(password)
-                    User.objects.create_user(
-                        username=username,
-                        email=email,
-                        password=password,
-                        role=role,
-                    )
+
+                    deleted_user = deleted_email_user or deleted_username_user
+
+                    if deleted_user is not None:
+                        deleted_user.username = username
+                        deleted_user.email = email
+                        deleted_user.role = role
+                        deleted_user.is_deleted = False
+                        deleted_user.is_active = True
+                        deleted_user.is_verified = False
+                        deleted_user.set_password(password)
+                        deleted_user.save(
+                            update_fields=[
+                                'username',
+                                'email',
+                                'role',
+                                'is_deleted',
+                                'is_active',
+                                'is_verified',
+                                'password',
+                                'updated_at',
+                            ]
+                        )
+                    else:
+                        User.objects.create_user(
+                            username=username,
+                            email=email,
+                            password=password,
+                            role=role,
+                        )
                     messages.success(request, 'Account created successfully. Please sign in.')
                     active_tab = 'login'
                 except ValidationError as exc:
@@ -545,6 +624,8 @@ def web_login(request):
     )
 
 
+@never_cache
+@ensure_csrf_cookie
 def web_admin_login(request):
 
     if request.user.is_authenticated and request.user.role == 'admin':
@@ -580,7 +661,7 @@ def web_dashboard(request):
 
     role = request.user.role
     modules = _enrich_modules(ROLE_DASHBOARD_MODULES.get(role, []))
-    display_name = request.user.get_full_name().strip() or request.user.email
+    display_name = _get_display_name(request.user)
     docker_services = _get_docker_services()
 
     if docker_services and role == 'admin':
@@ -612,6 +693,8 @@ def web_dashboard(request):
 
 
 @login_required
+@never_cache
+@ensure_csrf_cookie
 def web_user_records(request):
 
     if request.user.role != 'admin':
@@ -619,20 +702,229 @@ def web_user_records(request):
         return redirect('web-dashboard')
 
     modules = _enrich_modules(ROLE_DASHBOARD_MODULES.get('admin', []))
+
+    if request.method == 'POST':
+        action = (request.POST.get('action') or '').strip()
+        target_user_id = (request.POST.get('target_user_id') or '').strip()
+
+        def _resolve_target_user():
+            if not target_user_id:
+                return None
+            try:
+                parsed_id = uuid.UUID(target_user_id)
+            except ValueError:
+                return None
+            return User.objects.filter(id=parsed_id, is_deleted=False).first()
+
+        if action in {'grant_access', 'reject_access', 'remove_user', 'change_role', 'edit_user', 'send_notification_user'}:
+            target_user = _resolve_target_user()
+            if target_user is None:
+                messages.error(request, 'Target user not found.')
+                return redirect('web-user-records')
+
+            if action == 'grant_access':
+                target_user.is_active = True
+                target_user.is_verified = True
+                target_user.is_deleted = False
+                target_user.save(update_fields=['is_active', 'is_verified', 'is_deleted', 'updated_at'])
+                messages.success(request, f'Access granted for {target_user.email}.')
+
+            elif action == 'reject_access':
+                if target_user.id == request.user.id:
+                    messages.error(request, 'You cannot reject your own access.')
+                    return redirect('web-user-records')
+                target_user.is_active = False
+                target_user.save(update_fields=['is_active', 'updated_at'])
+                messages.success(request, f'Access rejected for {target_user.email}.')
+
+            elif action == 'remove_user':
+                if target_user.id == request.user.id:
+                    messages.error(request, 'You cannot remove your own admin account.')
+                    return redirect('web-user-records')
+                target_user.is_active = False
+                target_user.is_verified = False
+                target_user.is_deleted = True
+                target_user.save(update_fields=['is_active', 'is_verified', 'is_deleted', 'updated_at'])
+                messages.success(request, f'User {target_user.email} was removed successfully.')
+
+            elif action == 'change_role':
+                new_role = (request.POST.get('new_role') or '').strip()
+                allowed_roles = {value for value, _ in User.ROLE_CHOICES}
+                if new_role not in allowed_roles:
+                    messages.error(request, 'Invalid role selected.')
+                    return redirect('web-user-records')
+
+                target_user.role = new_role
+                if new_role == 'admin':
+                    target_user.is_staff = True
+                    target_user.is_superuser = True
+                else:
+                    target_user.is_staff = False
+                    target_user.is_superuser = False
+                target_user.save(update_fields=['role', 'is_staff', 'is_superuser', 'updated_at'])
+                messages.success(request, f'Role updated to {new_role.replace("_", " ").title()} for {target_user.email}.')
+
+            elif action == 'edit_user':
+                first_name = (request.POST.get('first_name') or '').strip()
+                last_name = (request.POST.get('last_name') or '').strip()
+                username = (request.POST.get('username') or '').strip()
+                email = (request.POST.get('email') or '').strip().lower()
+                phone_number = (request.POST.get('phone_number') or '').strip()
+
+                if not username or not email:
+                    messages.error(request, 'Username and email are required to update user details.')
+                    return redirect('web-user-records')
+
+                if User.objects.filter(username=username).exclude(id=target_user.id).exists():
+                    messages.error(request, 'This username is already used by another user.')
+                    return redirect('web-user-records')
+
+                if User.objects.filter(email=email).exclude(id=target_user.id).exists():
+                    messages.error(request, 'This email is already used by another user.')
+                    return redirect('web-user-records')
+
+                target_user.first_name = first_name
+                target_user.last_name = last_name
+                target_user.username = username
+                target_user.email = email
+                target_user.phone_number = phone_number or None
+                target_user.save(update_fields=['first_name', 'last_name', 'username', 'email', 'phone_number', 'updated_at'])
+                messages.success(request, f'User profile updated for {target_user.email}.')
+
+            elif action == 'send_notification_user':
+                title = (request.POST.get('title') or '').strip()
+                body = (request.POST.get('message') or '').strip()
+                notification_type = (request.POST.get('notification_type') or 'system').strip()
+                priority = (request.POST.get('priority') or 'medium').strip()
+                valid_types = {value for value, _ in Notification.NOTIFICATION_TYPES}
+                valid_priorities = {value for value, _ in Notification.PRIORITY_LEVELS}
+
+                if not title or not body:
+                    messages.error(request, 'Notification title and message are required.')
+                    return redirect('web-user-records')
+                if notification_type not in valid_types:
+                    notification_type = 'system'
+                if priority not in valid_priorities:
+                    priority = 'medium'
+
+                Notification.objects.create(
+                    user=target_user,
+                    title=title,
+                    message=body,
+                    notification_type=notification_type,
+                    priority=priority,
+                    delivery_status='sent',
+                )
+                messages.success(request, f'Notification sent to {target_user.email}.')
+
+            return redirect('web-user-records')
+
+        if action == 'send_notification_bulk':
+            title = (request.POST.get('title') or '').strip()
+            body = (request.POST.get('message') or '').strip()
+            notification_type = (request.POST.get('notification_type') or 'system').strip()
+            priority = (request.POST.get('priority') or 'medium').strip()
+            recipient_scope = (request.POST.get('recipient_scope') or 'selected').strip()
+            selected_ids = request.POST.getlist('selected_user_ids')
+            explicit_user_ids = request.POST.getlist('bulk_user_ids')
+            target_department = (request.POST.get('target_department') or '').strip()
+
+            if not title or not body:
+                messages.error(request, 'Bulk notification requires title and message.')
+                return redirect('web-user-records')
+
+            valid_types = {value for value, _ in Notification.NOTIFICATION_TYPES}
+            valid_priorities = {value for value, _ in Notification.PRIORITY_LEVELS}
+            if notification_type not in valid_types:
+                notification_type = 'system'
+            if priority not in valid_priorities:
+                priority = 'medium'
+
+            def _parse_uuid_list(raw_ids):
+                valid_uuids = []
+                for raw_id in raw_ids:
+                    try:
+                        valid_uuids.append(uuid.UUID(raw_id))
+                    except ValueError:
+                        continue
+                return valid_uuids
+
+            if recipient_scope == 'all':
+                recipients = User.objects.filter(is_deleted=False)
+            elif recipient_scope == 'department':
+                if not target_department:
+                    recipients = User.objects.none()
+                else:
+                    recipients = User.objects.filter(
+                        is_deleted=False,
+                        doctor_profile__is_deleted=False,
+                        doctor_profile__department=target_department,
+                    ).distinct()
+            elif recipient_scope == 'users':
+                valid_uuids = _parse_uuid_list(explicit_user_ids)
+                recipients = User.objects.filter(id__in=valid_uuids, is_deleted=False)
+            else:
+                valid_uuids = _parse_uuid_list(selected_ids)
+                recipients = User.objects.filter(id__in=valid_uuids, is_deleted=False)
+
+            payload = [
+                Notification(
+                    user=user,
+                    title=title,
+                    message=body,
+                    notification_type=notification_type,
+                    priority=priority,
+                    delivery_status='sent',
+                )
+                for user in recipients
+            ]
+
+            if not payload:
+                messages.error(request, 'No valid recipients found for bulk notification.')
+                return redirect('web-user-records')
+
+            Notification.objects.bulk_create(payload)
+            messages.success(request, f'Notification sent to {len(payload)} user(s).')
+            return redirect('web-user-records')
+
+        messages.error(request, 'Unknown action requested.')
+        return redirect('web-user-records')
+
     role_directory = _build_role_directory()
     total_users = sum(group['count'] for group in role_directory)
+    department_choices = list(
+        Doctor.objects.filter(is_deleted=False)
+        .exclude(department__isnull=True)
+        .exclude(department__exact='')
+        .values_list('department', flat=True)
+        .distinct()
+        .order_by('department')
+    )
+    active_users = User.objects.filter(is_deleted=False).order_by('first_name', 'last_name', 'email')
+    user_choices = [
+        {
+            'id': str(user.id),
+            'label': f"{_get_display_name(user)} ({user.email})",
+        }
+        for user in active_users
+    ]
 
     return render(
         request,
         'web/user_records.html',
         {
-            'display_name': request.user.get_full_name().strip() or request.user.email,
+            'display_name': _get_display_name(request.user),
             'user_role': 'Admin',
             'modules': modules,
             'role_directory': role_directory,
             'total_users': total_users,
             'doctor_count': Doctor.objects.count(),
             'patient_count': Patient.objects.count(),
+            'notification_type_choices': Notification.NOTIFICATION_TYPES,
+            'priority_choices': Notification.PRIORITY_LEVELS,
+            'role_choices': User.ROLE_CHOICES,
+            'department_choices': department_choices,
+            'user_choices': user_choices,
         },
     )
 
@@ -670,12 +962,86 @@ def web_module_view(request, module_key):
             'modules': modules,
             'module_blueprint': _get_module_blueprint(module_key),
             'role_capabilities': _get_role_capabilities(role),
-            'display_name': request.user.get_full_name().strip() or request.user.email,
+            'display_name': _get_display_name(request.user),
             'user_role': role.replace('_', ' ').title(),
             'docker_services': docker_services,
             'docker_enabled': bool(docker_services),
         },
     )
+
+
+@login_required
+def web_create_admin(request):
+    if request.user.role != 'admin':
+        messages.error(request, 'Only admins can create admin accounts.')
+        return redirect('web-dashboard')
+
+    role = request.user.role
+    modules = _enrich_modules(ROLE_DASHBOARD_MODULES.get(role, []))
+
+    errors = {}
+    form_data = {}
+
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name', '').strip()
+        last_name  = request.POST.get('last_name', '').strip()
+        email      = request.POST.get('email', '').strip()
+        username   = request.POST.get('username', '').strip()
+        password   = request.POST.get('password', '').strip()
+        confirm    = request.POST.get('confirm_password', '').strip()
+        phone      = request.POST.get('phone_number', '').strip()
+
+        form_data = {
+            'first_name': first_name,
+            'last_name': last_name,
+            'email': email,
+            'username': username,
+            'phone_number': phone,
+        }
+
+        if not first_name:
+            errors['first_name'] = 'First name is required.'
+        if not last_name:
+            errors['last_name'] = 'Last name is required.'
+        if not email:
+            errors['email'] = 'Email is required.'
+        elif User.objects.filter(email=email).exists():
+            errors['email'] = 'An account with this email already exists.'
+        if not username:
+            errors['username'] = 'Username is required.'
+        elif User.objects.filter(username=username).exists():
+            errors['username'] = 'This username is already taken.'
+        if not password:
+            errors['password'] = 'Password is required.'
+        elif len(password) < 8:
+            errors['password'] = 'Password must be at least 8 characters.'
+        elif password != confirm:
+            errors['confirm_password'] = 'Passwords do not match.'
+
+        if not errors:
+            new_admin = User(
+                first_name=first_name,
+                last_name=last_name,
+                email=email,
+                username=username,
+                phone_number=phone or None,
+                role='admin',
+                is_staff=True,
+                is_superuser=True,
+                is_verified=True,
+            )
+            new_admin.set_password(password)
+            new_admin.save()
+            messages.success(request, f'Admin account for {first_name} {last_name} created successfully.')
+            return redirect('web-create-admin')
+
+    return render(request, 'web/create_admin.html', {
+        'display_name': _get_display_name(request.user),
+        'user_role': 'Admin',
+        'modules': modules,
+        'errors': errors,
+        'form_data': form_data,
+    })
 
 
 @login_required

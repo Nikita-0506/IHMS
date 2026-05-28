@@ -104,7 +104,9 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 
         queryset = Appointment.objects.select_related(
             'patient',
+            'patient__user',
             'doctor',
+            'doctor__user',
             'created_by',
             'updated_by'
         ).prefetch_related(

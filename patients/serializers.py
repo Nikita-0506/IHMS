@@ -5,6 +5,8 @@ from .models import Patient
 
 class PatientSerializer(serializers.ModelSerializer):
 
+    patient_name = serializers.SerializerMethodField()
+
     user_username = serializers.CharField(
         source='user.username',
         read_only=True
@@ -51,3 +53,9 @@ class PatientSerializer(serializers.ModelSerializer):
             )
      
      return value
+
+    def get_patient_name(self, obj):
+
+        full_name = obj.user.get_full_name().strip()
+
+        return full_name or obj.user.username or obj.user.email

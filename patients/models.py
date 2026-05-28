@@ -261,8 +261,9 @@ class Patient(models.Model):
     # =====================================
 
     def __str__(self):
-
-        return f"{self.patient_id} - {self.user.username}"
+        full_name = self.user.get_full_name().strip()
+        display_name = full_name or self.user.username or self.user.email
+        return f"{self.patient_id} - {display_name}"
 
 
 # =====================================

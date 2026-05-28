@@ -39,6 +39,8 @@
 
             <div class="nav-title">Shortcuts</div>
             {% if request.user.role == 'admin' %}
+                <a class="nav-item" href="{% url 'web-user-records' %}">All User Records</a>
+                <a class="nav-item" href="{% url 'web-create-admin' %}">Create Admin</a>
                 <a class="nav-item" href="/swagger/" target="_blank" rel="noopener">Swagger UI</a>
                 <a class="nav-item" href="/admin/" target="_blank" rel="noopener">Admin Console</a>
             {% endif %}
