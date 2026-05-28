@@ -1,78 +1,185 @@
 # Intelligent Hospital Management System (IHMS)
 
-A Django-based hospital management platform with AI-assisted analysis modules.
+IHMS is a modular Django 5 platform for hospital operations, clinical workflows, and AI-assisted analysis.
+It provides REST APIs, web dashboards, scheduled/background processing with Celery, and containerized deployment with Docker.
 
-## Features
+## Core Capabilities
 
-- User/account management with role-based access
-- Patient, doctor, appointment, billing, laboratory, and dashboard modules
-- AI analysis services (chatbot, OCR scanner, inference pipelines)
-- Background task support (Celery)
-- Docker-based deployment support
+- Authentication and account management with role-aware permissions
+- Patient lifecycle management (registration, records, clinical context)
+- Doctor management and service coordination
+- Appointment scheduling and task automation
+- Billing and finance operations
+- Pharmacy and laboratory workflow modules
+- AI analysis features (chatbot, OCR pipeline, inference/feature processing)
+- Notifications and dashboard aggregation
+- Audit/history and structured logging support
 
-## Tech Stack
+## Technology Stack
 
-- Python
-- Django + Django REST Framework
-- Celery
-- Docker + Docker Compose
+- Python 3.x
+- Django 5.2
+- Django REST Framework + Simple JWT
+- PostgreSQL
+- Redis (cache + Celery broker)
+- Celery worker + Celery beat
+- Gunicorn + Nginx (Docker deployment)
+- drf-yasg (Swagger)
+- ML/AI libraries: TensorFlow, PyTorch, transformers, Whisper, scikit-learn, and related tooling
 
-## Project Structure
+## High-Level Project Structure
 
-- `accounts/` - authentication, users, permissions
-- `appointments/` - appointment workflows
-- `billing/` - billing and invoice operations
-- `doctors/` - doctor profiles and services
-- `patients/` - patient records and management
-- `laboratory/` - lab workflows and reports
-- `dashboard/` - dashboard and aggregation services
-- `ai_analysis/` - AI features and model-facing APIs
-- `hospital_ai/` - core Django settings and routing
+- accounts/: users, auth flows, JWT serializers, permissions
+- patients/: patient entities and APIs
+- doctors/: doctor profiles, services, module APIs
+- appointments/: booking, scheduling, async workflows
+- billing/: billing models, selectors, APIs
+- pharmacy/: pharmacy module APIs and domain logic
+- laboratory/: lab records and lab operations
+- ai_analysis/: AI APIs, chatbot, OCR, preprocessing, inference, tasks
+- dashboard/: system and role dashboards, aggregation services
+- notifications/: notification flows
+- api/: shared/aggregated API endpoints, permissions, serializers
+- hospital_ai/: Django settings, URL routing, ASGI/WSGI, Celery config
+- templates/: server-rendered web views (login/dashboard/module views)
+- scripts/: startup scripts for web/celery containers
+- docker/: Nginx and deployment-related container config
+- logs/, history/: operational logs, reports, historical artifacts
+- media/, static/, staticfiles/: uploaded and static assets
 
-## Local Setup
+## URL and API Overview
 
-1. Create and activate a virtual environment.
-2. Install dependencies:
+Main routes include:
 
-```bash
-pip install -r requirements.txt
-```
+- / : web login
+- /dashboard/ : web dashboard
+- /admin/ : Django admin
+- /swagger/ : Swagger UI (permission protected)
+- /api/accounts/
+- /api/patients/
+- /api/doctors/
+- /api/appointments/
+- /api/billing/
+- /api/laboratory/
+- /api/pharmacy/
+- /api/ai-analysis/
+- /api/dashboard/
+- /api/notifications/
+- /api/v1/ : consolidated API routes (including health endpoint)
 
-3. Apply database migrations:
+## Local Development Setup
 
-```bash
-python manage.py migrate
-```
+### 1) Create and activate a virtual environment
 
-4. Run the development server:
+Windows PowerShell:
 
-```bash
-python manage.py runserver
-```
+	python -m venv venv
+	.\venv\Scripts\Activate.ps1
 
-## Docker Setup
+### 2) Install dependencies
 
-Run with Docker Compose:
+	pip install -r requirements.txt
 
-```bash
-docker-compose up --build
-```
+### 3) Configure environment variables
 
-See `DOCKER_DEPLOYMENT.md` for deployment details.
+Create a .env file in the project root (same level as manage.py) and define at least:
 
-## Environment Variables
+- SECRET_KEY
+- DEBUG
+- ALLOWED_HOSTS
+- DB_NAME
+- DB_USER
+- DB_PASSWORD
+- DB_HOST
+- DB_PORT
 
-Create a `.env` file for local configuration (database, secret keys, external service credentials, etc.).
+Recommended additional variables:
+
+- CORS_ALLOW_ALL_ORIGINS
+- CORS_ALLOWED_ORIGINS
+- CSRF_TRUSTED_ORIGINS
+- SECURE_SSL_REDIRECT
+- SESSION_COOKIE_SECURE
+- CSRF_COOKIE_SECURE
+- CELERY_BROKER_URL
+- CACHES_DEFAULT_LOCATION
+
+### 4) Apply migrations
+
+	python manage.py migrate
+
+### 5) Create admin user (optional but recommended)
+
+	python manage.py createsuperuser
+
+### 6) Run development server
+
+	python manage.py runserver
+
+Application URL: http://127.0.0.1:8000
+
+## Running Background Workers (Local)
+
+In separate terminals (with virtual environment activated):
+
+Celery worker:
+
+	celery -A hospital_ai worker -l info
+
+Celery beat:
+
+	celery -A hospital_ai beat -l info
+
+## Docker Deployment
+
+The included compose stack starts:
+
+- web (Django/Gunicorn)
+- db (PostgreSQL)
+- redis
+- celery-worker
+- celery-beat
+- nginx (public entry on port 8000)
+
+Start stack:
+
+	docker compose up --build -d
+
+Check status:
+
+	docker compose ps
+
+View logs:
+
+	docker compose logs -f web
+
+Useful commands:
+
+	docker compose exec web python manage.py migrate
+	docker compose exec web python manage.py createsuperuser
+	docker compose exec web python manage.py test
+	docker compose down
+
+For full details, see DOCKER_DEPLOYMENT.md.
 
 ## Testing
 
-Run tests with:
+Run all tests:
 
-```bash
-python manage.py test
-```
+	python manage.py test
 
-## Notes
+If using pytest in your workflow:
 
-- Keep secrets out of source control.
-- Store large model files and generated artifacts outside Git-tracked paths when possible.
+	pytest
+
+## Security and Operations Notes
+
+- Do not commit .env or secret keys.
+- Use strong production credentials and set DEBUG=False in production.
+- Prefer managed DB/Redis and TLS termination for production environments.
+- Keep model artifacts and large generated files outside source control where possible.
+- Review logs and history directories regularly as part of operations and auditing.
+
+## License / Usage
+
+Add your project license and organization usage policy in this section if not already defined elsewhere.
