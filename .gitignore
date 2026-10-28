@@ -103,8 +103,6 @@ ml_models/**/runs/
 ml_models/**/outputs/
 ml_models/**/tmp/
 ml_models/**/cache/
-ml_models/trained_models/disease_prediction_model.joblib
-ml_models/trained_models/mental_health_model.joblib
 
 # ---------------------------------------------------------------------
 # Testing & Code Coverage
