@@ -100,17 +100,17 @@ Create a `.env` file in the project root:
 # General Django Settings
 SECRET_KEY=your-secure-secret-key-here
 DEBUG=True
-ALLOWED_HOSTS=localhost,127.0.0.1
+ALLOWED_HOSTS=<YOUR_ALLOWED_HOSTS>
 
 # Database Configuration (Set True for instant zero-config SQLite)
 USE_SQLITE=True
 
 # PostgreSQL Configuration (Used when USE_SQLITE=False)
-DB_NAME=IHMS_Project
-DB_USER=Root
-DB_PASSWORD=your_password
-DB_HOST=127.0.0.1
-DB_PORT=5432
+DB_NAME=<YOUR_DB_NAME>
+DB_USER=<YOUR_DB_USER>
+DB_PASSWORD=<YOUR_DB_PASSWORD>
+DB_HOST=<YOUR_DB_HOST>
+DB_PORT=<YOUR_DB_PORT>
 ```
 
 ---
@@ -142,9 +142,9 @@ python manage.py migrate
 
 **Terminal 1 — Backend (Django):**
 ```powershell
-python manage.py runserver 127.0.0.1:8000
+python manage.py runserver
 ```
-Application Backend & APIs: **http://127.0.0.1:8000**
+Application Backend & APIs: `http://<BACKEND_HOST>:<PORT>`
 
 **Terminal 2 — Frontend (React / Vite):**
 ```powershell
@@ -152,22 +152,31 @@ cd frontend
 npm install
 npm run dev
 ```
-Frontend UI Application: **http://localhost:5173**
+Frontend UI Application: `http://<FRONTEND_HOST>:<PORT>`
 
-*(Vite automatically proxies `/api` and `/patients` requests to the Django backend on port 8000).*
+*(Vite automatically proxies `/api` and `/patients` requests to the configured Django backend).*
 
 ---
 
-## 🔑 Default Demo Credentials
+## 🔑 User Authentication & Setup
 
-The included pre-seeded database contains accounts ready for testing:
+For security reasons, hardcoded admin and user credentials are not stored in this repository. You can create your own administrator account and manage users using Django:
 
-| Role | Username | Password | Access / Permissions |
-| :--- | :--- | :--- | :--- |
-| **System Administrator** | `admin` | `Password@123` | Full administrative control, all modules & Django Admin |
-| **Doctor** | `dr_sharma` | `Password@123` | Doctor dashboard, patient records, triage, coordination |
-| **Doctor** | `dr_kulkarni` | `Password@123` | Clinical reviews, prescriptions, and lab orders |
-| **Patient** | `rahul_patil` | `Password@123` | Patient dashboard, appointments, medical history |
+### Create Administrator (Superuser)
+```powershell
+python manage.py createsuperuser
+```
+Follow the interactive prompts to specify your administrator username, email, and secure password.
+
+### Supported Role-Based Access Controls
+Once logged in, users can be assigned specific roles with granular permissions:
+
+| Role | Access & Permissions |
+| :--- | :--- |
+| **System Administrator** | Full administrative control, all system modules, and Django Admin panel (`/admin/`) |
+| **Doctor** | Clinical dashboard, patient health records, triage scoring, and consultation coordination |
+| **Patient** | Patient dashboard, appointment booking, prescription details, and medical history |
+| **Pharmacist / Lab Technician** | Medication inventory management, laboratory test orders, and diagnostic results |
 
 ---
 
@@ -196,8 +205,8 @@ python scripts/test_clinical_suite.py
 ## 📑 API Endpoints & Documentation
 
 Interactive API documentation is generated via OpenAPI:
-- **Swagger UI**: [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/)
-- **ReDoc UI**: [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/)
+- **Swagger UI**: `/swagger/`
+- **ReDoc UI**: `/redoc/`
 
 ### Core Endpoint Categories:
 - `/api/accounts/`: Registration, JWT token obtain/refresh, user profiles.
@@ -224,7 +233,7 @@ docker compose up --build -d
 Verify running containers:
 ```powershell
 docker compose ps
-curl http://localhost:8000/api/v1/health/
+curl http://<HOST>:<PORT>/api/v1/health/
 ```
 
 ---
