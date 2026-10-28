@@ -2,16 +2,21 @@ from pathlib import Path
 from datetime import datetime
 import re
 
-import joblib
-import pandas as pd
-from pandas.api.types import is_numeric_dtype
-from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import ExtraTreesClassifier, RandomForestClassifier
-from sklearn.impute import SimpleImputer
-from sklearn.metrics import accuracy_score, f1_score
-from sklearn.model_selection import train_test_split
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder
+try:
+	import joblib
+	import pandas as pd
+	from pandas.api.types import is_numeric_dtype
+	from sklearn.compose import ColumnTransformer
+	from sklearn.ensemble import ExtraTreesClassifier, RandomForestClassifier
+	from sklearn.impute import SimpleImputer
+	from sklearn.metrics import accuracy_score, f1_score
+	from sklearn.model_selection import train_test_split
+	from sklearn.pipeline import Pipeline
+	from sklearn.preprocessing import OneHotEncoder
+except ImportError:
+	joblib = None
+	pd = None
+	is_numeric_dtype = None
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]

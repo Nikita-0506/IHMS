@@ -15,6 +15,10 @@ from ml_models.disease_prediction.train_model import train_disease_model
 from ml_models.mental_health.train_model import train_mental_health_model
 from ml_models.model_registry import get_predictor
 from ml_models.voice_analysis.train_model import train_voice_model
+try:
+    from scripts.train_20_sheets_ml_model import train_20_sheets_model
+except Exception:
+    train_20_sheets_model = None
 from services.history.history_service import HistoryService
 
 
@@ -24,9 +28,9 @@ RETRAIN_REQUEST_SCHEMA = openapi.Schema(
     properties={
         'model_name': openapi.Schema(
             type=openapi.TYPE_STRING,
-            enum=['all', 'disease_prediction', 'mental_health', 'voice_analysis'],
+            enum=['all', 'disease_prediction', 'mental_health', 'voice_analysis', 'patient_deterioration_20sheets'],
             description='Choose which model to retrain.',
-            example='all',
+            example='patient_deterioration_20sheets',
         ),
     },
 )
@@ -37,12 +41,12 @@ PREDICT_REQUEST_SCHEMA = openapi.Schema(
     properties={
         'model_name': openapi.Schema(
             type=openapi.TYPE_STRING,
-            enum=['disease_prediction', 'mental_health', 'voice_analysis'],
-            example='disease_prediction',
+            enum=['disease_prediction', 'mental_health', 'voice_analysis', 'patient_deterioration_20sheets', 'patient_monitoring', 'patient_triage'],
+            example='patient_deterioration_20sheets',
         ),
         'patient_id': openapi.Schema(
             type=openapi.TYPE_STRING,
-            example='P1001',
+            example='PAT-000001',
         ),
         'payload': openapi.Schema(
             type=openapi.TYPE_OBJECT,
@@ -158,6 +162,7 @@ class AIMLModelRetrainAPIView(APIView):
         'disease_prediction': train_disease_model,
         'mental_health': train_mental_health_model,
         'voice_analysis': train_voice_model,
+        'patient_deterioration_20sheets': train_20_sheets_model,
     }
 
     @swagger_auto_schema(

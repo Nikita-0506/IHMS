@@ -178,11 +178,19 @@ INSTALLED_APPS = [
 # 5. MIDDLEWARE
 # =========================================================
 
+try:
+    import whitenoise
+    HAS_WHITENOISE = True
+except ImportError:
+    HAS_WHITENOISE = False
+
 MIDDLEWARE = [
-
     'django.middleware.security.SecurityMiddleware',
+]
+if HAS_WHITENOISE:
+    MIDDLEWARE.append('whitenoise.middleware.WhiteNoiseMiddleware')
 
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+MIDDLEWARE += [
 
     'django.contrib.sessions.middleware.SessionMiddleware',
 
@@ -250,27 +258,30 @@ DB_USER = config('DB_USER')
 
 DB_PASSWORD = config('DB_PASSWORD')
 
-DB_HOST = config('DB_HOST')
+DB_HOST = config('DB_HOST', default=config('POSTGRES_HOST', default='db'))
 
-DB_PORT = config('DB_PORT')
+DB_PORT = config('DB_PORT', default=config('POSTGRES_PORT', default='5432'))
 
-DATABASES = {
+USE_SQLITE = config('USE_SQLITE', default=True, cast=bool)
 
-    'default': {
-
-        'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': DB_NAME,
-
-        'USER': DB_USER,
-
-        'PASSWORD': DB_PASSWORD,
-
-        'HOST': DB_HOST,
-
-        'PORT': DB_PORT,
+if USE_SQLITE:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': DB_NAME,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASSWORD,
+            'HOST': DB_HOST,
+            'PORT': DB_PORT,
+        }
+    }
      
 # =========================================================
 # 7.1 CACHE CONFIGURATION
@@ -333,10 +344,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 PASSWORD_HASHERS = [
-
-    'django.contrib.auth.hashers.Argon2PasswordHasher',
-
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
 ]
 
 
@@ -381,9 +390,10 @@ STATIC_ROOT = Path(
     config('STATIC_ROOT', default=str(BASE_DIR / 'staticfiles'))
 )
 
-STATICFILES_STORAGE = (
-    'whitenoise.storage.CompressedManifestStaticFilesStorage'
-)
+if HAS_WHITENOISE:
+    STATICFILES_STORAGE = (
+        'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -425,16 +435,465 @@ REST_FRAMEWORK = {
         'rest_framework.pagination.PageNumberPagination',
 
     'PAGE_SIZE': 10,
+    'DEFAULT_THROTTLE_CLASSES': [],
+    'DEFAULT_THROTTLE_RATES': {}
+}
 
-    'DEFAULT_THROTTLE_CLASSES': [
 
-        'rest_framework.throttling.UserRateThrottle',
+# =========================================================
+# 12. SIMPLE_JWT
+# =========================================================
+
+SIMPLE_JWT = {
+
+    'ACCESS_TOKEN_LIFETIME': timedelta(
+        minutes=config('JWT_ACCESS_TOKEN_LIFETIME', cast=int, default=60)
+    ),
+
+    'REFRESH_TOKEN_LIFETIME': timedelta(
+        days=config('JWT_REFRESH_TOKEN_LIFETIME', cast=int, default=7)
+    ),
+
+    'ROTATE_REFRESH_TOKENS': True,
+
+    'BLACKLIST_AFTER_ROTATION': True,
+
+    'UPDATE_LAST_LOGIN': True,
+
+    'ALGORITHM': 'HS256',
+
+    'SIGNING_KEY': SECRET_KEY,
+
+    'AUTH_HEADER_TYPES': ('Bearer',),
+
+    'AUTH_TOKEN_CLASSES': (
+
+        'rest_framework_simplejwt.tokens.AccessToken',
+    ),
+}
+
+
+# =========================================================
+# 13. SWAGGER_SETTINGS
+# =========================================================
+
+SWAGGER_SETTINGS = {
+
+    'USE_SESSION_AUTH': False,
+
+    'SECURITY_DEFINITIONS': {
+
+        'Bearer': {
+
+            'type': 'apiKey',
+
+            'name': 'Authorization',
+
+            'in': 'header',
+        }
+    },
+}
+
+
+# =========================================================
+# 14. LOGGING
+# =========================================================
+
+LOGGING = {
+
+    'version': 1,
+
+    'disable_existing_loggers': False,
+
+    'formatters': {
+
+        'verbose': {
+
+            'format': (
+                '{levelname} | {asctime} | '
+                '{module} | {message}'
+            ),
+
+            'style': '{',
+        },
+
+        'simple': {
+
+            'format': '{levelname} | {message}',
+
+            'style': '{',
+        },
+    },
+
+    'handlers': {
+
+        'file': {
+
+            'level': config('LOG_LEVEL', default='INFO'),
+
+            'class': 'logging.FileHandler',
+
+            'filename': BASE_DIR / 'logs/system.log',
+
+            'formatter': 'verbose',
+        },
+
+        'error_file': {
+
+            'level': 'ERROR',
+
+            'class': 'logging.FileHandler',
+
+            'filename': BASE_DIR / 'logs/error.log',
+
+            'formatter': 'verbose',
+        },
+
+        'console': {
+
+            'class': 'logging.StreamHandler',
+
+            'formatter': 'simple',
+        },
+    },
+
+    'loggers': {
+
+        'django': {
+
+            'handlers': [
+
+                'console',
+                'file',
+                'error_file'
+            ],
+
+            'level': config('LOG_LEVEL', default='INFO'),
+
+            'propagate': True,
+        },
+
+        'accounts': {
+
+            'handlers': [
+
+                'console',
+                'file',
+                'error_file'
+            ],
+
+            'level': config('LOG_LEVEL', default='INFO'),
+
+            'propagate': True,
+        },
+    },
+}
+
+
+# =========================================================
+# 15. EMAIL CONFIGURATION
+# =========================================================
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = config(
+    'EMAIL_HOST',
+    default='smtp.gmail.com'
+)
+
+EMAIL_PORT = config(
+    'EMAIL_PORT',
+    cast=int,
+    default=587
+)
+
+EMAIL_USE_TLS = config(
+    'EMAIL_USE_TLS',
+    cast=bool,
+    default=True
+)
+
+EMAIL_HOST_USER = config(
+    'EMAIL_HOST_USER',
+    default=''
+)
+
+EMAIL_HOST_PASSWORD = config(
+    'EMAIL_HOST_PASSWORD',
+    default=''
+)
+
+EMAIL_TIMEOUT = config(
+    'EMAIL_TIMEOUT',
+    cast=int,
+    default=30
+)
+
+DEFAULT_FROM_EMAIL = config(
+    'DEFAULT_FROM_EMAIL',
+    default='IHMS Support <support@ihms.com>'
+)
+
+# =========================================================
+# 16. CELERY CONFIGURATION
+# ========================================================= 
+
+_LOCAL_DEFAULT_CELERY_BROKER = 'redis://127.0.0.1:6379/0'
+_USE_MEMORY_BROKER_IN_DEBUG = DEBUG and not redis_url_is_reachable(_LOCAL_DEFAULT_CELERY_BROKER)
+
+CELERY_BROKER_URL = config(
+    'CELERY_BROKER_URL',
+    default='memory://' if _USE_MEMORY_BROKER_IN_DEBUG else _LOCAL_DEFAULT_CELERY_BROKER
+)
+
+CELERY_RESULT_BACKEND = config(
+    'CELERY_RESULT_BACKEND',
+    default='cache+memory://' if CELERY_BROKER_URL == 'memory://' else CELERY_BROKER_URL
+)
+
+CELERY_ACCEPT_CONTENT = ['json']
+
+CELERY_TASK_SERIALIZER = 'json'
+
+CELERY_RESULT_SERIALIZER = 'json'
+
+AUTO_RETRAIN_ENABLED = config(
+    'AUTO_RETRAIN_ENABLED',
+    default=True,
+    cast=bool,
+)
+
+AUTO_RETRAIN_HOUR = config(
+    'AUTO_RETRAIN_HOUR',
+    default=2,
+    cast=int,
+)
+
+AUTO_RETRAIN_MINUTE = config(
+    'AUTO_RETRAIN_MINUTE',
+    default=0,
+    cast=int,
+)
+
+CELERY_BEAT_SCHEDULE = {
+    'ihms-auto-retrain-models': {
+        'task': 'ai_analysis.retrain_all_models',
+        'schedule': crontab(minute=AUTO_RETRAIN_MINUTE, hour=AUTO_RETRAIN_HOUR),
+        'options': {'expires': 3600},
+    },
+} if AUTO_RETRAIN_ENABLED else {}
+
+# =========================================================
+# 17. AI / OCR CONFIGURATION
+# =========================================================
+
+MODEL_PATH = config(
+    'MODEL_PATH',
+    default=str(BASE_DIR / 'ml_models')
+)
+
+VOICE_MODEL_PATH = config(
+    'VOICE_MODEL_PATH',
+    default=str(BASE_DIR / 'ml_models' / 'voice_analysis' / 'voice_model.pkl')
+)
+
+DISEASE_MODEL_PATH = config(
+    'DISEASE_MODEL_PATH',
+    default=str(BASE_DIR / 'ml_models' / 'disease_prediction' / 'disease_model.pkl')
+)
+
+TESSERACT_CMD = config(
+    'TESSERACT_CMD',
+    default='/usr/bin/tesseract'
+)
+
+# Database
+# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
+
+DB_NAME = config('DB_NAME')
+
+DB_USER = config('DB_USER')
+
+DB_PASSWORD = config('DB_PASSWORD')
+
+DB_HOST = config('DB_HOST', default=config('POSTGRES_HOST', default='db'))
+
+DB_PORT = config('DB_PORT', default=config('POSTGRES_PORT', default='5432'))
+
+if USE_SQLITE:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': DB_NAME,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASSWORD,
+            'HOST': DB_HOST,
+            'PORT': DB_PORT,
+        }
+    }
+     
+# =========================================================
+# 7.1 CACHE CONFIGURATION
+# Use Redis in production; fall back to LocMemCache in development
+# =========================================================
+
+_REDIS_URL = config('CACHES_DEFAULT_LOCATION', default='')
+_REDIS_CACHE_REACHABLE = redis_url_is_reachable(_REDIS_URL)
+
+if _REDIS_URL and (_REDIS_CACHE_REACHABLE or not DEBUG):
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': _REDIS_URL,
+        }
+    }
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        }
+    }
+
+# =========================================================
+# 8. AUTHENTICATION
+# =========================================================
+
+AUTH_USER_MODEL = 'accounts.User'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+LOGIN_URL = '/'
+
+LOGIN_REDIRECT_URL = '/dashboard/'
+
+LOGOUT_REDIRECT_URL = '/'
+
+# Password validation
+# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
+
+
+# =========================================================
+# 9. INTERNATIONALIZATION
+# =========================================================
+
+# Internationalization
+# https://docs.djangoproject.com/en/5.2/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+# Indian Standard Time
+
+TIME_ZONE = 'Asia/Kolkata'
+
+USE_I18N = True
+
+USE_TZ = True
+
+
+# =========================================================
+# 10. STATIC / MEDIA
+# =========================================================
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.2/howto/static-files/
+
+STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = Path(
+    config('MEDIA_ROOT', default=str(BASE_DIR / 'media'))
+)
+
+STATIC_ROOT = Path(
+    config('STATIC_ROOT', default=str(BASE_DIR / 'staticfiles'))
+)
+
+if HAS_WHITENOISE:
+    STATICFILES_STORAGE = (
+        'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    )
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# =========================================================
+# 11. REST_FRAMEWORK
+# =========================================================
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+
+    'DEFAULT_PERMISSION_CLASSES': (
+
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+
+    'DEFAULT_RENDERER_CLASSES': (
+
+        'rest_framework.renderers.JSONRenderer',
+
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ),
+
+    'DEFAULT_FILTER_BACKENDS': [
+
+        'django_filters.rest_framework.DjangoFilterBackend'
     ],
 
-    'DEFAULT_THROTTLE_RATES': {
+    'DEFAULT_PAGINATION_CLASS':
 
-        'user': '100/day'
-    }
+        'rest_framework.pagination.PageNumberPagination',
+
+    'PAGE_SIZE': 10,
+    'DEFAULT_THROTTLE_CLASSES': [],
+    'DEFAULT_THROTTLE_RATES': {}
 }
 
 

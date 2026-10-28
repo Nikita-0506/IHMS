@@ -1,0 +1,16 @@
+﻿Setting_ID,Setting_Name,Setting_Value,Category,Status,Updated_At
+SET-001,Auto Logout,30 minutes,Security,Enabled,2026-10-16 10:00:00
+SET-002,Email Notifications,Enabled,Notifications,Enabled,2026-10-16 10:00:00
+SET-003,SMS Notifications,Disabled,Notifications,Enabled,2026-10-16 10:00:00
+SET-004,System Alerts,Enabled,Notifications,Enabled,2026-10-16 10:00:00
+SET-005,Appointment Reminders,Enabled,Notifications,Enabled,2026-10-16 10:00:00
+SET-006,Default Page,Dashboard,System Preferences,Enabled,2026-10-16 10:00:00
+SET-007,Theme Mode,Light,Appearance,Enabled,2026-10-16 10:00:00
+SET-008,Language,English,Appearance,Enabled,2026-10-16 10:00:00
+SET-009,Two-Factor Authentication,Enabled,Security,Enabled,2026-10-16 10:00:00
+SET-010,Role-Based Access Control,Enabled,Security,Enabled,2026-10-16 10:00:00
+SET-011,OCR Manual Review,Required,AI Analysis,Enabled,2026-10-16 10:00:00
+SET-012,Clinical Summary Review,Required,AI Analysis,Enabled,2026-10-16 10:00:00
+SET-013,Emergency Workflow Bypass,Enabled,Clinical Safety,Enabled,2026-10-16 10:00:00
+SET-014,Audit Logging,Enabled,Security,Enabled,2026-10-16 10:00:00
+SET-015,Document Storage Limit,10 GB,Storage,Enabled,2026-10-16 10:00:00

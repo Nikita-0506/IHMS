@@ -54,7 +54,7 @@ COPY . .
 # =========================================================
 # Create Required Application Directories
 # =========================================================
-RUN mkdir -p /app/logs /app/media /app/staticfiles /app/history
+RUN mkdir -p /app/logs /app/media /app/staticfiles /app/history /app/reports/patients
 
 # =========================================================
 # Create Non-Root User for Security

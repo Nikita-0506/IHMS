@@ -12,5 +12,10 @@ def create_patient_profile(sender, instance, created, **kwargs):
 
         Patient.objects.create(
             user=instance,
-            patient_id=f"PAT-{instance.id}"
+            patient_id=f"PAT-{instance.id}",
+            date_of_birth='2000-01-01',
+            gender='other',
+            blood_group='O+',
+            emergency_contact='0000000000',
+            address='Standard Address',
         )

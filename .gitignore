@@ -1,29 +1,114 @@
-# Python
+# =====================================================================
+# IHMS (Intelligent Hospital Management System) - .gitignore
+# =====================================================================
+
+# ---------------------------------------------------------------------
+# UI Assets & Showcase Images (EXPLICITLY INCLUDED - DO NOT IGNORE)
+# ---------------------------------------------------------------------
+!images/
+!images/**
+!static/images/
+!static/images/**
+!static/fonts/
+!static/fonts/**
+!frontend/public/
+!frontend/public/**
+!*.png
+!*.jpg
+!*.jpeg
+!*.svg
+!*.webp
+!*.ico
+
+# ---------------------------------------------------------------------
+# Python & Bytecode
+# ---------------------------------------------------------------------
 __pycache__/
 *.py[cod]
 *$py.class
 *.pyo
 *.pyd
 
-# Virtual environments
+# ---------------------------------------------------------------------
+# Virtual Environments
+# ---------------------------------------------------------------------
 venv/
 .venv/
 env/
+ENV/
+env.bak/
+venv.bak/
 
-# Django
-*.log
-db.sqlite3
-db.sqlite3-journal
-media/
-staticfiles/
-celerybeat-schedule
+# ---------------------------------------------------------------------
+# Node & Frontend Build Artifacts
+# ---------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+dist-ssr/
+.vite/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.local
 
-# Environment variables
+# ---------------------------------------------------------------------
+# Environment Variables & Secrets
+# ---------------------------------------------------------------------
 .env
 .env.*
 !.env.example
 
-# Testing / coverage
+# ---------------------------------------------------------------------
+# Database Artifacts
+# ---------------------------------------------------------------------
+*.sqlite3
+*.sqlite3-journal
+db.sqlite3
+db.sqlite3-journal
+
+# ---------------------------------------------------------------------
+# Celery Runtime Files
+# ---------------------------------------------------------------------
+celerybeat-schedule
+celerybeat-schedule.*
+celerybeat.pid
+
+# ---------------------------------------------------------------------
+# Uploaded User Media & Compiled Static Files
+# ---------------------------------------------------------------------
+media/
+staticfiles/
+!media/.gitkeep
+!staticfiles/.gitkeep
+
+# ---------------------------------------------------------------------
+# Operational Logs
+# ---------------------------------------------------------------------
+logs/*.log
+*.log
+ml_models/logs/
+!logs/README.md
+!logs/.gitkeep
+
+# ---------------------------------------------------------------------
+# Machine Learning Checkpoints, Large Runs & Temp Files
+# ---------------------------------------------------------------------
+ml_models/**/checkpoints/
+ml_models/**/runs/
+ml_models/**/outputs/
+ml_models/**/tmp/
+ml_models/**/cache/
+ml_models/trained_models/disease_prediction_model.joblib
+ml_models/trained_models/mental_health_model.joblib
+
+# ---------------------------------------------------------------------
+# Testing & Code Coverage
+# ---------------------------------------------------------------------
 .pytest_cache/
 .coverage
 .coverage.*
@@ -31,44 +116,36 @@ htmlcov/
 .tox/
 .nox/
 
-# Type checking / lint caches
+# ---------------------------------------------------------------------
+# Type Checking & Linting Caches
+# ---------------------------------------------------------------------
 .mypy_cache/
 .ruff_cache/
 .pyre/
 
-# Jupyter
-.ipynb_checkpoints/
-
-# Build / packaging
-build/
-dist/
-*.egg-info/
-.eggs/
-
-# IDE / editor
-.vscode/
+# ---------------------------------------------------------------------
+# IDEs & Code Editors
+# ---------------------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
 .idea/
 *.swp
 *.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
-# OS files
+# ---------------------------------------------------------------------
+# Operating System Files
+# ---------------------------------------------------------------------
 .DS_Store
 Thumbs.db
+Desktop.ini
+ehthumbs.db
 
-# Project logs and generated artifacts
-logs/**
-!logs/README.md
-history/**
-!history/README.md
-ml_models/logs/
-
-# ML artifacts and temporary datasets
-ml_models/**/checkpoints/
-ml_models/**/runs/
-ml_models/**/outputs/
-ml_models/**/tmp/
-ml_models/**/cache/
-ml_models/trained_models/*.joblib
-
-# Docker overrides
+# ---------------------------------------------------------------------
+# Docker Local Overrides
+# ---------------------------------------------------------------------
 .docker/
+docker-compose.override.yml

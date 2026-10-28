@@ -1,0 +1,199 @@
+﻿Doctor_ID,Doctor_Name,Department,Specialty,Qualifications,Years_Experience,City,Email,Phone,Shift,Employment_Status,Daily_Appointment_Capacity
+DOC-0001,Dr. Ishita Khan,General Medicine,Internal Medicine,"MBBS, DNB",22,Thane,doctor001@ihms-demo.example,+91 8907164367,Evening,Active,17
+DOC-0002,Dr. Anjali Shah,General Medicine,Family Medicine,"MBBS, MD",10,Bengaluru,doctor002@ihms-demo.example,+91 9720077497,Morning,Active,17
+DOC-0003,Dr. Kunal Verma,General Medicine,Diabetology,"MBBS, DNB",26,Bengaluru,doctor003@ihms-demo.example,+91 9721096880,Rotational,On Leave,15
+DOC-0004,Dr. Aditi Gupta,General Medicine,Geriatric Medicine,"MBBS, DM",6,Indore,doctor004@ihms-demo.example,+91 9593912210,Evening,Active,15
+DOC-0005,Dr. Ishita Khan,General Medicine,Infectious Diseases,"MBBS, DM",9,Nashik,doctor005@ihms-demo.example,+91 8082353997,Evening,Active,14
+DOC-0006,Dr. Om Jadhav,General Medicine,Preventive Medicine,"MBBS, DM",9,Pune,doctor006@ihms-demo.example,+91 7683320590,Rotational,Active,18
+DOC-0007,Dr. Tara Singh,General Medicine,Clinical Medicine,"MBBS, MD",7,Navi Mumbai,doctor007@ihms-demo.example,+91 7392744445,Rotational,Active,16
+DOC-0008,Dr. Riya Jadhav,General Medicine,Primary Care,"MBBS, MS",18,Indore,doctor008@ihms-demo.example,+91 7496055247,Evening,Active,17
+DOC-0009,Dr. Pooja Pawar,General Medicine,Acute Medicine,"MBBS, DNB",7,Nashik,doctor009@ihms-demo.example,+91 9195431488,Full Day,Active,11
+DOC-0010,Dr. Aarav Nair,Cardiology,Interventional Cardiology,"MBBS, DNB",7,Solapur,doctor010@ihms-demo.example,+91 8857058005,Morning,Active,18
+DOC-0011,Dr. Aditya Iyer,Cardiology,Clinical Cardiology,"MBBS, DNB",17,Indore,doctor011@ihms-demo.example,+91 9775080949,Rotational,Active,8
+DOC-0012,Dr. Sneha Singh,Cardiology,Electrophysiology,"MBBS, DM",5,Mumbai,doctor012@ihms-demo.example,+91 8753653357,Morning,Active,16
+DOC-0013,Dr. Anaya Mane,Cardiology,Heart Failure,"MBBS, MS",22,Nashik,doctor013@ihms-demo.example,+91 8866041713,Rotational,Active,15
+DOC-0014,Dr. Sneha Kumar,Cardiology,Cardiac Imaging,"MBBS, MD",27,Thane,doctor014@ihms-demo.example,+91 9954654291,Evening,On Leave,9
+DOC-0015,Dr. Kavya Pawar,Cardiology,Preventive Cardiology,"MBBS, DM",11,Indore,doctor015@ihms-demo.example,+91 7446466673,Full Day,Active,14
+DOC-0016,Dr. Saanvi Sharma,Cardiology,Pediatric Cardiology,"MBBS, MD",25,Nashik,doctor016@ihms-demo.example,+91 7758218964,Evening,Active,14
+DOC-0017,Dr. Yash Singh,Cardiology,Vascular Cardiology,"MBBS, DNB",25,Hyderabad,doctor017@ihms-demo.example,+91 8424782826,Evening,Active,15
+DOC-0018,Dr. Dev Desai,Cardiology,Cardiac Rehabilitation,"MBBS, DNB",28,Nashik,doctor018@ihms-demo.example,+91 9490370883,Morning,On Leave,16
+DOC-0019,Dr. Om Shah,Pediatrics,Neonatology,"MBBS, DNB",27,Pune,doctor019@ihms-demo.example,+91 8569422445,Full Day,On Leave,9
+DOC-0020,Dr. Om Kumar,Pediatrics,Pediatric Cardiology,"MBBS, MD",10,Solapur,doctor020@ihms-demo.example,+91 7466213729,Morning,Active,9
+DOC-0021,Dr. Saanvi Mehta,Pediatrics,Pediatric Neurology,"MBBS, DM",27,Bengaluru,doctor021@ihms-demo.example,+91 9198851926,Full Day,Active,11
+DOC-0022,Dr. Aditi Shah,Pediatrics,Pediatric Pulmonology,"MBBS, MS",16,Navi Mumbai,doctor022@ihms-demo.example,+91 8537908770,Full Day,On Leave,8
+DOC-0023,Dr. Kunal Jadhav,Pediatrics,Pediatric Endocrinology,"MBBS, DNB",24,Solapur,doctor023@ihms-demo.example,+91 7175541304,Morning,On Leave,8
+DOC-0024,Dr. Om Joshi,Pediatrics,Pediatric Emergency,"MBBS, MD",17,Mumbai,doctor024@ihms-demo.example,+91 8849140784,Rotational,Active,14
+DOC-0025,Dr. Kabir Shah,Pediatrics,Developmental Pediatrics,"MBBS, DNB",9,Thane,doctor025@ihms-demo.example,+91 7598418705,Rotational,Active,10
+DOC-0026,Dr. Nikhil Shah,Pediatrics,General Pediatrics,"MBBS, DM",10,Bengaluru,doctor026@ihms-demo.example,+91 7909512384,Rotational,Active,16
+DOC-0027,Dr. Riya Patil,Pediatrics,Adolescent Medicine,"MBBS, MD",10,Solapur,doctor027@ihms-demo.example,+91 9676679211,Full Day,Active,16
+DOC-0028,Dr. Yash Iyer,Orthopedics,Joint Replacement,"MBBS, DM",14,Solapur,doctor028@ihms-demo.example,+91 8462218792,Evening,Active,13
+DOC-0029,Dr. Anaya Mehta,Orthopedics,Spine Surgery,"MBBS, DM",16,Pune,doctor029@ihms-demo.example,+91 9925568798,Full Day,On Leave,10
+DOC-0030,Dr. Anjali Das,Orthopedics,Sports Medicine,"MBBS, MS",6,Hyderabad,doctor030@ihms-demo.example,+91 7122281278,Full Day,Active,9
+DOC-0031,Dr. Om Kumar,Orthopedics,Trauma Orthopedics,"MBBS, MD",13,Bengaluru,doctor031@ihms-demo.example,+91 8331229646,Evening,Active,12
+DOC-0032,Dr. Sneha Singh,Orthopedics,Pediatric Orthopedics,"MBBS, MS",20,Navi Mumbai,doctor032@ihms-demo.example,+91 8991629643,Evening,Active,15
+DOC-0033,Dr. Vivaan Gupta,Orthopedics,Hand Surgery,"MBBS, MS",22,Indore,doctor033@ihms-demo.example,+91 8521632768,Full Day,On Leave,12
+DOC-0034,Dr. Anaya Gupta,Orthopedics,Arthroscopy,"MBBS, DM",19,Thane,doctor034@ihms-demo.example,+91 7887693117,Evening,On Leave,11
+DOC-0035,Dr. Neha Mehta,Orthopedics,Orthopedic Oncology,"MBBS, DNB",28,Nashik,doctor035@ihms-demo.example,+91 7055161478,Full Day,On Leave,18
+DOC-0036,Dr. Anjali Mehta,Orthopedics,Rehabilitation,"MBBS, MD",6,Nashik,doctor036@ihms-demo.example,+91 8174477629,Full Day,Active,8
+DOC-0037,Dr. Aditi Iyer,Dermatology,Clinical Dermatology,"MBBS, DNB",22,Thane,doctor037@ihms-demo.example,+91 9500962803,Evening,Active,10
+DOC-0038,Dr. Sameer Kumar,Dermatology,Dermatopathology,"MBBS, DM",12,Mumbai,doctor038@ihms-demo.example,+91 7981786216,Morning,Active,12
+DOC-0039,Dr. Sneha Nair,Dermatology,Cosmetic Dermatology,"MBBS, DNB",13,Bengaluru,doctor039@ihms-demo.example,+91 7842283084,Rotational,Active,10
+DOC-0040,Dr. Aditi Das,Dermatology,Pediatric Dermatology,"MBBS, MD",5,Navi Mumbai,doctor040@ihms-demo.example,+91 9634706336,Morning,Active,11
+DOC-0041,Dr. Ishita Kulkarni,Dermatology,Trichology,"MBBS, DM",18,Pune,doctor041@ihms-demo.example,+91 9711408508,Rotational,Active,11
+DOC-0042,Dr. Amit Desai,Dermatology,Immunodermatology,"MBBS, DM",13,Hyderabad,doctor042@ihms-demo.example,+91 9685105945,Rotational,Active,13
+DOC-0043,Dr. Arjun Singh,Dermatology,Dermatosurgery,"MBBS, MS",6,Pune,doctor043@ihms-demo.example,+91 9636346266,Full Day,Active,17
+DOC-0044,Dr. Kabir Desai,Dermatology,Allergy Dermatology,"MBBS, MS",21,Bengaluru,doctor044@ihms-demo.example,+91 7492991018,Morning,Active,14
+DOC-0045,Dr. Nikhil Verma,Dermatology,Wound Dermatology,"MBBS, DNB",8,Nashik,doctor045@ihms-demo.example,+91 9642806370,Evening,On Leave,8
+DOC-0046,Dr. Sagar Joshi,Endocrinology,Diabetes Care,"MBBS, DNB",18,Indore,doctor046@ihms-demo.example,+91 7070081310,Rotational,On Leave,8
+DOC-0047,Dr. Aditya Singh,Endocrinology,Thyroid Disorders,"MBBS, MD",20,Indore,doctor047@ihms-demo.example,+91 9967171199,Morning,Active,16
+DOC-0048,Dr. Kavya Jadhav,Endocrinology,Reproductive Endocrinology,"MBBS, MS",25,Thane,doctor048@ihms-demo.example,+91 7339227428,Evening,Active,16
+DOC-0049,Dr. Mira Desai,Endocrinology,Metabolic Bone Disease,"MBBS, DM",10,Bengaluru,doctor049@ihms-demo.example,+91 9154977015,Full Day,Active,17
+DOC-0050,Dr. Neha Mehta,Endocrinology,Adrenal Disorders,"MBBS, MD",20,Indore,doctor050@ihms-demo.example,+91 9150851942,Full Day,Active,16
+DOC-0051,Dr. Mira Nair,Endocrinology,Pituitary Disorders,"MBBS, DM",15,Indore,doctor051@ihms-demo.example,+91 8844050946,Full Day,Active,10
+DOC-0052,Dr. Anaya Shah,Endocrinology,Pediatric Endocrinology,"MBBS, DNB",18,Indore,doctor052@ihms-demo.example,+91 9125683393,Morning,Active,12
+DOC-0053,Dr. Amit More,Endocrinology,Clinical Endocrinology,"MBBS, DM",23,Solapur,doctor053@ihms-demo.example,+91 9948602453,Rotational,On Leave,17
+DOC-0054,Dr. Pranav Reddy,Endocrinology,Metabolic Medicine,"MBBS, DNB",26,Mumbai,doctor054@ihms-demo.example,+91 8605136560,Evening,Active,9
+DOC-0055,Dr. Priya Iyer,Neurology,Stroke Neurology,"MBBS, MD",28,Navi Mumbai,doctor055@ihms-demo.example,+91 8936012751,Full Day,Active,17
+DOC-0056,Dr. Yash Singh,Neurology,Epilepsy,"MBBS, MS",25,Hyderabad,doctor056@ihms-demo.example,+91 9701222639,Evening,Active,11
+DOC-0057,Dr. Arjun Kumar,Neurology,Movement Disorders,"MBBS, MS",16,Hyderabad,doctor057@ihms-demo.example,+91 8756080249,Full Day,On Leave,12
+DOC-0058,Dr. Aanya Mane,Neurology,Neuroimmunology,"MBBS, MS",9,Mumbai,doctor058@ihms-demo.example,+91 8333419494,Morning,On Leave,12
+DOC-0059,Dr. Kavya Jadhav,Neurology,Neuromuscular Medicine,"MBBS, MD",12,Mumbai,doctor059@ihms-demo.example,+91 8335530565,Morning,Active,11
+DOC-0060,Dr. Anjali Patil,Neurology,Headache Medicine,"MBBS, DNB",16,Nagpur,doctor060@ihms-demo.example,+91 8761897198,Evening,Active,18
+DOC-0061,Dr. Arjun Jadhav,Neurology,Behavioral Neurology,"MBBS, MD",19,Bengaluru,doctor061@ihms-demo.example,+91 7929787530,Morning,Active,10
+DOC-0062,Dr. Kavita Kulkarni,Neurology,Clinical Neurophysiology,"MBBS, MD",11,Hyderabad,doctor062@ihms-demo.example,+91 9427099440,Morning,On Leave,15
+DOC-0063,Dr. Aditi Nair,Neurology,Neurocritical Care,"MBBS, MD",8,Solapur,doctor063@ihms-demo.example,+91 8661878945,Morning,On Leave,15
+DOC-0064,Dr. Vivaan Jadhav,Oncology,Medical Oncology,"MBBS, DNB",13,Navi Mumbai,doctor064@ihms-demo.example,+91 7656774014,Rotational,Active,9
+DOC-0065,Dr. Aarav Nair,Oncology,Surgical Oncology,"MBBS, MD",10,Thane,doctor065@ihms-demo.example,+91 7599022330,Rotational,Active,18
+DOC-0066,Dr. Anjali Reddy,Oncology,Radiation Oncology,"MBBS, MD",26,Hyderabad,doctor066@ihms-demo.example,+91 9515178047,Morning,Active,12
+DOC-0067,Dr. Anjali Mehta,Oncology,Hematologic Oncology,"MBBS, DM",14,Indore,doctor067@ihms-demo.example,+91 8214901012,Full Day,On Leave,12
+DOC-0068,Dr. Sameer Pawar,Oncology,Breast Oncology,"MBBS, MS",11,Nagpur,doctor068@ihms-demo.example,+91 9131491970,Evening,Active,12
+DOC-0069,Dr. Yash Das,Oncology,Gynecologic Oncology,"MBBS, DNB",21,Ahmedabad,doctor069@ihms-demo.example,+91 9663815386,Full Day,On Leave,10
+DOC-0070,Dr. Priya Mehta,Oncology,Pediatric Oncology,"MBBS, MS",25,Pune,doctor070@ihms-demo.example,+91 8594644045,Morning,On Leave,11
+DOC-0071,Dr. Nikhil Patil,Oncology,Precision Oncology,"MBBS, DM",9,Nagpur,doctor071@ihms-demo.example,+91 8220887260,Full Day,On Leave,17
+DOC-0072,Dr. Priya Das,Oncology,Palliative Oncology,"MBBS, MD",13,Pune,doctor072@ihms-demo.example,+91 9088676173,Evening,Active,8
+DOC-0073,Dr. Rahul Nair,Gynecology,Obstetrics,"MBBS, MS",10,Navi Mumbai,doctor073@ihms-demo.example,+91 9185797270,Full Day,Active,17
+DOC-0074,Dr. Aanya Joshi,Gynecology,Reproductive Medicine,"MBBS, MD",11,Mumbai,doctor074@ihms-demo.example,+91 7393003628,Rotational,Active,11
+DOC-0075,Dr. Aanya Das,Gynecology,Maternal-Fetal Medicine,"MBBS, MD",8,Indore,doctor075@ihms-demo.example,+91 7709957268,Evening,On Leave,11
+DOC-0076,Dr. Aditi Shah,Gynecology,Gynecologic Oncology,"MBBS, DM",21,Ahmedabad,doctor076@ihms-demo.example,+91 9341232105,Rotational,Active,12
+DOC-0077,Dr. Priya Kumar,Gynecology,Urogynecology,"MBBS, MD",24,Nashik,doctor077@ihms-demo.example,+91 7519202220,Morning,Active,13
+DOC-0078,Dr. Ishaan Kulkarni,Gynecology,Minimally Invasive Gynecology,"MBBS, MD",27,Solapur,doctor078@ihms-demo.example,+91 9192186877,Morning,Active,18
+DOC-0079,Dr. Sameer Singh,Gynecology,High-Risk Pregnancy,"MBBS, DNB",9,Navi Mumbai,doctor079@ihms-demo.example,+91 8026207903,Evening,Active,11
+DOC-0080,Dr. Ira More,Gynecology,General Gynecology,"MBBS, MS",7,Nagpur,doctor080@ihms-demo.example,+91 9721438184,Evening,Active,8
+DOC-0081,Dr. Aditi Mane,Gynecology,Family Planning,"MBBS, MD",8,Hyderabad,doctor081@ihms-demo.example,+91 8609542584,Rotational,Active,15
+DOC-0082,Dr. Diya Iyer,Otolaryngology,Otology,"MBBS, DNB",8,Hyderabad,doctor082@ihms-demo.example,+91 8801547988,Morning,Active,16
+DOC-0083,Dr. Pooja Iyer,Otolaryngology,Rhinology,"MBBS, DNB",8,Thane,doctor083@ihms-demo.example,+91 9935263312,Rotational,Active,9
+DOC-0084,Dr. Ishaan Iyer,Otolaryngology,Laryngology,"MBBS, DNB",7,Nagpur,doctor084@ihms-demo.example,+91 9196597630,Evening,Active,15
+DOC-0085,Dr. Nikhil Verma,Otolaryngology,Head and Neck Surgery,"MBBS, MS",7,Bengaluru,doctor085@ihms-demo.example,+91 8013207847,Morning,On Leave,14
+DOC-0086,Dr. Pranav More,Otolaryngology,Pediatric ENT,"MBBS, DM",7,Hyderabad,doctor086@ihms-demo.example,+91 8028736270,Full Day,Active,9
+DOC-0087,Dr. Om Nair,Otolaryngology,Audiology,"MBBS, DM",6,Indore,doctor087@ihms-demo.example,+91 9540678531,Evening,Active,10
+DOC-0088,Dr. Pooja Kulkarni,Otolaryngology,Sleep Medicine,"MBBS, MS",5,Hyderabad,doctor088@ihms-demo.example,+91 8813073486,Evening,On Leave,18
+DOC-0089,Dr. Saanvi Kulkarni,Otolaryngology,General ENT,"MBBS, MD",13,Indore,doctor089@ihms-demo.example,+91 7017671091,Rotational,Active,14
+DOC-0090,Dr. Kabir Pawar,Otolaryngology,Otoneurology,"MBBS, DM",6,Nagpur,doctor090@ihms-demo.example,+91 9117323685,Rotational,Active,17
+DOC-0091,Dr. Mahesh Sharma,Radiology,Diagnostic Radiology,"MBBS, DNB",16,Bengaluru,doctor091@ihms-demo.example,+91 8168096456,Rotational,On Leave,8
+DOC-0092,Dr. Meera Patil,Radiology,Neuroradiology,"MBBS, MS",18,Mumbai,doctor092@ihms-demo.example,+91 9947872650,Evening,Active,18
+DOC-0093,Dr. Amit Sharma,Radiology,Musculoskeletal Radiology,"MBBS, DM",28,Navi Mumbai,doctor093@ihms-demo.example,+91 9351243152,Evening,Active,18
+DOC-0094,Dr. Neha Singh,Radiology,Interventional Radiology,"MBBS, MD",14,Bengaluru,doctor094@ihms-demo.example,+91 9129952391,Evening,Active,11
+DOC-0095,Dr. Ishaan Reddy,Radiology,Chest Radiology,"MBBS, MS",17,Nagpur,doctor095@ihms-demo.example,+91 8286075241,Full Day,Active,15
+DOC-0096,Dr. Ishaan Patil,Radiology,Abdominal Imaging,"MBBS, DM",28,Mumbai,doctor096@ihms-demo.example,+91 9268781190,Evening,Active,18
+DOC-0097,Dr. Neha Joshi,Radiology,Breast Imaging,"MBBS, MD",5,Navi Mumbai,doctor097@ihms-demo.example,+91 8387599406,Evening,Active,13
+DOC-0098,Dr. Aditya Shah,Radiology,Nuclear Medicine,"MBBS, DM",6,Nashik,doctor098@ihms-demo.example,+91 8169260019,Morning,On Leave,12
+DOC-0099,Dr. Diya Reddy,Radiology,Pediatric Radiology,"MBBS, DM",25,Pune,doctor099@ihms-demo.example,+91 8311770146,Rotational,Active,12
+DOC-0100,Dr. Aarav Singh,Laboratory,Hematology,"MBBS, MD",19,Indore,doctor100@ihms-demo.example,+91 7818369912,Rotational,Active,11
+DOC-0101,Dr. Kunal Patil,Laboratory,Clinical Biochemistry,"MBBS, MD",18,Solapur,doctor101@ihms-demo.example,+91 7899340149,Full Day,Active,14
+DOC-0102,Dr. Ishaan Kulkarni,Laboratory,Microbiology,"MBBS, DNB",28,Pune,doctor102@ihms-demo.example,+91 9598241066,Full Day,Active,9
+DOC-0103,Dr. Yash Kulkarni,Laboratory,Histopathology,"MBBS, MD",5,Nagpur,doctor103@ihms-demo.example,+91 7243064899,Morning,Active,11
+DOC-0104,Dr. Amit Patil,Laboratory,Cytopathology,"MBBS, MS",23,Thane,doctor104@ihms-demo.example,+91 7089704235,Full Day,Active,18
+DOC-0105,Dr. Mahesh Mane,Laboratory,Immunology,"MBBS, DM",5,Pune,doctor105@ihms-demo.example,+91 8824187223,Full Day,Active,10
+DOC-0106,Dr. Sameer Desai,Laboratory,Molecular Diagnostics,"MBBS, MD",17,Nagpur,doctor106@ihms-demo.example,+91 9229872428,Full Day,Active,13
+DOC-0107,Dr. Kunal Verma,Laboratory,Transfusion Medicine,"MBBS, DNB",21,Navi Mumbai,doctor107@ihms-demo.example,+91 9805194818,Morning,On Leave,15
+DOC-0108,Dr. Sagar Verma,Laboratory,Clinical Pathology,"MBBS, MD",11,Indore,doctor108@ihms-demo.example,+91 8319568779,Full Day,Active,11
+DOC-0109,Dr. Dev Reddy,Pharmacy,Clinical Pharmacy,"MBBS, MD",23,Thane,doctor109@ihms-demo.example,+91 7956580406,Morning,Active,12
+DOC-0110,Dr. Nikhil Joshi,Pharmacy,Oncology Pharmacy,"MBBS, DM",24,Pune,doctor110@ihms-demo.example,+91 8557323536,Rotational,Active,10
+DOC-0111,Dr. Aanya Joshi,Pharmacy,Critical Care Pharmacy,"MBBS, DM",9,Solapur,doctor111@ihms-demo.example,+91 7024477710,Rotational,Active,14
+DOC-0112,Dr. Kavita Khan,Pharmacy,Pediatric Pharmacy,"MBBS, DM",21,Pune,doctor112@ihms-demo.example,+91 8725051976,Rotational,Active,11
+DOC-0113,Dr. Vivaan Kulkarni,Pharmacy,Medication Safety,"MBBS, MS",25,Solapur,doctor113@ihms-demo.example,+91 8098938548,Evening,Active,17
+DOC-0114,Dr. Ira Nair,Pharmacy,Pharmacovigilance,"MBBS, MD",19,Indore,doctor114@ihms-demo.example,+91 8384528019,Morning,Active,11
+DOC-0115,Dr. Sameer Mane,Pharmacy,Inpatient Pharmacy,"MBBS, MS",18,Thane,doctor115@ihms-demo.example,+91 9946876807,Full Day,Active,11
+DOC-0116,Dr. Pranav Jadhav,Pharmacy,Ambulatory Pharmacy,"MBBS, MS",22,Nagpur,doctor116@ihms-demo.example,+91 8890417633,Morning,Active,9
+DOC-0117,Dr. Amit Shah,Pharmacy,Antimicrobial Stewardship,"MBBS, DNB",11,Bengaluru,doctor117@ihms-demo.example,+91 7797369464,Evening,Active,17
+DOC-0118,Dr. Mahesh Jadhav,Psychiatry,Adult Psychiatry,"MBBS, MD",18,Indore,doctor118@ihms-demo.example,+91 9800462587,Evening,On Leave,9
+DOC-0119,Dr. Mahesh Nair,Psychiatry,Child Psychiatry,"MBBS, DM",16,Indore,doctor119@ihms-demo.example,+91 8424290933,Morning,Active,17
+DOC-0120,Dr. Aditi Desai,Psychiatry,Addiction Psychiatry,"MBBS, MS",11,Indore,doctor120@ihms-demo.example,+91 7737115957,Evening,Active,9
+DOC-0121,Dr. Diya Verma,Psychiatry,Geriatric Psychiatry,"MBBS, DM",14,Mumbai,doctor121@ihms-demo.example,+91 8470730428,Evening,Active,17
+DOC-0122,Dr. Anjali Kumar,Psychiatry,Consultation-Liaison Psychiatry,"MBBS, MS",27,Bengaluru,doctor122@ihms-demo.example,+91 9564731034,Evening,Active,13
+DOC-0123,Dr. Aarav Sharma,Psychiatry,Neuropsychiatry,"MBBS, DNB",23,Pune,doctor123@ihms-demo.example,+91 8449285423,Evening,Active,12
+DOC-0124,Dr. Sneha Verma,Psychiatry,Psychotherapy,"MBBS, DM",23,Pune,doctor124@ihms-demo.example,+91 9252056296,Evening,Active,14
+DOC-0125,Dr. Amit Mehta,Psychiatry,Emergency Psychiatry,"MBBS, MD",13,Thane,doctor125@ihms-demo.example,+91 9051273641,Evening,On Leave,14
+DOC-0126,Dr. Kavya Das,Psychiatry,Community Psychiatry,"MBBS, DM",26,Ahmedabad,doctor126@ihms-demo.example,+91 9988294337,Evening,On Leave,17
+DOC-0127,Dr. Anaya Patil,Emergency Medicine,Trauma Care,"MBBS, MD",12,Nagpur,doctor127@ihms-demo.example,+91 7507057991,Morning,Active,15
+DOC-0128,Dr. Diya Nair,Emergency Medicine,Emergency Ultrasound,"MBBS, MD",7,Mumbai,doctor128@ihms-demo.example,+91 8754436254,Morning,Active,12
+DOC-0129,Dr. Ishita Pawar,Emergency Medicine,Critical Care,"MBBS, MD",17,Pune,doctor129@ihms-demo.example,+91 7711361737,Rotational,Active,14
+DOC-0130,Dr. Vivaan Singh,Emergency Medicine,Toxicology,"MBBS, DNB",25,Hyderabad,doctor130@ihms-demo.example,+91 9560192828,Rotational,Active,9
+DOC-0131,Dr. Rohan Verma,Emergency Medicine,Disaster Medicine,"MBBS, DNB",15,Navi Mumbai,doctor131@ihms-demo.example,+91 9081856947,Evening,Active,10
+DOC-0132,Dr. Rohan Verma,Emergency Medicine,Pediatric Emergency,"MBBS, DM",9,Nashik,doctor132@ihms-demo.example,+91 9297752290,Full Day,Active,9
+DOC-0133,Dr. Saanvi Gupta,Emergency Medicine,Prehospital Care,"MBBS, MD",27,Solapur,doctor133@ihms-demo.example,+91 8476924506,Rotational,Active,13
+DOC-0134,Dr. Pranav Kumar,Emergency Medicine,Acute Care,"MBBS, MD",8,Nashik,doctor134@ihms-demo.example,+91 9099842000,Rotational,Active,13
+DOC-0135,Dr. Saanvi Das,Emergency Medicine,Resuscitation,"MBBS, MS",28,Nagpur,doctor135@ihms-demo.example,+91 8815034160,Full Day,Active,9
+DOC-0136,Dr. Rahul Mane,Pulmonology,Critical Care Pulmonology,"MBBS, MD",11,Pune,doctor136@ihms-demo.example,+91 7525315999,Evening,Active,15
+DOC-0137,Dr. Kavya Patil,Pulmonology,Sleep Medicine,"MBBS, MD",26,Mumbai,doctor137@ihms-demo.example,+91 8630614242,Evening,Active,12
+DOC-0138,Dr. Aarav Nair,Pulmonology,Interventional Pulmonology,"MBBS, MS",5,Solapur,doctor138@ihms-demo.example,+91 9611280335,Rotational,Active,11
+DOC-0139,Dr. Kabir Sharma,Pulmonology,Asthma Care,"MBBS, MD",25,Hyderabad,doctor139@ihms-demo.example,+91 9811475530,Full Day,Active,11
+DOC-0140,Dr. Kabir Joshi,Pulmonology,COPD Care,"MBBS, DNB",16,Thane,doctor140@ihms-demo.example,+91 9597357091,Evening,Active,12
+DOC-0141,Dr. Aanya Das,Pulmonology,Thoracic Medicine,"MBBS, DM",25,Indore,doctor141@ihms-demo.example,+91 7818881425,Morning,Active,9
+DOC-0142,Dr. Neha Kumar,Pulmonology,Pediatric Pulmonology,"MBBS, MS",8,Nagpur,doctor142@ihms-demo.example,+91 7999120152,Rotational,On Leave,11
+DOC-0143,Dr. Mira Mehta,Pulmonology,Respiratory Infection,"MBBS, MS",13,Solapur,doctor143@ihms-demo.example,+91 8881789376,Evening,On Leave,14
+DOC-0144,Dr. Sagar Khan,Pulmonology,Pulmonary Rehabilitation,"MBBS, DM",26,Mumbai,doctor144@ihms-demo.example,+91 8116645334,Evening,On Leave,9
+DOC-0145,Dr. Riya Kumar,Nephrology,Dialysis,"MBBS, DM",20,Navi Mumbai,doctor145@ihms-demo.example,+91 9261163353,Full Day,Active,16
+DOC-0146,Dr. Kavya Mane,Nephrology,Transplant Nephrology,"MBBS, MS",8,Pune,doctor146@ihms-demo.example,+91 8434479084,Morning,Active,9
+DOC-0147,Dr. Kabir Iyer,Nephrology,Hypertension,"MBBS, DM",6,Hyderabad,doctor147@ihms-demo.example,+91 7281764483,Full Day,On Leave,14
+DOC-0148,Dr. Neha Desai,Nephrology,Glomerular Disease,"MBBS, DM",17,Pune,doctor148@ihms-demo.example,+91 8383527018,Evening,Active,18
+DOC-0149,Dr. Amit Pawar,Nephrology,Kidney Stone Care,"MBBS, MS",26,Nagpur,doctor149@ihms-demo.example,+91 8293105177,Rotational,On Leave,17
+DOC-0150,Dr. Pooja Mane,Nephrology,Critical Care Nephrology,"MBBS, DM",9,Pune,doctor150@ihms-demo.example,+91 8746414576,Morning,Active,11
+DOC-0151,Dr. Vivaan Mehta,Nephrology,Pediatric Nephrology,"MBBS, MS",20,Solapur,doctor151@ihms-demo.example,+91 9673302453,Full Day,Active,11
+DOC-0152,Dr. Vivaan Gupta,Nephrology,Renal Nutrition,"MBBS, MD",12,Ahmedabad,doctor152@ihms-demo.example,+91 8480084684,Evening,Active,12
+DOC-0153,Dr. Sameer Kumar,Nephrology,Clinical Nephrology,"MBBS, MD",26,Pune,doctor153@ihms-demo.example,+91 7292659846,Rotational,Active,8
+DOC-0154,Dr. Ishita Gupta,Gastroenterology,Hepatology,"MBBS, MD",28,Navi Mumbai,doctor154@ihms-demo.example,+91 7969739795,Evening,On Leave,12
+DOC-0155,Dr. Meera Pawar,Gastroenterology,Endoscopy,"MBBS, MS",7,Mumbai,doctor155@ihms-demo.example,+91 8932941553,Rotational,Active,11
+DOC-0156,Dr. Neha Das,Gastroenterology,Inflammatory Bowel Disease,"MBBS, DM",14,Pune,doctor156@ihms-demo.example,+91 7987596369,Morning,Active,9
+DOC-0157,Dr. Sagar Singh,Gastroenterology,Pancreatology,"MBBS, DM",19,Indore,doctor157@ihms-demo.example,+91 8104811519,Morning,Active,9
+DOC-0158,Dr. Priya Sharma,Gastroenterology,Motility Disorders,"MBBS, DNB",22,Nashik,doctor158@ihms-demo.example,+91 7325803947,Morning,Active,16
+DOC-0159,Dr. Tara Singh,Gastroenterology,Pediatric Gastroenterology,"MBBS, MS",18,Nashik,doctor159@ihms-demo.example,+91 7262085062,Evening,Active,12
+DOC-0160,Dr. Anaya Verma,Gastroenterology,Liver Transplant,"MBBS, MD",22,Solapur,doctor160@ihms-demo.example,+91 7084662919,Morning,Active,14
+DOC-0161,Dr. Om Reddy,Gastroenterology,General Gastroenterology,"MBBS, MS",23,Hyderabad,doctor161@ihms-demo.example,+91 7449089418,Rotational,Active,13
+DOC-0162,Dr. Rohan Joshi,Gastroenterology,Nutrition,"MBBS, MS",14,Hyderabad,doctor162@ihms-demo.example,+91 7715301574,Rotational,Active,18
+DOC-0163,Dr. Sameer Joshi,General Surgery,Laparoscopic Surgery,"MBBS, MS",22,Ahmedabad,doctor163@ihms-demo.example,+91 8504308876,Rotational,Active,14
+DOC-0164,Dr. Sameer Singh,General Surgery,Trauma Surgery,"MBBS, MS",25,Hyderabad,doctor164@ihms-demo.example,+91 9065365297,Evening,Active,17
+DOC-0165,Dr. Sneha Verma,General Surgery,Colorectal Surgery,"MBBS, DM",8,Indore,doctor165@ihms-demo.example,+91 8175574970,Evening,On Leave,16
+DOC-0166,Dr. Aanya Patil,General Surgery,Breast Surgery,"MBBS, DM",18,Navi Mumbai,doctor166@ihms-demo.example,+91 7572944272,Evening,Active,15
+DOC-0167,Dr. Aarav Shah,General Surgery,Hernia Surgery,"MBBS, DM",26,Thane,doctor167@ihms-demo.example,+91 9070833284,Full Day,Active,16
+DOC-0168,Dr. Anaya Patil,General Surgery,Surgical Oncology,"MBBS, MD",14,Bengaluru,doctor168@ihms-demo.example,+91 8924713489,Rotational,Active,17
+DOC-0169,Dr. Sameer Singh,General Surgery,Bariatric Surgery,"MBBS, DM",8,Hyderabad,doctor169@ihms-demo.example,+91 7546025081,Morning,Active,15
+DOC-0170,Dr. Mira Kumar,General Surgery,Acute Care Surgery,"MBBS, DM",26,Hyderabad,doctor170@ihms-demo.example,+91 8878014692,Morning,On Leave,14
+DOC-0171,Dr. Sagar Nair,General Surgery,Vascular Surgery,"MBBS, MS",11,Solapur,doctor171@ihms-demo.example,+91 8412621593,Evening,Active,18
+DOC-0172,Dr. Sagar Desai,Ophthalmology,Retina,"MBBS, MS",16,Bengaluru,doctor172@ihms-demo.example,+91 8336129939,Full Day,Active,10
+DOC-0173,Dr. Aditi Kumar,Ophthalmology,Cornea,"MBBS, DM",18,Pune,doctor173@ihms-demo.example,+91 7169880735,Rotational,On Leave,11
+DOC-0174,Dr. Kavita Gupta,Ophthalmology,Glaucoma,"MBBS, DNB",21,Nagpur,doctor174@ihms-demo.example,+91 9875025057,Evening,Active,17
+DOC-0175,Dr. Priya Sharma,Ophthalmology,Pediatric Ophthalmology,"MBBS, DNB",10,Navi Mumbai,doctor175@ihms-demo.example,+91 8120259998,Evening,On Leave,18
+DOC-0176,Dr. Pranav Kumar,Ophthalmology,Oculoplastics,"MBBS, MD",21,Nashik,doctor176@ihms-demo.example,+91 7077739469,Rotational,Active,11
+DOC-0177,Dr. Aditya Sharma,Ophthalmology,Cataract Surgery,"MBBS, DNB",16,Bengaluru,doctor177@ihms-demo.example,+91 9090710722,Morning,Active,12
+DOC-0178,Dr. Dev Gupta,Ophthalmology,Neuro-Ophthalmology,"MBBS, MS",6,Indore,doctor178@ihms-demo.example,+91 8828706618,Full Day,Active,18
+DOC-0179,Dr. Anjali Mehta,Ophthalmology,Uveitis,"MBBS, DNB",28,Thane,doctor179@ihms-demo.example,+91 9107240470,Evening,Active,11
+DOC-0180,Dr. Rohan Mane,Ophthalmology,Refractive Surgery,"MBBS, MS",18,Nashik,doctor180@ihms-demo.example,+91 7551555075,Rotational,Active,13
+DOC-0181,Dr. Aditi Nair,Dentistry,Oral Surgery,"MBBS, MS",24,Mumbai,doctor181@ihms-demo.example,+91 8074918071,Morning,Active,18
+DOC-0182,Dr. Pranav Joshi,Dentistry,Orthodontics,"MBBS, DNB",7,Nagpur,doctor182@ihms-demo.example,+91 8677442366,Morning,Active,17
+DOC-0183,Dr. Vivaan Gupta,Dentistry,Periodontics,"MBBS, MS",7,Mumbai,doctor183@ihms-demo.example,+91 7538486620,Morning,On Leave,12
+DOC-0184,Dr. Ira Shah,Dentistry,Endodontics,"MBBS, MD",5,Ahmedabad,doctor184@ihms-demo.example,+91 7102685932,Full Day,On Leave,12
+DOC-0185,Dr. Amit Singh,Dentistry,Pediatric Dentistry,"MBBS, DM",26,Hyderabad,doctor185@ihms-demo.example,+91 8728269987,Morning,Active,18
+DOC-0186,Dr. Rahul Joshi,Dentistry,Prosthodontics,"MBBS, MS",21,Hyderabad,doctor186@ihms-demo.example,+91 9165171318,Full Day,On Leave,16
+DOC-0187,Dr. Rahul Das,Dentistry,Oral Medicine,"MBBS, MD",22,Nagpur,doctor187@ihms-demo.example,+91 8071032253,Morning,On Leave,15
+DOC-0188,Dr. Neha Iyer,Dentistry,Dental Public Health,"MBBS, MS",11,Navi Mumbai,doctor188@ihms-demo.example,+91 8142353636,Full Day,Active,16
+DOC-0189,Dr. Pooja Shah,Dentistry,Implant Dentistry,"MBBS, DM",7,Bengaluru,doctor189@ihms-demo.example,+91 7388149300,Evening,On Leave,16
+DOC-0190,Dr. Yash Mehta,Hematology,Clinical Hematology,"MBBS, DNB",23,Indore,doctor190@ihms-demo.example,+91 8600329503,Full Day,On Leave,9
+DOC-0191,Dr. Aanya Nair,Hematology,Hemato-Oncology,"MBBS, DNB",21,Indore,doctor191@ihms-demo.example,+91 8670220735,Evening,Active,18
+DOC-0192,Dr. Ira More,Hematology,Coagulation,"MBBS, MD",9,Pune,doctor192@ihms-demo.example,+91 9827863743,Evening,On Leave,8
+DOC-0193,Dr. Vivaan Singh,Hematology,Transfusion Medicine,"MBBS, MS",22,Bengaluru,doctor193@ihms-demo.example,+91 9133459694,Rotational,Active,8
+DOC-0194,Dr. Aarav Patil,Hematology,Bone Marrow Transplant,"MBBS, MD",13,Navi Mumbai,doctor194@ihms-demo.example,+91 7932526726,Full Day,Active,8
+DOC-0195,Dr. Anaya Kumar,Hematology,Pediatric Hematology,"MBBS, MD",20,Pune,doctor195@ihms-demo.example,+91 7921787370,Rotational,Active,11
+DOC-0196,Dr. Ishaan Khan,Hematology,Hemoglobin Disorders,"MBBS, DM",18,Bengaluru,doctor196@ihms-demo.example,+91 9580357750,Evening,Active,8
+DOC-0197,Dr. Saanvi Mane,Hematology,Thrombosis,"MBBS, DM",23,Indore,doctor197@ihms-demo.example,+91 8460313087,Full Day,Active,16
+DOC-0198,Dr. Rohan Verma,Hematology,Laboratory Hematology,"MBBS, DM",11,Bengaluru,doctor198@ihms-demo.example,+91 9515988314,Rotational,Active,10

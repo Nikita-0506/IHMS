@@ -1,11 +1,15 @@
 from pathlib import Path
 from datetime import datetime
 
-import joblib
-import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
+try:
+    import joblib
+    import pandas as pd
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.metrics import accuracy_score
+    from sklearn.model_selection import train_test_split
+except ImportError:
+    joblib = None
+    pd = None
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]

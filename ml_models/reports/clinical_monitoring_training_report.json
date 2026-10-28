@@ -1,0 +1,123 @@
+{
+  "training_timestamp": "2026-10-22T12:25:22.784528",
+  "dataset_source": "PostgreSQL (IHMS_Project)",
+  "total_records": 2500,
+  "features_count": 29,
+  "triage_monitoring_model": {
+    "algorithm": "RandomForest",
+    "metrics": {
+      "accuracy": 0.958,
+      "balanced_accuracy": 0.8777,
+      "macro_precision": 0.8929,
+      "macro_recall": 0.8777,
+      "macro_f1": 0.884
+    },
+    "classes": [
+      "Continuous",
+      "Enhanced",
+      "Routine"
+    ],
+    "top_features": {
+      "gcs_score": 0.15944,
+      "respiratory_rate_bpm": 0.08413,
+      "heart_rate_bpm": 0.06297,
+      "blood_glucose_mg_dl": 0.06082,
+      "temperature_c": 0.056,
+      "spo2_percent": 0.05396,
+      "pain_score": 0.0437,
+      "systolic_bp_mmhg": 0.03949,
+      "hyperglycemia_flag": 0.03167,
+      "ecg_rhythm_ST-T Changes": 0.03086,
+      "urine_output_ml_hr": 0.03055,
+      "shock_index": 0.03025,
+      "ecg_rhythm_Not Recorded": 0.02843,
+      "diastolic_bp_mmhg": 0.02814,
+      "pulse_pressure": 0.02623,
+      "ecg_rhythm_Sinus Tachycardia": 0.02543,
+      "ecg_rhythm_Under Review": 0.02402,
+      "mean_arterial_pressure": 0.0224,
+      "ecg_rhythm_Not Ordered": 0.02158,
+      "age": 0.02083
+    },
+    "models_evaluated": {
+      "RandomForest": {
+        "accuracy": 0.958,
+        "balanced_accuracy": 0.8777,
+        "macro_precision": 0.8929,
+        "macro_recall": 0.8777,
+        "macro_f1": 0.884
+      },
+      "ExtraTrees": {
+        "accuracy": 0.938,
+        "balanced_accuracy": 0.8145,
+        "macro_precision": 0.8291,
+        "macro_recall": 0.8145,
+        "macro_f1": 0.8216
+      },
+      "HistGradientBoosting": {
+        "accuracy": 0.95,
+        "balanced_accuracy": 0.8549,
+        "macro_precision": 0.8834,
+        "macro_recall": 0.8549,
+        "macro_f1": 0.866
+      },
+      "LogisticRegression": {
+        "accuracy": 0.93,
+        "balanced_accuracy": 0.848,
+        "macro_precision": 0.8291,
+        "macro_recall": 0.848,
+        "macro_f1": 0.8369
+      }
+    }
+  },
+  "care_unit_model": {
+    "algorithm": "HistGradientBoosting",
+    "metrics": {
+      "accuracy": 0.624,
+      "balanced_accuracy": 0.3783,
+      "macro_precision": 0.3861,
+      "macro_recall": 0.3783,
+      "macro_f1": 0.3702
+    },
+    "classes": [
+      "Day Care Unit",
+      "Emergency Department",
+      "General Inpatient Hall",
+      "General Ward",
+      "Intensive Care Unit",
+      "Isolation Unit",
+      "Private Inpatient Unit"
+    ],
+    "top_features": {},
+    "models_evaluated": {
+      "RandomForest": {
+        "accuracy": 0.684,
+        "balanced_accuracy": 0.387,
+        "macro_precision": 0.3433,
+        "macro_recall": 0.387,
+        "macro_f1": 0.3589
+      },
+      "ExtraTrees": {
+        "accuracy": 0.668,
+        "balanced_accuracy": 0.369,
+        "macro_precision": 0.3348,
+        "macro_recall": 0.369,
+        "macro_f1": 0.3437
+      },
+      "HistGradientBoosting": {
+        "accuracy": 0.624,
+        "balanced_accuracy": 0.3783,
+        "macro_precision": 0.3861,
+        "macro_recall": 0.3783,
+        "macro_f1": 0.3702
+      },
+      "LogisticRegression": {
+        "accuracy": 0.298,
+        "balanced_accuracy": 0.358,
+        "macro_precision": 0.3572,
+        "macro_recall": 0.358,
+        "macro_f1": 0.3125
+      }
+    }
+  }
+}

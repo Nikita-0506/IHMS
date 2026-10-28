@@ -1,0 +1,23 @@
+﻿Department_ID,Department_Name,Doctor_Count,Status,Floor,Extension
+DEPT-001,General Medicine,9,Active,Ground Floor,EXT-101
+DEPT-002,Cardiology,9,Active,3rd Floor,EXT-102
+DEPT-003,Pediatrics,9,Active,2nd Floor,EXT-103
+DEPT-004,Orthopedics,9,Active,Ground Floor,EXT-104
+DEPT-005,Dermatology,9,Active,4th Floor,EXT-105
+DEPT-006,Endocrinology,9,Active,Ground Floor,EXT-106
+DEPT-007,Neurology,9,Active,2nd Floor,EXT-107
+DEPT-008,Oncology,9,Active,Ground Floor,EXT-108
+DEPT-009,Gynecology,9,Active,3rd Floor,EXT-109
+DEPT-010,Otolaryngology,9,Active,Ground Floor,EXT-110
+DEPT-011,Radiology,9,Active,1st Floor,EXT-111
+DEPT-012,Laboratory,9,Active,Ground Floor,EXT-112
+DEPT-013,Pharmacy,9,Active,Ground Floor,EXT-113
+DEPT-014,Psychiatry,9,Active,4th Floor,EXT-114
+DEPT-015,Emergency Medicine,9,Active,2nd Floor,EXT-115
+DEPT-016,Pulmonology,9,Active,3rd Floor,EXT-116
+DEPT-017,Nephrology,9,Active,1st Floor,EXT-117
+DEPT-018,Gastroenterology,9,Active,3rd Floor,EXT-118
+DEPT-019,General Surgery,9,Active,2nd Floor,EXT-119
+DEPT-020,Ophthalmology,9,Active,2nd Floor,EXT-120
+DEPT-021,Dentistry,9,Active,Ground Floor,EXT-121
+DEPT-022,Hematology,9,Active,3rd Floor,EXT-122

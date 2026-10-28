@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IHMS - Clinical Patient Reports Portal</title>
+<style>
+    :root {
+        --brand: #0284c7;
+        --brand-dark: #0369a1;
+        --bg: #f8fafc;
+        --surface: #ffffff;
+        --text: #0f172a;
+        --text-muted: #64748b;
+        --border: #e2e8f0;
+    }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+        color: white;
+        padding: 24px 32px;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+    }
+    .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 24px 32px;
+    }
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+    .stat-card {
+        background: var(--surface);
+        padding: 18px 22px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .stat-val {
+        font-size: 28px;
+        font-weight: 800;
+        margin-top: 4px;
+    }
+    .filter-bar {
+        background: var(--surface);
+        padding: 18px 24px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        margin-bottom: 24px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .input-box {
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        font-size: 14px;
+        flex: 1;
+        min-width: 220px;
+    }
+    .select-box {
+        padding: 10px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        font-size: 14px;
+        background: #fff;
+    }
+    .btn-search {
+        background: var(--brand);
+        color: white;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }
+    .btn-search:hover {
+        background: var(--brand-dark);
+    }
+    .table-card {
+        background: var(--surface);
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    th {
+        background: #f1f5f9;
+        padding: 12px 16px;
+        font-size: 13px;
+        color: #475569;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    td {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+        font-size: 14px;
+    }
+    tr:hover {
+        background: #f8fafc;
+    }
+    .action-btn {
+        background: #0284c7;
+        color: white;
+        padding: 6px 14px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+    .action-btn:hover {
+        background: #0369a1;
+    }
+    .badge-critical {
+        background: #fee2e2;
+        color: #b91c1c;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+    }
+    .badge-routine {
+        background: #d1fae5;
+        color: #065f46;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+    }
+    .badge-enhanced {
+        background: #fef3c7;
+        color: #92400e;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 12px;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div style="max-width:1280px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+            <h1 style="margin:0; font-size:24px;">🏥 IHMS Clinical Monitoring & Patient Reports Portal</h1>
+            <p style="margin:4px 0 0 0; opacity:0.9; font-size:14px;">Individual Patient Clinical Reports & Parameter Tracker</p>
+        </div>
+        <div>
+            <a href="http://localhost:5173/" style="color:#fff; text-decoration:none; font-weight:600; font-size:14px; background:rgba(255,255,255,0.2); padding:8px 16px; border-radius:8px; margin-right:8px;">
+                ← Main Web Dashboard
+            </a>
+            <a href="/dashboard/" style="color:#fff; text-decoration:none; font-weight:600; font-size:14px; background:rgba(255,255,255,0.2); padding:8px 16px; border-radius:8px;">
+                Staff Portal
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span style="font-size:12px; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Total Monitored Patients</span>
+            <div class="stat-val" style="color:#0284c7;">{{ total_count }}</div>
+        </div>
+        <div class="stat-card">
+            <span style="font-size:12px; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Critical & High Risk Alerts</span>
+            <div class="stat-val" style="color:#dc2626;">{{ critical_count }}</div>
+        </div>
+        <div class="stat-card">
+            <span style="font-size:12px; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Individual Reports Status</span>
+            <div class="stat-val" style="color:#16a34a;">Active (Ready)</div>
+        </div>
+        <div class="stat-card">
+            <span style="font-size:12px; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Report Archive Storage</span>
+            <div class="stat-val" style="color:#7c3aed;">Volume Ready</div>
+        </div>
+    </div>
+
+    <!-- Search & Filter Form -->
+    <form method="GET" class="filter-bar">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search Patient ID, Name, City, or Ward..." class="input-box">
+        <select name="unit" class="select-box">
+            <option value="">All Care Units</option>
+            <option value="Intensive Care Unit" {% if selected_unit == 'Intensive Care Unit' %}selected{% endif %}>Intensive Care Unit (ICU)</option>
+            <option value="Emergency Department" {% if selected_unit == 'Emergency Department' %}selected{% endif %}>Emergency Department</option>
+            <option value="General Ward" {% if selected_unit == 'General Ward' %}selected{% endif %}>General Ward</option>
+            <option value="Isolation Unit" {% if selected_unit == 'Isolation Unit' %}selected{% endif %}>Isolation Unit</option>
+            <option value="Private Inpatient Unit" {% if selected_unit == 'Private Inpatient Unit' %}selected{% endif %}>Private Inpatient Unit</option>
+            <option value="Day Care Unit" {% if selected_unit == 'Day Care Unit' %}selected{% endif %}>Day Care Unit</option>
+        </select>
+        <select name="risk" class="select-box">
+            <option value="">All Risk Levels</option>
+            <option value="High" {% if selected_risk == 'High' %}selected{% endif %}>High Risk</option>
+            <option value="Moderate" {% if selected_risk == 'Moderate' %}selected{% endif %}>Moderate Risk</option>
+            <option value="Low" {% if selected_risk == 'Low' %}selected{% endif %}>Low Risk</option>
+        </select>
+        <button type="submit" class="btn-search">🔍 Filter</button>
+        {% if query or selected_unit or selected_risk %}
+        <a href="/patients/reports/" style="color:#64748b; font-size:13px; text-decoration:none; margin-left:8px;">Clear Filters</a>
+        {% endif %}
+    </form>
+
+    <!-- Patients Table -->
+    <div class="table-card">
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Age / Gender</th>
+                    <th>Care Location (Ward / Bed)</th>
+                    <th>Blood Pressure (BP)</th>
+                    <th>SpO2</th>
+                    <th>Blood Glucose</th>
+                    <th>Heart Rate (HR)</th>
+                    <th>Monitoring Level</th>
+                    <th style="text-align:right;">Individual Report</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in patients %}
+                <tr>
+                    <td style="font-weight:700; color:#0284c7;">{{ p.patient_id }}</td>
+                    <td style="font-weight:600;">{{ p.full_name }}</td>
+                    <td style="color:#64748b;">{{ p.age }}y / {{ p.gender }}</td>
+                    <td>{{ p.care_unit }} <span style="font-size:11px; color:#64748b;">({{ p.bed_no }})</span></td>
+                    <td>
+                        <span style="font-weight:600; {% if p.systolic_bp_mmhg >= 150 or p.systolic_bp_mmhg < 95 %}color:#dc2626; font-weight:700;{% endif %}">
+                            {{ p.systolic_bp_mmhg|floatformat:0 }}/{{ p.diastolic_bp_mmhg|floatformat:0 }}
+                        </span>
+                    </td>
+                    <td>
+                        <span style="font-weight:600; {% if p.spo2_percent < 93 %}color:#dc2626; font-weight:700;{% endif %}">
+                            {{ p.spo2_percent|floatformat:1 }}%
+                        </span>
+                    </td>
+                    <td>
+                        <span style="font-weight:600; {% if p.blood_glucose_mg_dl >= 200 or p.blood_glucose_mg_dl < 70 %}color:#dc2626; font-weight:700;{% endif %}">
+                            {{ p.blood_glucose_mg_dl|floatformat:0 }} mg/dL
+                        </span>
+                    </td>
+                    <td>{{ p.heart_rate_bpm|floatformat:0 }} bpm</td>
+                    <td>
+                        {% if p.monitoring_level == 'Continuous' %}
+                            <span class="badge-critical">Continuous</span>
+                        {% elif p.monitoring_level == 'Enhanced' %}
+                            <span class="badge-enhanced">Enhanced</span>
+                        {% else %}
+                            <span class="badge-routine">Routine</span>
+                        {% endif %}
+                    </td>
+                    <td style="text-align:right;">
+                        <a href="/patients/reports/{{ p.patient_id }}/" target="_blank" class="action-btn">
+                            📄 View Report
+                        </a>
+                        <a href="/patients/reports/{{ p.patient_id }}/download/" style="margin-left:6px; color:#0284c7; text-decoration:none; font-size:12px; font-weight:600;">
+                            📥 Download
+                        </a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="10" style="text-align:center; padding:32px; color:#64748b;">
+                        No monitored patients found matching your search criteria.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

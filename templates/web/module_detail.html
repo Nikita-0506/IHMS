@@ -70,6 +70,10 @@
                     </div>
                 </article>
 
+                {% if module.key == 'ai-analysis' or module.key == 'doctors' %}
+                    {% include "web/clinical_workspace_partial.html" %}
+                {% endif %}
+
                 <div class="grid-2 section-anchor" id="operations">
                     <article class="panel">
                         <div class="panel-head">

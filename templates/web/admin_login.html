@@ -4,68 +4,485 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IHMS Admin Access</title>
-    <link rel="stylesheet" href="{% static 'css/web_app.css' %}">
+    <title>Admin Login | IHMS Governance Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/web_app.css' %}?v={% now 'U' %}">
+
+    <style>
+        /* ==========================================================================
+           IHMS ADMIN LOGIN - 100% PIXEL PERFECT MATCH TO TARGET DESIGN (IMAGE 2)
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body.admin-auth-body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #0f172a;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(219, 234, 254, 0.7) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(224, 242, 254, 0.75) 0%, transparent 50%),
+                linear-gradient(135deg, #eef5ff 0%, #f5f9ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .auth-shell {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 1rem;
+        }
+
+        .admin-card {
+            width: min(954px, 95vw);
+            max-width: 954px;
+            aspect-ratio: 954 / 518;
+            min-height: 518px;
+            background: #ffffff;
+            border-radius: 22px;
+            box-shadow: 0 20px 60px -10px rgba(10, 45, 100, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 496fr 458fr;
+            position: relative;
+        }
+
+        /* Left Showcase Side (Exact Match from Target Admin Design) */
+        .admin-showcase-panel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #eef6fd;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .admin-showcase-img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            display: block;
+        }
+
+        /* Right Form Panel */
+        .admin-form-panel {
+            position: relative;
+            background: #ffffff;
+            padding: 2.8rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* Top-Right Abstract Leaf Watermark */
+        .admin-watermark-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 130px;
+            pointer-events: none;
+            opacity: 0.95;
+            z-index: 1;
+            user-select: none;
+        }
+
+        .admin-form-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .admin-form-header h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0b1a30;
+            letter-spacing: -0.02em;
+            margin: 0 0 0.35rem 0;
+            line-height: 1.2;
+        }
+
+        .admin-form-header p {
+            font-size: 0.86rem;
+            color: #64748b;
+            line-height: 1.45;
+            margin: 0 0 1.55rem 0;
+        }
+
+        /* Input Rows */
+        .admin-field-group {
+            margin-bottom: 1.05rem;
+        }
+
+        .admin-field-label {
+            display: block;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.4rem;
+        }
+
+        .input-with-leading-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .field-icon-left {
+            position: absolute;
+            left: 1rem;
+            color: #64748b;
+            pointer-events: none;
+            z-index: 2;
+            transition: color 0.2s ease;
+        }
+
+        .admin-modern-input {
+            width: 100%;
+            height: 46px;
+            padding: 0.5rem 1rem 0.5rem 2.85rem;
+            border-radius: 8px;
+            border: 1px solid #dce5f0;
+            background: #edf3fa;
+            font-size: 0.92rem;
+            font-family: inherit;
+            color: #0f172a;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .admin-modern-input::placeholder {
+            color: #94a3b8;
+            font-weight: 450;
+        }
+
+        .admin-modern-input:focus {
+            background: #ffffff;
+            border-color: #0066ff;
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.12);
+        }
+
+        .input-with-leading-icon:focus-within .field-icon-left {
+            color: #0066ff;
+        }
+
+        /* Password eye toggle */
+        .password-wrap .admin-modern-input {
+            padding-right: 2.8rem;
+        }
+
+        .field-password-toggle {
+            position: absolute;
+            right: 0.8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #64748b;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: color 0.2s ease;
+            z-index: 3;
+        }
+
+        .field-password-toggle:hover {
+            color: #0066ff;
+        }
+
+        .field-password-toggle .eye-closed {
+            display: none;
+        }
+
+        .field-password-toggle.showing .eye-open {
+            display: none;
+        }
+
+        .field-password-toggle.showing .eye-closed {
+            display: block;
+        }
+
+        /* Submit Button (Vibrant Royal Blue) */
+        .btn-admin-submit {
+            width: 100%;
+            height: 46px;
+            background: linear-gradient(90deg, #0056e2 0%, #006aff 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.28);
+            transition: all 0.2s ease;
+            font-family: inherit;
+            margin-top: 1.35rem;
+        }
+
+        .btn-admin-submit:hover {
+            background: linear-gradient(90deg, #004ecc 0%, #005fe6 100%);
+            box-shadow: 0 6px 18px rgba(0, 102, 255, 0.38);
+            transform: translateY(-1px);
+        }
+
+        .btn-admin-submit:active {
+            transform: translateY(0);
+        }
+
+        /* OR Separator */
+        .admin-or-separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 1.35rem 0 1.15rem 0;
+            color: #94a3b8;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .admin-or-separator::before,
+        .admin-or-separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .admin-or-separator span {
+            padding: 0 0.85rem;
+        }
+
+        /* Bottom Back Link (Left Aligned matching Image 2) */
+        .admin-bottom-row {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .admin-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: #0066ff;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: gap 0.2s ease, text-decoration 0.2s ease;
+        }
+
+        .admin-back-link:hover {
+            text-decoration: underline;
+            gap: 0.6rem;
+        }
+
+        /* Alerts */
+        .auth-alert-list {
+            list-style: none;
+            margin: 0 0 1rem 0;
+            padding: 0;
+        }
+
+        .auth-alert {
+            padding: 0.7rem 0.9rem;
+            border-radius: 9px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-alert.error {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+
+        .auth-alert.success {
+            background: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+        }
+
+        /* Responsive */
+        @media (max-width: 860px) {
+            .admin-card {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                aspect-ratio: auto;
+            }
+
+            .admin-showcase-panel {
+                height: 260px;
+            }
+
+            .admin-form-panel {
+                padding: 2.2rem 1.8rem;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="admin-auth-body">
     <div class="auth-shell">
-        <div class="auth-card auth-card-admin">
-            <section class="auth-side auth-side-admin auth-side-animated">
-                <h1>IHMS Admin Access</h1>
-                <p class="auth-side-subtitle">Restricted Governance Portal</p>
-                <div class="auth-orb auth-orb-one"></div>
-                <div class="auth-orb auth-orb-two"></div>
-                <div class="auth-grid-shine"></div>
+        <div class="admin-card">
+            <!-- Left Showcase Side (Exact Match from Target Admin Design) -->
+            <section class="admin-showcase-panel">
+                <img
+                    src="{% static 'images/admin_showcase_perfect.png' %}"
+                    srcset="{% static 'images/admin_showcase_perfect.png' %} 1x, {% static 'images/admin_showcase_perfect_2x.png' %} 2x"
+                    alt="IHMS Admin Access - Secure. Manage. Empower. Restricted Governance Portal"
+                    class="admin-showcase-img"
+                />
             </section>
 
-            <section class="auth-form-wrap">
-                <div class="auth-top">
-                    <h2>Admin Login</h2>
-                    <p>Sign in with your admin credentials to manage system governance.</p>
-                </div>
+            <!-- Right Form Panel -->
+            <section class="admin-form-panel">
+                <!-- Abstract Leaf Watermark in Top Right -->
+                <img
+                    src="{% static 'images/admin_watermark_clean.png' %}"
+                    class="admin-watermark-bg"
+                    alt=""
+                    aria-hidden="true"
+                />
 
-                {% if messages %}
-                    <ul class="msg-list">
-                        {% for message in messages %}
-                            <li class="msg {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+                <div class="admin-form-content">
+                    <div class="admin-form-header">
+                        <h2>Admin Login</h2>
+                        <p>Sign in with your admin credentials to<br>manage system governance.</p>
+                    </div>
 
-                <form method="post" novalidate class="auth-panel active">
-                    {% csrf_token %}
-                    {% if next_url %}
-                        <input type="hidden" name="next" value="{{ next_url }}">
+                    {% if messages %}
+                        <ul class="auth-alert-list">
+                            {% for message in messages %}
+                                <li class="auth-alert {% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
                     {% endif %}
 
-                    <div class="form-row">
-                        <label class="form-label" for="id_admin_username">Username</label>
-                        <input id="id_admin_username" class="input" type="text" name="username" placeholder="Enter admin username" required>
-                    </div>
+                    <form method="post" novalidate id="adminLoginForm">
+                        {% csrf_token %}
+                        {% if next_url %}
+                            <input type="hidden" name="next" value="{{ next_url }}">
+                        {% endif %}
 
-                    <div class="form-row">
-                        <label class="form-label" for="id_admin_password">Password</label>
-                        <div class="password-wrap">
-                            <input id="id_admin_password" class="input" type="password" name="password" placeholder="Enter your password" required>
-                            <button type="button" class="password-toggle" data-toggle="id_admin_password" aria-label="Show password" aria-pressed="false" title="Show password">
-                                <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
+                        <!-- Username Field -->
+                        <div class="admin-field-group">
+                            <label class="admin-field-label" for="id_admin_username">Username</label>
+                            <div class="input-with-leading-icon">
+                                <svg class="field-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
                                 </svg>
-                                <svg class="eye-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <path d="M17.94 17.94A10.88 10.88 0 0112 19C5 19 1 12 1 12a21.77 21.77 0 015.06-6.94"></path>
-                                    <path d="M9.9 4.24A10.95 10.95 0 0112 4c7 0 11 8 11 8a21.89 21.89 0 01-2.16 3.19"></path>
-                                    <path d="M14.12 14.12a3 3 0 01-4.24-4.24"></path>
-                                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                                </svg>
-                            </button>
+                                <input
+                                    id="id_admin_username"
+                                    class="admin-modern-input"
+                                    type="text"
+                                    name="username"
+                                    value="admin"
+                                    placeholder="admin"
+                                    required
+                                />
+                            </div>
                         </div>
+
+                        <!-- Password Field -->
+                        <div class="admin-field-group">
+                            <label class="admin-field-label" for="id_admin_password">Password</label>
+                            <div class="input-with-leading-icon password-wrap">
+                                <svg class="field-icon-left" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                <input
+                                    id="id_admin_password"
+                                    class="admin-modern-input"
+                                    type="password"
+                                    name="password"
+                                    placeholder="••••••••••"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    class="field-password-toggle password-toggle"
+                                    data-toggle="id_admin_password"
+                                    aria-label="Show password"
+                                    aria-pressed="false"
+                                    title="Show password"
+                                >
+                                    <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17.94 17.94A10.88 10.88 0 0112 19C5 19 1 12 1 12a21.77 21.77 0 015.06-6.94"></path>
+                                        <path d="M9.9 4.24A10.95 10.95 0 0112 4c7 0 11 8 11 8a21.89 21.89 0 01-2.16 3.19"></path>
+                                        <path d="M14.12 14.12a3 3 0 01-4.24-4.24"></path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button with Shield-Check and Arrow -->
+                        <button type="submit" class="btn-admin-submit">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <polyline points="9 12 11 14 15 10"></polyline>
+                            </svg>
+                            <span>Sign In As Admin</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <!-- OR Separator -->
+                    <div class="admin-or-separator">
+                        <span>OR</span>
                     </div>
 
-                    <button type="submit" class="btn-primary">Sign In As Admin</button>
-                </form>
-
-                <p class="auth-note"><a href="{% url 'web-login' %}">Back to user login</a></p>
+                    <!-- Left Aligned Back Link -->
+                    <div class="admin-bottom-row">
+                        <a href="{% url 'web-login' %}" class="admin-back-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            <span>Back to user login</span>
+                        </a>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
@@ -108,11 +525,12 @@
                 });
             });
 
-            document.querySelectorAll('form[method="post"]').forEach(function (form) {
+            const form = document.getElementById('adminLoginForm');
+            if (form) {
                 form.addEventListener('submit', function () {
                     syncCsrfTokens();
                 });
-            });
+            }
 
             syncCsrfTokens();
         })();

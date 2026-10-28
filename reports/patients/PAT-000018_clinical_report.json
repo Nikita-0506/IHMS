@@ -1,0 +1,316 @@
+{
+  "patient_id": "PAT-000018",
+  "full_name": "Pranav Jadhav",
+  "age": 76,
+  "gender": "Male",
+  "city": "Pune",
+  "care_unit": "Intensive Care Unit",
+  "location": "ICU",
+  "room_no": "ICU-12",
+  "bed_no": "ICU-B03",
+  "allergies": "Unknown",
+  "monitoring_level": "Continuous",
+  "predicted_level": "Continuous",
+  "monitoring_frequency": "Continuous / 5-minute trend",
+  "risk_score": 95.5,
+  "deterioration_risk": "High",
+  "generated_at": "24-10-2026 11:54:08",
+  "tracker": {
+    "parameters": [
+      {
+        "key": "heart_rate_bpm",
+        "name": "Heart Rate",
+        "value": 98.0,
+        "unit": "bpm",
+        "normal_range": "60.0 - 100.0 bpm",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal resting heart rate: 60-100 bpm"
+      },
+      {
+        "key": "systolic_bp_mmhg",
+        "name": "Systolic BP",
+        "value": 89.0,
+        "unit": "mmHg",
+        "normal_range": "90.0 - 120.0 mmHg",
+        "status": "Critical Low",
+        "status_mr": "\u0927\u094b\u0915\u093e\u0926\u093e\u092f\u0915 \u0915\u092e\u0940",
+        "color": "red",
+        "severity": 3,
+        "description": "Normal SBP: 90-120 mmHg; Stage 2 HTN: >=160 mmHg"
+      },
+      {
+        "key": "diastolic_bp_mmhg",
+        "name": "Diastolic BP",
+        "value": 79.0,
+        "unit": "mmHg",
+        "normal_range": "60.0 - 80.0 mmHg",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal DBP: 60-80 mmHg; Stage 2 HTN: >=90-100 mmHg"
+      },
+      {
+        "key": "respiratory_rate_bpm",
+        "name": "Respiratory Rate",
+        "value": 21.0,
+        "unit": "bpm",
+        "normal_range": "12.0 - 20.0 bpm",
+        "status": "Elevated",
+        "status_mr": "\u0935\u093e\u0922\u0932\u0947\u0932\u093e",
+        "color": "amber",
+        "severity": 2,
+        "description": "Normal respiratory rate: 12-20 bpm"
+      },
+      {
+        "key": "spo2_percent",
+        "name": "SpO2 Saturation",
+        "value": 90.0,
+        "unit": "%",
+        "normal_range": "95.0 - 100.0 %",
+        "status": "Critical Hypoxemia",
+        "status_mr": "\u0905\u0924\u093f\u0936\u092f \u0915\u092e\u0940 (\u0927\u094b\u0915\u093e\u0926\u093e\u092f\u0915)",
+        "color": "red",
+        "severity": 3,
+        "description": "Normal SpO2: 95-100%; Hypoxemia: <92%"
+      },
+      {
+        "key": "temperature_c",
+        "name": "Body Temperature",
+        "value": 37.1,
+        "unit": "\u00b0C",
+        "normal_range": "36.5 - 37.5 \u00b0C",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal core temp: 36.5-37.5\u00b0C; Fever: >=38.5\u00b0C"
+      },
+      {
+        "key": "blood_glucose_mg_dl",
+        "name": "Blood Glucose",
+        "value": 177.0,
+        "unit": "mg/dL",
+        "normal_range": "70.0 - 140.0 mg/dL",
+        "status": "Elevated",
+        "status_mr": "\u0935\u093e\u0922\u0932\u0947\u0932\u093e",
+        "color": "amber",
+        "severity": 2,
+        "description": "Normal random glucose: 70-140 mg/dL; Hyperglycemia: >=200"
+      },
+      {
+        "key": "gcs_score",
+        "name": "GCS Score",
+        "value": 8,
+        "unit": "/15",
+        "normal_range": "14 - 15 /15",
+        "status": "Severe Coma Danger",
+        "status_mr": "\u0905\u0924\u093f\u0917\u0902\u092d\u0940\u0930 \u092c\u0947\u0936\u0941\u0926\u094d\u0927\u093e\u0935\u0938\u094d\u0925\u093e",
+        "color": "red",
+        "severity": 3,
+        "description": "Normal GCS: 14-15; Severe impairment: <=8; Moderate: <=12"
+      },
+      {
+        "key": "pain_score",
+        "name": "Pain Score",
+        "value": 6,
+        "unit": "/10",
+        "normal_range": "0 - 3 /10",
+        "status": "Moderate Pain",
+        "status_mr": "\u092e\u0927\u094d\u092f\u092e \u0935\u0947\u0926\u0928\u093e",
+        "color": "amber",
+        "severity": 2,
+        "description": "Mild: 0-3; Moderate: 4-6; Severe: 7-10"
+      },
+      {
+        "key": "urine_output_ml_hr",
+        "name": "Urine Output",
+        "value": 29.5,
+        "unit": "mL/hr",
+        "normal_range": "30.0 - 80.0 mL/hr",
+        "status": "Low Urine Output",
+        "status_mr": "\u0915\u092e\u0940 \u092e\u0942\u0924\u094d\u0930 \u0935\u093f\u0938\u0930\u094d\u091c\u0928",
+        "color": "amber",
+        "severity": 2,
+        "description": "Normal: 30-80 mL/hr; Oliguria: <30 mL/hr"
+      },
+      {
+        "key": "ecg_rhythm",
+        "name": "ECG Rhythm",
+        "value": "Atrial Fibrillation",
+        "unit": "rhythm",
+        "normal_range": "Sinus Rhythm",
+        "status": "Abnormal Rhythm",
+        "status_mr": "\u0905\u0928\u093f\u092f\u092e\u093f\u0924 \u0908\u0938\u0940\u091c\u0940",
+        "color": "red",
+        "severity": 3,
+        "description": "Electrocardiogram cardiac conduction profile"
+      }
+    ],
+    "summary": {
+      "total_parameters": 11,
+      "critical_count": 4,
+      "warning_count": 4,
+      "normal_count": 3,
+      "overall_status": "CRITICAL ALERT",
+      "overall_status_mr": "\u0905\u0924\u093f\u0926\u0915\u094d\u0937\u0924\u093e \u0906\u0935\u0936\u094d\u092f\u0915 (\u0915\u094d\u0930\u093f\u091f\u093f\u0915\u0932)",
+      "overall_color": "red"
+    }
+  },
+  "diagnoses": [
+    {
+      "code": "HYPOTENSION-SHOCK",
+      "disease": "Hypotension & Circulatory Shock Risk (\u0930\u0915\u094d\u0924\u0926\u093e\u092c \u0918\u0938\u0930\u0923 / \u0936\u0949\u0915 \u0927\u094b\u0915\u093e)",
+      "severity": "Critical",
+      "severity_color": "red",
+      "primary_parameter": "SBP: 89 mmHg, Heart Rate: 98 bpm, Urine: 29.5 mL/hr",
+      "clinical_rationale": "Inadequate systemic perfusion pressure. Risk of hemodynamic collapse, cerebral hypoperfusion, and renal ischemia.",
+      "recommended_action": "Immediate IV fluid resuscitation (Normal Saline 500mL stat), withhold antihypertensives, evaluate for sepsis/hemorrhage."
+    },
+    {
+      "code": "DM-ELEVATED",
+      "disease": "Impaired Glycemic Control (\u0935\u093e\u0922\u0932\u0947\u0932\u0940 \u0938\u093e\u0916\u0930)",
+      "severity": "Moderate",
+      "severity_color": "amber",
+      "primary_parameter": "Blood Glucose: 177 mg/dL",
+      "clinical_rationale": "Mild to moderate postprandial/random hyperglycemia.",
+      "recommended_action": "Diabetic diet adherence, oral hypoglycemic adjustment (Metformin/Glimepiride)."
+    },
+    {
+      "code": "RESP-HYPOXIA",
+      "disease": "Acute Hypoxemic Respiratory Distress (\u0936\u094d\u0935\u093e\u0938 \u0918\u0947\u0923\u094d\u092f\u093e\u0938 \u0905\u0921\u091a\u0923 / \u0911\u0915\u094d\u0938\u093f\u091c\u0928 \u0915\u092e\u0924\u0930\u0924\u093e)",
+      "severity": "Critical",
+      "severity_color": "red",
+      "primary_parameter": "SpO2: 90.0% (< 92%), Resp Rate: 21 bpm",
+      "clinical_rationale": "Impaired pulmonary alveolar gas exchange. Cellular hypoxia risk.",
+      "recommended_action": "High-flow Supplemental O2 via Venturi/Nasal Cannula (4-6 L/min), bronchodilator nebulization, ABG analysis."
+    },
+    {
+      "code": "CARD-AFIB",
+      "disease": "Atrial Fibrillation (\u090f\u091f\u094d\u0930\u093f\u0905\u0932 \u092b\u093f\u092c\u094d\u0930\u093f\u0932\u0947\u0936\u0928 / \u0939\u0943\u0926\u092f\u093e\u091a\u0947 \u0920\u094b\u0915\u0947 \u0905\u0928\u093f\u092f\u092e\u093f\u0924)",
+      "severity": "Critical",
+      "severity_color": "red",
+      "primary_parameter": "ECG: Atrial Fibrillation, Heart Rate: 98 bpm",
+      "clinical_rationale": "Chaotic atrial electrical activation. High thromboembolic stroke risk and hemodynamic compromise.",
+      "recommended_action": "Rate/rhythm control (Beta-blocker/Digoxin), anticoagulation evaluation (DOAC/Warfarin), 12-lead ECG."
+    },
+    {
+      "code": "RENAL-MILD",
+      "disease": "Borderline Low Urine Output (\u0915\u092e\u0940 \u092e\u0942\u0924\u094d\u0930 \u0935\u093f\u0938\u0930\u094d\u091c\u0928)",
+      "severity": "Moderate",
+      "severity_color": "amber",
+      "primary_parameter": "Urine Output: 29.5 mL/hr",
+      "clinical_rationale": "Mild dehydration or early renal hypoperfusion.",
+      "recommended_action": "Fluid intake monitoring, repeat measurement in 2 hours."
+    },
+    {
+      "code": "NEURO-DEPRESSION",
+      "disease": "Altered Sensorium / Neurological Depression (\u092e\u0947\u0902\u0926\u0942 \u0915\u093e\u0930\u094d\u092f \u092e\u0902\u0926\u093e\u0935\u0923\u0947 / \u092c\u0947\u0936\u0941\u0926\u094d\u0927\u093e\u0935\u0938\u094d\u0925\u093e)",
+      "severity": "Critical",
+      "severity_color": "red",
+      "primary_parameter": "GCS Score: 8/15",
+      "clinical_rationale": "Depressed central nervous system arousal. High risk of aspiration and airway compromise.",
+      "recommended_action": "Airway protection, urgent non-contrast CT brain if sudden onset, check glucose and electrolytes."
+    }
+  ],
+  "medications": {
+    "active_medications": [
+      {
+        "name": "Tab. Pantoprazole (\u092a\u0945\u0928\u094d\u091f\u094b\u092a\u094d\u0930\u0945\u091d\u094b\u0932)",
+        "dose": "40 mg Oral",
+        "frequency": "Before Breakfast (OD)",
+        "category": "GI Protection",
+        "status": "Active (\u091a\u093e\u0932\u0942)",
+        "notes": "Gastric mucosal protection."
+      },
+      {
+        "name": "Tab. Multivitamin & Zinc (\u092e\u0932\u094d\u091f\u0940\u0935\u094d\u0939\u093f\u091f\u0945\u092e\u093f\u0928)",
+        "dose": "1 Capsule",
+        "frequency": "Once Daily (OD)",
+        "category": "Nutritional Support",
+        "status": "Active (\u091a\u093e\u0932\u0942)",
+        "notes": "Nutritional and immunity maintenance."
+      }
+    ],
+    "added_medications": [
+      {
+        "name": "Tab. Metformin (\u092e\u0947\u091f\u092b\u0949\u0930\u094d\u092e\u093f\u0928)",
+        "dose": "500 mg Oral",
+        "frequency": "Twice Daily with meals (BD)",
+        "category": "Oral Hypoglycemic",
+        "trigger": "Elevated Glucose (177 mg/dL)",
+        "action_type": "ADDED (\u0928\u0935\u0940\u0928 \u0972\u0921 \u0915\u0947\u0932\u0947)",
+        "reason": "Started to control elevated fasting/postprandial glucose."
+      },
+      {
+        "name": "Medical Oxygen Therapy (\u092a\u094d\u0930\u093e\u0923\u0935\u093e\u092f\u0942 \u0911\u0915\u094d\u0938\u093f\u091c\u0928)",
+        "dose": "4 - 6 Litres / min",
+        "frequency": "Continuous via Venturi Mask / Cannula",
+        "category": "Respiratory Support",
+        "trigger": "Low SpO2 (90.0%)",
+        "action_type": "ADDED (\u0928\u0935\u0940\u0928 \u0972\u0921 \u0915\u0947\u0932\u0947)",
+        "reason": "Started urgently to maintain target peripheral SpO2 >= 95%."
+      },
+      {
+        "name": "Duolin + Budecort Nebulization (\u0928\u0947\u092c\u094d\u092f\u0941\u0932\u093e\u092f\u091d\u0947\u0936\u0928)",
+        "dose": "1 respule each",
+        "frequency": "Every 8 hours (TDS)",
+        "category": "Bronchodilator / Steroid",
+        "trigger": "Hypoxemia / Tachypnea",
+        "action_type": "ADDED (\u0928\u0935\u0940\u0928 \u0972\u0921 \u0915\u0947\u0932\u0947)",
+        "reason": "Bronchodilator therapy to relieve bronchospasm and airway resistance."
+      },
+      {
+        "name": "Tab. Metoprolol Tartrate (\u092e\u0947\u091f\u094b\u092a\u094d\u0930\u094b\u0932\u0949\u0932)",
+        "dose": "25 mg Oral",
+        "frequency": "Twice Daily (BD)",
+        "category": "Beta-Blocker / Rate Control",
+        "trigger": "Atrial Fibrillation on ECG",
+        "action_type": "ADDED (\u0928\u0935\u0940\u0928 \u0972\u0921 \u0915\u0947\u0932\u0947)",
+        "reason": "Ventricular rate control in atrial fibrillation."
+      },
+      {
+        "name": "Inj. Enoxaparin (Low Molecular Weight Heparin)",
+        "dose": "40 mg Subcutaneous",
+        "frequency": "Once Daily (OD)",
+        "category": "Anticoagulant",
+        "trigger": "AFib Thromboembolism Prophylaxis",
+        "action_type": "ADDED (\u0928\u0935\u0940\u0928 \u0972\u0921 \u0915\u0947\u0932\u0947)",
+        "reason": "Anticoagulant initiated to prevent left atrial thrombus and stroke."
+      },
+      {
+        "name": "Tab. Paracetamol (\u092a\u0945\u0930\u093e\u0938\u093f\u091f\u093e\u092e\u0949\u0932 \u0935\u0947\u0926\u0928\u093e\u0936\u093e\u092e\u0915)",
+        "dose": "650 mg Oral",
+        "frequency": "Every 8 hours SOS",
+        "category": "Mild-to-Moderate Analgesic",
+        "trigger": "Pain Score (6/10)",
+        "action_type": "ADDED (\u0928\u0935\u0940\u0928 \u0972\u0921 \u0915\u0947\u0932\u0947)",
+        "reason": "Pain relief for moderate surgical/body ache."
+      }
+    ],
+    "reduced_medications": [
+      {
+        "name": "Antihypertensive Medication (\u0930\u0915\u094d\u0924\u0926\u093e\u092c \u0915\u092e\u0940 \u0915\u0930\u0923\u093e\u0930\u0940 \u0914\u0937\u0927\u0947)",
+        "previous_dose": "Amlodipine / Telmisartan / Enalapril",
+        "new_status": "WITHHELD / TEMPORARILY STOPPED (\u0924\u093e\u0924\u094d\u092a\u0941\u0930\u0924\u0947 \u0925\u093e\u0902\u092c\u0935\u0932\u0947)",
+        "category": "Blood Pressure Reducers",
+        "reason": "Low Systolic BP (89 mmHg < 95 mmHg). Withheld to prevent hypotensive shock."
+      },
+      {
+        "name": "Sedatives & Opioids (\u0909\u0926\u093e. Diazepam / Tramadol / Sedatives)",
+        "previous_dose": "Night sedatives or high-dose analgesics",
+        "new_status": "REDUCED BY 50% OR STOPPED (\u0921\u094b\u0938 \u0928\u093f\u092e\u094d\u092e\u094d\u092f\u093e\u0928\u0947 \u0915\u092e\u0940 / \u0925\u093e\u0902\u092c\u0935\u0932\u0947)",
+        "category": "CNS Depressant",
+        "reason": "Depressed consciousness (GCS 8/15). Reduced to prevent respiratory suppression and coma."
+      }
+    ],
+    "counts": {
+      "active": 2,
+      "added": 6,
+      "reduced": 2
+    }
+  }
+}

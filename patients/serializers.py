@@ -59,3 +59,13 @@ class PatientSerializer(serializers.ModelSerializer):
         full_name = obj.user.get_full_name().strip()
 
         return full_name or obj.user.username or obj.user.email
+
+
+class PatientClinicalMonitoringSerializer(serializers.ModelSerializer):
+    full_name = serializers.CharField(read_only=True)
+
+    class Meta:
+        from .models import PatientClinicalMonitoring
+        model = PatientClinicalMonitoring
+        fields = '__all__'
+        read_only_fields = ['id', 'created_at', 'updated_at']

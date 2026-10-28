@@ -323,17 +323,18 @@ const moduleData = {
     ]
   },
   doctors: {
-    title: 'Doctor Management',
-    desc: 'Monitor doctor availability, specializations, and active assignments.',
-    endpoint: '/api/v1/doctors/',
-    stats: [['86', 'Total Doctors'], ['14', 'Specializations'], ['72', 'On Duty'], ['11', 'On Leave']],
-    tags: ['Rota', 'Schedules', 'Departments', 'Profiles'],
-    kpis: [['88%', 'Utilization'], ['4.6', 'Avg OPD Rating']],
-    columns: ['Doctor', 'Department', 'Shift', 'Availability'],
+    title: 'Doctor Management & Service Coordination',
+    desc: 'Smart doctor assignment (continuity of care, triage matching, referral routing, emergency bypass), shift and OPD roster management, and multi-department service coordination.',
+    endpoint: '/api/doctors/dashboard/',
+    stats: [['12', "Today's Patients"], ['4', 'Waiting for Review'], ['3', 'Pending Lab Results'], ['5', 'Upcoming Appointments']],
+    tags: ['Continuity of Care', 'Triage Assignment', 'Emergency Bypass', 'OPD Roster', 'Service Coordination'],
+    kpis: [['100%', 'ER Bypass Speed'], ['4', 'Active Doctor Workspaces']],
+    columns: ['Priority / Patient', 'Condition & Type', 'Doctor / Dept', 'Status'],
     rows: [
-      ['Dr. Sharma', 'Cardiology', '09:00 - 17:00', 'Available'],
-      ['Dr. Kulkarni', 'Neurology', '10:00 - 18:00', 'In Consultation'],
-      ['Dr. Iyer', 'Pediatrics', '08:00 - 16:00', 'Available']
+      ['P-10245 · Rahul Patil', 'Fever with dehydration concern (Existing, 3 visits)', 'Dr. Amit Sharma (Gen Med)', 'Review Required'],
+      ['P-10246 · Priya Deshmukh', 'Chest Tightness (Referred, Ruby Hall Clinic)', 'Dr. Sneha Kulkarni (Cardio)', 'Records Pending Verification'],
+      ['P-10247 · Sunita Joshi', 'Hypertension Routine Follow-up (Routine)', 'Dr. Amit Sharma (Gen Med)', 'Scheduled Queue'],
+      ['P-10248 · Vikram Singh', 'Emergency Polytrauma (Critical)', 'Dr. Vikram Deshmukh (ER)', 'Immediate ER Resuscitation']
     ]
   },
   appointments: {
@@ -432,6 +433,38 @@ const moduleData = {
       ['Admin User', 'Admin', '2m ago', 'Active'],
       ['Dr. Sharma', 'Doctor', '12m ago', 'Active'],
       ['Priya Joshi', 'Patient', '1h ago', 'Active']
+    ]
+  },
+  'ai-analysis': {
+    title: 'AI Clinical Analysis & Diagnostic Support',
+    desc: 'Extract information from medical documents using OCR, evaluate vitals and previous treatment records, generate 5-section AI Clinical Summaries, and calculate triage priority scores.',
+    endpoint: '/api/ai-analysis/doctor-view/?patient_id=P-10245',
+    stats: [['P-10245', 'Featured: Rahul Patil'], ['High Priority', 'Triage Status'], ['96.8%', 'OCR Confidence'], ['5 Sections', 'AI Summary']],
+    tags: ['OCR Pipeline', '5-Section Summary', 'Feature Inference', 'Human Verification', 'Clinical Auditing'],
+    kpis: [['12,400', 'WBC (Elevated)'], ['102.4°F', 'Body Temperature']],
+    columns: ['Section / Parameter', 'Clinical Value', 'Reference / Target', 'AI Interpretation'],
+    rows: [
+      ['1. Current Condition', 'Acute fever 3d, dry mucosa, 104 bpm', 'Normal: 98.6°F, 72 bpm', 'High febrile illness with dehydration risk'],
+      ['2. Relevant History', '3 Visits (Bronchitis 2024, Gastritis 2025)', 'Penicillin Allergy', 'Penicillin class strictly contraindicated'],
+      ['3. Alerts (OCR Lab)', 'WBC: 12,400 /mcL', 'Normal: 4,000 - 11,000', 'Leukocytosis detected (Verified report)'],
+      ['4. Pending Actions', 'IV Hydration + Blood Culture', 'Order pending', 'Doctor review required before next step'],
+      ['5. Source Documents', 'CBC_Report_RahulPatil_10245.pdf', 'LifeLine Diagnostics', 'Human-verified by Dr. Amit Sharma']
+    ]
+  },
+  ai_analysis: {
+    title: 'AI Clinical Analysis & Diagnostic Support',
+    desc: 'Extract information from medical documents using OCR, evaluate vitals and previous treatment records, generate 5-section AI Clinical Summaries, and calculate triage priority scores.',
+    endpoint: '/api/ai-analysis/doctor-view/?patient_id=P-10245',
+    stats: [['P-10245', 'Featured: Rahul Patil'], ['High Priority', 'Triage Status'], ['96.8%', 'OCR Confidence'], ['5 Sections', 'AI Summary']],
+    tags: ['OCR Pipeline', '5-Section Summary', 'Feature Inference', 'Human Verification', 'Clinical Auditing'],
+    kpis: [['12,400', 'WBC (Elevated)'], ['102.4°F', 'Body Temperature']],
+    columns: ['Section / Parameter', 'Clinical Value', 'Reference / Target', 'AI Interpretation'],
+    rows: [
+      ['1. Current Condition', 'Acute fever 3d, dry mucosa, 104 bpm', 'Normal: 98.6°F, 72 bpm', 'High febrile illness with dehydration risk'],
+      ['2. Relevant History', '3 Visits (Bronchitis 2024, Gastritis 2025)', 'Penicillin Allergy', 'Penicillin class strictly contraindicated'],
+      ['3. Alerts (OCR Lab)', 'WBC: 12,400 /mcL', 'Normal: 4,000 - 11,000', 'Leukocytosis detected (Verified report)'],
+      ['4. Pending Actions', 'IV Hydration + Blood Culture', 'Order pending', 'Doctor review required before next step'],
+      ['5. Source Documents', 'CBC_Report_RahulPatil_10245.pdf', 'LifeLine Diagnostics', 'Human-verified by Dr. Amit Sharma']
     ]
   }
 };

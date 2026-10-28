@@ -1,0 +1,262 @@
+{
+  "patient_id": "PAT-000009",
+  "full_name": "Aanya Kumar",
+  "age": 56,
+  "gender": "Female",
+  "city": "Nashik",
+  "care_unit": "Emergency Department",
+  "location": "Emergency Bay",
+  "room_no": "ER-06",
+  "bed_no": "ER-B07",
+  "allergies": "No Known Allergy",
+  "monitoring_level": "Enhanced",
+  "predicted_level": "Enhanced",
+  "monitoring_frequency": "Every 15 minutes",
+  "risk_score": 59.33,
+  "deterioration_risk": "Moderate",
+  "generated_at": "23-10-2026 17:06:13",
+  "tracker": {
+    "parameters": [
+      {
+        "key": "heart_rate_bpm",
+        "name": "Heart Rate",
+        "value": 125.0,
+        "unit": "bpm",
+        "normal_range": "60.0 - 100.0 bpm",
+        "status": "Critical High",
+        "status_mr": "\u0927\u094b\u0915\u093e\u0926\u093e\u092f\u0915 \u091c\u093e\u0938\u094d\u0924",
+        "color": "red",
+        "severity": 3,
+        "description": "Normal resting heart rate: 60-100 bpm"
+      },
+      {
+        "key": "systolic_bp_mmhg",
+        "name": "Systolic BP",
+        "value": 106.0,
+        "unit": "mmHg",
+        "normal_range": "90.0 - 120.0 mmHg",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal SBP: 90-120 mmHg; Stage 2 HTN: >=160 mmHg"
+      },
+      {
+        "key": "diastolic_bp_mmhg",
+        "name": "Diastolic BP",
+        "value": 96.0,
+        "unit": "mmHg",
+        "normal_range": "60.0 - 80.0 mmHg",
+        "status": "Elevated",
+        "status_mr": "\u0935\u093e\u0922\u0932\u0947\u0932\u093e",
+        "color": "amber",
+        "severity": 2,
+        "description": "Normal DBP: 60-80 mmHg; Stage 2 HTN: >=90-100 mmHg"
+      },
+      {
+        "key": "respiratory_rate_bpm",
+        "name": "Respiratory Rate",
+        "value": 30.0,
+        "unit": "bpm",
+        "normal_range": "12.0 - 20.0 bpm",
+        "status": "Critical High",
+        "status_mr": "\u0927\u094b\u0915\u093e\u0926\u093e\u092f\u0915 \u091c\u093e\u0938\u094d\u0924",
+        "color": "red",
+        "severity": 3,
+        "description": "Normal respiratory rate: 12-20 bpm"
+      },
+      {
+        "key": "spo2_percent",
+        "name": "SpO2 Saturation",
+        "value": 97.1,
+        "unit": "%",
+        "normal_range": "95.0 - 100.0 %",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal SpO2: 95-100%; Hypoxemia: <92%"
+      },
+      {
+        "key": "temperature_c",
+        "name": "Body Temperature",
+        "value": 36.2,
+        "unit": "\u00b0C",
+        "normal_range": "36.5 - 37.5 \u00b0C",
+        "status": "Low",
+        "status_mr": "\u0915\u092e\u0940",
+        "color": "amber",
+        "severity": 1,
+        "description": "Normal core temp: 36.5-37.5\u00b0C; Fever: >=38.5\u00b0C"
+      },
+      {
+        "key": "blood_glucose_mg_dl",
+        "name": "Blood Glucose",
+        "value": 81.0,
+        "unit": "mg/dL",
+        "normal_range": "70.0 - 140.0 mg/dL",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal random glucose: 70-140 mg/dL; Hyperglycemia: >=200"
+      },
+      {
+        "key": "gcs_score",
+        "name": "GCS Score",
+        "value": 12,
+        "unit": "/15",
+        "normal_range": "14 - 15 /15",
+        "status": "Moderate Impairment",
+        "status_mr": "\u0938\u0941\u0938\u094d\u0924\u0940 / \u0917\u094b\u0902\u0927\u0933",
+        "color": "amber",
+        "severity": 2,
+        "description": "Normal GCS: 14-15; Severe impairment: <=8; Moderate: <=12"
+      },
+      {
+        "key": "pain_score",
+        "name": "Pain Score",
+        "value": 3,
+        "unit": "/10",
+        "normal_range": "0 - 3 /10",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Mild: 0-3; Moderate: 4-6; Severe: 7-10"
+      },
+      {
+        "key": "urine_output_ml_hr",
+        "name": "Urine Output",
+        "value": 19.3,
+        "unit": "mL/hr",
+        "normal_range": "30.0 - 80.0 mL/hr",
+        "status": "Critical Oliguria",
+        "status_mr": "\u0905\u0924\u093f\u0936\u092f \u0915\u092e\u0940 \u092e\u0942\u0924\u094d\u0930 \u0935\u093f\u0938\u0930\u094d\u091c\u0928",
+        "color": "red",
+        "severity": 3,
+        "description": "Normal: 30-80 mL/hr; Oliguria: <30 mL/hr"
+      },
+      {
+        "key": "ecg_rhythm",
+        "name": "ECG Rhythm",
+        "value": "Sinus Rhythm",
+        "unit": "rhythm",
+        "normal_range": "Sinus Rhythm",
+        "status": "Normal Sinus",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0908\u0938\u0940\u091c\u0940",
+        "color": "green",
+        "severity": 0,
+        "description": "Electrocardiogram cardiac conduction profile"
+      }
+    ],
+    "summary": {
+      "total_parameters": 11,
+      "critical_count": 3,
+      "warning_count": 3,
+      "normal_count": 5,
+      "overall_status": "CRITICAL ALERT",
+      "overall_status_mr": "\u0905\u0924\u093f\u0926\u0915\u094d\u0937\u0924\u093e \u0906\u0935\u0936\u094d\u092f\u0915 (\u0915\u094d\u0930\u093f\u091f\u093f\u0915\u0932)",
+      "overall_color": "red"
+    }
+  },
+  "diagnoses": [
+    {
+      "code": "HTN-STG1",
+      "disease": "Stage 1 Hypertension (\u092e\u0927\u094d\u092f\u092e \u0909\u091a\u094d\u091a \u0930\u0915\u094d\u0924\u0926\u093e\u092c)",
+      "severity": "Moderate",
+      "severity_color": "amber",
+      "primary_parameter": "BP: 106/96 mmHg",
+      "clinical_rationale": "Persistent arterial pressure above normal physiological range.",
+      "recommended_action": "Oral antihypertensive initiation/titration, salt restriction, 4-hourly monitoring."
+    },
+    {
+      "code": "RESP-MILD",
+      "disease": "Mild Respiratory Strain / Tachypnea (\u0936\u094d\u0935\u0938\u0928 \u0917\u0924\u0940 \u0935\u093e\u0922)",
+      "severity": "Moderate",
+      "severity_color": "amber",
+      "primary_parameter": "SpO2: 97.1%, Resp Rate: 30 bpm",
+      "clinical_rationale": "Compensatory hyperventilation or mild hypoxia.",
+      "recommended_action": "Oxygen monitoring, chest auscultation, propped-up positioning."
+    },
+    {
+      "code": "CARD-TACHY",
+      "disease": "Sinus Tachycardia (\u0939\u0943\u0926\u092f\u093e\u091a\u0947 \u0920\u094b\u0915\u0947 \u0935\u0947\u0917\u093e\u0928\u0947 \u091a\u093e\u0932\u0923\u0947)",
+      "severity": "Moderate",
+      "severity_color": "amber",
+      "primary_parameter": "Heart Rate: 125 bpm (> 100 bpm), ECG: Sinus Rhythm",
+      "clinical_rationale": "Excessive sympathetic drive secondary to fever, pain, dehydration, hypoxia, or anxiety.",
+      "recommended_action": "Treat underlying cause (rehydrate, relieve pain, reduce fever), continuous telemetry."
+    },
+    {
+      "code": "RENAL-OLIGURIA",
+      "disease": "Acute Oliguria / Renal Impairment Risk (\u092e\u0942\u0924\u094d\u0930\u092a\u093f\u0902\u0921 \u0915\u093e\u0930\u094d\u092f \u092e\u0902\u0926\u093e\u0935\u0923\u0947 / \u0915\u092e\u0940 \u092e\u0942\u0924\u094d\u0930)",
+      "severity": "Critical",
+      "severity_color": "red",
+      "primary_parameter": "Urine Output: 19.3 mL/hr (< 25 mL/hr)",
+      "clinical_rationale": "Significantly reduced renal glomerular filtration and tubular perfusion. AKI danger.",
+      "recommended_action": "Check fluid balance, serum creatinine/BUN, avoid nephrotoxic drugs (NSAIDs, aminoglycosides), consider loop diuretic/fluid challenge."
+    },
+    {
+      "code": "NEURO-DEPRESSION",
+      "disease": "Altered Sensorium / Neurological Depression (\u092e\u0947\u0902\u0926\u0942 \u0915\u093e\u0930\u094d\u092f \u092e\u0902\u0926\u093e\u0935\u0923\u0947 / \u092c\u0947\u0936\u0941\u0926\u094d\u0927\u093e\u0935\u0938\u094d\u0925\u093e)",
+      "severity": "High",
+      "severity_color": "red",
+      "primary_parameter": "GCS Score: 12/15",
+      "clinical_rationale": "Depressed central nervous system arousal. High risk of aspiration and airway compromise.",
+      "recommended_action": "Airway protection, urgent non-contrast CT brain if sudden onset, check glucose and electrolytes."
+    }
+  ],
+  "medications": {
+    "active_medications": [
+      {
+        "name": "Inj. Pantoprazole (\u092a\u0945\u0928\u094d\u091f\u094b\u092a\u094d\u0930\u0945\u091d\u094b\u0932)",
+        "dose": "40 mg IV",
+        "frequency": "Once Daily (OD)",
+        "category": "GI Prophylaxis",
+        "status": "Active (\u091a\u093e\u0932\u0942)",
+        "notes": "Stress ulcer prophylaxis in high-dependency care."
+      },
+      {
+        "name": "IV Normal Saline 0.9% (\u0938\u0932\u093e\u0908\u0928)",
+        "dose": "1000 mL / 24 hrs",
+        "frequency": "Continuous Infusion (\u091a\u093e\u0932\u0942)",
+        "category": "Fluid Maintenance",
+        "status": "Active (\u091a\u093e\u0932\u0942)",
+        "notes": "Maintenance hydration."
+      }
+    ],
+    "added_medications": [
+      {
+        "name": "IV Normal Saline Bolus (\u0938\u0932\u093e\u0908\u0928 \u092b\u094d\u0932\u0941\u0907\u0921 \u091a\u0945\u0932\u0947\u0902\u091c)",
+        "dose": "500 mL IV over 1 hour",
+        "frequency": "Stat Challenge",
+        "category": "Hydration / Renal Perfusion",
+        "trigger": "Low Urine Output (19.3 mL/hr)",
+        "action_type": "ADDED (\u0928\u0935\u0940\u0928 \u0972\u0921 \u0915\u0947\u0932\u0947)",
+        "reason": "Fluid challenge to restore renal blood flow and stimulate glomerular filtration."
+      }
+    ],
+    "reduced_medications": [
+      {
+        "name": "NSAIDs (\u0909\u0926\u093e. Brufen / Ibuprofen / Diclofenac)",
+        "previous_dose": "Standard pain medication",
+        "new_status": "STOPPED / STRICTLY AVOIDED (\u092e\u0942\u0924\u094d\u0930\u092a\u093f\u0902\u0921 \u0938\u0902\u0930\u0915\u094d\u0937\u0923\u093e\u0938\u093e\u0920\u0940 \u092c\u0902\u0926)",
+        "category": "Non-Steroidal Anti-Inflammatory Drug",
+        "reason": "Critical Oliguria (19.3 mL/hr). NSAIDs cause renal afferent arteriolar constriction."
+      },
+      {
+        "name": "Sedatives & Opioids (\u0909\u0926\u093e. Diazepam / Tramadol / Sedatives)",
+        "previous_dose": "Night sedatives or high-dose analgesics",
+        "new_status": "REDUCED BY 50% OR STOPPED (\u0921\u094b\u0938 \u0928\u093f\u092e\u094d\u092e\u094d\u092f\u093e\u0928\u0947 \u0915\u092e\u0940 / \u0925\u093e\u0902\u092c\u0935\u0932\u0947)",
+        "category": "CNS Depressant",
+        "reason": "Depressed consciousness (GCS 12/15). Reduced to prevent respiratory suppression and coma."
+      }
+    ],
+    "counts": {
+      "active": 2,
+      "added": 1,
+      "reduced": 2
+    }
+  }
+}

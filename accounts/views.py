@@ -18,9 +18,10 @@ from rest_framework.permissions import IsAuthenticated
 
 from .serializers import RegisterSerializer
 from .models import User
-from doctors.models import Doctor
+from doctors.models import Doctor, ServiceRequest
 from patients.models import Patient
 from notifications.models import Notification
+from ai_analysis.models import MedicalDocument, AIClinicalSummary, ClinicalAuditLog
 
 from rest_framework_simplejwt.views import TokenObtainPairView
 
@@ -451,8 +452,9 @@ class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
 
 class CustomLoginView(TokenObtainPairView):
-
-    serializer_class = ( CustomTokenObtainPairSerializer)
+    throttle_classes = []
+    permission_classes = []
+    serializer_class = CustomTokenObtainPairSerializer
 
 # =========================
 # Protected Test API
@@ -954,19 +956,56 @@ def web_module_view(request, module_key):
         messages.error(request, 'You do not have access to this module.')
         return redirect('web-dashboard')
 
+    context = {
+        'module': module,
+        'modules': modules,
+        'module_blueprint': _get_module_blueprint(module_key),
+        'role_capabilities': _get_role_capabilities(role),
+        'display_name': _get_display_name(request.user),
+        'user_role': role.replace('_', ' ').title(),
+        'docker_services': docker_services,
+        'docker_enabled': bool(docker_services),
+    }
+
+    if module_key in ['ai-analysis', 'doctors']:
+        rahul = Patient.objects.filter(patient_id='P-10245').first()
+        if not rahul:
+            rahul = Patient.objects.first()
+
+        rahul_summary = AIClinicalSummary.objects.filter(patient=rahul).first() if rahul else None
+        rahul_docs = MedicalDocument.objects.filter(patient=rahul).order_by('-created_at') if rahul else []
+        all_patients = Patient.objects.all().order_by('-created_at')
+        all_doctors = Doctor.objects.select_related('user').all()
+        service_requests = ServiceRequest.objects.select_related('patient', 'ordering_doctor').all().order_by('-created_at')[:8]
+        audit_logs = ClinicalAuditLog.objects.select_related('patient').all().order_by('-created_at')[:8]
+
+        # Clinical Priority Queue
+        priority_order = {'emergency': 0, 'urgent': 1, 'routine': 2}
+        sorted_patients = sorted(
+            all_patients,
+            key=lambda p: priority_order.get(p.current_severity, 2)
+        )
+
+        context.update({
+            'rahul': rahul,
+            'rahul_summary': rahul_summary,
+            'rahul_docs': rahul_docs,
+            'all_patients': sorted_patients,
+            'all_doctors': all_doctors,
+            'service_requests': service_requests,
+            'audit_logs': audit_logs,
+            'doctor_kpis': {
+                'today_patients': 12,
+                'waiting_review': 4,
+                'pending_lab': 3,
+                'upcoming_appointments': 5,
+            }
+        })
+
     return render(
         request,
         'web/module_detail.html',
-        {
-            'module': module,
-            'modules': modules,
-            'module_blueprint': _get_module_blueprint(module_key),
-            'role_capabilities': _get_role_capabilities(role),
-            'display_name': _get_display_name(request.user),
-            'user_role': role.replace('_', ' ').title(),
-            'docker_services': docker_services,
-            'docker_enabled': bool(docker_services),
-        },
+        context,
     )
 
 

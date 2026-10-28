@@ -1,0 +1,1078 @@
+{% load static %}
+<div class="clinical-hub-wrapper" id="clinicalHub">
+  <style>
+    .clinical-hub-wrapper {
+      margin-top: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .hub-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hub-header h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .badge-live {
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .kpi-row-doctor {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+    .kpi-doc-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      transition: all 0.2s ease;
+    }
+    .kpi-doc-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .kpi-doc-card .val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--brand-dark, #0f4d3a);
+    }
+    .kpi-doc-card .lbl {
+      font-size: 0.8rem;
+      color: var(--muted, #64748b);
+      margin-top: 0.2rem;
+    }
+
+    /* Top Workspace Nav */
+    .workspace-nav {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      margin-top: 1rem;
+    }
+    .ws-tab-btn {
+      background: none;
+      border: none;
+      padding: 0.65rem 1.1rem;
+      border-radius: 8px 8px 0 0;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: #64748b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .ws-tab-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    .ws-tab-btn.active {
+      color: #0284c7;
+      border-bottom: 3px solid #0284c7;
+      background: #f0f9ff;
+    }
+
+    /* Workspace Content Panels */
+    .ws-panel {
+      display: none;
+      padding-top: 1.5rem;
+      animation: fadeIn 0.25s ease;
+    }
+    .ws-panel.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Doctor View Dashboard Banner */
+    .doctor-view-box {
+      background: linear-gradient(135deg, #f0f9ff, #f8fafc);
+      border: 1px solid #bae6fd;
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+    .patient-header-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.2rem;
+    }
+    .patient-main-info h3 {
+      margin: 0;
+      font-size: 1.35rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .patient-meta-line {
+      font-size: 0.88rem;
+      color: #475569;
+      margin-top: 0.35rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .priority-badge-high {
+      background: #fee2e2;
+      color: #b91c1c;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: 16px;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .priority-badge-critical {
+      background: #fef2f2;
+      color: #dc2626;
+      border: 1px solid #f87171;
+      font-weight: 800;
+      padding: 0.2rem 0.65rem;
+      border-radius: 16px;
+      font-size: 0.78rem;
+      animation: pulse 1.5s infinite;
+    }
+    .priority-badge-routine {
+      background: #f0fdf4;
+      color: #15803d;
+      font-weight: 700;
+      padding: 0.2rem 0.65rem;
+      border-radius: 16px;
+      font-size: 0.78rem;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    .field-tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+    .field-tag {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: #334155;
+    }
+    .field-tag b {
+      color: #0f172a;
+    }
+
+    .ai-summary-callout {
+      background: #ffffff;
+      border-left: 4px solid #0284c7;
+      border-radius: 0 8px 8px 0;
+      padding: 0.9rem 1.1rem;
+      margin-top: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .ai-summary-callout .title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #0284c7;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .ai-summary-callout p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: #1e293b;
+    }
+
+    /* 3 Patient Tabs: History, OCR Reports, Vitals */
+    .patient-subtabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      margin-top: 1.2rem;
+    }
+    .subtab-btn {
+      background: none;
+      border: none;
+      padding: 0.55rem 1rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: #475569;
+      cursor: pointer;
+      border-radius: 6px 6px 0 0;
+      transition: all 0.2s ease;
+    }
+    .subtab-btn.active {
+      background: #ffffff;
+      color: #0f172a;
+      border-bottom: 2px solid #0284c7;
+      font-weight: 700;
+    }
+    .subtab-content {
+      display: none;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      padding: 1.2rem;
+    }
+    .subtab-content.active {
+      display: block;
+    }
+
+    /* 5-Section AI Summary Cards */
+    .summary-5section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .summary-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0.9rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+    .summary-card h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 0.85rem;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 0.35rem;
+    }
+    .summary-card p, .summary-card ul {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.45;
+      color: #334155;
+      padding-left: 1.1rem;
+    }
+    .summary-card ul {
+      padding-left: 1rem;
+    }
+
+    /* Action bar */
+    .action-bar-clinical {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+    .btn-clinical {
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.2s ease;
+    }
+    .btn-clinical-primary {
+      background: #0284c7;
+      color: #ffffff;
+    }
+    .btn-clinical-primary:hover {
+      background: #0369a1;
+    }
+    .btn-clinical-outline {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      color: #334155;
+    }
+    .btn-clinical-outline:hover {
+      background: #f8fafc;
+      border-color: #94a3b8;
+    }
+    .btn-clinical-emergency {
+      background: #dc2626;
+      color: #ffffff;
+    }
+    .btn-clinical-emergency:hover {
+      background: #b91c1c;
+    }
+
+    /* Tables */
+    .clinical-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+      margin-top: 0.8rem;
+    }
+    .clinical-table th, .clinical-table td {
+      padding: 0.65rem 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .clinical-table th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 700;
+    }
+    .clinical-table tr:hover {
+      background: #f8fafc;
+    }
+
+    /* Workflow Stepper in Service Coordination */
+    .flow-stepper {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin: 1.2rem 0;
+      position: relative;
+    }
+    .flow-step {
+      flex: 1;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 0.8rem;
+      text-align: center;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .flow-step.active {
+      background: #e0f2fe;
+      border-color: #0284c7;
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.12);
+    }
+    .flow-step .num {
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      background: #0284c7;
+      color: #ffffff;
+      border-radius: 50%;
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+    .flow-step .title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .flow-step .desc {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 0.2rem;
+    }
+
+    /* Emergency Bypass Alert Banner */
+    .emergency-banner {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-left: 5px solid #dc2626;
+      border-radius: 8px;
+      padding: 0.85rem 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .emergency-banner .msg {
+      font-size: 0.85rem;
+      color: #991b1b;
+      line-height: 1.4;
+    }
+    .emergency-banner .msg b {
+      color: #7f1d1d;
+    }
+  </style>
+
+  <!-- Hub Header -->
+  <div class="hub-header">
+    <div>
+      <h2>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#0284c7;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        AI Clinical Intelligence & Doctor Coordination
+        <span class="badge-live">Live System</span>
+      </h2>
+      <p style="margin:0.2rem 0 0 0;font-size:0.83rem;color:#64748b;">
+        Continuous patient evaluation, OCR parsing, clinical inference, and smart multi-department coordination.
+      </p>
+    </div>
+    <div style="font-size:0.8rem;color:#475569;background:#f1f5f9;padding:0.4rem 0.8rem;border-radius:8px;">
+      Treating Doctor: <b>Dr. Amit Sharma</b> (General Medicine)
+    </div>
+  </div>
+
+  <!-- Doctor Workspace KPIs -->
+  <div class="kpi-row-doctor">
+    <div class="kpi-doc-card">
+      <div class="val">{{ doctor_kpis.today_patients|default:"12" }}</div>
+      <div class="lbl">Today's Patients</div>
+    </div>
+    <div class="kpi-doc-card">
+      <div class="val" style="color:#d97706;">{{ doctor_kpis.waiting_review|default:"4" }}</div>
+      <div class="lbl">Waiting for Review</div>
+    </div>
+    <div class="kpi-doc-card">
+      <div class="val" style="color:#2563eb;">{{ doctor_kpis.pending_lab|default:"3" }}</div>
+      <div class="lbl">Pending Lab Results</div>
+    </div>
+    <div class="kpi-doc-card">
+      <div class="val" style="color:#059669;">{{ doctor_kpis.upcoming_appointments|default:"5" }}</div>
+      <div class="lbl">Upcoming Appointments</div>
+    </div>
+  </div>
+
+  <!-- Primary Workspace Navigation -->
+  <nav class="workspace-nav" aria-label="Workspaces">
+    <button class="ws-tab-btn active" onclick="switchWorkspace('ws-doctor-view', this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Doctor View Dashboard (Rahul Patil)
+    </button>
+    <button class="ws-tab-btn" onclick="switchWorkspace('ws-smart-timeline', this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      1. Smart Patient Timeline
+    </button>
+    <button class="ws-tab-btn" onclick="switchWorkspace('ws-ocr-review', this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      2. OCR Review Workspace
+    </button>
+    <button class="ws-tab-btn" onclick="switchWorkspace('ws-priority-queue', this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      3. Clinical Priority View
+    </button>
+    <button class="ws-tab-btn" onclick="switchWorkspace('ws-doctor-roster', this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+      4. Doctor Availability & Assignment
+    </button>
+    <button class="ws-tab-btn" onclick="switchWorkspace('ws-service-coordination', this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      5. Service Coordination Center
+    </button>
+  </nav>
+
+  <!-- ============================================================ -->
+  <!-- TAB: DOCTOR VIEW DASHBOARD (Rahul Patil Featured Case)      -->
+  <!-- ============================================================ -->
+  <div class="ws-panel active" id="ws-doctor-view">
+    <div class="doctor-view-box">
+      <div class="patient-header-grid">
+        <div class="patient-main-info">
+          <h3>
+            <span>Patient: <b>Rahul Patil</b></span>
+            <span class="priority-badge-high">High Priority</span>
+          </h3>
+          <div class="patient-meta-line">
+            <span>Patient ID: <b>P-10245</b></span>
+            <span>· Age: <b>42</b></span>
+            <span>· Gender: <b>Male</b></span>
+            <span>· Category: <b>Existing patient</b></span>
+            <span>· Previous Treatment: <b>Available — 3 visits</b></span>
+          </div>
+          <div class="patient-meta-line" style="margin-top:0.4rem;color:#0369a1;">
+            <span>Current Condition: <b>Fever with dehydration concern</b></span>
+            <span>· Next Action: <b>Doctor review required</b></span>
+          </div>
+          <!-- Architectural Separation of Patient Fields -->
+          <div class="field-tag-group">
+            <span class="field-tag">patient_type: <b>Existing</b></span>
+            <span class="field-tag">care_status: <b>Ongoing</b></span>
+            <span class="field-tag">referral_status: <b>Not Referred</b></span>
+            <span class="field-tag">current_severity: <b>Urgent / High Concern</b></span>
+          </div>
+        </div>
+
+        <div style="text-align:right;">
+          <div style="font-size:0.75rem;color:#64748b;">Assigned Treating Doctor</div>
+          <div style="font-size:0.95rem;font-weight:700;color:#0f172a;margin-top:0.2rem;">Dr. Amit Sharma</div>
+          <div style="font-size:0.78rem;color:#0284c7;">General Medicine (OPD 101)</div>
+          <div style="margin-top:0.6rem;">
+            <span style="font-size:0.72rem;background:#dcfce7;color:#15803d;padding:0.2rem 0.5rem;border-radius:4px;font-weight:600;">Continuity of Care Maintained</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Clinical Summary Callout -->
+      <div class="ai-summary-callout">
+        <div class="title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-2h2zm0-4h-2V7h2z"/></svg>
+          AI Clinical Summary
+        </div>
+        <p>
+          Patient has a previous treatment record. Review the current symptoms, recorded vital signs, allergies and medication history before deciding the next step.
+        </p>
+      </div>
+
+      <!-- 3 Sub-tabs: 1. History | 2. OCR Reports | 3. Vitals -->
+      <div class="patient-subtabs">
+        <button class="subtab-btn active" onclick="switchPatientSubTab('sub-history', this)">1. History</button>
+        <button class="subtab-btn" onclick="switchPatientSubTab('sub-ocr', this)">2. OCR Reports</button>
+        <button class="subtab-btn" onclick="switchPatientSubTab('sub-vitals', this)">3. Vitals</button>
+      </div>
+
+      <!-- Subtab 1: History -->
+      <div class="subtab-content active" id="sub-history">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;">
+          <div>
+            <h5 style="margin:0 0 0.5rem 0;font-size:0.85rem;color:#0f172a;">Continuity of Care & Previous Visits</h5>
+            <ul style="margin:0;padding-left:1.2rem;font-size:0.83rem;color:#334155;line-height:1.5;">
+              <li><b>Visit 1 (14-May-2024):</b> Viral bronchitis. Treated with Azithromycin & Ambroxol. Completely resolved.</li>
+              <li><b>Visit 2 (08-Nov-2025):</b> Dyspepsia / Acid peptic disease. Started on Pantoprazole 40mg.</li>
+              <li><b>Visit 3 (Today):</b> Acute fever (3 days) with chills and signs of dehydration.</li>
+            </ul>
+          </div>
+          <div>
+            <h5 style="margin:0 0 0.5rem 0;font-size:0.85rem;color:#0f172a;">Allergies & Current Medications</h5>
+            <div style="font-size:0.83rem;line-height:1.5;color:#334155;">
+              <p style="margin:0 0 0.3rem 0;"><span style="background:#fee2e2;color:#b91c1c;padding:0.15rem 0.4rem;border-radius:4px;font-weight:700;">ALLERGY ALERT</span> <b>Penicillin</b> (Causes cutaneous urticaria / rash)</p>
+              <p style="margin:0;"><b>Active Medications:</b> Pantoprazole 40mg (OD before breakfast), ORS fluid sachets.</p>
+              <p style="margin:0.3rem 0 0 0;"><b>Trend Analysis:</b> Worsened from baseline afebrile state to 102.4°F with tachycardia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subtab 2: OCR Reports -->
+      <div class="subtab-content" id="sub-ocr">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+          <div style="font-size:0.85rem;font-weight:700;color:#0f172a;">
+            Extracted from External Laboratory Report: <b>CBC Panel (LifeLine Diagnostics)</b>
+          </div>
+          <span style="font-size:0.75rem;background:#dcfce7;color:#166534;padding:0.2rem 0.5rem;border-radius:4px;font-weight:700;">
+            ✓ Human Verified by Dr. Sharma (Confidence: 96.8%)
+          </span>
+        </div>
+        <table class="clinical-table">
+          <thead>
+            <tr>
+              <th>Test Name</th>
+              <th>Observed Result</th>
+              <th>Reference Range</th>
+              <th>Interpretation</th>
+              <th>Source Document</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>WBC (Total Leukocytes)</b></td>
+              <td style="color:#b91c1c;font-weight:700;">12,400 /mcL</td>
+              <td>4,000 - 11,000 /mcL</td>
+              <td><span style="color:#b91c1c;background:#fee2e2;padding:0.15rem 0.4rem;border-radius:4px;font-size:0.75rem;font-weight:700;">ELEVATED</span></td>
+              <td>CBC_Report_RahulPatil_10245.pdf</td>
+            </tr>
+            <tr>
+              <td><b>Hemoglobin</b></td>
+              <td>14.2 g/dL</td>
+              <td>13.0 - 17.0 g/dL</td>
+              <td><span style="color:#15803d;">Normal</span></td>
+              <td>CBC_Report_RahulPatil_10245.pdf</td>
+            </tr>
+            <tr>
+              <td><b>Platelet Count</b></td>
+              <td>185,000 /mcL</td>
+              <td>150,000 - 450,000 /mcL</td>
+              <td><span style="color:#15803d;">Normal</span></td>
+              <td>CBC_Report_RahulPatil_10245.pdf</td>
+            </tr>
+            <tr>
+              <td><b>Serum Creatinine</b></td>
+              <td>1.1 mg/dL</td>
+              <td>0.7 - 1.3 mg/dL</td>
+              <td><span style="color:#15803d;">Normal baseline</span></td>
+              <td>Renal_Panel_Ext.pdf</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Subtab 3: Vitals -->
+      <div class="subtab-content" id="sub-vitals">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:0.8rem;">
+          <div style="background:#fef2f2;border:1px solid #fecaca;padding:0.7rem;border-radius:8px;text-align:center;">
+            <div style="font-size:0.75rem;color:#991b1b;font-weight:600;">Body Temp</div>
+            <div style="font-size:1.35rem;font-weight:800;color:#dc2626;">102.4 °F</div>
+            <div style="font-size:0.7rem;color:#b91c1c;">Febrile High</div>
+          </div>
+          <div style="background:#f8fafc;border:1px solid #e2e8f0;padding:0.7rem;border-radius:8px;text-align:center;">
+            <div style="font-size:0.75rem;color:#64748b;font-weight:600;">Blood Pressure</div>
+            <div style="font-size:1.35rem;font-weight:800;color:#0f172a;">118 / 76</div>
+            <div style="font-size:0.7rem;color:#15803d;">Normotensive</div>
+          </div>
+          <div style="background:#fef2f2;border:1px solid #fecaca;padding:0.7rem;border-radius:8px;text-align:center;">
+            <div style="font-size:0.75rem;color:#991b1b;font-weight:600;">Heart Rate</div>
+            <div style="font-size:1.35rem;font-weight:800;color:#dc2626;">104 bpm</div>
+            <div style="font-size:0.7rem;color:#b91c1c;">Tachycardia</div>
+          </div>
+          <div style="background:#f8fafc;border:1px solid #e2e8f0;padding:0.7rem;border-radius:8px;text-align:center;">
+            <div style="font-size:0.75rem;color:#64748b;font-weight:600;">Oxygen (SpO2)</div>
+            <div style="font-size:1.35rem;font-weight:800;color:#0f172a;">97%</div>
+            <div style="font-size:0.7rem;color:#15803d;">Adequate</div>
+          </div>
+          <div style="background:#fffbeb;border:1px solid #fde68a;padding:0.7rem;border-radius:8px;text-align:center;">
+            <div style="font-size:0.75rem;color:#92400e;font-weight:600;">Hydration</div>
+            <div style="font-size:1.1rem;font-weight:800;color:#b45309;">Dry Mucosa</div>
+            <div style="font-size:0.7rem;color:#92400e;">Dehydration Risk</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended 5-Section AI Summary Structure -->
+      <h4 style="margin:1.4rem 0 0.6rem 0;font-size:0.95rem;color:#0f172a;display:flex;align-items:center;gap:0.4rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="11" y2="17"/></svg>
+        Structured 5-Section AI Clinical Summary
+      </h4>
+      <div class="summary-5section-grid">
+        <div class="summary-card" style="border-top:3px solid #0284c7;">
+          <h4>1. Current Condition</h4>
+          <p>Acute febrile illness of 3 days duration (102.4°F), dry mucous membranes, mild postural dizziness, and tachycardia (104 bpm).</p>
+        </div>
+        <div class="summary-card" style="border-top:3px solid #6366f1;">
+          <h4>2. Relevant History</h4>
+          <p>Existing patient with 3 documented visits. Treated for viral bronchitis in 2024. Documented <b>Penicillin allergy</b>. On Pantoprazole 40mg.</p>
+        </div>
+        <div class="summary-card" style="border-top:3px solid #ef4444;">
+          <h4>3. Alerts & Risks</h4>
+          <ul style="color:#b91c1c;">
+            <li>High fever (102.4°F) with dehydration risk</li>
+            <li>Leukocytosis (WBC: 12,400 /mcL)</li>
+            <li>Contraindicated: Penicillin class</li>
+          </ul>
+        </div>
+        <div class="summary-card" style="border-top:3px solid #f59e0b;">
+          <h4>4. Pending Actions</h4>
+          <ul style="color:#92400e;">
+            <li>Prompt IV/Oral rehydration therapy</li>
+            <li>Order Blood Culture & Malarial Smear</li>
+            <li>Doctor clinical examination & Rx</li>
+          </ul>
+        </div>
+        <div class="summary-card" style="border-top:3px solid #10b981;">
+          <h4>5. Source Documents</h4>
+          <p>
+            • CBC Panel (LifeLine Diagnostics, 11-Oct-2026)<br/>
+            • OPD Visit Notes (Dr. Amit Sharma)<br/>
+            • OCR Verification: Verified by Clinician
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Bar for Doctor -->
+      <div class="action-bar-clinical">
+        <button class="btn-clinical btn-clinical-primary" onclick="alert('Order Blood Culture & Widal test requested for Rahul Patil.')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Order Lab Work (Blood Culture / Electrolytes)
+        </button>
+        <button class="btn-clinical btn-clinical-outline" onclick="alert('E-Prescription draft opened: IV Normal Saline 500ml + Paracetamol 650mg SOS (Penicillin avoided).')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Prescribe Medication (IV Hydration & Antipyretic)
+        </button>
+        <button class="btn-clinical btn-clinical-outline" onclick="alert('AI Clinical Summary verified and saved to medical record.')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Approve AI Summary for EMR
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB 1: SMART PATIENT TIMELINE                                -->
+  <!-- ============================================================ -->
+  <div class="ws-panel" id="ws-smart-timeline">
+    <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:1.2rem;">
+      <h3 style="margin:0 0 0.8rem 0;font-size:1.15rem;color:#0f172a;">Smart Patient Longitudinal Timeline</h3>
+      <p style="font-size:0.85rem;color:#64748b;margin:0 0 1.2rem 0;">
+        Synthesizes previous doctor notes, prescriptions, laboratory trends, and admission events across visits.
+      </p>
+
+      <div style="border-left:3px solid #0284c7;padding-left:1.2rem;margin-left:0.5rem;display:flex;flex-direction:column;gap:1.2rem;">
+        <!-- Visit 3 (Current) -->
+        <div style="position:relative;">
+          <div style="position:absolute;left:-1.65rem;top:0.2rem;width:12px;height:12px;background:#ef4444;border-radius:50%;border:2px solid #ffffff;"></div>
+          <div style="font-size:0.75rem;color:#64748b;">11-Oct-2026 · 10:30 AM · Emergency / Urgent Walk-in</div>
+          <div style="font-size:0.95rem;font-weight:700;color:#0f172a;margin-top:0.15rem;">
+            Acute Febrile Illness with Dehydration Risk · Dr. Amit Sharma
+          </div>
+          <div style="font-size:0.83rem;color:#334155;margin-top:0.3rem;">
+            Temp: 102.4°F, BP: 118/76, HR: 104 bpm. OCR Report attached: WBC 12,400. Immediate oral rehydration initiated.
+          </div>
+        </div>
+
+        <!-- Visit 2 -->
+        <div style="position:relative;">
+          <div style="position:absolute;left:-1.65rem;top:0.2rem;width:12px;height:12px;background:#0284c7;border-radius:50%;border:2px solid #ffffff;"></div>
+          <div style="font-size:0.75rem;color:#64748b;">08-Nov-2025 · 02:15 PM · OPD Consultation</div>
+          <div style="font-size:0.95rem;font-weight:700;color:#0f172a;margin-top:0.15rem;">
+            Dyspepsia & Epigastric Burning · Dr. Amit Sharma
+          </div>
+          <div style="font-size:0.83rem;color:#334155;margin-top:0.3rem;">
+            Prescribed Pantoprazole 40mg once daily for 4 weeks. Normal ultrasound abdomen. Symptoms resolved at follow-up.
+          </div>
+        </div>
+
+        <!-- Visit 1 -->
+        <div style="position:relative;">
+          <div style="position:absolute;left:-1.65rem;top:0.2rem;width:12px;height:12px;background:#10b981;border-radius:50%;border:2px solid #ffffff;"></div>
+          <div style="font-size:0.75rem;color:#64748b;">14-May-2024 · 11:00 AM · OPD Consultation</div>
+          <div style="font-size:0.95rem;font-weight:700;color:#0f172a;margin-top:0.15rem;">
+            Acute Viral Bronchitis · Dr. Amit Sharma
+          </div>
+          <div style="font-size:0.83rem;color:#334155;margin-top:0.3rem;">
+            Productive cough and low-grade fever. Penicillin allergy confirmed and documented in EMR. Azithromycin 500mg completed.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB 2: OCR REVIEW WORKSPACE                                  -->
+  <!-- ============================================================ -->
+  <div class="ws-panel" id="ws-ocr-review">
+    <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:1.2rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.8rem;">
+        <div>
+          <h3 style="margin:0;font-size:1.15rem;color:#0f172a;">Document OCR Ingestion & Human-in-the-Loop Review</h3>
+          <p style="font-size:0.85rem;color:#64748b;margin:0.2rem 0 0 0;">
+            Extracts test values, units, reference ranges, medicines, and flags unclear or abnormal readings for clinical verification.
+          </p>
+        </div>
+        <button class="btn-clinical btn-clinical-primary" onclick="alert('Document upload dialog triggered for PDF / scanned prescription.')">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Upload External Report / Referral Note
+        </button>
+      </div>
+
+      <!-- Ingested Documents List -->
+      <table class="clinical-table" style="margin-top:1.2rem;">
+        <thead>
+          <tr>
+            <th>Document Name</th>
+            <th>Type</th>
+            <th>Source / Hospital</th>
+            <th>Date</th>
+            <th>OCR Confidence</th>
+            <th>Status</th>
+            <th>Clinical Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>CBC_Report_RahulPatil_10245.pdf</b></td>
+            <td>Lab Report</td>
+            <td>LifeLine Diagnostics</td>
+            <td>11-Oct-2026</td>
+            <td><span style="font-weight:700;color:#15803d;">96.8%</span></td>
+            <td><span style="background:#dcfce7;color:#166534;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.75rem;font-weight:700;">Verified</span></td>
+            <td><button class="btn-clinical btn-clinical-outline" style="padding:0.25rem 0.55rem;font-size:0.75rem;" onclick="alert('Viewing parsed parameters.')">View Extracted Values</button></td>
+          </tr>
+          <tr>
+            <td><b>Referral_Note_PriyaDeshmukh_10246.pdf</b></td>
+            <td>Referral Letter</td>
+            <td>Ruby Hall Clinic, Pune</td>
+            <td>11-Oct-2026</td>
+            <td><span style="font-weight:700;color:#d97706;">88.4%</span></td>
+            <td><span style="background:#fef3c7;color:#92400e;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.75rem;font-weight:700;">Pending Review</span></td>
+            <td><button class="btn-clinical btn-clinical-primary" style="padding:0.25rem 0.55rem;font-size:0.75rem;" onclick="alert('Referral note verified and linked to Patient P-10246.')">Verify & Approve</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- OCR Extracted Fields Detail Box -->
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:1rem;margin-top:1rem;">
+        <h4 style="margin:0 0 0.5rem 0;font-size:0.88rem;color:#0f172a;">Extracted Parameters: CBC_Report_RahulPatil_10245.pdf</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:0.8rem;font-size:0.82rem;">
+          <div style="background:#ffffff;padding:0.6rem;border-radius:6px;border:1px solid #e2e8f0;">
+            <div style="color:#64748b;">White Blood Cells (WBC)</div>
+            <div style="font-size:1.1rem;font-weight:800;color:#b91c1c;">12,400 /mcL</div>
+            <div style="color:#b91c1c;font-size:0.72rem;">Normal: 4,000 - 11,000 (Elevated)</div>
+          </div>
+          <div style="background:#ffffff;padding:0.6rem;border-radius:6px;border:1px solid #e2e8f0;">
+            <div style="color:#64748b;">Hemoglobin</div>
+            <div style="font-size:1.1rem;font-weight:800;color:#15803d;">14.2 g/dL</div>
+            <div style="color:#15803d;font-size:0.72rem;">Normal: 13.0 - 17.0 (Normal)</div>
+          </div>
+          <div style="background:#ffffff;padding:0.6rem;border-radius:6px;border:1px solid #e2e8f0;">
+            <div style="color:#64748b;">Platelets</div>
+            <div style="font-size:1.1rem;font-weight:800;color:#15803d;">185,000 /mcL</div>
+            <div style="color:#15803d;font-size:0.72rem;">Normal: 150,000 - 450,000 (Normal)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB 3: CLINICAL PRIORITY VIEW                                -->
+  <!-- ============================================================ -->
+  <div class="ws-panel" id="ws-priority-queue">
+    <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:1.2rem;">
+      <h3 style="margin:0 0 0.8rem 0;font-size:1.15rem;color:#0f172a;">Clinical Priority Queue & Triage</h3>
+
+      <!-- Emergency Workflow Alert -->
+      <div class="emergency-banner">
+        <div class="msg">
+          <b>CRITICAL EMERGENCY BYPASS POLICY:</b> Emergency / Critical cases (unconsciousness, uncontrolled bleeding, trauma) alert the emergency team immediately and start resuscitation workflows <i>without waiting for appointment queues or AI summaries</i>.
+        </div>
+        <button class="btn-clinical btn-clinical-emergency" onclick="alert('ER Team 1 alerted for Vikram Singh P-10248.')">
+          ER Team Alert
+        </button>
+      </div>
+
+      <!-- Priority Triage Queue Table -->
+      <table class="clinical-table">
+        <thead>
+          <tr>
+            <th>Priority Level</th>
+            <th>Patient ID & Name</th>
+            <th>Clinical Condition</th>
+            <th>Patient Category</th>
+            <th>Assigned Doctor / Dept</th>
+            <th>Workflow Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 1. Emergency -->
+          <tr style="background:#fff1f2;">
+            <td><span class="priority-badge-critical">1. Emergency / Critical</span></td>
+            <td><b>P-10248 · Vikram Singh</b> (Age 34, M)</td>
+            <td style="color:#b91c1c;font-weight:700;">Polytrauma / Respiratory Distress</td>
+            <td>New Patient (Initial Assessment)</td>
+            <td>Dr. Vikram Deshmukh (Emergency)</td>
+            <td><span style="color:#dc2626;font-weight:700;">Immediate Resuscitation</span></td>
+          </tr>
+          <!-- 2. Urgent / High Concern -->
+          <tr style="background:#fffbeb;">
+            <td><span class="priority-badge-high">2. Urgent / High Concern</span></td>
+            <td><b>P-10245 · Rahul Patil</b> (Age 42, M)</td>
+            <td style="color:#b45309;font-weight:700;">Fever with dehydration concern</td>
+            <td>Existing Patient (3 visits)</td>
+            <td>Dr. Amit Sharma (General Medicine)</td>
+            <td><span style="color:#b45309;font-weight:700;">Prompt Review Required</span></td>
+          </tr>
+          <!-- 2. Urgent / Referred -->
+          <tr style="background:#fffbeb;">
+            <td><span class="priority-badge-high">2. Urgent / High Concern</span></td>
+            <td><b>P-10246 · Priya Deshmukh</b> (Age 29, F)</td>
+            <td style="color:#b45309;font-weight:700;">Chest tightness (Referred case)</td>
+            <td>Transferred Patient (Ruby Hall Clinic)</td>
+            <td>Dr. Sneha Kulkarni (Cardiology)</td>
+            <td><span style="color:#b45309;font-weight:700;">Referral Records Review</span></td>
+          </tr>
+          <!-- 3. Routine / Stable -->
+          <tr>
+            <td><span class="priority-badge-routine">3. Routine / Stable</span></td>
+            <td><b>P-10247 · Sunita Joshi</b> (Age 55, F)</td>
+            <td>Hypertension Routine Follow-up</td>
+            <td>Existing Patient (Stable)</td>
+            <td>Dr. Amit Sharma (General Medicine)</td>
+            <td><span style="color:#15803d;">Scheduled Appointment Queue</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB 4: DOCTOR AVAILABILITY & ASSIGNMENT                      -->
+  <!-- ============================================================ -->
+  <div class="ws-panel" id="ws-doctor-roster">
+    <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:1.2rem;">
+      <h3 style="margin:0 0 0.8rem 0;font-size:1.15rem;color:#0f172a;">Doctor Roster, OPD Timings & Smart Assignment</h3>
+      <p style="font-size:0.85rem;color:#64748b;margin:0 0 1.2rem 0;">
+        Smart recommendation matches patient condition to doctors while respecting continuity of care, availability, and emergency escalation.
+      </p>
+
+      <table class="clinical-table">
+        <thead>
+          <tr>
+            <th>Doctor ID & Name</th>
+            <th>Department / Specialization</th>
+            <th>Shift & OPD Timing</th>
+            <th>Room</th>
+            <th>Workload (Queue / Max)</th>
+            <th>Status</th>
+            <th>Smart Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>DOC-101 · Dr. Amit Sharma</b></td>
+            <td>General Medicine · MBBS, MD</td>
+            <td>Morning · 08:00 - 14:00</td>
+            <td>Room 101</td>
+            <td>4 / 30 patients</td>
+            <td><span style="background:#dcfce7;color:#166534;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.75rem;font-weight:700;">Available</span></td>
+            <td><button class="btn-clinical btn-clinical-outline" style="padding:0.2rem 0.5rem;font-size:0.75rem;" onclick="alert('Assigned to Rahul Patil (Continuity of care confirmed).')">Assign Patient</button></td>
+          </tr>
+          <tr>
+            <td><b>DOC-102 · Dr. Sneha Kulkarni</b></td>
+            <td>Cardiology · MD, DM Cardiology</td>
+            <td>Evening · 14:00 - 20:00</td>
+            <td>Room 204</td>
+            <td>2 / 25 patients</td>
+            <td><span style="background:#dcfce7;color:#166534;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.75rem;font-weight:700;">Available</span></td>
+            <td><button class="btn-clinical btn-clinical-outline" style="padding:0.2rem 0.5rem;font-size:0.75rem;" onclick="alert('Assigned to Priya Deshmukh (Referred Cardiology case).')">Assign Patient</button></td>
+          </tr>
+          <tr>
+            <td><b>DOC-103 · Dr. Rajesh Iyer</b></td>
+            <td>Pediatrics · MBBS, DNB Pediatrics</td>
+            <td>Morning · 09:00 - 15:00</td>
+            <td>Room 108</td>
+            <td>3 / 25 patients</td>
+            <td><span style="background:#dcfce7;color:#166534;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.75rem;font-weight:700;">Available</span></td>
+            <td><button class="btn-clinical btn-clinical-outline" style="padding:0.2rem 0.5rem;font-size:0.75rem;">Assign Patient</button></td>
+          </tr>
+          <tr>
+            <td><b>DOC-104 · Dr. Vikram Deshmukh</b></td>
+            <td>Emergency Medicine · MD (Emerg. Med)</td>
+            <td>Rotational · 24x7 ER Coverage</td>
+            <td>ER Bay 1</td>
+            <td>1 / 40 critical</td>
+            <td><span style="background:#fee2e2;color:#b91c1c;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.75rem;font-weight:700;">On Duty (ER)</span></td>
+            <td><button class="btn-clinical btn-clinical-emergency" style="padding:0.2rem 0.5rem;font-size:0.75rem;" onclick="alert('Emergency Trauma Vikram Singh escalated to ER Bay 1.')">Emergency Transfer</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TAB 5: SERVICE COORDINATION CENTER                           -->
+  <!-- ============================================================ -->
+  <div class="ws-panel" id="ws-service-coordination">
+    <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;padding:1.2rem;">
+      <h3 style="margin:0 0 0.4rem 0;font-size:1.15rem;color:#0f172a;">Multi-Department Service Coordination Center</h3>
+      <p style="font-size:0.85rem;color:#64748b;margin:0 0 1.2rem 0;">
+        Seamless coordination across Consultation, Laboratory, Pharmacy, and Follow-up / Discharge.
+      </p>
+
+      <!-- 5-Step Service Lifecycle Tracker -->
+      <div class="flow-stepper">
+        <div class="flow-step active">
+          <div class="num">1</div>
+          <div class="title">General Medicine</div>
+          <div class="desc">Clinical Exam & Assessment</div>
+        </div>
+        <div class="flow-step active">
+          <div class="num">2</div>
+          <div class="title">Laboratory</div>
+          <div class="desc">Sample Collection & Testing</div>
+        </div>
+        <div class="flow-step">
+          <div class="num">3</div>
+          <div class="title">Results & Doctor Review</div>
+          <div class="desc">Review & Care Plan</div>
+        </div>
+        <div class="flow-step">
+          <div class="num">4</div>
+          <div class="title">Pharmacy</div>
+          <div class="desc">Authorized Dispensing</div>
+        </div>
+        <div class="flow-step">
+          <div class="num">5</div>
+          <div class="title">Follow-up / Discharge</div>
+          <div class="desc">Care Plan & Next Visit</div>
+        </div>
+      </div>
+
+      <!-- Active Service Requests Table -->
+      <h4 style="margin:1.4rem 0 0.5rem 0;font-size:0.9rem;color:#0f172a;">Active Departmental Service Requests</h4>
+      <table class="clinical-table">
+        <thead>
+          <tr>
+            <th>Request ID</th>
+            <th>Patient</th>
+            <th>Department</th>
+            <th>Service Details</th>
+            <th>Ordering Doctor</th>
+            <th>Status</th>
+            <th>Transition Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>SR-1001</b></td>
+            <td>Rahul Patil (P-10245)</td>
+            <td>Laboratory</td>
+            <td>Complete Blood Count (CBC Panel)</td>
+            <td>Dr. Amit Sharma</td>
+            <td><span style="background:#dbeafe;color:#1e40af;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.75rem;font-weight:700;">In Progress</span></td>
+            <td><button class="btn-clinical btn-clinical-outline" style="padding:0.2rem 0.5rem;font-size:0.75rem;" onclick="alert('Results published and linked to Dr. Sharma review queue.')">Publish Results</button></td>
+          </tr>
+          <tr>
+            <td><b>SR-1002</b></td>
+            <td>Rahul Patil (P-10245)</td>
+            <td>Pharmacy</td>
+            <td>Paracetamol 650mg + ORS Hydration Pack</td>
+            <td>Dr. Amit Sharma</td>
+            <td><span style="background:#fef3c7;color:#92400e;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.75rem;font-weight:700;">Prescription Verified</span></td>
+            <td><button class="btn-clinical btn-clinical-primary" style="padding:0.2rem 0.5rem;font-size:0.75rem;" onclick="alert('Dispensed by Pharmacist and inventory adjusted.')">Dispense Medication</button></td>
+          </tr>
+          <tr>
+            <td><b>SR-1003</b></td>
+            <td>Priya Deshmukh (P-10246)</td>
+            <td>Laboratory</td>
+            <td>Cardiac Troponin I & ECG Confirmation</td>
+            <td>Dr. Sneha Kulkarni</td>
+            <td><span style="background:#fee2e2;color:#991b1b;padding:0.2rem 0.5rem;border-radius:4px;font-size:0.75rem;font-weight:700;">Sample Collected</span></td>
+            <td><button class="btn-clinical btn-clinical-outline" style="padding:0.2rem 0.5rem;font-size:0.75rem;">Fast-Track Run</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    function switchWorkspace(panelId, btn) {
+      document.querySelectorAll('#clinicalHub .ws-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('#clinicalHub .ws-tab-btn').forEach(b => b.classList.remove('active'));
+      const target = document.getElementById(panelId);
+      if (target) target.classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    function switchPatientSubTab(tabId, btn) {
+      document.querySelectorAll('#clinicalHub .subtab-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('#clinicalHub .subtab-btn').forEach(b => b.classList.remove('active'));
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+  </script>
+</div>

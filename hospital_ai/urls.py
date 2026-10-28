@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -32,9 +32,8 @@ schema_view = get_schema_view(
         description='Hospital Management System APIs',
     ),
 
-    public=False,
-
-    permission_classes=(IsSwaggerAdmin,),
+    public=settings.DEBUG,
+    permission_classes=() if settings.DEBUG else (IsSwaggerAdmin,),
 )
 
 urlpatterns = [
@@ -87,6 +86,16 @@ urlpatterns = [
         name='home'
     ),
 
+    # Clinical Patient Monitoring Reports (Portal, Individual View & Download)
+    path(
+        'patients/reports/',
+        include([
+            path('', __import__('patients.views', fromlist=['patient_reports_portal_web_view']).patient_reports_portal_web_view, name='web-patient-reports-portal'),
+            path('<str:patient_id>/', __import__('patients.views', fromlist=['patient_individual_report_web_view']).patient_individual_report_web_view, name='web-patient-individual-report'),
+            path('<str:patient_id>/download/', __import__('patients.views', fromlist=['patient_report_download_view']).patient_report_download_view, name='web-patient-report-download'),
+        ])
+    ),
+
     path('admin/', admin.site.urls),
 
     path('api/accounts/', include('accounts.urls')),
@@ -100,7 +109,13 @@ urlpatterns = [
     path('api/pharmacy/', include('pharmacy.urls')),
     path('api/notifications/', include('notifications.urls')),
     path('api/v1/', include('api.urls.api_main_urls')),
+    re_path(
+        r'^swagger(?P<format>\.json|\.yaml)$',
+        schema_view.without_ui(cache_timeout=0),
+        name='schema-json',
+    ),
     path( 'swagger/',schema_view.with_ui('swagger', cache_timeout=0),name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
 
 if settings.DEBUG:

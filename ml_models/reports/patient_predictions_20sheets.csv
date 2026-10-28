@@ -1,0 +1,2501 @@
+Patient_ID,First_Name,Last_Name,Care_Unit,Room_No,ML_Deterioration_Risk,ML_Risk_Score
+PAT-000001,Kavita,Patil,General Ward,GW-01,Low,49.3
+PAT-000002,Pooja,Iyer,Private Inpatient Unit,PR-104,Moderate,60.9
+PAT-000003,Yash,Jadhav,Private Inpatient Unit,PR-106,Moderate,54.8
+PAT-000004,Ishaan,Mehta,General Ward,GW-20,Moderate,60.2
+PAT-000005,Anjali,Reddy,Emergency Department,ER-01,Low,47.0
+PAT-000006,Vivaan,More,Private Inpatient Unit,PR-147,Low,48.7
+PAT-000007,Ira,Jadhav,General Ward,GW-10,Moderate,51.6
+PAT-000008,Kavya,Mane,General Ward,GW-09,Moderate,56.9
+PAT-000009,Aanya,Kumar,Emergency Department,ER-06,Low,52.4
+PAT-000010,Aarav,Kumar,General Inpatient Hall,HALL-04,Moderate,52.4
+PAT-000011,Kunal,Gupta,Isolation Unit,ISO-03,High,57.9
+PAT-000012,Aditi,More,Private Inpatient Unit,PR-128,High,54.6
+PAT-000013,Amit,Mehta,General Ward,GW-13,Low,54.2
+PAT-000014,Amit,Mane,Private Inpatient Unit,PR-103,High,56.0
+PAT-000015,Tara,Nair,General Ward,GW-01,Moderate,51.2
+PAT-000016,Mahesh,Das,Day Care Unit,DC-03,Moderate,55.0
+PAT-000017,Riya,Verma,General Ward,GW-03,High,57.3
+PAT-000018,Pranav,Jadhav,Intensive Care Unit,ICU-12,Moderate,51.2
+PAT-000019,Sameer,Mehta,Emergency Department,ER-03,High,52.5
+PAT-000020,Kavita,Verma,General Ward,GW-16,Critical,57.9
+PAT-000021,Sneha,Patil,Isolation Unit,ISO-02,High,56.1
+PAT-000022,Saanvi,Singh,Isolation Unit,ISO-02,Low,55.3
+PAT-000023,Pooja,Khan,General Ward,GW-02,Moderate,55.1
+PAT-000024,Pranav,Kulkarni,General Ward,GW-03,Moderate,53.4
+PAT-000025,Ishita,Verma,General Ward,GW-01,Moderate,60.7
+PAT-000026,Ira,Iyer,General Ward,GW-05,High,56.1
+PAT-000027,Pooja,Kumar,General Ward,GW-16,Moderate,53.6
+PAT-000028,Sameer,Joshi,Emergency Department,ER-03,Moderate,52.0
+PAT-000029,Kabir,Kulkarni,Day Care Unit,DC-04,Moderate,59.9
+PAT-000030,Ira,Jadhav,General Ward,GW-01,High,57.1
+PAT-000031,Kavita,Patil,General Ward,GW-15,High,59.9
+PAT-000032,Sagar,Joshi,General Ward,GW-01,High,60.3
+PAT-000033,Mahesh,Sharma,General Ward,GW-15,High,58.6
+PAT-000034,Sneha,Mane,Intensive Care Unit,ICU-04,High,56.5
+PAT-000035,Anaya,Mehta,General Ward,GW-16,Moderate,53.7
+PAT-000036,Tara,Mehta,General Ward,GW-05,Moderate,54.2
+PAT-000037,Aarav,Nair,General Ward,GW-03,High,58.4
+PAT-000038,Saanvi,Khan,General Ward,GW-02,Low,51.2
+PAT-000039,Arjun,Khan,General Ward,GW-05,High,54.9
+PAT-000040,Mahesh,Desai,General Ward,GW-15,High,56.3
+PAT-000041,Mahesh,Desai,Private Inpatient Unit,PR-111,Low,50.1
+PAT-000042,Sameer,Sharma,General Inpatient Hall,HALL-03,Moderate,54.4
+PAT-000043,Tara,Kulkarni,Private Inpatient Unit,PR-112,Low,54.7
+PAT-000044,Rohan,Kumar,Private Inpatient Unit,PR-114,Moderate,53.2
+PAT-000045,Mahesh,Patil,Emergency Department,ER-06,High,55.5
+PAT-000046,Kunal,Kumar,Private Inpatient Unit,PR-104,Moderate,54.5
+PAT-000047,Diya,Khan,General Ward,GW-02,Low,48.1
+PAT-000048,Arjun,Das,General Ward,GW-03,Moderate,53.7
+PAT-000049,Meera,More,General Ward,GW-11,High,58.0
+PAT-000050,Amit,Mane,General Ward,GW-20,Moderate,58.7
+PAT-000051,Aditya,Mane,General Ward,GW-20,High,56.2
+PAT-000052,Aarav,Khan,General Ward,GW-10,High,58.3
+PAT-000053,Sameer,Verma,General Ward,GW-19,Moderate,56.4
+PAT-000054,Mahesh,Gupta,Isolation Unit,ISO-07,Moderate,51.5
+PAT-000055,Aditya,More,Isolation Unit,ISO-04,Critical,60.5
+PAT-000056,Pooja,Shah,General Ward,GW-17,Low,49.4
+PAT-000057,Vivaan,Khan,General Ward,GW-16,Moderate,64.5
+PAT-000058,Amit,Mehta,Intensive Care Unit,ICU-07,Moderate,59.6
+PAT-000059,Diya,Mane,Isolation Unit,ISO-09,Low,51.7
+PAT-000060,Riya,Desai,General Ward,GW-01,High,59.7
+PAT-000061,Sameer,Singh,General Ward,GW-07,Moderate,53.1
+PAT-000062,Rohan,Khan,General Ward,GW-09,Moderate,58.0
+PAT-000063,Pranav,More,Isolation Unit,ISO-09,Moderate,58.2
+PAT-000064,Pranav,Singh,General Ward,GW-03,High,55.7
+PAT-000065,Diya,Khan,General Inpatient Hall,HALL-02,Moderate,55.5
+PAT-000066,Kavita,Kumar,General Ward,GW-03,Moderate,50.7
+PAT-000067,Aarav,Kulkarni,General Ward,GW-04,Moderate,57.4
+PAT-000068,Saanvi,Joshi,General Ward,GW-17,Moderate,52.0
+PAT-000069,Sameer,Joshi,Emergency Department,ER-05,Moderate,51.9
+PAT-000070,Kavya,Singh,Private Inpatient Unit,PR-122,Moderate,52.7
+PAT-000071,Kabir,Mane,Private Inpatient Unit,PR-125,Moderate,56.8
+PAT-000072,Saanvi,Kulkarni,General Ward,GW-07,High,58.3
+PAT-000073,Riya,Sharma,Private Inpatient Unit,PR-143,High,60.0
+PAT-000074,Mira,More,General Ward,GW-11,Low,50.3
+PAT-000075,Anjali,Desai,General Ward,GW-08,High,61.4
+PAT-000076,Rohan,Kumar,General Ward,GW-10,High,53.3
+PAT-000077,Pranav,Joshi,Intensive Care Unit,ICU-09,High,57.9
+PAT-000078,Priya,Mehta,Private Inpatient Unit,PR-135,High,60.5
+PAT-000079,Saanvi,Gupta,General Ward,GW-04,Moderate,58.8
+PAT-000080,Meera,Desai,Emergency Department,ER-06,Critical,69.0
+PAT-000081,Kunal,Mehta,General Ward,GW-06,Moderate,54.3
+PAT-000082,Kavya,Gupta,Private Inpatient Unit,PR-127,Moderate,58.2
+PAT-000083,Dev,Gupta,General Ward,GW-18,High,55.5
+PAT-000084,Om,Patil,Emergency Department,ER-06,Moderate,48.9
+PAT-000085,Nikhil,Verma,General Inpatient Hall,HALL-02,Moderate,56.8
+PAT-000086,Pooja,Kumar,Intensive Care Unit,ICU-10,Low,45.5
+PAT-000087,Saanvi,Patil,General Ward,GW-02,Moderate,53.1
+PAT-000088,Neha,Mehta,Intensive Care Unit,ICU-08,Low,50.4
+PAT-000089,Anaya,Sharma,General Ward,GW-05,Moderate,53.0
+PAT-000090,Sameer,Reddy,General Ward,GW-02,Moderate,56.9
+PAT-000091,Aditi,Singh,General Inpatient Hall,HALL-04,Moderate,52.1
+PAT-000092,Tara,Nair,Isolation Unit,ISO-05,High,60.8
+PAT-000093,Sameer,Mehta,General Ward,GW-08,High,58.5
+PAT-000094,Yash,Mehta,Intensive Care Unit,ICU-02,Moderate,52.8
+PAT-000095,Amit,Verma,Emergency Department,ER-06,Moderate,57.6
+PAT-000096,Nikhil,Desai,General Ward,GW-04,Moderate,53.0
+PAT-000097,Ishaan,Singh,General Ward,GW-06,Moderate,60.0
+PAT-000098,Kunal,Iyer,General Ward,GW-15,Low,51.5
+PAT-000099,Arjun,Nair,General Ward,GW-20,Moderate,54.5
+PAT-000100,Diya,Das,General Inpatient Hall,HALL-02,Moderate,59.3
+PAT-000101,Yash,Das,General Ward,GW-03,Moderate,53.9
+PAT-000102,Arjun,Mehta,General Ward,GW-19,Moderate,54.3
+PAT-000103,Yash,Khan,General Ward,GW-04,High,60.1
+PAT-000104,Aarav,Khan,Emergency Department,ER-02,High,54.6
+PAT-000105,Kunal,More,General Ward,GW-06,High,60.6
+PAT-000106,Arjun,Pawar,Intensive Care Unit,ICU-01,Moderate,54.8
+PAT-000107,Sameer,Pawar,General Ward,GW-16,Moderate,56.9
+PAT-000108,Nikhil,Mehta,General Ward,GW-04,Low,50.9
+PAT-000109,Tara,Gupta,General Ward,GW-17,High,59.9
+PAT-000110,Aditi,Reddy,General Ward,GW-19,High,55.3
+PAT-000111,Ira,Iyer,General Ward,GW-03,Moderate,53.3
+PAT-000112,Diya,Mehta,Private Inpatient Unit,PR-145,Moderate,52.1
+PAT-000113,Aarav,Khan,General Ward,GW-16,Critical,59.7
+PAT-000114,Meera,Shah,Emergency Department,ER-06,Low,51.3
+PAT-000115,Pooja,Pawar,Intensive Care Unit,ICU-01,Low,49.9
+PAT-000116,Anaya,Gupta,Intensive Care Unit,ICU-07,High,59.2
+PAT-000117,Rahul,More,General Ward,GW-08,Moderate,56.3
+PAT-000118,Pranav,Sharma,Private Inpatient Unit,PR-156,Moderate,56.8
+PAT-000119,Rahul,Verma,Emergency Department,ER-04,High,60.7
+PAT-000120,Meera,Verma,General Ward,GW-10,Moderate,58.4
+PAT-000121,Sameer,Nair,General Ward,GW-16,High,62.1
+PAT-000122,Vivaan,Shah,General Ward,GW-01,Low,55.3
+PAT-000123,Ishita,Iyer,General Ward,GW-07,Moderate,57.4
+PAT-000124,Kunal,Khan,Private Inpatient Unit,PR-119,Moderate,53.7
+PAT-000125,Diya,Mane,General Inpatient Hall,HALL-04,High,53.6
+PAT-000126,Aarav,Gupta,General Ward,GW-18,Moderate,56.6
+PAT-000127,Ishaan,Mehta,Private Inpatient Unit,PR-157,High,57.0
+PAT-000128,Ira,Desai,General Ward,GW-20,High,57.0
+PAT-000129,Dev,Shah,General Ward,GW-15,Critical,58.0
+PAT-000130,Om,Gupta,Private Inpatient Unit,PR-106,Moderate,51.2
+PAT-000131,Meera,More,General Ward,GW-05,Moderate,52.4
+PAT-000132,Kabir,Pawar,Private Inpatient Unit,PR-105,High,60.9
+PAT-000133,Rahul,Reddy,Day Care Unit,DC-01,High,57.7
+PAT-000134,Diya,Iyer,Intensive Care Unit,ICU-01,High,57.4
+PAT-000135,Kavya,Desai,Private Inpatient Unit,PR-149,Low,46.0
+PAT-000136,Rahul,Patil,General Ward,GW-20,Moderate,52.1
+PAT-000137,Tara,Mehta,General Ward,GW-02,Moderate,56.5
+PAT-000138,Rohan,Desai,General Ward,GW-17,Moderate,52.9
+PAT-000139,Kunal,Verma,Intensive Care Unit,ICU-01,High,59.6
+PAT-000140,Mahesh,Desai,Private Inpatient Unit,PR-113,Moderate,55.3
+PAT-000141,Neha,Shah,General Inpatient Hall,HALL-03,Moderate,56.0
+PAT-000142,Nikhil,Mane,General Ward,GW-17,Moderate,57.6
+PAT-000143,Aditi,Kulkarni,General Ward,GW-04,Low,51.1
+PAT-000144,Meera,Khan,Isolation Unit,ISO-09,High,57.0
+PAT-000145,Sneha,Mehta,Emergency Department,ER-04,High,56.0
+PAT-000146,Aditi,Jadhav,Isolation Unit,ISO-01,High,57.0
+PAT-000147,Kavya,Reddy,General Ward,GW-18,High,59.3
+PAT-000148,Kavita,Mehta,General Ward,GW-17,Moderate,55.1
+PAT-000149,Arjun,Patil,Intensive Care Unit,ICU-11,Moderate,55.6
+PAT-000150,Aditi,Singh,Intensive Care Unit,ICU-04,High,54.3
+PAT-000151,Sagar,Gupta,General Ward,GW-08,Moderate,57.2
+PAT-000152,Sneha,Jadhav,General Ward,GW-05,Moderate,51.5
+PAT-000153,Dev,Mehta,General Ward,GW-19,Moderate,52.8
+PAT-000154,Anaya,Kumar,Isolation Unit,ISO-09,Moderate,55.8
+PAT-000155,Aarav,Mane,General Ward,GW-05,Moderate,55.0
+PAT-000156,Aditi,Das,Private Inpatient Unit,PR-109,High,58.3
+PAT-000157,Pranav,Joshi,General Ward,GW-20,Moderate,58.3
+PAT-000158,Tara,Nair,Private Inpatient Unit,PR-141,Moderate,57.4
+PAT-000159,Kavita,Jadhav,General Ward,GW-20,Moderate,51.1
+PAT-000160,Nikhil,Das,General Inpatient Hall,HALL-03,Moderate,56.6
+PAT-000161,Yash,Pawar,Emergency Department,ER-03,Low,51.0
+PAT-000162,Diya,Mehta,General Ward,GW-06,Moderate,52.9
+PAT-000163,Neha,Reddy,Isolation Unit,ISO-01,Low,56.5
+PAT-000164,Mira,Kulkarni,Emergency Department,ER-02,High,62.7
+PAT-000165,Aditya,Singh,Isolation Unit,ISO-02,Low,48.5
+PAT-000166,Mahesh,Das,Emergency Department,ER-03,Moderate,52.7
+PAT-000167,Aanya,Mane,General Ward,GW-06,Moderate,53.2
+PAT-000168,Aanya,Singh,General Ward,GW-08,High,56.3
+PAT-000169,Riya,Khan,Emergency Department,ER-05,Moderate,56.8
+PAT-000170,Mahesh,Iyer,Intensive Care Unit,ICU-02,High,58.1
+PAT-000171,Meera,More,General Ward,GW-16,Low,49.7
+PAT-000172,Amit,Singh,General Ward,GW-16,Low,56.4
+PAT-000173,Rohan,Jadhav,Private Inpatient Unit,PR-139,High,59.7
+PAT-000174,Tara,Verma,General Ward,GW-05,Moderate,53.8
+PAT-000175,Saanvi,Patil,General Ward,GW-18,Critical,57.3
+PAT-000176,Anaya,Gupta,Intensive Care Unit,ICU-03,Low,56.1
+PAT-000177,Aditya,Reddy,General Inpatient Hall,HALL-02,Moderate,56.5
+PAT-000178,Anaya,Iyer,Private Inpatient Unit,PR-106,Moderate,49.7
+PAT-000179,Diya,Sharma,Private Inpatient Unit,PR-141,Moderate,49.1
+PAT-000180,Meera,Pawar,Private Inpatient Unit,PR-104,Moderate,50.2
+PAT-000181,Riya,Sharma,General Inpatient Hall,HALL-01,Moderate,53.7
+PAT-000182,Saanvi,Pawar,General Inpatient Hall,HALL-04,Low,49.1
+PAT-000183,Neha,Das,Intensive Care Unit,ICU-05,Moderate,59.2
+PAT-000184,Neha,Joshi,General Ward,GW-10,High,60.1
+PAT-000185,Ira,Desai,General Ward,GW-02,High,56.0
+PAT-000186,Riya,Nair,General Ward,GW-18,High,61.6
+PAT-000187,Priya,Jadhav,General Ward,GW-13,Low,51.8
+PAT-000188,Priya,Kumar,Emergency Department,ER-01,High,58.3
+PAT-000189,Ishita,Das,General Inpatient Hall,HALL-01,Critical,56.4
+PAT-000190,Kavya,Das,Intensive Care Unit,ICU-04,High,55.4
+PAT-000191,Neha,Reddy,General Ward,GW-20,Moderate,56.7
+PAT-000192,Amit,Das,Emergency Department,ER-03,Moderate,54.7
+PAT-000193,Aditya,Jadhav,General Ward,GW-07,Moderate,57.8
+PAT-000194,Riya,Gupta,General Ward,GW-08,High,54.0
+PAT-000195,Ira,Khan,Emergency Department,ER-02,High,58.5
+PAT-000196,Priya,Mehta,Intensive Care Unit,ICU-09,Low,55.4
+PAT-000197,Yash,Khan,Intensive Care Unit,ICU-01,High,62.9
+PAT-000198,Rahul,Gupta,General Ward,GW-16,High,56.1
+PAT-000199,Kunal,Sharma,Intensive Care Unit,ICU-05,High,51.6
+PAT-000200,Neha,Singh,General Inpatient Hall,HALL-03,Moderate,54.6
+PAT-000201,Kunal,Patil,General Ward,GW-01,Low,53.0
+PAT-000202,Rohan,Kumar,General Ward,GW-14,Moderate,51.4
+PAT-000203,Kavita,Kulkarni,Private Inpatient Unit,PR-159,Moderate,58.9
+PAT-000204,Ishaan,More,General Ward,GW-04,High,56.3
+PAT-000205,Ishaan,More,General Ward,GW-13,Moderate,59.4
+PAT-000206,Sagar,Khan,General Ward,GW-11,High,57.4
+PAT-000207,Meera,Verma,Private Inpatient Unit,PR-157,High,56.6
+PAT-000208,Sameer,Verma,General Ward,GW-10,High,60.6
+PAT-000209,Ishita,Gupta,General Inpatient Hall,HALL-03,Moderate,52.7
+PAT-000210,Neha,Singh,General Ward,GW-17,Critical,59.0
+PAT-000211,Tara,Joshi,General Ward,GW-14,Low,53.9
+PAT-000212,Sameer,Reddy,General Ward,GW-13,High,59.1
+PAT-000213,Pooja,More,General Ward,GW-19,Low,51.7
+PAT-000214,Yash,Iyer,General Ward,GW-19,Moderate,52.7
+PAT-000215,Arjun,Khan,General Inpatient Hall,HALL-01,Low,55.9
+PAT-000216,Mahesh,More,General Ward,GW-05,Critical,62.2
+PAT-000217,Yash,Khan,General Ward,GW-04,Low,53.2
+PAT-000218,Aanya,Singh,General Ward,GW-07,Moderate,51.3
+PAT-000219,Anjali,Desai,Emergency Department,ER-06,Low,42.6
+PAT-000220,Aanya,Reddy,General Ward,GW-10,Critical,60.7
+PAT-000221,Om,Verma,Private Inpatient Unit,PR-153,High,56.2
+PAT-000222,Sneha,Patil,General Ward,GW-09,Moderate,53.7
+PAT-000223,Kavya,Desai,General Ward,GW-06,Moderate,54.7
+PAT-000224,Anaya,Verma,General Ward,GW-10,Moderate,51.9
+PAT-000225,Om,Kulkarni,General Ward,GW-08,Low,55.7
+PAT-000226,Aarav,Verma,General Ward,GW-11,High,58.7
+PAT-000227,Saanvi,Iyer,General Ward,GW-11,High,62.6
+PAT-000228,Sneha,Iyer,General Ward,GW-11,Moderate,51.1
+PAT-000229,Ira,Desai,General Ward,GW-20,Moderate,52.4
+PAT-000230,Mira,Reddy,Intensive Care Unit,ICU-08,High,62.6
+PAT-000231,Sameer,Shah,General Ward,GW-11,Moderate,56.8
+PAT-000232,Aarav,Desai,Intensive Care Unit,ICU-03,Low,54.9
+PAT-000233,Aarav,Joshi,Intensive Care Unit,ICU-12,Moderate,55.6
+PAT-000234,Mira,Mane,Private Inpatient Unit,PR-150,Moderate,54.5
+PAT-000235,Riya,Verma,General Ward,GW-19,Low,51.0
+PAT-000236,Priya,More,General Inpatient Hall,HALL-04,Critical,60.3
+PAT-000237,Ira,Kumar,General Ward,GW-18,High,59.2
+PAT-000238,Priya,Khan,Emergency Department,ER-04,Moderate,54.4
+PAT-000239,Meera,Joshi,General Ward,GW-14,Moderate,55.4
+PAT-000240,Arjun,Jadhav,General Ward,GW-09,Moderate,56.6
+PAT-000241,Anjali,Khan,Private Inpatient Unit,PR-136,High,59.5
+PAT-000242,Anaya,Verma,Private Inpatient Unit,PR-128,Moderate,56.7
+PAT-000243,Aditya,Kumar,Intensive Care Unit,ICU-10,Moderate,55.8
+PAT-000244,Aanya,Kumar,Private Inpatient Unit,PR-158,High,55.9
+PAT-000245,Ishita,Kumar,General Ward,GW-14,High,59.2
+PAT-000246,Priya,Gupta,General Ward,GW-03,Moderate,56.5
+PAT-000247,Mahesh,Gupta,Private Inpatient Unit,PR-147,Moderate,52.4
+PAT-000248,Kavita,Kulkarni,General Ward,GW-01,Low,51.7
+PAT-000249,Vivaan,Verma,Private Inpatient Unit,PR-116,Moderate,54.8
+PAT-000250,Sameer,Kumar,General Ward,GW-13,High,54.7
+PAT-000251,Arjun,Verma,Intensive Care Unit,ICU-02,Moderate,57.1
+PAT-000252,Pranav,Mehta,General Inpatient Hall,HALL-04,High,56.5
+PAT-000253,Saanvi,Verma,General Ward,GW-14,Critical,57.7
+PAT-000254,Dev,Singh,General Ward,GW-04,Moderate,55.6
+PAT-000255,Anjali,Shah,Day Care Unit,DC-02,High,56.3
+PAT-000256,Saanvi,Reddy,Day Care Unit,DC-01,Moderate,58.9
+PAT-000257,Sneha,Jadhav,General Ward,GW-01,High,59.8
+PAT-000258,Anjali,Khan,Emergency Department,ER-06,Low,48.8
+PAT-000259,Nikhil,Nair,General Ward,GW-13,Moderate,53.1
+PAT-000260,Om,Gupta,Intensive Care Unit,ICU-12,Moderate,56.0
+PAT-000261,Vivaan,Das,Intensive Care Unit,ICU-08,Low,55.2
+PAT-000262,Aditya,Nair,Intensive Care Unit,ICU-10,Low,47.1
+PAT-000263,Yash,Singh,Private Inpatient Unit,PR-150,Low,54.7
+PAT-000264,Sneha,Shah,Private Inpatient Unit,PR-154,Low,50.2
+PAT-000265,Kavya,Mehta,General Ward,GW-05,Moderate,53.5
+PAT-000266,Amit,Sharma,Intensive Care Unit,ICU-10,High,62.9
+PAT-000267,Sneha,Iyer,Private Inpatient Unit,PR-141,High,58.4
+PAT-000268,Aanya,Kulkarni,Intensive Care Unit,ICU-11,Moderate,53.8
+PAT-000269,Arjun,Sharma,Intensive Care Unit,ICU-12,Low,49.6
+PAT-000270,Sameer,Shah,General Ward,GW-20,High,59.1
+PAT-000271,Sneha,Shah,Private Inpatient Unit,PR-150,High,57.2
+PAT-000272,Meera,Das,General Ward,GW-08,Critical,61.7
+PAT-000273,Sameer,Shah,Private Inpatient Unit,PR-119,Moderate,55.9
+PAT-000274,Mahesh,Singh,Day Care Unit,DC-01,High,57.4
+PAT-000275,Pranav,Iyer,Private Inpatient Unit,PR-153,Low,50.7
+PAT-000276,Yash,Das,General Ward,GW-04,Low,52.2
+PAT-000277,Om,Joshi,General Ward,GW-09,High,54.8
+PAT-000278,Ishita,Mane,General Ward,GW-16,Moderate,55.4
+PAT-000279,Riya,Kumar,General Ward,GW-14,High,59.5
+PAT-000280,Sagar,Reddy,General Ward,GW-07,Moderate,54.8
+PAT-000281,Rohan,More,General Inpatient Hall,HALL-01,Moderate,56.5
+PAT-000282,Sameer,Patil,General Inpatient Hall,HALL-03,High,58.7
+PAT-000283,Anjali,Gupta,General Ward,GW-14,Moderate,53.7
+PAT-000284,Sneha,Gupta,General Ward,GW-06,High,60.0
+PAT-000285,Mahesh,Sharma,Emergency Department,ER-03,Moderate,56.6
+PAT-000286,Ishita,More,Emergency Department,ER-01,Moderate,55.7
+PAT-000287,Priya,Patil,General Ward,GW-02,Moderate,53.4
+PAT-000288,Anjali,Gupta,Private Inpatient Unit,PR-143,Moderate,53.9
+PAT-000289,Ishita,Sharma,General Ward,GW-11,Moderate,52.8
+PAT-000290,Pranav,Nair,Intensive Care Unit,ICU-06,Low,51.3
+PAT-000291,Aarav,Khan,General Ward,GW-10,Moderate,58.4
+PAT-000292,Pranav,Das,Emergency Department,ER-02,Low,55.1
+PAT-000293,Diya,Verma,Isolation Unit,ISO-09,Moderate,59.8
+PAT-000294,Priya,Reddy,General Ward,GW-02,Moderate,52.9
+PAT-000295,Anaya,Pawar,General Inpatient Hall,HALL-03,Moderate,54.3
+PAT-000296,Arjun,Shah,General Ward,GW-05,High,58.7
+PAT-000297,Mira,Jadhav,General Ward,GW-04,Moderate,57.6
+PAT-000298,Riya,Desai,Intensive Care Unit,ICU-11,High,64.2
+PAT-000299,Pooja,Khan,Private Inpatient Unit,PR-159,Moderate,57.9
+PAT-000300,Ishita,Jadhav,Private Inpatient Unit,PR-104,Moderate,53.2
+PAT-000301,Meera,Singh,General Ward,GW-14,Moderate,57.9
+PAT-000302,Nikhil,Singh,General Inpatient Hall,HALL-02,Moderate,55.6
+PAT-000303,Priya,Desai,General Ward,GW-07,Moderate,51.4
+PAT-000304,Anjali,Reddy,Emergency Department,ER-05,High,57.9
+PAT-000305,Mahesh,Sharma,General Ward,GW-07,Moderate,54.9
+PAT-000306,Riya,Khan,Intensive Care Unit,ICU-12,Moderate,51.8
+PAT-000307,Vivaan,Iyer,General Ward,GW-10,Moderate,55.1
+PAT-000308,Rohan,Jadhav,General Ward,GW-19,Moderate,55.8
+PAT-000309,Pranav,Jadhav,General Ward,GW-01,High,60.1
+PAT-000310,Rohan,Kumar,General Ward,GW-09,Moderate,51.3
+PAT-000311,Ishita,Patil,Isolation Unit,ISO-04,Moderate,59.0
+PAT-000312,Pooja,Khan,Intensive Care Unit,ICU-07,Low,53.4
+PAT-000313,Saanvi,Kulkarni,General Ward,GW-05,High,58.2
+PAT-000314,Nikhil,Reddy,Intensive Care Unit,ICU-07,Moderate,54.0
+PAT-000315,Sameer,Joshi,General Ward,GW-05,Moderate,54.8
+PAT-000316,Om,Das,General Ward,GW-13,Moderate,52.8
+PAT-000317,Aarav,Desai,Emergency Department,ER-03,Moderate,54.3
+PAT-000318,Neha,More,General Ward,GW-06,Moderate,52.2
+PAT-000319,Tara,Jadhav,General Ward,GW-07,Critical,63.1
+PAT-000320,Arjun,Mehta,General Ward,GW-08,High,56.0
+PAT-000321,Aanya,Gupta,General Ward,GW-08,Moderate,56.5
+PAT-000322,Nikhil,Kulkarni,General Ward,GW-02,High,51.1
+PAT-000323,Neha,Iyer,General Ward,GW-12,High,59.4
+PAT-000324,Yash,Jadhav,General Ward,GW-12,High,60.3
+PAT-000325,Saanvi,Pawar,Private Inpatient Unit,PR-143,Moderate,56.2
+PAT-000326,Aditi,Kulkarni,Emergency Department,ER-06,Low,41.4
+PAT-000327,Kavya,Reddy,General Ward,GW-04,Low,46.3
+PAT-000328,Amit,Reddy,General Ward,GW-17,Low,49.8
+PAT-000329,Vivaan,Nair,General Ward,GW-19,Moderate,55.7
+PAT-000330,Diya,Gupta,Intensive Care Unit,ICU-03,Moderate,54.4
+PAT-000331,Pooja,Pawar,General Ward,GW-13,Moderate,54.2
+PAT-000332,Saanvi,Jadhav,Intensive Care Unit,ICU-08,High,61.9
+PAT-000333,Vivaan,More,Intensive Care Unit,ICU-10,High,58.3
+PAT-000334,Vivaan,Pawar,General Ward,GW-16,High,55.9
+PAT-000335,Aarav,Mane,Emergency Department,ER-01,High,54.2
+PAT-000336,Ira,Khan,General Ward,GW-01,Moderate,54.6
+PAT-000337,Nikhil,Gupta,General Ward,GW-06,Moderate,55.1
+PAT-000338,Priya,Iyer,Emergency Department,ER-04,Critical,58.5
+PAT-000339,Dev,Mehta,Emergency Department,ER-03,Moderate,53.8
+PAT-000340,Amit,Gupta,General Inpatient Hall,HALL-01,Moderate,57.0
+PAT-000341,Tara,Jadhav,General Ward,GW-18,High,58.3
+PAT-000342,Mira,Shah,General Inpatient Hall,HALL-03,Moderate,51.6
+PAT-000343,Kavita,Sharma,General Ward,GW-19,Moderate,54.3
+PAT-000344,Yash,Das,General Ward,GW-14,Moderate,60.8
+PAT-000345,Amit,Shah,General Inpatient Hall,HALL-03,Low,52.9
+PAT-000346,Vivaan,Khan,Emergency Department,ER-04,High,62.4
+PAT-000347,Aanya,Joshi,Emergency Department,ER-03,Moderate,54.1
+PAT-000348,Tara,More,Day Care Unit,DC-04,Moderate,51.7
+PAT-000349,Dev,Desai,Intensive Care Unit,ICU-09,High,56.6
+PAT-000350,Sneha,Shah,General Ward,GW-02,High,59.0
+PAT-000351,Tara,Iyer,General Ward,GW-04,Low,56.4
+PAT-000352,Aditi,Kumar,Private Inpatient Unit,PR-133,High,59.2
+PAT-000353,Sagar,Jadhav,Private Inpatient Unit,PR-112,Moderate,57.4
+PAT-000354,Sameer,Jadhav,Private Inpatient Unit,PR-127,High,56.6
+PAT-000355,Rahul,Reddy,Emergency Department,ER-01,Moderate,55.4
+PAT-000356,Yash,Reddy,Intensive Care Unit,ICU-10,High,60.5
+PAT-000357,Amit,Pawar,General Ward,GW-14,High,62.3
+PAT-000358,Aanya,Joshi,Day Care Unit,DC-01,Moderate,53.2
+PAT-000359,Neha,Gupta,General Ward,GW-20,Moderate,60.1
+PAT-000360,Aanya,Jadhav,Intensive Care Unit,ICU-11,High,59.8
+PAT-000361,Saanvi,Mehta,General Ward,GW-03,Low,51.0
+PAT-000362,Pranav,Singh,General Ward,GW-11,Low,54.9
+PAT-000363,Sneha,Mane,Intensive Care Unit,ICU-12,Low,52.3
+PAT-000364,Yash,Singh,Isolation Unit,ISO-06,High,58.3
+PAT-000365,Aditi,Sharma,Intensive Care Unit,ICU-07,Low,51.6
+PAT-000366,Sagar,Kulkarni,Private Inpatient Unit,PR-150,Moderate,52.8
+PAT-000367,Rohan,Mehta,General Ward,GW-03,High,59.4
+PAT-000368,Anjali,Mane,Intensive Care Unit,ICU-06,High,57.1
+PAT-000369,Vivaan,Mehta,General Ward,GW-12,Moderate,62.8
+PAT-000370,Amit,Das,General Ward,GW-09,Low,52.3
+PAT-000371,Anaya,Mane,General Ward,GW-20,High,59.8
+PAT-000372,Ira,Verma,General Ward,GW-20,High,60.0
+PAT-000373,Priya,Iyer,Private Inpatient Unit,PR-160,Moderate,55.9
+PAT-000374,Dev,Nair,Day Care Unit,DC-04,Moderate,50.6
+PAT-000375,Nikhil,Nair,General Inpatient Hall,HALL-02,High,54.3
+PAT-000376,Saanvi,Khan,General Ward,GW-15,Moderate,53.1
+PAT-000377,Nikhil,Mane,General Ward,GW-04,Moderate,53.6
+PAT-000378,Kabir,Kumar,General Ward,GW-13,Moderate,55.2
+PAT-000379,Ira,Singh,Intensive Care Unit,ICU-04,Moderate,47.8
+PAT-000380,Rohan,Patil,General Ward,GW-12,Moderate,53.7
+PAT-000381,Pranav,Reddy,Intensive Care Unit,ICU-04,Low,44.0
+PAT-000382,Priya,Desai,Intensive Care Unit,ICU-05,Low,45.7
+PAT-000383,Sagar,Singh,Isolation Unit,ISO-09,Moderate,53.5
+PAT-000384,Kavya,Das,General Ward,GW-20,Moderate,56.3
+PAT-000385,Kabir,Nair,General Ward,GW-20,High,53.8
+PAT-000386,Kavya,More,General Ward,GW-17,Moderate,55.4
+PAT-000387,Sameer,More,General Inpatient Hall,HALL-04,High,61.2
+PAT-000388,Ira,Singh,General Inpatient Hall,HALL-02,Moderate,52.7
+PAT-000389,Kavya,More,General Ward,GW-06,High,54.5
+PAT-000390,Pooja,Mehta,General Inpatient Hall,HALL-04,High,52.6
+PAT-000391,Vivaan,Desai,General Ward,GW-02,Moderate,56.1
+PAT-000392,Nikhil,Pawar,General Inpatient Hall,HALL-04,Low,51.3
+PAT-000393,Om,Desai,General Ward,GW-18,Moderate,54.3
+PAT-000394,Anjali,Iyer,Isolation Unit,ISO-09,Moderate,51.1
+PAT-000395,Amit,Joshi,Intensive Care Unit,ICU-01,Low,56.7
+PAT-000396,Pooja,Sharma,General Ward,GW-11,High,56.1
+PAT-000397,Ira,Khan,Emergency Department,ER-06,Critical,62.1
+PAT-000398,Anjali,Iyer,General Ward,GW-20,Moderate,53.1
+PAT-000399,Kavya,Kulkarni,General Ward,GW-05,High,57.3
+PAT-000400,Mira,Mehta,General Inpatient Hall,HALL-02,High,61.4
+PAT-000401,Kabir,Jadhav,Private Inpatient Unit,PR-149,Moderate,54.7
+PAT-000402,Aditya,Desai,Private Inpatient Unit,PR-153,High,61.8
+PAT-000403,Aditya,Verma,General Inpatient Hall,HALL-03,Low,47.8
+PAT-000404,Aditi,Desai,Isolation Unit,ISO-01,High,61.6
+PAT-000405,Ira,Das,Private Inpatient Unit,PR-143,Moderate,55.3
+PAT-000406,Yash,Kumar,General Ward,GW-09,Moderate,52.7
+PAT-000407,Kavita,Sharma,Emergency Department,ER-06,Moderate,55.1
+PAT-000408,Sneha,Nair,Private Inpatient Unit,PR-119,Moderate,55.4
+PAT-000409,Rahul,Gupta,General Ward,GW-15,Moderate,52.5
+PAT-000410,Nikhil,Iyer,Emergency Department,ER-06,Low,47.1
+PAT-000411,Rohan,Singh,General Ward,GW-12,Moderate,56.4
+PAT-000412,Ishita,Mehta,Emergency Department,ER-02,High,61.6
+PAT-000413,Kunal,Verma,General Inpatient Hall,HALL-03,High,58.8
+PAT-000414,Yash,Shah,Emergency Department,ER-04,Low,52.8
+PAT-000415,Aditya,Singh,Private Inpatient Unit,PR-116,High,61.4
+PAT-000416,Rohan,Shah,Private Inpatient Unit,PR-136,High,63.8
+PAT-000417,Kavya,Nair,Private Inpatient Unit,PR-123,Moderate,50.6
+PAT-000418,Sagar,Patil,General Inpatient Hall,HALL-02,Moderate,55.2
+PAT-000419,Meera,More,Private Inpatient Unit,PR-115,Low,52.0
+PAT-000420,Meera,Gupta,General Ward,GW-15,Low,55.3
+PAT-000421,Riya,Nair,Intensive Care Unit,ICU-07,Low,44.6
+PAT-000422,Anjali,Nair,General Ward,GW-06,Moderate,54.1
+PAT-000423,Om,Jadhav,General Ward,GW-02,Low,47.7
+PAT-000424,Ishaan,Iyer,Emergency Department,ER-01,Moderate,53.6
+PAT-000425,Amit,Sharma,General Inpatient Hall,HALL-01,Low,49.7
+PAT-000426,Aarav,Joshi,Private Inpatient Unit,PR-130,High,56.6
+PAT-000427,Sameer,Kumar,General Ward,GW-15,Moderate,54.5
+PAT-000428,Anaya,Verma,Intensive Care Unit,ICU-04,Moderate,53.4
+PAT-000429,Pooja,Kumar,Day Care Unit,DC-02,Low,54.1
+PAT-000430,Ishaan,Nair,Intensive Care Unit,ICU-02,Low,51.1
+PAT-000431,Anjali,More,General Ward,GW-02,Moderate,53.1
+PAT-000432,Yash,Kulkarni,General Ward,GW-09,Moderate,59.2
+PAT-000433,Sagar,Desai,General Ward,GW-20,Low,52.5
+PAT-000434,Meera,Desai,General Inpatient Hall,HALL-02,Moderate,57.0
+PAT-000435,Aditya,Khan,Day Care Unit,DC-01,Low,46.8
+PAT-000436,Dev,Gupta,Isolation Unit,ISO-03,Moderate,54.4
+PAT-000437,Sneha,Kulkarni,General Ward,GW-17,Moderate,53.1
+PAT-000438,Yash,Mehta,General Ward,GW-11,Moderate,52.3
+PAT-000439,Om,Sharma,Intensive Care Unit,ICU-11,Low,50.4
+PAT-000440,Dev,Pawar,Emergency Department,ER-02,High,60.0
+PAT-000441,Kavita,Das,Private Inpatient Unit,PR-149,High,54.1
+PAT-000442,Diya,Mehta,Emergency Department,ER-01,Low,50.4
+PAT-000443,Yash,Pawar,Private Inpatient Unit,PR-101,Moderate,53.6
+PAT-000444,Kavya,Iyer,General Ward,GW-01,Moderate,59.8
+PAT-000445,Anjali,Iyer,General Ward,GW-17,High,58.2
+PAT-000446,Mira,Nair,General Inpatient Hall,HALL-02,High,59.9
+PAT-000447,Kunal,Nair,General Ward,GW-04,High,57.5
+PAT-000448,Ishita,Joshi,General Ward,GW-02,Low,51.2
+PAT-000449,Sameer,Iyer,General Inpatient Hall,HALL-04,High,58.6
+PAT-000450,Sneha,Khan,Private Inpatient Unit,PR-141,Moderate,56.2
+PAT-000451,Amit,Patil,General Ward,GW-10,Moderate,60.9
+PAT-000452,Sameer,Shah,Private Inpatient Unit,PR-143,Low,47.1
+PAT-000453,Mahesh,Gupta,General Ward,GW-17,Low,52.1
+PAT-000454,Rahul,Nair,Intensive Care Unit,ICU-10,Moderate,55.5
+PAT-000455,Meera,Reddy,General Ward,GW-15,Moderate,52.6
+PAT-000456,Aditi,Kumar,General Ward,GW-05,Low,54.9
+PAT-000457,Ishaan,Kulkarni,Intensive Care Unit,ICU-11,Moderate,53.4
+PAT-000458,Aditi,Desai,Intensive Care Unit,ICU-08,Low,50.6
+PAT-000459,Amit,Kulkarni,General Ward,GW-15,Moderate,57.4
+PAT-000460,Nikhil,Iyer,General Ward,GW-14,High,56.0
+PAT-000461,Sameer,Gupta,General Ward,GW-01,Moderate,63.1
+PAT-000462,Yash,Mehta,General Ward,GW-18,Moderate,52.9
+PAT-000463,Priya,More,General Ward,GW-07,Low,55.1
+PAT-000464,Aditya,Sharma,General Ward,GW-19,Moderate,57.5
+PAT-000465,Aditya,Nair,General Ward,GW-19,High,57.2
+PAT-000466,Anjali,Sharma,General Ward,GW-17,Moderate,54.8
+PAT-000467,Ira,Kulkarni,Intensive Care Unit,ICU-12,High,56.9
+PAT-000468,Meera,Kumar,Private Inpatient Unit,PR-146,High,56.2
+PAT-000469,Riya,Shah,General Ward,GW-06,High,58.7
+PAT-000470,Anjali,Patil,General Ward,GW-11,Moderate,56.9
+PAT-000471,Om,Jadhav,General Inpatient Hall,HALL-04,Low,55.1
+PAT-000472,Pranav,Reddy,Intensive Care Unit,ICU-06,High,55.2
+PAT-000473,Kunal,Gupta,General Ward,GW-19,Moderate,55.0
+PAT-000474,Rohan,Verma,General Ward,GW-09,Moderate,56.6
+PAT-000475,Ira,More,Day Care Unit,DC-05,Moderate,58.6
+PAT-000476,Mahesh,Singh,General Ward,GW-11,Moderate,57.2
+PAT-000477,Aditi,Desai,General Ward,GW-13,High,59.5
+PAT-000478,Aarav,Verma,Intensive Care Unit,ICU-11,Moderate,57.5
+PAT-000479,Kabir,Sharma,General Ward,GW-17,High,60.3
+PAT-000480,Mira,Nair,Private Inpatient Unit,PR-122,Moderate,55.0
+PAT-000481,Anaya,Verma,General Ward,GW-11,Low,47.9
+PAT-000482,Ishita,Iyer,General Ward,GW-17,Moderate,58.2
+PAT-000483,Aditi,Nair,Intensive Care Unit,ICU-01,Low,45.5
+PAT-000484,Aditi,Das,General Ward,GW-16,High,55.8
+PAT-000485,Aanya,More,General Ward,GW-02,Moderate,52.0
+PAT-000486,Kabir,Shah,Emergency Department,ER-04,Moderate,55.3
+PAT-000487,Aanya,Mehta,Private Inpatient Unit,PR-153,Moderate,50.3
+PAT-000488,Pooja,Jadhav,Emergency Department,ER-06,High,61.3
+PAT-000489,Tara,Singh,General Ward,GW-16,Moderate,59.2
+PAT-000490,Yash,Kulkarni,Private Inpatient Unit,PR-137,Moderate,53.8
+PAT-000491,Vivaan,Mane,Isolation Unit,ISO-07,Moderate,60.8
+PAT-000492,Anjali,Kulkarni,General Ward,GW-19,High,61.9
+PAT-000493,Sagar,Joshi,Private Inpatient Unit,PR-112,High,59.6
+PAT-000494,Riya,Reddy,General Ward,GW-18,High,56.2
+PAT-000495,Mira,Mane,General Ward,GW-19,Moderate,55.6
+PAT-000496,Aarav,Gupta,General Ward,GW-20,Moderate,52.2
+PAT-000497,Pooja,Kumar,General Ward,GW-11,High,58.6
+PAT-000498,Aarav,Verma,General Ward,GW-12,Moderate,53.1
+PAT-000499,Meera,Nair,Isolation Unit,ISO-08,Moderate,54.0
+PAT-000500,Saanvi,Mane,General Ward,GW-07,Moderate,58.5
+PAT-000501,Vivaan,Kulkarni,General Ward,GW-11,Moderate,58.4
+PAT-000502,Nikhil,Gupta,Emergency Department,ER-06,Low,50.7
+PAT-000503,Aanya,Iyer,General Ward,GW-12,High,57.7
+PAT-000504,Tara,Khan,General Ward,GW-19,Moderate,53.0
+PAT-000505,Dev,Sharma,General Inpatient Hall,HALL-02,High,54.8
+PAT-000506,Meera,Desai,Intensive Care Unit,ICU-04,Moderate,53.4
+PAT-000507,Vivaan,Reddy,General Inpatient Hall,HALL-01,Low,46.5
+PAT-000508,Pooja,Mehta,General Ward,GW-05,High,57.7
+PAT-000509,Diya,Verma,Intensive Care Unit,ICU-12,Moderate,55.0
+PAT-000510,Pooja,Sharma,Emergency Department,ER-02,Low,54.7
+PAT-000511,Priya,Reddy,Isolation Unit,ISO-09,Moderate,56.8
+PAT-000512,Aditya,Jadhav,General Ward,GW-07,Low,47.5
+PAT-000513,Mira,Singh,General Ward,GW-08,Low,57.4
+PAT-000514,Kunal,Verma,General Ward,GW-10,High,56.4
+PAT-000515,Rahul,Sharma,General Ward,GW-18,Moderate,54.2
+PAT-000516,Sagar,Sharma,Emergency Department,ER-06,Moderate,55.1
+PAT-000517,Kavita,Gupta,General Ward,GW-11,High,51.6
+PAT-000518,Anjali,Desai,General Ward,GW-19,High,60.1
+PAT-000519,Dev,More,General Ward,GW-17,Moderate,55.5
+PAT-000520,Arjun,Joshi,General Ward,GW-03,High,56.9
+PAT-000521,Diya,Verma,General Ward,GW-20,Low,49.7
+PAT-000522,Riya,Nair,General Ward,GW-07,Moderate,54.4
+PAT-000523,Aanya,Jadhav,Isolation Unit,ISO-01,Moderate,57.5
+PAT-000524,Om,Kulkarni,General Ward,GW-20,High,53.2
+PAT-000525,Amit,Khan,Emergency Department,ER-02,High,61.1
+PAT-000526,Kabir,Patil,General Ward,GW-09,High,57.6
+PAT-000527,Kabir,Sharma,Intensive Care Unit,ICU-08,Moderate,53.4
+PAT-000528,Kunal,Joshi,General Ward,GW-08,Moderate,56.7
+PAT-000529,Diya,Joshi,General Ward,GW-06,Critical,65.4
+PAT-000530,Aditi,Das,General Ward,GW-07,High,57.3
+PAT-000531,Kunal,Mane,General Ward,GW-06,Low,53.8
+PAT-000532,Aarav,Verma,General Inpatient Hall,HALL-02,Low,49.1
+PAT-000533,Anaya,Pawar,General Ward,GW-12,Moderate,54.7
+PAT-000534,Mira,Singh,General Ward,GW-02,High,58.0
+PAT-000535,Anaya,Nair,Private Inpatient Unit,PR-129,Moderate,51.9
+PAT-000536,Sameer,Mane,General Ward,GW-19,Low,48.1
+PAT-000537,Neha,Das,Intensive Care Unit,ICU-05,Low,51.2
+PAT-000538,Sameer,Mane,General Ward,GW-18,Low,52.2
+PAT-000539,Rohan,Patil,Intensive Care Unit,ICU-07,Low,47.2
+PAT-000540,Aanya,Das,General Ward,GW-19,Critical,59.1
+PAT-000541,Priya,Pawar,Private Inpatient Unit,PR-125,Moderate,53.0
+PAT-000542,Ira,Pawar,Isolation Unit,ISO-05,Moderate,61.5
+PAT-000543,Rohan,Patil,General Ward,GW-15,Moderate,54.2
+PAT-000544,Kavita,Shah,Emergency Department,ER-04,Low,43.1
+PAT-000545,Nikhil,Singh,General Inpatient Hall,HALL-02,Low,45.1
+PAT-000546,Dev,Gupta,General Ward,GW-06,High,55.9
+PAT-000547,Kavya,Shah,Intensive Care Unit,ICU-09,High,63.6
+PAT-000548,Ishaan,Verma,General Ward,GW-09,Moderate,53.1
+PAT-000549,Aditi,Joshi,General Ward,GW-14,Moderate,54.6
+PAT-000550,Neha,Joshi,General Ward,GW-05,High,56.8
+PAT-000551,Om,Patil,General Ward,GW-15,Moderate,59.0
+PAT-000552,Aanya,Pawar,General Ward,GW-13,Moderate,52.6
+PAT-000553,Sneha,Verma,Private Inpatient Unit,PR-104,Moderate,52.4
+PAT-000554,Ira,Das,General Ward,GW-10,Moderate,58.4
+PAT-000555,Pooja,Reddy,General Ward,GW-20,Low,49.4
+PAT-000556,Aanya,Sharma,Isolation Unit,ISO-02,Moderate,54.3
+PAT-000557,Nikhil,Reddy,General Ward,GW-03,High,55.3
+PAT-000558,Ishaan,Shah,Private Inpatient Unit,PR-114,Low,50.9
+PAT-000559,Pooja,Pawar,General Ward,GW-15,High,56.9
+PAT-000560,Ira,Gupta,General Ward,GW-17,High,52.8
+PAT-000561,Amit,Verma,General Ward,GW-13,High,50.9
+PAT-000562,Riya,Khan,General Ward,GW-20,Low,55.2
+PAT-000563,Kunal,Mehta,General Ward,GW-09,High,57.7
+PAT-000564,Aditi,Nair,General Ward,GW-10,High,58.7
+PAT-000565,Kabir,Mane,General Ward,GW-06,Moderate,54.2
+PAT-000566,Mahesh,Kulkarni,Private Inpatient Unit,PR-136,Moderate,52.6
+PAT-000567,Diya,Sharma,Intensive Care Unit,ICU-12,Low,49.9
+PAT-000568,Neha,Mane,General Ward,GW-07,High,55.4
+PAT-000569,Kavita,Gupta,Intensive Care Unit,ICU-01,High,58.1
+PAT-000570,Nikhil,Mehta,Intensive Care Unit,ICU-01,Critical,60.6
+PAT-000571,Riya,Gupta,General Ward,GW-16,Moderate,59.5
+PAT-000572,Saanvi,Reddy,General Ward,GW-14,High,59.5
+PAT-000573,Dev,Singh,Intensive Care Unit,ICU-03,High,55.3
+PAT-000574,Rahul,Gupta,Day Care Unit,DC-03,High,54.9
+PAT-000575,Kabir,Mehta,General Ward,GW-08,Moderate,55.8
+PAT-000576,Nikhil,Pawar,General Ward,GW-05,Moderate,54.9
+PAT-000577,Rohan,Khan,Intensive Care Unit,ICU-12,High,54.7
+PAT-000578,Arjun,Gupta,Private Inpatient Unit,PR-127,Moderate,52.7
+PAT-000579,Vivaan,Singh,Private Inpatient Unit,PR-149,Moderate,57.1
+PAT-000580,Ira,Verma,Private Inpatient Unit,PR-131,Moderate,53.2
+PAT-000581,Tara,Kulkarni,Private Inpatient Unit,PR-114,Moderate,53.8
+PAT-000582,Ishita,Desai,General Ward,GW-13,High,57.0
+PAT-000583,Om,Nair,Emergency Department,ER-02,Low,53.5
+PAT-000584,Mahesh,Kulkarni,General Inpatient Hall,HALL-04,Moderate,56.7
+PAT-000585,Yash,Reddy,General Ward,GW-14,Moderate,57.7
+PAT-000586,Amit,Das,General Ward,GW-14,Moderate,54.2
+PAT-000587,Anjali,Desai,Private Inpatient Unit,PR-157,High,59.0
+PAT-000588,Ira,Khan,Emergency Department,ER-03,Moderate,55.7
+PAT-000589,Diya,Patil,Intensive Care Unit,ICU-03,Low,47.8
+PAT-000590,Tara,Verma,Day Care Unit,DC-01,Moderate,53.0
+PAT-000591,Sagar,Mehta,General Ward,GW-20,Moderate,57.2
+PAT-000592,Saanvi,Iyer,Day Care Unit,DC-04,High,58.6
+PAT-000593,Pranav,Mehta,General Ward,GW-07,Critical,65.0
+PAT-000594,Mahesh,Sharma,General Ward,GW-12,Moderate,57.7
+PAT-000595,Vivaan,Reddy,General Ward,GW-06,Moderate,57.9
+PAT-000596,Pranav,Kumar,General Ward,GW-08,Moderate,58.0
+PAT-000597,Tara,More,Emergency Department,ER-01,Moderate,53.2
+PAT-000598,Sneha,Mehta,Intensive Care Unit,ICU-02,Moderate,51.5
+PAT-000599,Neha,Khan,Private Inpatient Unit,PR-106,Moderate,55.0
+PAT-000600,Kabir,Nair,Day Care Unit,DC-01,Moderate,53.1
+PAT-000601,Aditya,Shah,General Inpatient Hall,HALL-04,Critical,57.4
+PAT-000602,Pooja,Pawar,General Inpatient Hall,HALL-04,High,58.8
+PAT-000603,Sagar,Jadhav,General Ward,GW-03,High,59.0
+PAT-000604,Ishita,Kumar,General Ward,GW-08,Moderate,52.8
+PAT-000605,Vivaan,Joshi,General Ward,GW-09,High,61.4
+PAT-000606,Aditya,Nair,Intensive Care Unit,ICU-06,Low,46.2
+PAT-000607,Kavya,Joshi,General Ward,GW-08,Low,53.2
+PAT-000608,Priya,Pawar,Intensive Care Unit,ICU-07,Moderate,55.0
+PAT-000609,Saanvi,Mane,General Ward,GW-04,Moderate,59.0
+PAT-000610,Sneha,Das,General Ward,GW-19,Low,47.7
+PAT-000611,Tara,Mane,Emergency Department,ER-05,Moderate,55.8
+PAT-000612,Om,Verma,Isolation Unit,ISO-08,Moderate,55.2
+PAT-000613,Sneha,More,Intensive Care Unit,ICU-06,Low,51.1
+PAT-000614,Anjali,Iyer,General Ward,GW-04,High,53.9
+PAT-000615,Rahul,Khan,General Ward,GW-06,Moderate,59.2
+PAT-000616,Kabir,Kulkarni,Intensive Care Unit,ICU-01,Low,52.1
+PAT-000617,Rohan,Gupta,Intensive Care Unit,ICU-11,Moderate,53.4
+PAT-000618,Arjun,Mane,Private Inpatient Unit,PR-121,Low,49.7
+PAT-000619,Arjun,Shah,General Ward,GW-12,Moderate,55.2
+PAT-000620,Aarav,Khan,General Ward,GW-20,Moderate,58.0
+PAT-000621,Sameer,Nair,Private Inpatient Unit,PR-141,Low,51.4
+PAT-000622,Rahul,Kulkarni,Day Care Unit,DC-04,Low,49.9
+PAT-000623,Rahul,Mane,General Ward,GW-18,Moderate,59.7
+PAT-000624,Rohan,Joshi,General Ward,GW-16,High,58.9
+PAT-000625,Aditi,Mane,Intensive Care Unit,ICU-06,High,61.5
+PAT-000626,Pranav,Patil,General Ward,GW-02,High,51.5
+PAT-000627,Ishaan,Shah,General Ward,GW-13,Moderate,61.8
+PAT-000628,Saanvi,Singh,Private Inpatient Unit,PR-146,Moderate,56.5
+PAT-000629,Dev,Shah,Emergency Department,ER-06,High,55.9
+PAT-000630,Nikhil,Nair,General Ward,GW-15,High,55.0
+PAT-000631,Vivaan,Khan,General Ward,GW-03,Low,47.6
+PAT-000632,Kunal,Desai,Isolation Unit,ISO-09,Moderate,58.4
+PAT-000633,Aanya,Mane,Private Inpatient Unit,PR-111,Low,49.1
+PAT-000634,Pranav,Joshi,General Ward,GW-07,High,58.4
+PAT-000635,Tara,Mane,General Ward,GW-17,Moderate,57.0
+PAT-000636,Anjali,Nair,Isolation Unit,ISO-05,Low,51.6
+PAT-000637,Tara,Mehta,General Ward,GW-20,High,57.3
+PAT-000638,Arjun,More,General Inpatient Hall,HALL-01,Moderate,55.8
+PAT-000639,Arjun,Gupta,General Ward,GW-20,Moderate,51.6
+PAT-000640,Kabir,Singh,General Ward,GW-14,High,59.2
+PAT-000641,Kabir,Mehta,Intensive Care Unit,ICU-02,High,60.5
+PAT-000642,Meera,Desai,General Ward,GW-02,High,60.7
+PAT-000643,Om,Iyer,Private Inpatient Unit,PR-107,Moderate,57.5
+PAT-000644,Aditi,Desai,General Ward,GW-20,Moderate,60.5
+PAT-000645,Aarav,Mehta,Intensive Care Unit,ICU-06,Low,53.2
+PAT-000646,Rohan,Verma,Emergency Department,ER-06,High,61.0
+PAT-000647,Kavita,Iyer,General Inpatient Hall,HALL-04,Moderate,58.4
+PAT-000648,Amit,Das,General Ward,GW-10,Moderate,50.6
+PAT-000649,Sagar,Verma,Day Care Unit,DC-04,Moderate,58.5
+PAT-000650,Anjali,Pawar,Intensive Care Unit,ICU-01,High,53.0
+PAT-000651,Aditi,Mehta,Intensive Care Unit,ICU-10,High,60.6
+PAT-000652,Aditi,Khan,Private Inpatient Unit,PR-114,Moderate,52.3
+PAT-000653,Aditya,Mehta,Day Care Unit,DC-01,Moderate,64.6
+PAT-000654,Sameer,Das,General Inpatient Hall,HALL-02,Critical,63.2
+PAT-000655,Ishita,Mehta,Isolation Unit,ISO-04,Moderate,57.4
+PAT-000656,Pooja,Das,Emergency Department,ER-03,Moderate,54.3
+PAT-000657,Mahesh,Iyer,General Inpatient Hall,HALL-02,Moderate,58.0
+PAT-000658,Kabir,Kumar,General Ward,GW-11,Moderate,52.1
+PAT-000659,Aanya,Singh,Intensive Care Unit,ICU-06,Low,54.7
+PAT-000660,Aanya,Kumar,General Ward,GW-11,High,60.0
+PAT-000661,Diya,Mehta,Intensive Care Unit,ICU-01,Low,54.8
+PAT-000662,Kavita,Kulkarni,General Ward,GW-01,Moderate,52.4
+PAT-000663,Sneha,Khan,General Ward,GW-18,High,51.9
+PAT-000664,Sneha,Patil,Intensive Care Unit,ICU-03,Moderate,54.5
+PAT-000665,Nikhil,Singh,General Ward,GW-03,Moderate,55.4
+PAT-000666,Kunal,Mehta,General Ward,GW-13,Moderate,52.0
+PAT-000667,Nikhil,Nair,General Ward,GW-01,High,54.5
+PAT-000668,Pooja,Mane,General Inpatient Hall,HALL-03,Moderate,56.7
+PAT-000669,Mira,Patil,General Ward,GW-04,High,56.1
+PAT-000670,Priya,Pawar,Isolation Unit,ISO-06,High,55.5
+PAT-000671,Tara,Gupta,General Ward,GW-09,Low,48.8
+PAT-000672,Ishita,Reddy,Intensive Care Unit,ICU-11,Moderate,52.3
+PAT-000673,Aditya,Pawar,Private Inpatient Unit,PR-122,Moderate,51.9
+PAT-000674,Ishaan,Iyer,Day Care Unit,DC-04,Moderate,55.8
+PAT-000675,Dev,Kumar,Emergency Department,ER-01,Low,50.6
+PAT-000676,Ishita,Sharma,Isolation Unit,ISO-10,Critical,58.1
+PAT-000677,Kavita,Nair,General Ward,GW-02,High,58.8
+PAT-000678,Mira,Kulkarni,General Ward,GW-05,Moderate,55.6
+PAT-000679,Rahul,More,General Ward,GW-18,Low,49.1
+PAT-000680,Anaya,Reddy,General Ward,GW-05,Moderate,52.4
+PAT-000681,Ishita,Patil,General Ward,GW-03,Low,52.1
+PAT-000682,Riya,Pawar,General Inpatient Hall,HALL-03,Moderate,61.1
+PAT-000683,Mahesh,Mane,Emergency Department,ER-04,Low,50.0
+PAT-000684,Vivaan,Khan,General Ward,GW-12,Low,51.9
+PAT-000685,Ishita,Singh,General Ward,GW-12,High,57.4
+PAT-000686,Pranav,Khan,Isolation Unit,ISO-03,Moderate,57.1
+PAT-000687,Meera,Verma,Emergency Department,ER-05,Low,53.2
+PAT-000688,Yash,Iyer,General Ward,GW-17,Low,50.3
+PAT-000689,Yash,Gupta,General Inpatient Hall,HALL-03,Moderate,52.2
+PAT-000690,Amit,Reddy,Private Inpatient Unit,PR-110,Moderate,56.5
+PAT-000691,Meera,Singh,General Ward,GW-18,High,53.0
+PAT-000692,Kavita,Reddy,Intensive Care Unit,ICU-12,High,54.7
+PAT-000693,Ishaan,More,General Ward,GW-15,Moderate,53.4
+PAT-000694,Om,Verma,Private Inpatient Unit,PR-130,Moderate,53.9
+PAT-000695,Aditi,Mane,Isolation Unit,ISO-09,High,55.1
+PAT-000696,Pooja,Iyer,General Inpatient Hall,HALL-02,Moderate,49.9
+PAT-000697,Ira,Jadhav,General Ward,GW-11,Moderate,54.0
+PAT-000698,Rahul,Gupta,General Ward,GW-02,Low,49.2
+PAT-000699,Riya,Gupta,General Ward,GW-17,Critical,58.8
+PAT-000700,Kavita,More,General Ward,GW-20,Moderate,52.3
+PAT-000701,Ira,More,Intensive Care Unit,ICU-09,Moderate,53.6
+PAT-000702,Kavya,Verma,Intensive Care Unit,ICU-11,High,53.8
+PAT-000703,Mira,Desai,General Ward,GW-19,High,60.3
+PAT-000704,Kabir,Patil,General Ward,GW-14,High,56.6
+PAT-000705,Pooja,Nair,General Ward,GW-13,Moderate,58.9
+PAT-000706,Tara,Khan,General Ward,GW-11,Moderate,53.9
+PAT-000707,Aditya,More,General Ward,GW-05,High,56.4
+PAT-000708,Sameer,Jadhav,General Ward,GW-18,Moderate,54.3
+PAT-000709,Ishaan,Shah,General Ward,GW-12,High,57.5
+PAT-000710,Pooja,Shah,General Ward,GW-08,High,63.6
+PAT-000711,Yash,Reddy,General Ward,GW-13,High,58.2
+PAT-000712,Nikhil,Verma,General Ward,GW-12,High,59.9
+PAT-000713,Diya,Mehta,Intensive Care Unit,ICU-08,High,58.5
+PAT-000714,Yash,Pawar,General Inpatient Hall,HALL-01,Critical,57.3
+PAT-000715,Sagar,Pawar,Emergency Department,ER-02,Moderate,56.7
+PAT-000716,Om,More,Emergency Department,ER-01,Low,47.3
+PAT-000717,Kavya,Das,General Inpatient Hall,HALL-02,Moderate,52.8
+PAT-000718,Anjali,Das,General Ward,GW-14,Moderate,62.5
+PAT-000719,Kavya,More,General Ward,GW-08,Critical,60.5
+PAT-000720,Kabir,Nair,Isolation Unit,ISO-09,Moderate,53.7
+PAT-000721,Kunal,Iyer,Private Inpatient Unit,PR-158,Low,51.9
+PAT-000722,Sagar,Pawar,General Ward,GW-04,Low,54.2
+PAT-000723,Sameer,Kumar,General Ward,GW-03,Moderate,55.3
+PAT-000724,Kabir,Nair,General Ward,GW-20,Low,50.6
+PAT-000725,Aanya,Singh,General Ward,GW-16,Moderate,51.6
+PAT-000726,Yash,Shah,General Ward,GW-18,Low,40.3
+PAT-000727,Meera,Sharma,Private Inpatient Unit,PR-112,Critical,65.5
+PAT-000728,Dev,Jadhav,Isolation Unit,ISO-03,Low,50.9
+PAT-000729,Ishaan,Patil,General Ward,GW-05,Moderate,55.5
+PAT-000730,Kavya,Shah,General Inpatient Hall,HALL-01,Moderate,56.4
+PAT-000731,Diya,Shah,General Ward,GW-07,High,56.2
+PAT-000732,Saanvi,Jadhav,Emergency Department,ER-03,Moderate,56.2
+PAT-000733,Kunal,Kumar,General Ward,GW-14,Moderate,55.4
+PAT-000734,Ishaan,Pawar,Day Care Unit,DC-01,Moderate,52.8
+PAT-000735,Sneha,Patil,General Ward,GW-16,Moderate,57.6
+PAT-000736,Kavya,Pawar,General Ward,GW-05,Moderate,55.2
+PAT-000737,Amit,Mane,Intensive Care Unit,ICU-07,Low,38.5
+PAT-000738,Riya,Jadhav,General Ward,GW-04,High,62.0
+PAT-000739,Pooja,Nair,General Ward,GW-19,Moderate,57.4
+PAT-000740,Neha,Joshi,Private Inpatient Unit,PR-150,High,59.4
+PAT-000741,Pranav,Kumar,General Ward,GW-14,Moderate,53.7
+PAT-000742,Arjun,Mane,General Ward,GW-02,Moderate,52.8
+PAT-000743,Neha,Kumar,General Ward,GW-18,Moderate,51.1
+PAT-000744,Rohan,Khan,Day Care Unit,DC-01,High,57.0
+PAT-000745,Pranav,Kumar,General Ward,GW-11,Low,51.9
+PAT-000746,Ira,Sharma,General Ward,GW-20,Moderate,52.3
+PAT-000747,Yash,Khan,Emergency Department,ER-01,High,64.2
+PAT-000748,Kunal,Desai,Intensive Care Unit,ICU-08,Low,52.4
+PAT-000749,Rahul,Verma,Intensive Care Unit,ICU-02,High,56.5
+PAT-000750,Yash,Singh,Private Inpatient Unit,PR-114,Low,50.1
+PAT-000751,Tara,Kulkarni,Isolation Unit,ISO-04,Moderate,57.3
+PAT-000752,Dev,Mehta,General Ward,GW-10,Moderate,52.9
+PAT-000753,Ishaan,Kulkarni,General Ward,GW-18,High,57.6
+PAT-000754,Aditya,Nair,General Ward,GW-11,Moderate,53.3
+PAT-000755,Rahul,Reddy,Private Inpatient Unit,PR-110,High,56.9
+PAT-000756,Neha,Joshi,General Ward,GW-11,Low,52.5
+PAT-000757,Tara,More,General Inpatient Hall,HALL-01,Moderate,54.4
+PAT-000758,Sneha,Kulkarni,General Ward,GW-12,Low,50.0
+PAT-000759,Vivaan,Mehta,General Ward,GW-06,Moderate,58.9
+PAT-000760,Neha,Khan,Private Inpatient Unit,PR-118,Moderate,56.6
+PAT-000761,Rahul,Joshi,Private Inpatient Unit,PR-116,Moderate,57.8
+PAT-000762,Diya,Kumar,General Ward,GW-01,High,57.8
+PAT-000763,Yash,Gupta,General Ward,GW-12,Moderate,52.9
+PAT-000764,Ishita,Patil,General Ward,GW-09,Critical,59.0
+PAT-000765,Yash,Khan,Emergency Department,ER-04,High,53.6
+PAT-000766,Diya,Sharma,General Ward,GW-03,Moderate,49.7
+PAT-000767,Mahesh,Verma,General Inpatient Hall,HALL-03,Moderate,52.4
+PAT-000768,Sneha,Reddy,Emergency Department,ER-05,Moderate,57.5
+PAT-000769,Arjun,Desai,General Inpatient Hall,HALL-02,High,59.1
+PAT-000770,Kavya,Verma,General Ward,GW-11,Moderate,54.7
+PAT-000771,Riya,Shah,General Ward,GW-13,Moderate,54.5
+PAT-000772,Rahul,Shah,General Ward,GW-17,Moderate,53.9
+PAT-000773,Kavita,Mane,General Ward,GW-18,Moderate,54.1
+PAT-000774,Aditya,Kulkarni,General Ward,GW-10,High,57.3
+PAT-000775,Dev,Desai,General Ward,GW-02,Moderate,59.2
+PAT-000776,Mira,Singh,Private Inpatient Unit,PR-130,Moderate,56.1
+PAT-000777,Vivaan,Verma,General Ward,GW-13,Moderate,53.6
+PAT-000778,Kavya,Khan,Intensive Care Unit,ICU-01,Low,50.5
+PAT-000779,Ishita,Kumar,General Ward,GW-17,Moderate,53.6
+PAT-000780,Ishita,Desai,General Ward,GW-01,High,55.6
+PAT-000781,Tara,Patil,General Ward,GW-12,High,56.4
+PAT-000782,Priya,Singh,General Inpatient Hall,HALL-01,Moderate,54.2
+PAT-000783,Kabir,Mane,General Ward,GW-13,Moderate,59.1
+PAT-000784,Saanvi,Shah,General Ward,GW-04,Moderate,55.8
+PAT-000785,Saanvi,Kulkarni,General Ward,GW-09,Low,53.8
+PAT-000786,Meera,Shah,General Inpatient Hall,HALL-01,High,55.3
+PAT-000787,Aarav,Khan,Private Inpatient Unit,PR-108,Moderate,51.5
+PAT-000788,Aanya,Patil,General Ward,GW-02,Moderate,52.0
+PAT-000789,Kavita,More,General Ward,GW-15,Critical,58.2
+PAT-000790,Sameer,Iyer,General Ward,GW-12,High,57.4
+PAT-000791,Sneha,Das,General Ward,GW-02,Low,53.8
+PAT-000792,Mahesh,Das,General Ward,GW-20,Moderate,59.2
+PAT-000793,Ishaan,Verma,General Ward,GW-03,Moderate,53.7
+PAT-000794,Saanvi,Verma,Private Inpatient Unit,PR-106,High,54.5
+PAT-000795,Riya,Shah,General Ward,GW-15,Low,53.9
+PAT-000796,Neha,Khan,Private Inpatient Unit,PR-137,Moderate,55.3
+PAT-000797,Amit,More,Intensive Care Unit,ICU-11,High,56.0
+PAT-000798,Ira,Khan,Emergency Department,ER-04,High,63.1
+PAT-000799,Priya,Desai,Private Inpatient Unit,PR-128,High,54.5
+PAT-000800,Anjali,Kulkarni,General Ward,GW-11,Low,50.4
+PAT-000801,Pranav,Kumar,General Ward,GW-05,Moderate,57.0
+PAT-000802,Ishita,More,Intensive Care Unit,ICU-01,High,57.8
+PAT-000803,Priya,Verma,General Ward,GW-05,High,56.5
+PAT-000804,Ira,Singh,General Ward,GW-19,Moderate,51.6
+PAT-000805,Kavita,Desai,General Ward,GW-09,Moderate,52.9
+PAT-000806,Ira,Sharma,General Ward,GW-05,High,60.7
+PAT-000807,Dev,Kumar,General Inpatient Hall,HALL-04,Moderate,55.7
+PAT-000808,Mira,Pawar,General Ward,GW-16,Moderate,55.9
+PAT-000809,Ishita,Sharma,General Ward,GW-06,Moderate,57.9
+PAT-000810,Amit,Desai,General Ward,GW-13,High,56.6
+PAT-000811,Anaya,Verma,General Ward,GW-14,Moderate,55.0
+PAT-000812,Kavita,Mehta,General Ward,GW-03,Moderate,57.0
+PAT-000813,Aanya,Khan,Private Inpatient Unit,PR-144,Moderate,54.7
+PAT-000814,Ishaan,Khan,Isolation Unit,ISO-09,Moderate,54.6
+PAT-000815,Saanvi,Gupta,Day Care Unit,DC-05,High,64.0
+PAT-000816,Anaya,More,General Ward,GW-18,Moderate,60.1
+PAT-000817,Priya,Singh,Emergency Department,ER-03,Low,48.7
+PAT-000818,Dev,Shah,General Ward,GW-10,Moderate,53.1
+PAT-000819,Nikhil,Mehta,Day Care Unit,DC-02,High,59.3
+PAT-000820,Yash,More,General Ward,GW-08,Moderate,52.7
+PAT-000821,Meera,Kumar,Intensive Care Unit,ICU-03,Low,50.7
+PAT-000822,Riya,Nair,General Ward,GW-15,Moderate,50.9
+PAT-000823,Neha,Khan,General Inpatient Hall,HALL-02,Moderate,60.6
+PAT-000824,Kavita,Jadhav,Emergency Department,ER-03,High,58.7
+PAT-000825,Anjali,Joshi,General Inpatient Hall,HALL-03,Critical,58.7
+PAT-000826,Saanvi,Singh,General Ward,GW-19,High,61.3
+PAT-000827,Anaya,Desai,General Ward,GW-03,Low,50.1
+PAT-000828,Kabir,Singh,General Ward,GW-08,Moderate,59.6
+PAT-000829,Ira,Sharma,General Ward,GW-20,Low,49.1
+PAT-000830,Sameer,Kumar,General Ward,GW-07,Low,49.5
+PAT-000831,Anjali,Mehta,Emergency Department,ER-03,Low,53.7
+PAT-000832,Anaya,Patil,Private Inpatient Unit,PR-139,High,57.0
+PAT-000833,Arjun,Iyer,Day Care Unit,DC-04,Low,46.8
+PAT-000834,Kabir,Iyer,General Inpatient Hall,HALL-01,Moderate,59.2
+PAT-000835,Vivaan,Gupta,Emergency Department,ER-03,Low,52.4
+PAT-000836,Sameer,Mehta,General Ward,GW-18,Low,49.6
+PAT-000837,Ira,Iyer,General Ward,GW-11,High,59.7
+PAT-000838,Om,Desai,General Ward,GW-07,Moderate,52.2
+PAT-000839,Diya,Khan,Intensive Care Unit,ICU-10,Critical,59.3
+PAT-000840,Kunal,Iyer,Private Inpatient Unit,PR-126,High,56.3
+PAT-000841,Yash,Pawar,Emergency Department,ER-02,High,59.0
+PAT-000842,Nikhil,Khan,Intensive Care Unit,ICU-09,High,52.8
+PAT-000843,Sneha,Das,Emergency Department,ER-04,Moderate,56.9
+PAT-000844,Ira,Patil,Day Care Unit,DC-05,High,56.8
+PAT-000845,Aditi,Mane,Emergency Department,ER-03,Critical,56.3
+PAT-000846,Kavita,Nair,General Ward,GW-09,Moderate,54.2
+PAT-000847,Pooja,Mane,Intensive Care Unit,ICU-12,High,62.0
+PAT-000848,Anaya,Reddy,General Ward,GW-06,Moderate,53.5
+PAT-000849,Rahul,Kulkarni,Day Care Unit,DC-05,Low,53.5
+PAT-000850,Anaya,Desai,General Ward,GW-18,High,57.9
+PAT-000851,Riya,Singh,General Ward,GW-20,Moderate,52.2
+PAT-000852,Sameer,Mehta,Emergency Department,ER-01,Moderate,53.7
+PAT-000853,Sagar,Desai,Emergency Department,ER-01,Low,51.3
+PAT-000854,Aditya,Patil,Private Inpatient Unit,PR-129,Moderate,57.1
+PAT-000855,Kunal,Das,General Ward,GW-19,Moderate,54.6
+PAT-000856,Anjali,Kulkarni,Emergency Department,ER-05,High,60.8
+PAT-000857,Sagar,Shah,Day Care Unit,DC-03,Moderate,52.6
+PAT-000858,Yash,Joshi,General Ward,GW-08,Moderate,52.6
+PAT-000859,Sagar,More,General Ward,GW-08,Moderate,60.4
+PAT-000860,Ishaan,Das,General Inpatient Hall,HALL-03,High,59.7
+PAT-000861,Kavita,Patil,Emergency Department,ER-04,High,55.1
+PAT-000862,Mahesh,Sharma,Intensive Care Unit,ICU-03,Low,44.7
+PAT-000863,Kavita,Kulkarni,General Ward,GW-13,High,59.0
+PAT-000864,Aditya,Mane,Private Inpatient Unit,PR-131,Moderate,60.9
+PAT-000865,Arjun,Nair,General Ward,GW-06,Moderate,54.0
+PAT-000866,Yash,More,Emergency Department,ER-03,Low,53.2
+PAT-000867,Priya,Jadhav,Private Inpatient Unit,PR-127,High,58.1
+PAT-000868,Rahul,Pawar,Isolation Unit,ISO-10,Moderate,54.1
+PAT-000869,Sameer,Shah,General Ward,GW-19,Moderate,57.7
+PAT-000870,Ishita,Jadhav,General Ward,GW-03,High,56.4
+PAT-000871,Tara,Das,General Ward,GW-19,Moderate,63.4
+PAT-000872,Yash,Khan,Isolation Unit,ISO-03,High,60.8
+PAT-000873,Anjali,Sharma,Intensive Care Unit,ICU-01,Low,51.6
+PAT-000874,Aditya,Singh,Day Care Unit,DC-05,High,58.9
+PAT-000875,Aanya,Pawar,Emergency Department,ER-04,High,60.4
+PAT-000876,Priya,Reddy,General Ward,GW-02,High,60.1
+PAT-000877,Yash,Kulkarni,Intensive Care Unit,ICU-04,Low,47.2
+PAT-000878,Sneha,Reddy,Private Inpatient Unit,PR-116,High,57.7
+PAT-000879,Kunal,Kumar,General Inpatient Hall,HALL-03,Moderate,54.2
+PAT-000880,Pranav,Joshi,Private Inpatient Unit,PR-111,Low,49.8
+PAT-000881,Anjali,Das,General Ward,GW-15,High,62.4
+PAT-000882,Riya,Khan,Emergency Department,ER-04,High,58.0
+PAT-000883,Riya,Singh,General Ward,GW-10,High,54.5
+PAT-000884,Kabir,Jadhav,General Inpatient Hall,HALL-01,Low,53.8
+PAT-000885,Kavya,Desai,Intensive Care Unit,ICU-09,Moderate,55.4
+PAT-000886,Kabir,Iyer,General Ward,GW-02,Low,52.7
+PAT-000887,Meera,Singh,General Ward,GW-14,Moderate,57.7
+PAT-000888,Anjali,Khan,Private Inpatient Unit,PR-145,Moderate,53.1
+PAT-000889,Kabir,Iyer,Private Inpatient Unit,PR-105,Moderate,54.0
+PAT-000890,Neha,Singh,General Ward,GW-04,Moderate,59.6
+PAT-000891,Yash,Sharma,Intensive Care Unit,ICU-10,High,56.3
+PAT-000892,Aarav,Singh,Intensive Care Unit,ICU-05,Low,52.2
+PAT-000893,Kunal,Jadhav,Intensive Care Unit,ICU-04,High,56.5
+PAT-000894,Ishita,Khan,General Ward,GW-18,Moderate,60.2
+PAT-000895,Om,Mehta,General Ward,GW-15,Low,52.3
+PAT-000896,Aditya,Joshi,General Ward,GW-17,Moderate,58.5
+PAT-000897,Sneha,Patil,General Ward,GW-20,High,55.8
+PAT-000898,Kavya,Kulkarni,General Inpatient Hall,HALL-02,High,58.7
+PAT-000899,Kabir,Das,General Ward,GW-18,Moderate,56.1
+PAT-000900,Kunal,Kulkarni,General Ward,GW-04,Low,54.9
+PAT-000901,Kavita,Reddy,Emergency Department,ER-03,Moderate,51.4
+PAT-000902,Sameer,More,General Inpatient Hall,HALL-04,Moderate,52.2
+PAT-000903,Mira,Patil,Day Care Unit,DC-03,High,53.8
+PAT-000904,Kavya,Shah,Private Inpatient Unit,PR-122,Moderate,55.7
+PAT-000905,Sagar,Kulkarni,General Ward,GW-03,High,58.5
+PAT-000906,Kavya,Reddy,General Ward,GW-19,Critical,56.4
+PAT-000907,Dev,Jadhav,Intensive Care Unit,ICU-04,Low,55.7
+PAT-000908,Kunal,Khan,General Ward,GW-20,Low,49.9
+PAT-000909,Anjali,Desai,Emergency Department,ER-06,High,61.3
+PAT-000910,Ishaan,Khan,Emergency Department,ER-02,High,59.3
+PAT-000911,Aanya,Shah,Emergency Department,ER-01,High,59.3
+PAT-000912,Anjali,Gupta,General Inpatient Hall,HALL-03,Low,53.3
+PAT-000913,Aditi,Mehta,Isolation Unit,ISO-03,Moderate,54.5
+PAT-000914,Kavita,Nair,Intensive Care Unit,ICU-12,Moderate,54.7
+PAT-000915,Dev,Singh,General Ward,GW-15,High,58.6
+PAT-000916,Dev,Sharma,General Ward,GW-08,Low,51.0
+PAT-000917,Nikhil,Khan,General Ward,GW-13,Moderate,54.4
+PAT-000918,Yash,Das,Private Inpatient Unit,PR-133,Moderate,54.8
+PAT-000919,Riya,Patil,General Ward,GW-17,Moderate,56.5
+PAT-000920,Rohan,Mane,Emergency Department,ER-02,Moderate,57.9
+PAT-000921,Kavita,Mehta,Day Care Unit,DC-03,Moderate,58.6
+PAT-000922,Kunal,Khan,Isolation Unit,ISO-02,High,64.0
+PAT-000923,Pooja,Desai,General Ward,GW-10,Low,49.7
+PAT-000924,Mira,Joshi,Emergency Department,ER-06,Moderate,58.0
+PAT-000925,Rohan,Joshi,Private Inpatient Unit,PR-112,Moderate,53.1
+PAT-000926,Rohan,Nair,Private Inpatient Unit,PR-138,High,53.0
+PAT-000927,Pranav,Das,General Ward,GW-16,High,59.9
+PAT-000928,Anaya,Das,Private Inpatient Unit,PR-104,Low,52.2
+PAT-000929,Rahul,Jadhav,Emergency Department,ER-03,High,57.4
+PAT-000930,Amit,Desai,Intensive Care Unit,ICU-03,High,54.0
+PAT-000931,Kunal,Shah,General Ward,GW-11,Low,51.5
+PAT-000932,Meera,Iyer,Intensive Care Unit,ICU-10,Moderate,62.3
+PAT-000933,Rohan,Sharma,Private Inpatient Unit,PR-129,Low,47.0
+PAT-000934,Mira,Kumar,Private Inpatient Unit,PR-159,High,58.5
+PAT-000935,Aarav,Jadhav,General Ward,GW-12,Moderate,57.3
+PAT-000936,Pranav,Mehta,General Ward,GW-12,Low,53.4
+PAT-000937,Sameer,Shah,General Ward,GW-12,Moderate,56.7
+PAT-000938,Aditya,Das,General Ward,GW-06,Moderate,50.8
+PAT-000939,Om,Pawar,General Ward,GW-01,Moderate,53.3
+PAT-000940,Aarav,Reddy,General Ward,GW-02,Moderate,55.5
+PAT-000941,Riya,Patil,General Ward,GW-04,High,56.3
+PAT-000942,Arjun,Jadhav,Intensive Care Unit,ICU-11,Low,53.9
+PAT-000943,Kavya,Shah,General Ward,GW-06,Moderate,50.7
+PAT-000944,Rohan,Kulkarni,General Ward,GW-19,Moderate,53.4
+PAT-000945,Ishaan,Mehta,General Ward,GW-20,High,60.5
+PAT-000946,Meera,Khan,Isolation Unit,ISO-08,High,51.6
+PAT-000947,Aditi,Iyer,General Ward,GW-12,Moderate,55.4
+PAT-000948,Priya,Nair,General Ward,GW-13,Low,50.5
+PAT-000949,Pooja,Reddy,Day Care Unit,DC-04,Low,53.4
+PAT-000950,Saanvi,Mane,General Inpatient Hall,HALL-01,Moderate,58.3
+PAT-000951,Om,Kumar,Emergency Department,ER-04,Low,50.3
+PAT-000952,Rohan,Joshi,General Ward,GW-19,Moderate,57.4
+PAT-000953,Priya,Joshi,Isolation Unit,ISO-06,High,54.8
+PAT-000954,Riya,Iyer,Isolation Unit,ISO-03,Moderate,55.6
+PAT-000955,Om,Reddy,Private Inpatient Unit,PR-118,Moderate,54.6
+PAT-000956,Yash,Verma,Intensive Care Unit,ICU-01,Moderate,51.9
+PAT-000957,Neha,Verma,General Ward,GW-08,Moderate,57.3
+PAT-000958,Ishaan,Desai,General Ward,GW-12,High,58.9
+PAT-000959,Kunal,Pawar,Private Inpatient Unit,PR-145,Moderate,51.7
+PAT-000960,Neha,Nair,Intensive Care Unit,ICU-03,High,57.9
+PAT-000961,Mahesh,Khan,Intensive Care Unit,ICU-04,Moderate,54.7
+PAT-000962,Kabir,Desai,General Ward,GW-08,High,56.4
+PAT-000963,Neha,Iyer,General Ward,GW-18,Moderate,53.7
+PAT-000964,Aditya,More,General Ward,GW-03,Moderate,53.8
+PAT-000965,Ishita,Patil,Private Inpatient Unit,PR-110,Moderate,54.7
+PAT-000966,Kavita,Desai,Private Inpatient Unit,PR-127,Low,55.2
+PAT-000967,Rahul,Gupta,Isolation Unit,ISO-05,Moderate,54.5
+PAT-000968,Neha,Desai,Intensive Care Unit,ICU-10,High,53.7
+PAT-000969,Sneha,Mehta,General Ward,GW-12,Moderate,50.4
+PAT-000970,Ishaan,Kulkarni,General Ward,GW-05,High,56.6
+PAT-000971,Kabir,More,General Ward,GW-04,Moderate,60.9
+PAT-000972,Meera,Jadhav,General Ward,GW-09,High,56.1
+PAT-000973,Amit,More,Intensive Care Unit,ICU-12,High,58.2
+PAT-000974,Sameer,Desai,Intensive Care Unit,ICU-02,Moderate,59.0
+PAT-000975,Ira,Mehta,General Ward,GW-04,High,59.1
+PAT-000976,Vivaan,Mane,Day Care Unit,DC-01,Low,50.6
+PAT-000977,Sameer,Kumar,Private Inpatient Unit,PR-129,Critical,59.3
+PAT-000978,Pooja,Mane,General Inpatient Hall,HALL-04,Low,50.3
+PAT-000979,Ishaan,Pawar,General Ward,GW-08,Moderate,54.7
+PAT-000980,Vivaan,Nair,General Inpatient Hall,HALL-01,Low,56.2
+PAT-000981,Meera,Iyer,General Inpatient Hall,HALL-04,Moderate,61.0
+PAT-000982,Sameer,Khan,Private Inpatient Unit,PR-111,High,59.0
+PAT-000983,Aanya,Patil,Private Inpatient Unit,PR-150,Low,51.9
+PAT-000984,Sneha,Kumar,General Ward,GW-18,Moderate,55.3
+PAT-000985,Ishaan,Kulkarni,General Ward,GW-10,Moderate,56.5
+PAT-000986,Ishaan,Sharma,Private Inpatient Unit,PR-147,Moderate,56.1
+PAT-000987,Pooja,Shah,General Ward,GW-20,Moderate,53.5
+PAT-000988,Pooja,Das,General Ward,GW-04,Low,53.9
+PAT-000989,Aditi,Khan,General Ward,GW-11,Low,51.6
+PAT-000990,Dev,Desai,Private Inpatient Unit,PR-133,High,60.9
+PAT-000991,Rohan,More,Emergency Department,ER-03,High,60.9
+PAT-000992,Anaya,Pawar,General Ward,GW-10,Low,53.0
+PAT-000993,Dev,Nair,Intensive Care Unit,ICU-07,Moderate,51.2
+PAT-000994,Rohan,Nair,General Ward,GW-11,High,54.7
+PAT-000995,Mahesh,Iyer,General Ward,GW-09,High,54.9
+PAT-000996,Riya,Patil,Emergency Department,ER-05,High,57.0
+PAT-000997,Vivaan,Kumar,General Ward,GW-12,High,55.9
+PAT-000998,Tara,Shah,General Inpatient Hall,HALL-04,Moderate,54.3
+PAT-000999,Aanya,Khan,Emergency Department,ER-03,Low,47.5
+PAT-001000,Mahesh,Jadhav,General Ward,GW-12,High,59.0
+PAT-001001,Kunal,Nair,General Ward,GW-20,Moderate,58.5
+PAT-001002,Aditi,Das,General Ward,GW-03,Moderate,55.1
+PAT-001003,Anaya,Pawar,General Ward,GW-07,Moderate,54.4
+PAT-001004,Diya,Shah,General Inpatient Hall,HALL-04,High,62.8
+PAT-001005,Dev,Verma,General Ward,GW-13,High,61.0
+PAT-001006,Saanvi,Reddy,Private Inpatient Unit,PR-126,Moderate,58.2
+PAT-001007,Sneha,Desai,General Ward,GW-08,Moderate,55.9
+PAT-001008,Priya,Das,General Ward,GW-14,Moderate,52.7
+PAT-001009,Aanya,Patil,General Ward,GW-07,High,57.1
+PAT-001010,Mira,Desai,Intensive Care Unit,ICU-11,High,54.6
+PAT-001011,Anaya,Mehta,General Ward,GW-19,High,58.4
+PAT-001012,Kavya,Mane,Emergency Department,ER-02,Low,50.6
+PAT-001013,Ira,More,Intensive Care Unit,ICU-01,Moderate,56.7
+PAT-001014,Arjun,Kulkarni,General Ward,GW-02,Moderate,52.3
+PAT-001015,Tara,Reddy,General Ward,GW-11,High,58.7
+PAT-001016,Mahesh,Verma,Isolation Unit,ISO-04,High,53.2
+PAT-001017,Rohan,Das,Intensive Care Unit,ICU-01,High,59.6
+PAT-001018,Mira,Reddy,Emergency Department,ER-03,Low,52.5
+PAT-001019,Rahul,Mane,Emergency Department,ER-05,High,53.6
+PAT-001020,Ishita,Iyer,General Ward,GW-11,High,58.1
+PAT-001021,Ishaan,Kulkarni,General Ward,GW-08,Moderate,57.9
+PAT-001022,Nikhil,Pawar,Private Inpatient Unit,PR-155,Low,52.6
+PAT-001023,Anaya,Pawar,General Ward,GW-07,High,59.5
+PAT-001024,Ishita,Desai,Isolation Unit,ISO-09,High,53.5
+PAT-001025,Priya,Verma,Emergency Department,ER-01,Moderate,54.3
+PAT-001026,Vivaan,Gupta,General Ward,GW-03,Moderate,61.6
+PAT-001027,Sameer,Shah,Emergency Department,ER-04,High,58.1
+PAT-001028,Saanvi,Mehta,Intensive Care Unit,ICU-01,High,56.7
+PAT-001029,Sneha,More,Private Inpatient Unit,PR-124,High,55.1
+PAT-001030,Diya,Gupta,General Ward,GW-15,Moderate,53.1
+PAT-001031,Amit,Patil,General Ward,GW-13,Moderate,59.3
+PAT-001032,Neha,Kumar,General Ward,GW-04,High,62.5
+PAT-001033,Sagar,Das,General Ward,GW-07,Moderate,58.6
+PAT-001034,Saanvi,Khan,Private Inpatient Unit,PR-114,Moderate,55.4
+PAT-001035,Anjali,Jadhav,Emergency Department,ER-03,Moderate,58.0
+PAT-001036,Kavita,Kulkarni,Private Inpatient Unit,PR-132,Low,50.4
+PAT-001037,Aarav,Reddy,Private Inpatient Unit,PR-142,High,60.8
+PAT-001038,Pooja,Sharma,General Ward,GW-20,Moderate,49.7
+PAT-001039,Priya,Mane,General Ward,GW-11,Moderate,58.2
+PAT-001040,Saanvi,Desai,General Ward,GW-12,Moderate,56.6
+PAT-001041,Arjun,More,Emergency Department,ER-02,High,57.2
+PAT-001042,Amit,Pawar,General Ward,GW-01,Moderate,57.4
+PAT-001043,Tara,Mehta,General Ward,GW-19,High,53.2
+PAT-001044,Saanvi,Khan,General Ward,GW-04,Moderate,58.9
+PAT-001045,Arjun,Shah,General Ward,GW-02,Moderate,52.0
+PAT-001046,Nikhil,Patil,Emergency Department,ER-04,Moderate,53.2
+PAT-001047,Kavita,Reddy,Private Inpatient Unit,PR-141,Moderate,52.2
+PAT-001048,Arjun,Das,Isolation Unit,ISO-07,Moderate,52.9
+PAT-001049,Amit,Singh,General Ward,GW-17,Low,51.4
+PAT-001050,Kunal,Das,General Ward,GW-12,Moderate,56.9
+PAT-001051,Nikhil,Patil,Emergency Department,ER-05,Moderate,61.2
+PAT-001052,Anaya,Gupta,Intensive Care Unit,ICU-07,High,54.4
+PAT-001053,Mahesh,Das,General Inpatient Hall,HALL-01,Moderate,54.6
+PAT-001054,Nikhil,Patil,Emergency Department,ER-04,Moderate,59.1
+PAT-001055,Kunal,Kumar,General Ward,GW-03,Moderate,55.9
+PAT-001056,Kavita,Pawar,Intensive Care Unit,ICU-08,Critical,66.3
+PAT-001057,Om,Kulkarni,General Ward,GW-07,Critical,61.9
+PAT-001058,Aarav,Gupta,General Ward,GW-13,Moderate,55.1
+PAT-001059,Saanvi,Sharma,General Ward,GW-19,High,56.7
+PAT-001060,Kunal,Mehta,Emergency Department,ER-04,Low,48.0
+PAT-001061,Priya,Desai,General Ward,GW-19,Moderate,55.2
+PAT-001062,Meera,Jadhav,General Ward,GW-15,Moderate,54.9
+PAT-001063,Mira,Patil,General Ward,GW-13,Moderate,49.4
+PAT-001064,Rahul,Jadhav,General Ward,GW-02,High,54.5
+PAT-001065,Ishaan,Sharma,General Ward,GW-04,Moderate,54.9
+PAT-001066,Sneha,Iyer,Day Care Unit,DC-05,Moderate,54.9
+PAT-001067,Om,More,General Inpatient Hall,HALL-02,Low,45.7
+PAT-001068,Sneha,Joshi,Private Inpatient Unit,PR-150,Moderate,60.1
+PAT-001069,Diya,Singh,General Ward,GW-05,Critical,59.7
+PAT-001070,Dev,Kulkarni,Intensive Care Unit,ICU-09,Moderate,51.7
+PAT-001071,Aditi,Das,General Ward,GW-16,Low,50.1
+PAT-001072,Om,Joshi,Isolation Unit,ISO-04,Low,51.5
+PAT-001073,Om,Nair,General Ward,GW-02,High,55.0
+PAT-001074,Neha,Mane,Private Inpatient Unit,PR-114,Moderate,53.9
+PAT-001075,Aditi,Mehta,Isolation Unit,ISO-05,Moderate,60.1
+PAT-001076,Tara,Kumar,Emergency Department,ER-05,Moderate,56.6
+PAT-001077,Aanya,More,Intensive Care Unit,ICU-07,Low,50.4
+PAT-001078,Dev,More,Isolation Unit,ISO-08,High,54.5
+PAT-001079,Kavita,Iyer,Private Inpatient Unit,PR-114,Low,50.6
+PAT-001080,Riya,Jadhav,Private Inpatient Unit,PR-122,Moderate,57.1
+PAT-001081,Ishaan,Pawar,General Ward,GW-10,High,58.1
+PAT-001082,Diya,Gupta,General Ward,GW-04,High,60.3
+PAT-001083,Aditi,More,General Ward,GW-08,Moderate,55.3
+PAT-001084,Rahul,Singh,General Ward,GW-05,Moderate,53.7
+PAT-001085,Priya,Mane,Emergency Department,ER-06,High,55.6
+PAT-001086,Rohan,Desai,General Ward,GW-10,Moderate,57.4
+PAT-001087,Sameer,Iyer,General Ward,GW-02,Moderate,56.3
+PAT-001088,Om,Gupta,Emergency Department,ER-06,Low,45.6
+PAT-001089,Vivaan,Kumar,General Inpatient Hall,HALL-03,High,57.6
+PAT-001090,Aditya,Khan,General Ward,GW-01,Moderate,62.0
+PAT-001091,Rahul,Singh,Private Inpatient Unit,PR-124,Moderate,53.9
+PAT-001092,Meera,Jadhav,Emergency Department,ER-02,High,57.6
+PAT-001093,Anaya,Jadhav,General Ward,GW-07,Moderate,57.0
+PAT-001094,Amit,Verma,Emergency Department,ER-01,Moderate,60.0
+PAT-001095,Priya,Khan,Private Inpatient Unit,PR-130,Moderate,55.6
+PAT-001096,Aanya,Joshi,Intensive Care Unit,ICU-06,Low,52.8
+PAT-001097,Kavya,Iyer,General Ward,GW-04,Moderate,56.0
+PAT-001098,Ishita,Kumar,General Ward,GW-06,High,55.8
+PAT-001099,Aanya,Nair,General Ward,GW-20,Moderate,54.3
+PAT-001100,Aanya,Jadhav,Isolation Unit,ISO-09,Moderate,54.7
+PAT-001101,Kavita,Pawar,Intensive Care Unit,ICU-05,Moderate,54.7
+PAT-001102,Kabir,Das,General Ward,GW-11,Moderate,55.0
+PAT-001103,Aditi,Mehta,Private Inpatient Unit,PR-158,Moderate,52.1
+PAT-001104,Pooja,Desai,Isolation Unit,ISO-07,Moderate,53.1
+PAT-001105,Aarav,Iyer,General Ward,GW-10,Moderate,54.6
+PAT-001106,Anaya,Verma,Emergency Department,ER-03,Low,51.2
+PAT-001107,Pranav,Kulkarni,Emergency Department,ER-06,Moderate,57.1
+PAT-001108,Riya,Das,General Ward,GW-17,Critical,59.1
+PAT-001109,Vivaan,Jadhav,General Inpatient Hall,HALL-03,Moderate,53.4
+PAT-001110,Anjali,Joshi,General Ward,GW-02,Moderate,53.4
+PAT-001111,Kunal,Gupta,Private Inpatient Unit,PR-105,High,54.6
+PAT-001112,Pranav,Shah,General Ward,GW-14,Moderate,56.9
+PAT-001113,Pranav,Gupta,Intensive Care Unit,ICU-02,High,56.3
+PAT-001114,Anjali,Iyer,General Ward,GW-04,Moderate,53.8
+PAT-001115,Sagar,Desai,Intensive Care Unit,ICU-07,Low,53.6
+PAT-001116,Arjun,Jadhav,Emergency Department,ER-03,Critical,57.4
+PAT-001117,Aanya,Shah,Isolation Unit,ISO-06,Critical,57.1
+PAT-001118,Aarav,Khan,General Ward,GW-02,High,59.3
+PAT-001119,Mira,Kumar,Isolation Unit,ISO-08,Moderate,55.3
+PAT-001120,Mira,Joshi,Emergency Department,ER-03,Low,51.1
+PAT-001121,Aarav,More,General Ward,GW-09,High,63.0
+PAT-001122,Sneha,Nair,General Ward,GW-07,Moderate,55.5
+PAT-001123,Meera,Patil,General Ward,GW-09,Moderate,53.7
+PAT-001124,Kavya,Verma,General Ward,GW-20,Low,52.7
+PAT-001125,Amit,Jadhav,Isolation Unit,ISO-10,Moderate,60.7
+PAT-001126,Pooja,Joshi,Emergency Department,ER-02,Moderate,58.4
+PAT-001127,Om,Singh,General Ward,GW-15,High,59.7
+PAT-001128,Meera,More,General Ward,GW-05,High,52.5
+PAT-001129,Om,Das,General Ward,GW-05,High,66.3
+PAT-001130,Aditya,Reddy,Day Care Unit,DC-05,Moderate,56.3
+PAT-001131,Aditi,Shah,General Ward,GW-17,Moderate,58.1
+PAT-001132,Priya,Kulkarni,General Ward,GW-02,Moderate,55.2
+PAT-001133,Rahul,Joshi,Private Inpatient Unit,PR-108,Moderate,55.0
+PAT-001134,Neha,More,Day Care Unit,DC-04,Moderate,56.9
+PAT-001135,Amit,Iyer,Intensive Care Unit,ICU-10,Moderate,55.6
+PAT-001136,Priya,Mehta,Day Care Unit,DC-03,Moderate,54.5
+PAT-001137,Tara,Khan,Emergency Department,ER-05,High,59.2
+PAT-001138,Aditi,Reddy,General Ward,GW-20,Moderate,54.0
+PAT-001139,Ishita,Desai,Isolation Unit,ISO-10,Low,51.9
+PAT-001140,Ishaan,Sharma,General Ward,GW-04,Low,53.4
+PAT-001141,Rahul,Pawar,Emergency Department,ER-04,Moderate,52.6
+PAT-001142,Kabir,Singh,General Ward,GW-04,Moderate,53.4
+PAT-001143,Vivaan,Mane,General Inpatient Hall,HALL-02,Low,55.2
+PAT-001144,Tara,Kumar,Intensive Care Unit,ICU-06,Low,49.8
+PAT-001145,Tara,Joshi,General Ward,GW-03,Low,47.0
+PAT-001146,Kunal,Shah,Emergency Department,ER-02,Low,52.0
+PAT-001147,Tara,Gupta,Isolation Unit,ISO-08,Moderate,60.5
+PAT-001148,Om,Pawar,General Ward,GW-17,Moderate,57.5
+PAT-001149,Dev,More,General Ward,GW-07,Moderate,54.4
+PAT-001150,Sneha,Pawar,Private Inpatient Unit,PR-148,Moderate,54.9
+PAT-001151,Diya,Jadhav,General Ward,GW-19,Moderate,59.1
+PAT-001152,Anaya,Verma,Emergency Department,ER-03,Low,49.0
+PAT-001153,Vivaan,Singh,General Ward,GW-13,Moderate,56.3
+PAT-001154,Ishita,More,General Ward,GW-02,Moderate,55.0
+PAT-001155,Aditya,Mane,Emergency Department,ER-03,Moderate,54.6
+PAT-001156,Yash,More,Emergency Department,ER-01,Moderate,53.0
+PAT-001157,Meera,Khan,Isolation Unit,ISO-07,Moderate,59.6
+PAT-001158,Sneha,Reddy,General Ward,GW-06,Moderate,51.6
+PAT-001159,Riya,Jadhav,General Inpatient Hall,HALL-01,Moderate,54.8
+PAT-001160,Priya,Iyer,General Ward,GW-16,Critical,62.5
+PAT-001161,Kavita,Shah,General Ward,GW-20,Moderate,60.6
+PAT-001162,Riya,Reddy,Isolation Unit,ISO-05,High,61.9
+PAT-001163,Kavita,Shah,General Ward,GW-17,High,54.6
+PAT-001164,Anjali,Gupta,Emergency Department,ER-06,Moderate,52.2
+PAT-001165,Nikhil,Jadhav,Intensive Care Unit,ICU-08,Low,52.1
+PAT-001166,Sameer,Iyer,Emergency Department,ER-01,Moderate,60.0
+PAT-001167,Meera,Jadhav,General Ward,GW-08,Moderate,56.3
+PAT-001168,Saanvi,Verma,General Ward,GW-14,Moderate,54.0
+PAT-001169,Sneha,Patil,General Ward,GW-16,Moderate,53.9
+PAT-001170,Aditya,Das,Emergency Department,ER-02,Moderate,56.4
+PAT-001171,Kunal,Iyer,Emergency Department,ER-04,Critical,59.9
+PAT-001172,Kavita,Sharma,General Ward,GW-16,Low,48.0
+PAT-001173,Ishaan,Shah,General Ward,GW-11,Low,55.9
+PAT-001174,Mahesh,Joshi,General Ward,GW-11,High,56.0
+PAT-001175,Aditi,Khan,General Ward,GW-20,High,62.8
+PAT-001176,Kavya,Kumar,General Ward,GW-05,High,60.1
+PAT-001177,Yash,Das,General Ward,GW-06,Moderate,54.6
+PAT-001178,Arjun,Sharma,Private Inpatient Unit,PR-146,High,55.5
+PAT-001179,Ishaan,Gupta,General Ward,GW-10,Moderate,56.1
+PAT-001180,Sameer,Joshi,General Ward,GW-09,High,54.3
+PAT-001181,Nikhil,Shah,General Ward,GW-15,High,57.5
+PAT-001182,Amit,Pawar,Isolation Unit,ISO-03,Moderate,54.9
+PAT-001183,Dev,Gupta,Isolation Unit,ISO-04,Moderate,55.7
+PAT-001184,Sagar,Reddy,Emergency Department,ER-01,High,54.0
+PAT-001185,Priya,Kumar,Intensive Care Unit,ICU-07,Moderate,57.0
+PAT-001186,Meera,Mehta,Isolation Unit,ISO-06,Moderate,52.6
+PAT-001187,Kavya,Mane,General Ward,GW-07,High,65.6
+PAT-001188,Mira,Das,General Ward,GW-14,Moderate,56.0
+PAT-001189,Mahesh,Patil,Private Inpatient Unit,PR-148,Moderate,51.5
+PAT-001190,Anjali,Mane,General Ward,GW-07,Moderate,53.8
+PAT-001191,Dev,Iyer,General Ward,GW-11,Moderate,58.5
+PAT-001192,Anjali,Reddy,General Ward,GW-17,High,57.9
+PAT-001193,Kabir,Patil,General Ward,GW-02,Moderate,59.4
+PAT-001194,Tara,Gupta,Day Care Unit,DC-05,Moderate,56.1
+PAT-001195,Aanya,Kumar,General Ward,GW-13,Moderate,54.9
+PAT-001196,Ishita,Mehta,General Inpatient Hall,HALL-04,Moderate,58.2
+PAT-001197,Riya,Mehta,Intensive Care Unit,ICU-11,Low,44.9
+PAT-001198,Meera,Patil,Emergency Department,ER-04,High,55.4
+PAT-001199,Ishaan,Mane,General Ward,GW-02,Moderate,55.0
+PAT-001200,Saanvi,Verma,Emergency Department,ER-02,Low,52.8
+PAT-001201,Dev,Sharma,Private Inpatient Unit,PR-135,High,57.6
+PAT-001202,Anjali,Mane,Private Inpatient Unit,PR-153,Moderate,53.8
+PAT-001203,Om,Pawar,General Ward,GW-14,Moderate,53.4
+PAT-001204,Kabir,Jadhav,General Ward,GW-07,Low,47.8
+PAT-001205,Rahul,Singh,Intensive Care Unit,ICU-05,Moderate,54.0
+PAT-001206,Aarav,Mane,General Ward,GW-15,High,61.1
+PAT-001207,Sneha,Jadhav,General Ward,GW-19,Low,48.4
+PAT-001208,Kunal,Desai,General Ward,GW-04,Moderate,53.1
+PAT-001209,Rohan,Singh,General Ward,GW-15,Moderate,51.8
+PAT-001210,Kavita,Das,General Ward,GW-10,Moderate,55.2
+PAT-001211,Ishita,Gupta,Isolation Unit,ISO-04,Low,50.6
+PAT-001212,Anjali,More,General Ward,GW-09,High,51.1
+PAT-001213,Yash,Gupta,General Inpatient Hall,HALL-03,High,58.9
+PAT-001214,Aarav,Kulkarni,General Ward,GW-02,Moderate,60.8
+PAT-001215,Ishaan,Nair,Intensive Care Unit,ICU-11,Low,48.5
+PAT-001216,Mira,Verma,Intensive Care Unit,ICU-02,High,61.5
+PAT-001217,Anjali,Kulkarni,General Ward,GW-13,High,60.1
+PAT-001218,Nikhil,Verma,General Ward,GW-07,High,59.0
+PAT-001219,Meera,Shah,General Inpatient Hall,HALL-01,High,57.9
+PAT-001220,Vivaan,Singh,Private Inpatient Unit,PR-134,Moderate,55.4
+PAT-001221,Diya,Shah,General Ward,GW-10,High,61.9
+PAT-001222,Neha,More,Isolation Unit,ISO-04,High,56.6
+PAT-001223,Amit,More,General Inpatient Hall,HALL-04,Moderate,53.6
+PAT-001224,Anjali,Nair,General Ward,GW-08,Moderate,53.6
+PAT-001225,Amit,Nair,General Ward,GW-17,Moderate,54.6
+PAT-001226,Om,Nair,General Ward,GW-05,High,53.8
+PAT-001227,Priya,Patil,General Ward,GW-15,Moderate,55.5
+PAT-001228,Dev,Khan,General Ward,GW-13,High,61.3
+PAT-001229,Mira,Kumar,General Ward,GW-07,Moderate,52.5
+PAT-001230,Kunal,Verma,General Ward,GW-14,Critical,57.6
+PAT-001231,Rahul,Iyer,General Inpatient Hall,HALL-02,High,58.7
+PAT-001232,Aarav,Mehta,General Ward,GW-03,High,60.8
+PAT-001233,Aditi,More,General Ward,GW-01,High,54.9
+PAT-001234,Om,Iyer,Emergency Department,ER-03,Low,49.5
+PAT-001235,Aditya,Joshi,General Ward,GW-04,Moderate,50.9
+PAT-001236,Priya,Desai,Emergency Department,ER-05,Moderate,52.7
+PAT-001237,Kunal,Reddy,General Ward,GW-08,Moderate,56.3
+PAT-001238,Aanya,Desai,General Ward,GW-18,High,63.2
+PAT-001239,Aanya,Joshi,Private Inpatient Unit,PR-111,Moderate,57.9
+PAT-001240,Pranav,Sharma,General Ward,GW-14,Moderate,58.7
+PAT-001241,Aanya,Kulkarni,Private Inpatient Unit,PR-113,High,54.8
+PAT-001242,Ishita,Pawar,General Ward,GW-05,Low,52.4
+PAT-001243,Pranav,Verma,Isolation Unit,ISO-08,High,56.6
+PAT-001244,Meera,Iyer,Isolation Unit,ISO-06,Moderate,56.3
+PAT-001245,Ira,Jadhav,Emergency Department,ER-03,Low,45.8
+PAT-001246,Arjun,Joshi,General Ward,GW-15,Low,55.6
+PAT-001247,Meera,Gupta,Private Inpatient Unit,PR-110,High,62.3
+PAT-001248,Riya,Nair,Private Inpatient Unit,PR-104,Low,50.3
+PAT-001249,Mahesh,Kulkarni,General Ward,GW-12,Moderate,56.1
+PAT-001250,Pooja,Nair,General Ward,GW-05,Moderate,49.7
+PAT-001251,Arjun,Joshi,Private Inpatient Unit,PR-105,High,55.8
+PAT-001252,Ira,Mane,General Ward,GW-13,High,58.0
+PAT-001253,Aditi,Patil,Private Inpatient Unit,PR-123,Moderate,56.4
+PAT-001254,Rahul,Nair,General Ward,GW-02,Moderate,54.2
+PAT-001255,Aditi,More,General Ward,GW-12,Low,55.9
+PAT-001256,Aarav,Jadhav,General Ward,GW-03,Moderate,53.7
+PAT-001257,Vivaan,Mehta,General Ward,GW-12,High,57.0
+PAT-001258,Aditya,Shah,Private Inpatient Unit,PR-118,Low,53.1
+PAT-001259,Aarav,Khan,Emergency Department,ER-05,Low,54.6
+PAT-001260,Ishita,Pawar,General Ward,GW-10,Moderate,53.8
+PAT-001261,Amit,Khan,General Ward,GW-03,High,56.8
+PAT-001262,Anjali,Desai,Intensive Care Unit,ICU-01,High,59.7
+PAT-001263,Rahul,Jadhav,General Ward,GW-05,Moderate,57.6
+PAT-001264,Aarav,Kulkarni,General Ward,GW-03,High,55.7
+PAT-001265,Mahesh,Verma,General Ward,GW-10,High,58.4
+PAT-001266,Amit,Mane,General Ward,GW-14,Low,54.0
+PAT-001267,Sameer,Khan,General Inpatient Hall,HALL-01,High,60.2
+PAT-001268,Sagar,Kumar,Private Inpatient Unit,PR-121,High,61.8
+PAT-001269,Riya,Mehta,General Inpatient Hall,HALL-04,Critical,58.9
+PAT-001270,Aditya,Gupta,Private Inpatient Unit,PR-147,High,54.1
+PAT-001271,Aditya,Pawar,General Ward,GW-19,High,59.7
+PAT-001272,Pranav,Iyer,General Ward,GW-10,High,61.1
+PAT-001273,Yash,Patil,Isolation Unit,ISO-05,Moderate,54.3
+PAT-001274,Rohan,Das,Isolation Unit,ISO-07,Moderate,57.5
+PAT-001275,Aditi,Joshi,General Ward,GW-15,High,54.6
+PAT-001276,Dev,Jadhav,General Inpatient Hall,HALL-03,High,58.0
+PAT-001277,Pooja,Pawar,General Ward,GW-20,High,59.0
+PAT-001278,Yash,Sharma,Intensive Care Unit,ICU-08,Low,44.3
+PAT-001279,Pranav,Das,General Ward,GW-03,Critical,58.8
+PAT-001280,Mahesh,Kulkarni,General Ward,GW-16,High,57.9
+PAT-001281,Ishaan,Verma,General Inpatient Hall,HALL-02,Moderate,51.5
+PAT-001282,Om,Patil,General Ward,GW-08,Low,50.8
+PAT-001283,Sagar,Pawar,Isolation Unit,ISO-09,Moderate,51.9
+PAT-001284,Pranav,Das,General Ward,GW-11,Low,55.5
+PAT-001285,Kunal,Iyer,Intensive Care Unit,ICU-03,High,56.2
+PAT-001286,Aanya,Jadhav,Emergency Department,ER-03,Moderate,55.6
+PAT-001287,Om,Patil,Intensive Care Unit,ICU-01,Low,54.3
+PAT-001288,Yash,Jadhav,General Ward,GW-01,Low,49.5
+PAT-001289,Aarav,Khan,General Ward,GW-07,Moderate,55.4
+PAT-001290,Vivaan,Patil,General Ward,GW-02,Moderate,55.8
+PAT-001291,Sneha,Khan,Emergency Department,ER-04,High,55.3
+PAT-001292,Kabir,Nair,General Ward,GW-17,Moderate,53.6
+PAT-001293,Arjun,Gupta,General Ward,GW-03,High,58.7
+PAT-001294,Pranav,Singh,Isolation Unit,ISO-03,Low,51.9
+PAT-001295,Rohan,Gupta,Isolation Unit,ISO-01,High,52.5
+PAT-001296,Kavya,Joshi,General Ward,GW-14,High,58.1
+PAT-001297,Kunal,Patil,Intensive Care Unit,ICU-05,High,55.2
+PAT-001298,Meera,Mehta,General Ward,GW-16,Moderate,54.0
+PAT-001299,Riya,Patil,General Ward,GW-11,High,58.9
+PAT-001300,Kavita,Kulkarni,Private Inpatient Unit,PR-107,Moderate,57.8
+PAT-001301,Diya,Jadhav,Intensive Care Unit,ICU-09,High,59.7
+PAT-001302,Diya,Das,Emergency Department,ER-03,High,57.6
+PAT-001303,Anjali,Shah,General Ward,GW-12,High,57.9
+PAT-001304,Diya,Das,General Ward,GW-12,Moderate,55.9
+PAT-001305,Aditi,Mane,Private Inpatient Unit,PR-144,High,61.6
+PAT-001306,Aarav,Gupta,Intensive Care Unit,ICU-10,Low,51.9
+PAT-001307,Diya,Gupta,General Ward,GW-05,High,59.4
+PAT-001308,Arjun,Verma,General Ward,GW-04,High,62.3
+PAT-001309,Sagar,Nair,General Ward,GW-02,Low,52.9
+PAT-001310,Saanvi,Verma,Private Inpatient Unit,PR-138,Moderate,57.8
+PAT-001311,Aditya,Kumar,Emergency Department,ER-06,Moderate,57.5
+PAT-001312,Nikhil,More,General Inpatient Hall,HALL-03,Moderate,53.7
+PAT-001313,Kunal,Iyer,General Ward,GW-08,Moderate,54.0
+PAT-001314,Kabir,Gupta,General Ward,GW-19,Moderate,53.2
+PAT-001315,Kunal,Iyer,General Ward,GW-10,Moderate,53.7
+PAT-001316,Aanya,Verma,Intensive Care Unit,ICU-11,High,61.0
+PAT-001317,Meera,Sharma,Isolation Unit,ISO-10,High,52.5
+PAT-001318,Ira,Das,General Ward,GW-15,Low,56.6
+PAT-001319,Aanya,Reddy,Day Care Unit,DC-02,Low,53.4
+PAT-001320,Om,Desai,General Ward,GW-19,Moderate,56.8
+PAT-001321,Aanya,Shah,Private Inpatient Unit,PR-146,Low,50.8
+PAT-001322,Diya,Joshi,General Ward,GW-20,Moderate,51.6
+PAT-001323,Aarav,Desai,Day Care Unit,DC-02,Moderate,54.8
+PAT-001324,Saanvi,Kumar,General Inpatient Hall,HALL-02,Moderate,53.4
+PAT-001325,Sneha,Nair,General Inpatient Hall,HALL-01,High,56.7
+PAT-001326,Neha,Mane,General Ward,GW-15,Moderate,61.3
+PAT-001327,Vivaan,Verma,General Inpatient Hall,HALL-02,Low,45.5
+PAT-001328,Neha,Singh,General Ward,GW-08,Moderate,52.7
+PAT-001329,Saanvi,Desai,Private Inpatient Unit,PR-154,Moderate,53.0
+PAT-001330,Rohan,Gupta,General Ward,GW-19,Moderate,54.4
+PAT-001331,Sagar,Gupta,General Ward,GW-13,Moderate,56.3
+PAT-001332,Saanvi,Patil,Day Care Unit,DC-03,Low,51.5
+PAT-001333,Ira,Joshi,Emergency Department,ER-03,High,61.0
+PAT-001334,Ira,Joshi,General Ward,GW-16,Moderate,56.5
+PAT-001335,Rohan,Kulkarni,General Ward,GW-15,Moderate,52.8
+PAT-001336,Ishita,Sharma,General Ward,GW-11,Moderate,53.8
+PAT-001337,Sagar,Nair,General Ward,GW-14,Low,48.2
+PAT-001338,Sameer,Nair,General Ward,GW-19,Moderate,57.5
+PAT-001339,Kavya,Gupta,General Inpatient Hall,HALL-04,Moderate,55.7
+PAT-001340,Riya,Das,Intensive Care Unit,ICU-03,Low,51.6
+PAT-001341,Rahul,Mane,Intensive Care Unit,ICU-06,Low,44.8
+PAT-001342,Yash,Mane,General Ward,GW-07,Moderate,54.0
+PAT-001343,Ishaan,Patil,Private Inpatient Unit,PR-142,Critical,63.6
+PAT-001344,Pranav,Iyer,General Ward,GW-09,Moderate,51.6
+PAT-001345,Amit,Shah,Private Inpatient Unit,PR-134,Critical,61.3
+PAT-001346,Om,Joshi,Emergency Department,ER-06,Moderate,51.7
+PAT-001347,Kabir,Patil,Isolation Unit,ISO-05,Moderate,59.3
+PAT-001348,Sameer,Kulkarni,General Ward,GW-05,Moderate,54.4
+PAT-001349,Aarav,Sharma,General Ward,GW-20,Moderate,56.8
+PAT-001350,Mahesh,Nair,Emergency Department,ER-01,Moderate,53.4
+PAT-001351,Aditi,Iyer,Private Inpatient Unit,PR-118,Moderate,55.6
+PAT-001352,Dev,Kulkarni,Private Inpatient Unit,PR-145,Moderate,52.2
+PAT-001353,Tara,Das,General Inpatient Hall,HALL-03,Moderate,58.4
+PAT-001354,Vivaan,Desai,Emergency Department,ER-01,Low,43.7
+PAT-001355,Tara,Gupta,Intensive Care Unit,ICU-06,Critical,57.3
+PAT-001356,Kabir,Mehta,Intensive Care Unit,ICU-03,High,54.3
+PAT-001357,Kunal,Kumar,General Ward,GW-13,Low,46.9
+PAT-001358,Rohan,Desai,General Ward,GW-13,Moderate,53.2
+PAT-001359,Ishaan,More,General Ward,GW-16,Moderate,52.4
+PAT-001360,Ishaan,Nair,General Ward,GW-18,Moderate,54.4
+PAT-001361,Tara,Nair,General Ward,GW-17,Moderate,52.7
+PAT-001362,Neha,Jadhav,Emergency Department,ER-04,High,60.7
+PAT-001363,Ira,Jadhav,General Ward,GW-12,Low,52.1
+PAT-001364,Pranav,Shah,Emergency Department,ER-06,High,58.8
+PAT-001365,Om,Kulkarni,General Ward,GW-15,Moderate,53.6
+PAT-001366,Vivaan,Sharma,Private Inpatient Unit,PR-153,Low,51.6
+PAT-001367,Ishaan,Patil,General Ward,GW-12,Low,51.7
+PAT-001368,Sneha,Kumar,General Ward,GW-20,Low,51.5
+PAT-001369,Anaya,Reddy,General Ward,GW-02,Low,53.2
+PAT-001370,Sneha,Joshi,Private Inpatient Unit,PR-107,Critical,59.9
+PAT-001371,Aanya,More,General Ward,GW-19,Moderate,57.2
+PAT-001372,Amit,Khan,General Ward,GW-17,High,57.8
+PAT-001373,Amit,Nair,Private Inpatient Unit,PR-111,Moderate,53.6
+PAT-001374,Aarav,Kulkarni,General Ward,GW-05,High,55.7
+PAT-001375,Aanya,Singh,General Inpatient Hall,HALL-04,Moderate,57.0
+PAT-001376,Arjun,Khan,Private Inpatient Unit,PR-113,Moderate,58.7
+PAT-001377,Kunal,Verma,General Ward,GW-15,Low,55.2
+PAT-001378,Saanvi,Iyer,Private Inpatient Unit,PR-145,Moderate,56.0
+PAT-001379,Nikhil,Pawar,General Ward,GW-06,High,58.0
+PAT-001380,Aditi,Verma,Private Inpatient Unit,PR-106,Critical,57.7
+PAT-001381,Kunal,Joshi,Intensive Care Unit,ICU-04,High,60.3
+PAT-001382,Rohan,Mane,General Ward,GW-18,Moderate,52.8
+PAT-001383,Ishita,Patil,General Ward,GW-02,Moderate,59.6
+PAT-001384,Kabir,Shah,General Inpatient Hall,HALL-04,High,57.5
+PAT-001385,Aditya,Mehta,General Ward,GW-20,Moderate,58.1
+PAT-001386,Kunal,Iyer,Intensive Care Unit,ICU-04,Low,51.5
+PAT-001387,Anjali,More,General Inpatient Hall,HALL-02,Moderate,55.1
+PAT-001388,Sneha,Gupta,Isolation Unit,ISO-08,Critical,65.0
+PAT-001389,Kunal,Reddy,Isolation Unit,ISO-06,Critical,58.8
+PAT-001390,Neha,Nair,Private Inpatient Unit,PR-158,Moderate,57.4
+PAT-001391,Riya,Shah,Private Inpatient Unit,PR-123,High,57.4
+PAT-001392,Priya,Kulkarni,Private Inpatient Unit,PR-115,High,63.3
+PAT-001393,Aditya,Verma,Intensive Care Unit,ICU-08,Moderate,56.7
+PAT-001394,Vivaan,Patil,Emergency Department,ER-03,Low,45.2
+PAT-001395,Aditya,Reddy,General Ward,GW-15,Moderate,52.3
+PAT-001396,Meera,Pawar,General Inpatient Hall,HALL-01,Low,52.4
+PAT-001397,Riya,Patil,General Ward,GW-01,Moderate,59.6
+PAT-001398,Tara,Singh,Intensive Care Unit,ICU-08,Moderate,56.4
+PAT-001399,Sagar,Sharma,General Ward,GW-17,High,54.5
+PAT-001400,Ishita,Shah,General Ward,GW-04,High,59.7
+PAT-001401,Mahesh,Khan,General Ward,GW-12,Moderate,53.8
+PAT-001402,Rahul,Gupta,Private Inpatient Unit,PR-137,Moderate,54.6
+PAT-001403,Aanya,Das,General Ward,GW-05,Moderate,54.0
+PAT-001404,Kabir,Khan,General Ward,GW-16,Low,50.1
+PAT-001405,Anjali,Jadhav,Emergency Department,ER-05,Moderate,59.7
+PAT-001406,Anaya,Reddy,General Ward,GW-13,High,55.9
+PAT-001407,Ishita,More,General Ward,GW-18,Moderate,54.3
+PAT-001408,Ishita,Khan,Private Inpatient Unit,PR-136,Moderate,55.9
+PAT-001409,Sameer,Singh,Private Inpatient Unit,PR-155,Moderate,56.7
+PAT-001410,Amit,Reddy,General Ward,GW-01,High,57.6
+PAT-001411,Anjali,Desai,General Ward,GW-01,High,57.1
+PAT-001412,Ira,Jadhav,General Ward,GW-14,Low,46.3
+PAT-001413,Sneha,Reddy,Intensive Care Unit,ICU-04,Low,49.0
+PAT-001414,Tara,Khan,General Inpatient Hall,HALL-03,Moderate,51.9
+PAT-001415,Aarav,Joshi,Intensive Care Unit,ICU-10,Low,48.7
+PAT-001416,Kunal,Sharma,General Ward,GW-15,High,63.2
+PAT-001417,Meera,Singh,Private Inpatient Unit,PR-131,Low,43.7
+PAT-001418,Nikhil,More,Emergency Department,ER-03,Low,51.0
+PAT-001419,Amit,Mehta,General Ward,GW-15,Moderate,54.7
+PAT-001420,Pranav,Jadhav,Private Inpatient Unit,PR-135,High,58.6
+PAT-001421,Mira,Shah,Emergency Department,ER-06,High,56.6
+PAT-001422,Pranav,Pawar,General Ward,GW-01,Low,48.1
+PAT-001423,Dev,Gupta,General Ward,GW-07,Moderate,54.9
+PAT-001424,Ira,Patil,General Inpatient Hall,HALL-04,Moderate,52.6
+PAT-001425,Aditya,More,General Inpatient Hall,HALL-01,Moderate,56.5
+PAT-001426,Rahul,More,Day Care Unit,DC-02,Moderate,57.0
+PAT-001427,Vivaan,Patil,General Ward,GW-14,Moderate,61.6
+PAT-001428,Meera,Kulkarni,Emergency Department,ER-03,Moderate,52.5
+PAT-001429,Sameer,Desai,General Ward,GW-04,Low,52.1
+PAT-001430,Kabir,Patil,Private Inpatient Unit,PR-114,High,57.9
+PAT-001431,Anjali,Singh,Intensive Care Unit,ICU-01,High,54.8
+PAT-001432,Nikhil,Verma,Private Inpatient Unit,PR-145,Low,52.5
+PAT-001433,Ishaan,Mehta,Emergency Department,ER-04,High,56.9
+PAT-001434,Anaya,Pawar,Intensive Care Unit,ICU-12,Low,44.2
+PAT-001435,Om,Verma,General Ward,GW-01,Moderate,57.2
+PAT-001436,Rohan,Pawar,Private Inpatient Unit,PR-134,Moderate,50.5
+PAT-001437,Sneha,Iyer,Emergency Department,ER-04,Moderate,50.9
+PAT-001438,Rohan,Mehta,Intensive Care Unit,ICU-06,Low,49.6
+PAT-001439,Rohan,Pawar,Private Inpatient Unit,PR-108,Moderate,52.0
+PAT-001440,Tara,Pawar,General Ward,GW-02,Moderate,53.1
+PAT-001441,Neha,Pawar,Intensive Care Unit,ICU-12,Moderate,55.1
+PAT-001442,Aditi,Singh,General Ward,GW-08,Moderate,54.4
+PAT-001443,Mira,Singh,General Ward,GW-15,Moderate,56.6
+PAT-001444,Mahesh,Singh,General Ward,GW-15,Moderate,54.8
+PAT-001445,Anjali,Kulkarni,Intensive Care Unit,ICU-03,High,56.0
+PAT-001446,Meera,Kulkarni,Emergency Department,ER-05,Low,49.0
+PAT-001447,Kavita,More,Private Inpatient Unit,PR-138,High,59.2
+PAT-001448,Neha,Kulkarni,Emergency Department,ER-05,Low,52.3
+PAT-001449,Sneha,Khan,General Ward,GW-15,High,59.4
+PAT-001450,Kabir,Iyer,General Ward,GW-05,High,56.8
+PAT-001451,Mahesh,Singh,General Ward,GW-19,Critical,60.9
+PAT-001452,Sagar,Shah,General Ward,GW-14,Moderate,60.1
+PAT-001453,Sameer,Nair,Private Inpatient Unit,PR-110,Moderate,53.0
+PAT-001454,Saanvi,Mane,General Ward,GW-01,High,54.2
+PAT-001455,Pooja,Joshi,Intensive Care Unit,ICU-08,Low,50.8
+PAT-001456,Sameer,Mehta,Intensive Care Unit,ICU-06,Moderate,57.6
+PAT-001457,Ishaan,Joshi,Emergency Department,ER-02,Low,48.5
+PAT-001458,Kavya,Nair,General Ward,GW-17,Moderate,54.2
+PAT-001459,Neha,Reddy,Emergency Department,ER-01,Moderate,60.9
+PAT-001460,Rohan,Iyer,Intensive Care Unit,ICU-02,High,54.9
+PAT-001461,Tara,Sharma,Intensive Care Unit,ICU-05,Moderate,55.4
+PAT-001462,Sameer,Kulkarni,General Ward,GW-06,Moderate,53.3
+PAT-001463,Ira,Kulkarni,Emergency Department,ER-02,Low,50.3
+PAT-001464,Nikhil,Singh,Emergency Department,ER-01,Moderate,53.6
+PAT-001465,Kavita,Shah,Private Inpatient Unit,PR-102,Low,51.0
+PAT-001466,Rohan,Das,Private Inpatient Unit,PR-151,Low,48.3
+PAT-001467,Sameer,Gupta,General Ward,GW-20,Low,50.9
+PAT-001468,Kavya,Sharma,Intensive Care Unit,ICU-05,Low,53.5
+PAT-001469,Yash,Gupta,General Ward,GW-12,High,57.8
+PAT-001470,Kunal,Kumar,General Inpatient Hall,HALL-02,Moderate,53.0
+PAT-001471,Ira,Jadhav,General Ward,GW-10,Moderate,56.6
+PAT-001472,Aanya,Mehta,General Ward,GW-20,High,57.8
+PAT-001473,Yash,Patil,General Ward,GW-13,Moderate,58.4
+PAT-001474,Nikhil,Mane,General Ward,GW-09,Critical,59.4
+PAT-001475,Rahul,Desai,Private Inpatient Unit,PR-131,Moderate,51.9
+PAT-001476,Rohan,More,Private Inpatient Unit,PR-160,High,58.4
+PAT-001477,Riya,Patil,Private Inpatient Unit,PR-136,Moderate,53.3
+PAT-001478,Rahul,Kumar,General Ward,GW-19,Low,50.8
+PAT-001479,Priya,Desai,Intensive Care Unit,ICU-09,High,61.2
+PAT-001480,Om,Das,General Ward,GW-02,High,60.5
+PAT-001481,Priya,Das,General Ward,GW-09,High,60.4
+PAT-001482,Kavita,Sharma,Intensive Care Unit,ICU-07,Moderate,54.5
+PAT-001483,Ishaan,Desai,General Ward,GW-11,High,59.2
+PAT-001484,Kabir,Joshi,General Ward,GW-18,Moderate,54.6
+PAT-001485,Vivaan,Patil,Private Inpatient Unit,PR-131,High,58.1
+PAT-001486,Aditya,Verma,General Ward,GW-13,High,52.4
+PAT-001487,Anaya,Reddy,General Ward,GW-05,Moderate,50.9
+PAT-001488,Anaya,Singh,Private Inpatient Unit,PR-128,High,57.6
+PAT-001489,Riya,Gupta,General Ward,GW-15,Low,53.5
+PAT-001490,Pranav,Pawar,General Ward,GW-13,Moderate,54.5
+PAT-001491,Priya,Singh,General Ward,GW-02,Moderate,52.1
+PAT-001492,Anaya,Desai,Intensive Care Unit,ICU-11,High,58.5
+PAT-001493,Aditya,Kumar,General Ward,GW-04,Low,48.7
+PAT-001494,Riya,Das,Day Care Unit,DC-01,Low,52.7
+PAT-001495,Aditya,Kumar,General Ward,GW-14,Moderate,57.5
+PAT-001496,Priya,Gupta,General Ward,GW-11,Low,51.6
+PAT-001497,Tara,Iyer,General Ward,GW-09,High,57.1
+PAT-001498,Vivaan,Kulkarni,General Ward,GW-08,Moderate,57.9
+PAT-001499,Sneha,Mane,General Ward,GW-17,Moderate,57.2
+PAT-001500,Yash,Nair,General Ward,GW-13,High,58.8
+PAT-001501,Sneha,Mane,General Ward,GW-06,Low,47.9
+PAT-001502,Riya,Desai,General Ward,GW-07,High,57.5
+PAT-001503,Dev,Pawar,Day Care Unit,DC-01,High,53.1
+PAT-001504,Meera,Kulkarni,Private Inpatient Unit,PR-111,Moderate,51.9
+PAT-001505,Dev,Desai,Day Care Unit,DC-02,Moderate,54.0
+PAT-001506,Nikhil,Sharma,General Ward,GW-03,Moderate,54.2
+PAT-001507,Saanvi,Jadhav,General Ward,GW-10,Moderate,56.6
+PAT-001508,Om,Nair,Private Inpatient Unit,PR-104,Moderate,53.5
+PAT-001509,Aanya,Patil,General Ward,GW-09,Moderate,52.5
+PAT-001510,Sameer,Pawar,General Ward,GW-15,Moderate,50.4
+PAT-001511,Aditya,Mehta,General Ward,GW-10,High,54.4
+PAT-001512,Kavita,Iyer,Intensive Care Unit,ICU-05,High,61.9
+PAT-001513,Meera,Reddy,General Ward,GW-04,High,57.3
+PAT-001514,Vivaan,Singh,General Ward,GW-17,Low,50.3
+PAT-001515,Diya,Mehta,General Ward,GW-08,High,61.0
+PAT-001516,Rohan,Kulkarni,Intensive Care Unit,ICU-04,Low,51.1
+PAT-001517,Aditya,Reddy,Private Inpatient Unit,PR-130,Moderate,52.0
+PAT-001518,Neha,Jadhav,Emergency Department,ER-04,Low,50.4
+PAT-001519,Aanya,Joshi,General Ward,GW-15,High,57.7
+PAT-001520,Sagar,Iyer,General Ward,GW-14,High,59.0
+PAT-001521,Priya,Mane,General Ward,GW-08,High,63.1
+PAT-001522,Kavya,Reddy,General Ward,GW-11,High,59.9
+PAT-001523,Tara,Patil,General Ward,GW-18,Moderate,61.8
+PAT-001524,Ishaan,Jadhav,General Ward,GW-13,High,54.6
+PAT-001525,Amit,Desai,Private Inpatient Unit,PR-141,Moderate,61.8
+PAT-001526,Mahesh,Joshi,General Ward,GW-03,Moderate,58.6
+PAT-001527,Sameer,Joshi,Intensive Care Unit,ICU-06,High,58.3
+PAT-001528,Rohan,Jadhav,Intensive Care Unit,ICU-02,Moderate,54.3
+PAT-001529,Vivaan,Patil,General Ward,GW-08,Moderate,55.7
+PAT-001530,Aditi,Joshi,Isolation Unit,ISO-09,Moderate,51.6
+PAT-001531,Om,Kumar,Intensive Care Unit,ICU-12,High,55.5
+PAT-001532,Ishaan,Kulkarni,General Ward,GW-16,High,60.8
+PAT-001533,Rahul,Verma,Private Inpatient Unit,PR-144,Moderate,55.5
+PAT-001534,Amit,Reddy,General Ward,GW-16,Low,53.3
+PAT-001535,Saanvi,More,General Ward,GW-14,Moderate,59.1
+PAT-001536,Aarav,Sharma,General Ward,GW-02,High,56.9
+PAT-001537,Sagar,Khan,Intensive Care Unit,ICU-01,Critical,60.7
+PAT-001538,Om,Shah,General Ward,GW-03,Moderate,57.3
+PAT-001539,Aanya,Singh,General Ward,GW-20,Low,48.5
+PAT-001540,Sameer,Pawar,General Ward,GW-20,Moderate,55.5
+PAT-001541,Sagar,Pawar,General Ward,GW-15,High,52.6
+PAT-001542,Aditi,Singh,General Ward,GW-17,Moderate,56.2
+PAT-001543,Aditi,Jadhav,Emergency Department,ER-02,Moderate,56.2
+PAT-001544,Vivaan,Desai,General Inpatient Hall,HALL-03,Moderate,52.9
+PAT-001545,Kabir,Mehta,Emergency Department,ER-03,High,54.0
+PAT-001546,Rohan,Pawar,General Ward,GW-10,Low,51.2
+PAT-001547,Arjun,Khan,General Ward,GW-01,Moderate,58.7
+PAT-001548,Mira,Khan,General Ward,GW-14,Moderate,57.7
+PAT-001549,Aanya,Shah,Intensive Care Unit,ICU-03,Moderate,53.2
+PAT-001550,Kunal,Mehta,General Ward,GW-18,High,61.0
+PAT-001551,Amit,Singh,General Ward,GW-17,High,56.6
+PAT-001552,Kavita,Singh,General Ward,GW-09,Moderate,53.6
+PAT-001553,Anjali,Mehta,Emergency Department,ER-05,Low,57.4
+PAT-001554,Vivaan,Reddy,Intensive Care Unit,ICU-03,Low,49.7
+PAT-001555,Yash,Khan,Intensive Care Unit,ICU-09,High,55.7
+PAT-001556,Kabir,Mane,General Ward,GW-11,Moderate,54.0
+PAT-001557,Ira,Patil,General Ward,GW-16,High,56.6
+PAT-001558,Nikhil,Nair,General Ward,GW-11,Moderate,51.8
+PAT-001559,Sagar,Das,General Ward,GW-19,Moderate,53.9
+PAT-001560,Sagar,Mehta,Intensive Care Unit,ICU-11,High,57.6
+PAT-001561,Amit,Reddy,General Ward,GW-08,Moderate,53.3
+PAT-001562,Ira,Verma,Emergency Department,ER-06,High,56.0
+PAT-001563,Dev,Gupta,General Inpatient Hall,HALL-03,Moderate,55.0
+PAT-001564,Aditi,More,Intensive Care Unit,ICU-04,High,58.9
+PAT-001565,Neha,Patil,General Ward,GW-17,Low,54.0
+PAT-001566,Anaya,Desai,General Ward,GW-11,High,56.1
+PAT-001567,Kunal,Desai,General Ward,GW-18,High,60.5
+PAT-001568,Amit,Kulkarni,General Ward,GW-15,High,55.8
+PAT-001569,Saanvi,Mane,Isolation Unit,ISO-05,High,61.7
+PAT-001570,Kunal,Jadhav,Emergency Department,ER-06,High,57.6
+PAT-001571,Vivaan,Pawar,General Ward,GW-13,Moderate,54.6
+PAT-001572,Priya,Shah,Intensive Care Unit,ICU-03,Critical,62.1
+PAT-001573,Meera,Joshi,General Ward,GW-10,High,59.0
+PAT-001574,Rahul,Kulkarni,General Ward,GW-11,Low,48.0
+PAT-001575,Saanvi,Verma,Intensive Care Unit,ICU-05,Critical,57.4
+PAT-001576,Riya,Mehta,Isolation Unit,ISO-03,High,53.9
+PAT-001577,Mira,Mehta,Emergency Department,ER-02,High,62.7
+PAT-001578,Kunal,Jadhav,General Inpatient Hall,HALL-03,Low,52.4
+PAT-001579,Pooja,Kumar,Day Care Unit,DC-03,High,59.4
+PAT-001580,Kavya,Das,General Ward,GW-10,High,55.3
+PAT-001581,Neha,Joshi,General Ward,GW-11,Moderate,54.9
+PAT-001582,Ishaan,Nair,Emergency Department,ER-02,High,59.5
+PAT-001583,Kunal,Verma,General Ward,GW-06,Low,51.9
+PAT-001584,Nikhil,Sharma,General Ward,GW-14,Moderate,54.5
+PAT-001585,Dev,Singh,Private Inpatient Unit,PR-121,Moderate,56.6
+PAT-001586,Priya,More,General Ward,GW-10,Moderate,55.8
+PAT-001587,Kunal,Nair,Day Care Unit,DC-02,Moderate,55.6
+PAT-001588,Mira,Joshi,General Ward,GW-13,High,56.8
+PAT-001589,Nikhil,Kulkarni,Private Inpatient Unit,PR-117,Moderate,53.6
+PAT-001590,Yash,Jadhav,Emergency Department,ER-06,Low,44.7
+PAT-001591,Mahesh,Das,Intensive Care Unit,ICU-04,Moderate,51.2
+PAT-001592,Nikhil,Sharma,General Ward,GW-17,Moderate,59.3
+PAT-001593,Yash,Nair,Isolation Unit,ISO-09,Moderate,54.9
+PAT-001594,Ira,Nair,Intensive Care Unit,ICU-02,Moderate,55.4
+PAT-001595,Pooja,Jadhav,Isolation Unit,ISO-05,Moderate,52.5
+PAT-001596,Rahul,Joshi,General Ward,GW-07,Moderate,52.6
+PAT-001597,Amit,Pawar,General Ward,GW-20,Moderate,51.1
+PAT-001598,Aditi,Singh,Intensive Care Unit,ICU-03,Moderate,55.6
+PAT-001599,Kunal,Mehta,Private Inpatient Unit,PR-132,Moderate,56.5
+PAT-001600,Pooja,Das,General Inpatient Hall,HALL-03,High,60.1
+PAT-001601,Priya,Pawar,General Ward,GW-07,Critical,62.7
+PAT-001602,Ishita,Reddy,Private Inpatient Unit,PR-154,Moderate,59.9
+PAT-001603,Priya,Patil,Private Inpatient Unit,PR-159,High,57.1
+PAT-001604,Aarav,Kulkarni,Intensive Care Unit,ICU-10,Low,53.0
+PAT-001605,Diya,Das,General Ward,GW-03,Moderate,56.4
+PAT-001606,Vivaan,Verma,General Inpatient Hall,HALL-03,Moderate,54.7
+PAT-001607,Yash,Das,General Ward,GW-12,Moderate,56.3
+PAT-001608,Yash,Gupta,Private Inpatient Unit,PR-129,High,61.7
+PAT-001609,Mahesh,Desai,General Inpatient Hall,HALL-02,Low,55.1
+PAT-001610,Nikhil,Patil,Private Inpatient Unit,PR-148,Moderate,56.2
+PAT-001611,Aanya,Mehta,General Ward,GW-03,High,59.4
+PAT-001612,Amit,Patil,General Ward,GW-06,High,56.4
+PAT-001613,Arjun,Kumar,General Ward,GW-15,Moderate,55.1
+PAT-001614,Kavita,Gupta,Day Care Unit,DC-04,Low,54.1
+PAT-001615,Ishaan,Pawar,Private Inpatient Unit,PR-123,Moderate,59.1
+PAT-001616,Aditya,Reddy,General Ward,GW-03,Moderate,51.5
+PAT-001617,Priya,More,Intensive Care Unit,ICU-12,Moderate,54.5
+PAT-001618,Priya,Mane,Emergency Department,ER-02,Moderate,53.4
+PAT-001619,Ishaan,Joshi,Intensive Care Unit,ICU-02,Moderate,56.3
+PAT-001620,Vivaan,Khan,Intensive Care Unit,ICU-11,Moderate,61.7
+PAT-001621,Aanya,Verma,Intensive Care Unit,ICU-11,Moderate,57.0
+PAT-001622,Diya,Desai,General Inpatient Hall,HALL-01,Moderate,54.8
+PAT-001623,Kavita,Verma,Emergency Department,ER-06,Moderate,57.8
+PAT-001624,Kabir,Joshi,General Ward,GW-16,Moderate,55.4
+PAT-001625,Aditya,Joshi,General Ward,GW-06,High,59.0
+PAT-001626,Mira,Pawar,Isolation Unit,ISO-06,High,56.1
+PAT-001627,Vivaan,Joshi,General Ward,GW-10,Moderate,56.5
+PAT-001628,Ira,Nair,Isolation Unit,ISO-07,Moderate,57.5
+PAT-001629,Ishita,Khan,General Ward,GW-20,Critical,59.1
+PAT-001630,Pooja,Desai,General Ward,GW-07,Moderate,56.3
+PAT-001631,Mahesh,More,General Ward,GW-07,Low,48.5
+PAT-001632,Dev,Jadhav,General Ward,GW-06,High,61.1
+PAT-001633,Mahesh,Pawar,Intensive Care Unit,ICU-03,High,55.3
+PAT-001634,Aditi,Desai,Private Inpatient Unit,PR-143,Moderate,63.1
+PAT-001635,Nikhil,Reddy,General Ward,GW-07,Low,49.9
+PAT-001636,Riya,Kulkarni,General Ward,GW-03,High,54.8
+PAT-001637,Kavita,Khan,General Ward,GW-16,High,58.7
+PAT-001638,Aanya,Sharma,General Ward,GW-20,Critical,63.8
+PAT-001639,Mahesh,Das,Day Care Unit,DC-03,Moderate,52.0
+PAT-001640,Yash,Mane,General Ward,GW-14,Moderate,55.4
+PAT-001641,Sneha,Iyer,Isolation Unit,ISO-05,High,57.1
+PAT-001642,Neha,Joshi,General Inpatient Hall,HALL-01,High,61.1
+PAT-001643,Kabir,Gupta,General Ward,GW-02,High,55.5
+PAT-001644,Diya,Sharma,General Ward,GW-02,Moderate,55.6
+PAT-001645,Sameer,Pawar,Intensive Care Unit,ICU-06,Low,57.7
+PAT-001646,Sneha,Jadhav,Intensive Care Unit,ICU-11,Low,50.3
+PAT-001647,Yash,Patil,General Ward,GW-10,High,56.1
+PAT-001648,Ira,Mane,General Ward,GW-14,Moderate,52.1
+PAT-001649,Kunal,Das,General Ward,GW-08,Moderate,46.8
+PAT-001650,Aanya,Kulkarni,General Inpatient Hall,HALL-04,Moderate,58.4
+PAT-001651,Dev,Das,General Ward,GW-13,Critical,59.5
+PAT-001652,Sneha,Kulkarni,General Ward,GW-13,Moderate,54.6
+PAT-001653,Sagar,Desai,Day Care Unit,DC-05,Low,44.3
+PAT-001654,Pranav,Nair,Emergency Department,ER-06,High,55.7
+PAT-001655,Ishaan,Mehta,General Inpatient Hall,HALL-04,Moderate,50.4
+PAT-001656,Pooja,Kumar,General Ward,GW-02,Moderate,58.0
+PAT-001657,Kavita,Jadhav,General Ward,GW-08,Moderate,58.1
+PAT-001658,Aditya,Desai,General Ward,GW-18,Moderate,57.8
+PAT-001659,Priya,More,General Ward,GW-19,Moderate,54.7
+PAT-001660,Ishaan,Nair,Intensive Care Unit,ICU-08,Moderate,51.0
+PAT-001661,Aditi,Mehta,General Ward,GW-17,High,56.1
+PAT-001662,Mira,More,Intensive Care Unit,ICU-04,Low,50.2
+PAT-001663,Ira,Gupta,General Ward,GW-02,High,59.2
+PAT-001664,Vivaan,Pawar,General Inpatient Hall,HALL-04,High,55.0
+PAT-001665,Meera,Verma,Intensive Care Unit,ICU-10,Low,53.0
+PAT-001666,Om,Verma,Emergency Department,ER-03,High,56.5
+PAT-001667,Rohan,Patil,Emergency Department,ER-05,Moderate,48.5
+PAT-001668,Saanvi,More,Intensive Care Unit,ICU-04,Low,50.4
+PAT-001669,Vivaan,Das,General Ward,GW-19,Low,50.4
+PAT-001670,Pooja,Iyer,General Inpatient Hall,HALL-01,Low,55.7
+PAT-001671,Sneha,Pawar,General Ward,GW-04,High,58.6
+PAT-001672,Kavya,Iyer,General Ward,GW-05,Moderate,57.2
+PAT-001673,Om,Reddy,Intensive Care Unit,ICU-11,Low,49.4
+PAT-001674,Mira,Pawar,General Ward,GW-01,Moderate,53.0
+PAT-001675,Nikhil,Sharma,General Ward,GW-11,Moderate,53.1
+PAT-001676,Vivaan,Sharma,General Inpatient Hall,HALL-03,Low,49.0
+PAT-001677,Aditi,Mehta,Intensive Care Unit,ICU-08,High,57.1
+PAT-001678,Meera,Shah,Private Inpatient Unit,PR-120,Moderate,52.8
+PAT-001679,Anjali,Kumar,Private Inpatient Unit,PR-146,High,60.1
+PAT-001680,Neha,Verma,General Ward,GW-09,High,58.5
+PAT-001681,Sameer,Kulkarni,Intensive Care Unit,ICU-06,High,57.0
+PAT-001682,Aarav,Gupta,Isolation Unit,ISO-02,High,58.8
+PAT-001683,Arjun,Verma,Private Inpatient Unit,PR-108,Moderate,57.3
+PAT-001684,Kavita,More,Private Inpatient Unit,PR-146,Moderate,53.2
+PAT-001685,Sagar,Mehta,Intensive Care Unit,ICU-03,High,55.6
+PAT-001686,Pranav,Sharma,Day Care Unit,DC-05,High,54.8
+PAT-001687,Ishita,Pawar,Private Inpatient Unit,PR-104,High,57.2
+PAT-001688,Tara,Mane,General Ward,GW-12,Moderate,53.8
+PAT-001689,Riya,Mane,General Ward,GW-14,High,62.3
+PAT-001690,Om,Kumar,General Ward,GW-09,High,60.2
+PAT-001691,Sameer,Desai,Private Inpatient Unit,PR-146,Moderate,52.1
+PAT-001692,Kavita,Desai,General Inpatient Hall,HALL-04,Moderate,56.9
+PAT-001693,Ishita,Das,General Ward,GW-17,Moderate,53.2
+PAT-001694,Nikhil,Gupta,General Ward,GW-12,Moderate,57.0
+PAT-001695,Kunal,Singh,General Ward,GW-06,High,58.0
+PAT-001696,Pranav,Kumar,General Ward,GW-14,Low,51.7
+PAT-001697,Neha,Joshi,General Ward,GW-20,Low,52.3
+PAT-001698,Tara,Mane,Intensive Care Unit,ICU-06,High,61.9
+PAT-001699,Dev,Mehta,General Ward,GW-20,Low,51.6
+PAT-001700,Meera,Jadhav,General Ward,GW-06,Moderate,56.9
+PAT-001701,Aditya,Shah,Emergency Department,ER-04,High,55.2
+PAT-001702,Ishaan,Iyer,General Ward,GW-06,High,58.1
+PAT-001703,Kunal,Pawar,Private Inpatient Unit,PR-106,High,59.1
+PAT-001704,Pranav,More,Isolation Unit,ISO-03,Moderate,53.1
+PAT-001705,Kavya,Desai,General Ward,GW-20,High,57.5
+PAT-001706,Arjun,Kulkarni,Day Care Unit,DC-05,High,57.7
+PAT-001707,Rohan,Desai,Private Inpatient Unit,PR-119,Moderate,56.3
+PAT-001708,Sagar,Sharma,Emergency Department,ER-06,Moderate,55.2
+PAT-001709,Kavita,Mehta,General Ward,GW-09,Moderate,56.7
+PAT-001710,Priya,Desai,Intensive Care Unit,ICU-07,High,56.2
+PAT-001711,Riya,Mehta,Emergency Department,ER-06,Low,49.7
+PAT-001712,Vivaan,Verma,General Ward,GW-18,Moderate,54.9
+PAT-001713,Aditi,Pawar,Intensive Care Unit,ICU-05,Low,51.3
+PAT-001714,Anaya,Verma,Isolation Unit,ISO-09,Moderate,58.9
+PAT-001715,Mira,Khan,Intensive Care Unit,ICU-03,High,57.0
+PAT-001716,Rahul,Sharma,General Ward,GW-09,Moderate,55.7
+PAT-001717,Aditi,Iyer,Emergency Department,ER-04,Low,46.1
+PAT-001718,Ira,Pawar,Private Inpatient Unit,PR-129,High,56.7
+PAT-001719,Mahesh,Nair,General Ward,GW-06,Low,53.6
+PAT-001720,Mahesh,Verma,General Ward,GW-08,Low,47.8
+PAT-001721,Rahul,Kumar,General Ward,GW-01,Low,50.4
+PAT-001722,Kavita,Shah,Emergency Department,ER-06,Low,44.3
+PAT-001723,Yash,Khan,General Ward,GW-05,Moderate,51.8
+PAT-001724,Ishita,Mehta,General Inpatient Hall,HALL-01,High,57.8
+PAT-001725,Ira,Das,General Ward,GW-03,Moderate,52.9
+PAT-001726,Pranav,Gupta,General Ward,GW-04,Moderate,51.6
+PAT-001727,Anjali,Iyer,General Ward,GW-20,Moderate,56.5
+PAT-001728,Rohan,Iyer,Private Inpatient Unit,PR-139,Moderate,55.0
+PAT-001729,Dev,Gupta,Intensive Care Unit,ICU-11,High,58.0
+PAT-001730,Aditi,Pawar,General Ward,GW-20,Moderate,56.8
+PAT-001731,Pooja,Singh,General Ward,GW-18,High,57.7
+PAT-001732,Dev,Kumar,General Ward,GW-17,Moderate,58.3
+PAT-001733,Sameer,Verma,General Ward,GW-19,Moderate,59.2
+PAT-001734,Ishita,Joshi,General Ward,GW-17,Moderate,60.7
+PAT-001735,Kabir,Joshi,General Ward,GW-07,High,55.5
+PAT-001736,Kavya,More,General Ward,GW-20,Low,55.1
+PAT-001737,Arjun,Iyer,Private Inpatient Unit,PR-153,Low,47.7
+PAT-001738,Neha,Sharma,General Ward,GW-14,Low,49.6
+PAT-001739,Aditi,Kulkarni,Emergency Department,ER-04,High,58.0
+PAT-001740,Pooja,More,Private Inpatient Unit,PR-145,Moderate,55.6
+PAT-001741,Kavya,Mehta,General Ward,GW-10,Moderate,54.7
+PAT-001742,Arjun,Khan,General Inpatient Hall,HALL-04,Moderate,55.7
+PAT-001743,Ishita,Verma,General Ward,GW-05,Moderate,53.7
+PAT-001744,Kavita,Mehta,General Ward,GW-19,High,59.4
+PAT-001745,Nikhil,Patil,General Ward,GW-04,High,57.6
+PAT-001746,Ira,Iyer,General Ward,GW-09,High,54.5
+PAT-001747,Dev,Desai,Private Inpatient Unit,PR-103,Moderate,50.4
+PAT-001748,Sneha,Das,General Ward,GW-08,Low,50.1
+PAT-001749,Riya,Mehta,Intensive Care Unit,ICU-08,High,61.3
+PAT-001750,Ishita,Pawar,Intensive Care Unit,ICU-09,Moderate,50.8
+PAT-001751,Priya,Verma,General Ward,GW-03,Low,51.1
+PAT-001752,Kavya,Pawar,General Ward,GW-19,Moderate,61.1
+PAT-001753,Rohan,Singh,General Ward,GW-20,Moderate,56.2
+PAT-001754,Rohan,Kumar,General Ward,GW-13,High,62.0
+PAT-001755,Dev,Verma,Isolation Unit,ISO-02,Low,54.8
+PAT-001756,Meera,Kulkarni,Emergency Department,ER-06,Low,45.5
+PAT-001757,Rahul,Khan,Intensive Care Unit,ICU-08,Moderate,52.3
+PAT-001758,Ishita,Das,General Inpatient Hall,HALL-04,High,51.7
+PAT-001759,Om,Shah,General Ward,GW-02,Critical,57.4
+PAT-001760,Sagar,Gupta,General Ward,GW-07,High,59.9
+PAT-001761,Mahesh,Joshi,Private Inpatient Unit,PR-117,Moderate,60.1
+PAT-001762,Kabir,Verma,General Ward,GW-18,High,53.4
+PAT-001763,Riya,More,General Ward,GW-04,Moderate,55.2
+PAT-001764,Sagar,Patil,Private Inpatient Unit,PR-102,Moderate,52.9
+PAT-001765,Kavya,Das,Private Inpatient Unit,PR-130,Low,47.3
+PAT-001766,Vivaan,Jadhav,General Ward,GW-10,High,57.3
+PAT-001767,Ishaan,Verma,General Ward,GW-04,Moderate,57.2
+PAT-001768,Kavita,Mehta,General Inpatient Hall,HALL-04,High,54.0
+PAT-001769,Meera,More,Intensive Care Unit,ICU-06,High,61.8
+PAT-001770,Mahesh,Mehta,General Ward,GW-13,Moderate,49.1
+PAT-001771,Kunal,Das,Emergency Department,ER-01,Critical,59.0
+PAT-001772,Riya,Gupta,Isolation Unit,ISO-07,High,61.7
+PAT-001773,Anjali,Sharma,Intensive Care Unit,ICU-05,High,50.6
+PAT-001774,Ishita,Verma,General Ward,GW-02,Moderate,54.2
+PAT-001775,Kunal,Gupta,General Inpatient Hall,HALL-03,High,60.4
+PAT-001776,Nikhil,Kulkarni,Emergency Department,ER-05,Critical,58.1
+PAT-001777,Rohan,Kulkarni,General Ward,GW-03,Moderate,57.7
+PAT-001778,Sneha,Mehta,Intensive Care Unit,ICU-12,Moderate,58.1
+PAT-001779,Yash,Sharma,General Ward,GW-06,Low,53.3
+PAT-001780,Pooja,Shah,General Ward,GW-17,Moderate,57.1
+PAT-001781,Kavita,Patil,General Ward,GW-11,Critical,63.1
+PAT-001782,Neha,Mane,General Inpatient Hall,HALL-03,Low,47.9
+PAT-001783,Ishita,Khan,General Ward,GW-20,High,56.8
+PAT-001784,Aanya,Shah,General Ward,GW-04,Moderate,55.9
+PAT-001785,Sameer,Jadhav,General Inpatient Hall,HALL-02,High,61.0
+PAT-001786,Mira,Reddy,Private Inpatient Unit,PR-146,High,55.7
+PAT-001787,Sameer,Pawar,Private Inpatient Unit,PR-145,Moderate,55.1
+PAT-001788,Pranav,Jadhav,General Ward,GW-10,Low,55.0
+PAT-001789,Kunal,Desai,Private Inpatient Unit,PR-126,Moderate,54.4
+PAT-001790,Aanya,Khan,General Ward,GW-17,High,56.4
+PAT-001791,Aanya,Nair,Emergency Department,ER-01,High,51.6
+PAT-001792,Om,Patil,Day Care Unit,DC-04,Moderate,56.6
+PAT-001793,Saanvi,Verma,Isolation Unit,ISO-05,High,57.7
+PAT-001794,Nikhil,Mehta,Emergency Department,ER-03,Moderate,57.5
+PAT-001795,Sagar,More,General Ward,GW-08,High,56.6
+PAT-001796,Amit,Das,General Inpatient Hall,HALL-02,High,55.7
+PAT-001797,Yash,Khan,Emergency Department,ER-03,High,53.5
+PAT-001798,Priya,Joshi,Private Inpatient Unit,PR-139,Moderate,51.2
+PAT-001799,Ishita,Kumar,General Ward,GW-19,High,57.6
+PAT-001800,Mahesh,Patil,Emergency Department,ER-04,Moderate,50.7
+PAT-001801,Aanya,Iyer,General Inpatient Hall,HALL-02,Low,47.9
+PAT-001802,Anaya,Das,Intensive Care Unit,ICU-03,High,55.8
+PAT-001803,Rahul,Reddy,Intensive Care Unit,ICU-06,Moderate,51.9
+PAT-001804,Ishaan,Mehta,General Ward,GW-01,Moderate,55.6
+PAT-001805,Pranav,Sharma,Private Inpatient Unit,PR-154,Moderate,57.5
+PAT-001806,Diya,Reddy,General Ward,GW-03,Low,51.1
+PAT-001807,Meera,Nair,Intensive Care Unit,ICU-12,Moderate,58.7
+PAT-001808,Ishita,Patil,General Inpatient Hall,HALL-01,Critical,64.4
+PAT-001809,Rohan,Kulkarni,Intensive Care Unit,ICU-10,Moderate,57.5
+PAT-001810,Sneha,Kulkarni,Intensive Care Unit,ICU-10,Low,57.0
+PAT-001811,Nikhil,Iyer,General Ward,GW-16,Low,46.1
+PAT-001812,Pooja,More,Private Inpatient Unit,PR-138,Moderate,56.3
+PAT-001813,Amit,Shah,General Ward,GW-15,Moderate,55.6
+PAT-001814,Kunal,Kulkarni,Emergency Department,ER-02,Low,57.6
+PAT-001815,Kavita,Khan,General Inpatient Hall,HALL-04,Moderate,54.2
+PAT-001816,Om,Joshi,General Ward,GW-07,Low,52.1
+PAT-001817,Kavita,Nair,General Ward,GW-19,High,54.6
+PAT-001818,Mahesh,Singh,Isolation Unit,ISO-09,Moderate,57.6
+PAT-001819,Pooja,Desai,General Inpatient Hall,HALL-01,High,61.4
+PAT-001820,Kavita,Pawar,Intensive Care Unit,ICU-03,Moderate,52.9
+PAT-001821,Aanya,Khan,Isolation Unit,ISO-01,Moderate,51.7
+PAT-001822,Diya,Das,Isolation Unit,ISO-02,Moderate,51.7
+PAT-001823,Kabir,Joshi,Private Inpatient Unit,PR-113,Moderate,54.2
+PAT-001824,Riya,Jadhav,General Ward,GW-06,Moderate,55.8
+PAT-001825,Nikhil,Desai,General Ward,GW-09,Low,50.6
+PAT-001826,Aanya,Reddy,Private Inpatient Unit,PR-112,High,60.6
+PAT-001827,Riya,Singh,Intensive Care Unit,ICU-06,High,54.4
+PAT-001828,Ira,Joshi,General Ward,GW-11,High,54.0
+PAT-001829,Anjali,Das,General Ward,GW-19,Low,47.2
+PAT-001830,Om,Jadhav,Isolation Unit,ISO-10,High,58.9
+PAT-001831,Kunal,Mehta,General Ward,GW-05,Moderate,54.1
+PAT-001832,Meera,Joshi,General Ward,GW-17,Moderate,54.5
+PAT-001833,Arjun,Iyer,Emergency Department,ER-05,Moderate,52.1
+PAT-001834,Aanya,Mane,Private Inpatient Unit,PR-105,Moderate,58.7
+PAT-001835,Mira,Das,Intensive Care Unit,ICU-05,High,58.7
+PAT-001836,Amit,Mehta,Intensive Care Unit,ICU-02,High,57.4
+PAT-001837,Dev,Khan,Private Inpatient Unit,PR-107,Moderate,57.5
+PAT-001838,Priya,Kulkarni,Intensive Care Unit,ICU-10,High,52.0
+PAT-001839,Tara,Das,Intensive Care Unit,ICU-11,Moderate,53.2
+PAT-001840,Diya,Reddy,Intensive Care Unit,ICU-09,Moderate,57.7
+PAT-001841,Ishita,Singh,General Ward,GW-10,Moderate,53.6
+PAT-001842,Kabir,Iyer,General Inpatient Hall,HALL-03,Low,54.3
+PAT-001843,Yash,More,General Ward,GW-02,High,58.9
+PAT-001844,Pranav,Reddy,General Ward,GW-03,High,63.2
+PAT-001845,Priya,Patil,General Ward,GW-10,Moderate,54.2
+PAT-001846,Kavita,Nair,Private Inpatient Unit,PR-133,High,56.5
+PAT-001847,Neha,Sharma,General Ward,GW-17,Low,52.4
+PAT-001848,Meera,Nair,General Ward,GW-20,High,61.0
+PAT-001849,Pooja,Kulkarni,Intensive Care Unit,ICU-11,High,54.5
+PAT-001850,Om,Mehta,Emergency Department,ER-06,Low,52.7
+PAT-001851,Anjali,Singh,General Ward,GW-14,Moderate,54.4
+PAT-001852,Meera,Verma,General Ward,GW-03,Moderate,56.4
+PAT-001853,Pooja,Iyer,General Ward,GW-12,Moderate,54.5
+PAT-001854,Kunal,Mehta,General Ward,GW-03,Low,49.2
+PAT-001855,Ira,Singh,General Ward,GW-03,High,54.9
+PAT-001856,Rohan,Verma,General Ward,GW-13,Moderate,55.7
+PAT-001857,Mira,Singh,General Inpatient Hall,HALL-04,Moderate,57.5
+PAT-001858,Priya,Shah,Emergency Department,ER-05,Low,55.6
+PAT-001859,Aarav,Pawar,Private Inpatient Unit,PR-156,High,56.9
+PAT-001860,Sneha,Das,General Ward,GW-03,Moderate,55.0
+PAT-001861,Saanvi,Singh,General Ward,GW-09,Moderate,55.9
+PAT-001862,Neha,Nair,Emergency Department,ER-02,Low,50.0
+PAT-001863,Nikhil,Kulkarni,Private Inpatient Unit,PR-137,Moderate,52.8
+PAT-001864,Amit,Pawar,Isolation Unit,ISO-01,High,59.8
+PAT-001865,Mahesh,More,General Ward,GW-14,High,60.9
+PAT-001866,Kavya,Nair,Private Inpatient Unit,PR-134,Moderate,55.7
+PAT-001867,Kabir,Verma,General Ward,GW-14,Low,51.0
+PAT-001868,Sameer,Nair,Isolation Unit,ISO-10,Low,49.9
+PAT-001869,Sneha,Kumar,Intensive Care Unit,ICU-12,High,59.3
+PAT-001870,Riya,Jadhav,Day Care Unit,DC-03,Moderate,54.3
+PAT-001871,Vivaan,Shah,General Ward,GW-13,High,56.0
+PAT-001872,Vivaan,Joshi,Emergency Department,ER-05,High,56.7
+PAT-001873,Kavya,Khan,General Ward,GW-15,Moderate,53.7
+PAT-001874,Aditya,Reddy,General Ward,GW-08,Moderate,61.6
+PAT-001875,Kabir,Verma,General Ward,GW-10,Moderate,57.2
+PAT-001876,Aditya,Iyer,General Ward,GW-06,Moderate,58.6
+PAT-001877,Pranav,Khan,Emergency Department,ER-03,Low,49.9
+PAT-001878,Aditya,Jadhav,Private Inpatient Unit,PR-121,High,58.6
+PAT-001879,Neha,Verma,Emergency Department,ER-02,Moderate,53.0
+PAT-001880,Mahesh,Joshi,Emergency Department,ER-04,Low,51.7
+PAT-001881,Aarav,Desai,General Inpatient Hall,HALL-04,High,54.3
+PAT-001882,Sneha,Nair,General Ward,GW-15,High,54.6
+PAT-001883,Kavita,Reddy,Isolation Unit,ISO-01,High,57.4
+PAT-001884,Om,Gupta,Emergency Department,ER-01,Moderate,58.7
+PAT-001885,Rahul,Khan,General Ward,GW-01,Moderate,52.5
+PAT-001886,Tara,Verma,General Ward,GW-11,High,58.2
+PAT-001887,Amit,Joshi,General Inpatient Hall,HALL-01,Moderate,59.5
+PAT-001888,Rohan,Gupta,General Ward,GW-12,Critical,62.5
+PAT-001889,Mira,Verma,Isolation Unit,ISO-06,Low,51.9
+PAT-001890,Arjun,Jadhav,Private Inpatient Unit,PR-149,Moderate,52.2
+PAT-001891,Dev,Kumar,General Ward,GW-17,Moderate,51.8
+PAT-001892,Pooja,Kumar,General Ward,GW-09,High,57.5
+PAT-001893,Sagar,Singh,General Ward,GW-20,High,60.6
+PAT-001894,Amit,Nair,Isolation Unit,ISO-03,High,61.7
+PAT-001895,Ishita,Pawar,Day Care Unit,DC-03,Moderate,59.3
+PAT-001896,Saanvi,Jadhav,Intensive Care Unit,ICU-04,Low,49.5
+PAT-001897,Aarav,Das,Intensive Care Unit,ICU-03,Moderate,49.3
+PAT-001898,Kavita,Jadhav,Emergency Department,ER-04,Low,44.6
+PAT-001899,Sneha,Mehta,Private Inpatient Unit,PR-104,Low,54.2
+PAT-001900,Kabir,Iyer,General Inpatient Hall,HALL-01,Critical,59.6
+PAT-001901,Kavya,Shah,General Ward,GW-03,High,59.5
+PAT-001902,Aarav,Mehta,General Ward,GW-12,High,56.3
+PAT-001903,Tara,Patil,General Ward,GW-03,Moderate,53.3
+PAT-001904,Rohan,Iyer,General Ward,GW-04,High,61.9
+PAT-001905,Anaya,Singh,General Ward,GW-12,High,59.4
+PAT-001906,Riya,Nair,General Ward,GW-15,Moderate,53.6
+PAT-001907,Pooja,More,Private Inpatient Unit,PR-120,Moderate,54.3
+PAT-001908,Kavya,Sharma,Intensive Care Unit,ICU-10,High,54.6
+PAT-001909,Aanya,Kumar,Private Inpatient Unit,PR-140,Critical,58.1
+PAT-001910,Aanya,Singh,General Inpatient Hall,HALL-02,High,59.1
+PAT-001911,Rahul,Reddy,Emergency Department,ER-04,Low,50.8
+PAT-001912,Aanya,Sharma,General Ward,GW-09,Moderate,58.2
+PAT-001913,Meera,Das,Emergency Department,ER-04,Critical,59.1
+PAT-001914,Ira,Gupta,Emergency Department,ER-01,Moderate,56.2
+PAT-001915,Riya,Sharma,General Ward,GW-07,Moderate,57.0
+PAT-001916,Vivaan,Mane,General Inpatient Hall,HALL-02,Moderate,55.0
+PAT-001917,Saanvi,Patil,General Inpatient Hall,HALL-04,High,58.0
+PAT-001918,Nikhil,Das,General Ward,GW-12,Moderate,58.6
+PAT-001919,Kavya,Pawar,General Inpatient Hall,HALL-03,Moderate,57.2
+PAT-001920,Neha,Joshi,General Ward,GW-08,High,55.8
+PAT-001921,Rahul,Iyer,Intensive Care Unit,ICU-05,Critical,58.5
+PAT-001922,Rahul,Gupta,General Ward,GW-17,High,56.3
+PAT-001923,Amit,Nair,General Ward,GW-11,Moderate,54.6
+PAT-001924,Vivaan,Verma,General Ward,GW-20,Low,53.6
+PAT-001925,Rahul,Pawar,General Ward,GW-06,High,55.4
+PAT-001926,Neha,Shah,Intensive Care Unit,ICU-05,High,58.9
+PAT-001927,Dev,Nair,Private Inpatient Unit,PR-146,Moderate,56.8
+PAT-001928,Diya,Das,General Ward,GW-02,Moderate,62.4
+PAT-001929,Diya,Mehta,Isolation Unit,ISO-10,Critical,59.4
+PAT-001930,Neha,Desai,General Inpatient Hall,HALL-02,Moderate,63.4
+PAT-001931,Sameer,Das,General Ward,GW-02,Moderate,56.8
+PAT-001932,Aanya,Joshi,General Ward,GW-07,Low,49.1
+PAT-001933,Kunal,Singh,General Ward,GW-11,High,58.5
+PAT-001934,Tara,Sharma,General Ward,GW-03,High,54.3
+PAT-001935,Om,Gupta,General Ward,GW-04,Low,53.3
+PAT-001936,Ishita,Verma,Emergency Department,ER-03,Moderate,57.1
+PAT-001937,Saanvi,Kulkarni,General Ward,GW-18,High,55.0
+PAT-001938,Kunal,Kulkarni,General Inpatient Hall,HALL-01,Moderate,54.9
+PAT-001939,Ira,Das,General Ward,GW-03,Moderate,57.8
+PAT-001940,Neha,Das,Intensive Care Unit,ICU-03,High,60.4
+PAT-001941,Priya,Mehta,Intensive Care Unit,ICU-11,High,57.4
+PAT-001942,Mahesh,Jadhav,Isolation Unit,ISO-10,Moderate,55.2
+PAT-001943,Priya,Desai,General Ward,GW-05,Moderate,52.4
+PAT-001944,Pranav,Desai,Intensive Care Unit,ICU-07,Low,49.6
+PAT-001945,Ira,Sharma,Private Inpatient Unit,PR-140,Moderate,53.2
+PAT-001946,Yash,Nair,Private Inpatient Unit,PR-110,Moderate,59.8
+PAT-001947,Pooja,Das,General Ward,GW-11,Moderate,56.8
+PAT-001948,Vivaan,Singh,Emergency Department,ER-04,Low,51.3
+PAT-001949,Kunal,Singh,General Ward,GW-11,High,57.0
+PAT-001950,Mahesh,Verma,Emergency Department,ER-06,High,62.4
+PAT-001951,Kavya,Gupta,General Ward,GW-14,Moderate,52.1
+PAT-001952,Kavita,Sharma,Private Inpatient Unit,PR-113,High,54.7
+PAT-001953,Kavita,Singh,Intensive Care Unit,ICU-01,High,52.9
+PAT-001954,Aditi,Mehta,Private Inpatient Unit,PR-111,Moderate,52.7
+PAT-001955,Mahesh,Singh,Intensive Care Unit,ICU-10,Low,51.6
+PAT-001956,Rohan,Singh,Private Inpatient Unit,PR-151,Moderate,58.8
+PAT-001957,Yash,Sharma,General Ward,GW-03,High,55.9
+PAT-001958,Ira,Singh,General Inpatient Hall,HALL-03,High,60.3
+PAT-001959,Aditya,Desai,General Ward,GW-02,Low,51.5
+PAT-001960,Pooja,Sharma,Isolation Unit,ISO-09,Moderate,53.6
+PAT-001961,Kabir,Sharma,General Ward,GW-03,Moderate,55.8
+PAT-001962,Anaya,Kulkarni,General Ward,GW-19,Moderate,58.1
+PAT-001963,Meera,Jadhav,General Inpatient Hall,HALL-02,Moderate,57.8
+PAT-001964,Priya,Khan,Private Inpatient Unit,PR-126,High,59.4
+PAT-001965,Aanya,Iyer,General Ward,GW-09,High,55.0
+PAT-001966,Saanvi,Pawar,General Ward,GW-08,High,58.3
+PAT-001967,Aditya,Verma,General Ward,GW-18,Moderate,60.1
+PAT-001968,Neha,Das,Isolation Unit,ISO-09,High,54.5
+PAT-001969,Tara,Kulkarni,General Ward,GW-05,Low,50.7
+PAT-001970,Saanvi,Kulkarni,Intensive Care Unit,ICU-03,Moderate,56.2
+PAT-001971,Sneha,More,Private Inpatient Unit,PR-107,Moderate,55.4
+PAT-001972,Kavya,Verma,General Ward,GW-07,Moderate,52.6
+PAT-001973,Riya,Das,General Inpatient Hall,HALL-04,High,58.7
+PAT-001974,Nikhil,Mane,General Ward,GW-08,High,53.5
+PAT-001975,Neha,Mane,General Ward,GW-11,Moderate,56.5
+PAT-001976,Kavya,More,Private Inpatient Unit,PR-104,High,59.3
+PAT-001977,Ira,Gupta,Intensive Care Unit,ICU-07,High,54.1
+PAT-001978,Pranav,Desai,General Ward,GW-17,High,55.5
+PAT-001979,Pranav,Pawar,General Ward,GW-09,Moderate,52.8
+PAT-001980,Sameer,Jadhav,Private Inpatient Unit,PR-102,Moderate,53.4
+PAT-001981,Sameer,Shah,Intensive Care Unit,ICU-03,Moderate,53.1
+PAT-001982,Sameer,Iyer,General Ward,GW-18,Moderate,51.5
+PAT-001983,Riya,Verma,General Ward,GW-12,Moderate,55.1
+PAT-001984,Aditi,Iyer,Emergency Department,ER-05,Moderate,53.4
+PAT-001985,Kunal,Sharma,General Ward,GW-15,High,57.0
+PAT-001986,Yash,Verma,Day Care Unit,DC-05,Moderate,61.3
+PAT-001987,Aanya,Mane,Isolation Unit,ISO-02,Low,47.9
+PAT-001988,Ishita,Joshi,General Inpatient Hall,HALL-03,Low,47.8
+PAT-001989,Sneha,Gupta,General Ward,GW-06,High,57.4
+PAT-001990,Kavita,Patil,General Ward,GW-06,Moderate,56.2
+PAT-001991,Aditi,Khan,General Ward,GW-18,High,58.4
+PAT-001992,Arjun,Reddy,General Ward,GW-06,Low,51.1
+PAT-001993,Arjun,Sharma,General Ward,GW-02,High,57.0
+PAT-001994,Kavita,Desai,General Ward,GW-07,Moderate,56.7
+PAT-001995,Kavita,Kulkarni,General Ward,GW-02,Moderate,60.5
+PAT-001996,Kavita,Sharma,General Inpatient Hall,HALL-02,High,60.5
+PAT-001997,Ishaan,Reddy,General Inpatient Hall,HALL-01,Low,50.4
+PAT-001998,Amit,Jadhav,General Ward,GW-17,High,61.7
+PAT-001999,Saanvi,Patil,Private Inpatient Unit,PR-133,Moderate,55.3
+PAT-002000,Aditya,Gupta,General Ward,GW-13,Moderate,60.5
+PAT-002001,Ishita,Nair,Intensive Care Unit,ICU-04,Moderate,56.2
+PAT-002002,Saanvi,More,General Ward,GW-06,Moderate,53.1
+PAT-002003,Rohan,Jadhav,General Ward,GW-12,Moderate,58.6
+PAT-002004,Diya,Jadhav,General Ward,GW-11,Moderate,54.0
+PAT-002005,Pooja,Khan,Isolation Unit,ISO-02,Moderate,52.7
+PAT-002006,Rohan,Joshi,Day Care Unit,DC-04,Moderate,48.1
+PAT-002007,Aanya,Kulkarni,Private Inpatient Unit,PR-120,Moderate,51.1
+PAT-002008,Kunal,Patil,Intensive Care Unit,ICU-10,Low,50.1
+PAT-002009,Ira,Sharma,General Ward,GW-09,High,58.5
+PAT-002010,Om,Sharma,General Inpatient Hall,HALL-04,High,57.3
+PAT-002011,Vivaan,Reddy,General Ward,GW-06,High,57.8
+PAT-002012,Meera,Iyer,General Ward,GW-06,Moderate,53.8
+PAT-002013,Ishaan,Shah,Private Inpatient Unit,PR-141,Low,52.4
+PAT-002014,Anaya,Joshi,Intensive Care Unit,ICU-01,High,53.8
+PAT-002015,Kunal,Mehta,General Ward,GW-14,High,53.0
+PAT-002016,Pranav,Das,General Ward,GW-12,Moderate,52.9
+PAT-002017,Aanya,Sharma,Emergency Department,ER-06,High,56.5
+PAT-002018,Meera,Kumar,General Ward,GW-02,Moderate,57.6
+PAT-002019,Pranav,Jadhav,Emergency Department,ER-04,High,55.4
+PAT-002020,Tara,Kumar,General Ward,GW-15,High,56.5
+PAT-002021,Diya,Singh,General Ward,GW-16,High,56.7
+PAT-002022,Aanya,Mehta,Private Inpatient Unit,PR-118,High,59.3
+PAT-002023,Aditi,Sharma,General Ward,GW-16,Moderate,54.1
+PAT-002024,Ishaan,Desai,Private Inpatient Unit,PR-135,High,60.9
+PAT-002025,Ishaan,Pawar,General Ward,GW-06,Moderate,52.3
+PAT-002026,Ishaan,Kulkarni,Private Inpatient Unit,PR-156,High,59.3
+PAT-002027,Pranav,Iyer,General Ward,GW-15,High,53.7
+PAT-002028,Aanya,Kulkarni,General Ward,GW-03,Moderate,46.2
+PAT-002029,Aanya,Reddy,Emergency Department,ER-02,Moderate,52.0
+PAT-002030,Kabir,Sharma,Intensive Care Unit,ICU-06,Low,55.1
+PAT-002031,Kabir,Mane,General Ward,GW-10,High,56.3
+PAT-002032,Saanvi,Desai,General Ward,GW-17,Moderate,58.5
+PAT-002033,Arjun,Iyer,General Ward,GW-11,High,55.4
+PAT-002034,Neha,Shah,General Ward,GW-04,Moderate,60.0
+PAT-002035,Saanvi,Sharma,General Ward,GW-15,Moderate,57.6
+PAT-002036,Kunal,Shah,General Ward,GW-20,High,59.5
+PAT-002037,Meera,Shah,Emergency Department,ER-03,Critical,56.0
+PAT-002038,Mahesh,Pawar,General Ward,GW-18,Moderate,53.7
+PAT-002039,Kavya,Mehta,Day Care Unit,DC-02,Moderate,52.8
+PAT-002040,Anjali,Gupta,Intensive Care Unit,ICU-04,Low,50.5
+PAT-002041,Om,Verma,Private Inpatient Unit,PR-155,Moderate,54.0
+PAT-002042,Yash,Das,General Ward,GW-03,Moderate,53.6
+PAT-002043,Kavya,Desai,Day Care Unit,DC-02,Low,48.1
+PAT-002044,Kabir,Iyer,General Ward,GW-11,High,55.8
+PAT-002045,Neha,Mane,General Ward,GW-13,Moderate,51.8
+PAT-002046,Kunal,Verma,Private Inpatient Unit,PR-148,Low,52.2
+PAT-002047,Priya,Mehta,Isolation Unit,ISO-07,Moderate,55.8
+PAT-002048,Sneha,Singh,General Ward,GW-04,High,55.0
+PAT-002049,Yash,Mane,Emergency Department,ER-06,High,57.1
+PAT-002050,Aarav,Joshi,General Ward,GW-16,Low,53.6
+PAT-002051,Sneha,Gupta,Day Care Unit,DC-01,Moderate,54.4
+PAT-002052,Mahesh,Patil,General Ward,GW-02,High,55.8
+PAT-002053,Mira,Gupta,Day Care Unit,DC-04,Moderate,53.1
+PAT-002054,Sameer,Jadhav,General Ward,GW-14,High,58.2
+PAT-002055,Meera,Mane,General Ward,GW-11,Low,49.7
+PAT-002056,Diya,Pawar,General Ward,GW-05,High,57.3
+PAT-002057,Neha,Nair,Emergency Department,ER-02,Moderate,51.1
+PAT-002058,Aarav,Reddy,General Ward,GW-20,High,60.5
+PAT-002059,Dev,Reddy,General Ward,GW-08,High,59.5
+PAT-002060,Anaya,Jadhav,Intensive Care Unit,ICU-11,High,59.7
+PAT-002061,Rahul,Iyer,General Ward,GW-08,Moderate,55.1
+PAT-002062,Om,Desai,Emergency Department,ER-02,Critical,62.8
+PAT-002063,Amit,Verma,General Ward,GW-02,Low,51.5
+PAT-002064,Kavita,Shah,General Ward,GW-13,Moderate,53.9
+PAT-002065,Amit,Reddy,General Ward,GW-20,High,60.1
+PAT-002066,Ishita,Verma,Private Inpatient Unit,PR-153,Moderate,59.3
+PAT-002067,Mira,Singh,General Ward,GW-01,Moderate,56.2
+PAT-002068,Meera,Mane,Emergency Department,ER-03,Low,46.8
+PAT-002069,Rahul,Mehta,General Ward,GW-04,High,54.1
+PAT-002070,Anaya,More,Intensive Care Unit,ICU-06,High,54.0
+PAT-002071,Amit,More,General Ward,GW-03,Moderate,55.1
+PAT-002072,Pooja,Das,Private Inpatient Unit,PR-135,Moderate,54.6
+PAT-002073,Anaya,Kulkarni,General Ward,GW-13,High,57.9
+PAT-002074,Sameer,Verma,Emergency Department,ER-06,Moderate,57.6
+PAT-002075,Yash,Jadhav,Day Care Unit,DC-03,Moderate,55.4
+PAT-002076,Anaya,Reddy,Isolation Unit,ISO-04,High,56.3
+PAT-002077,Pranav,Mane,General Ward,GW-08,Moderate,55.0
+PAT-002078,Kabir,Desai,Emergency Department,ER-01,High,59.1
+PAT-002079,Yash,Sharma,Isolation Unit,ISO-03,High,64.5
+PAT-002080,Rohan,Verma,General Ward,GW-04,Low,51.4
+PAT-002081,Om,Mehta,Private Inpatient Unit,PR-145,High,56.0
+PAT-002082,Yash,Singh,Emergency Department,ER-06,Low,47.6
+PAT-002083,Diya,Pawar,General Ward,GW-02,Moderate,54.8
+PAT-002084,Ishita,Mehta,Emergency Department,ER-06,Moderate,55.0
+PAT-002085,Anjali,Verma,General Inpatient Hall,HALL-04,High,60.3
+PAT-002086,Sneha,Kumar,Private Inpatient Unit,PR-146,Moderate,52.6
+PAT-002087,Meera,Joshi,General Ward,GW-14,Moderate,51.1
+PAT-002088,Aditya,Sharma,General Ward,GW-11,High,54.0
+PAT-002089,Dev,Shah,Isolation Unit,ISO-10,Moderate,54.7
+PAT-002090,Rohan,Patil,Isolation Unit,ISO-06,High,59.9
+PAT-002091,Sameer,Reddy,General Ward,GW-12,Low,47.2
+PAT-002092,Dev,Jadhav,General Ward,GW-02,Moderate,54.2
+PAT-002093,Aditya,Singh,Private Inpatient Unit,PR-130,Moderate,54.1
+PAT-002094,Aanya,More,Day Care Unit,DC-02,Moderate,59.5
+PAT-002095,Sagar,Kulkarni,General Ward,GW-07,Moderate,56.8
+PAT-002096,Ishita,Joshi,General Ward,GW-10,Low,49.0
+PAT-002097,Ira,Kulkarni,Intensive Care Unit,ICU-09,Low,53.0
+PAT-002098,Ishaan,Shah,General Inpatient Hall,HALL-01,Moderate,52.1
+PAT-002099,Ishaan,Sharma,Private Inpatient Unit,PR-154,Critical,60.5
+PAT-002100,Anjali,Patil,General Inpatient Hall,HALL-03,Moderate,54.5
+PAT-002101,Mira,Patil,General Ward,GW-14,Moderate,59.1
+PAT-002102,Mahesh,More,Private Inpatient Unit,PR-148,High,55.2
+PAT-002103,Diya,Joshi,Private Inpatient Unit,PR-133,High,57.4
+PAT-002104,Mira,Joshi,Emergency Department,ER-05,Low,51.3
+PAT-002105,Pooja,Reddy,General Ward,GW-18,Low,47.4
+PAT-002106,Sagar,Verma,General Ward,GW-19,High,56.2
+PAT-002107,Rahul,Patil,Intensive Care Unit,ICU-01,Moderate,54.7
+PAT-002108,Aditya,Shah,General Ward,GW-20,High,60.2
+PAT-002109,Pooja,Das,Intensive Care Unit,ICU-06,High,55.6
+PAT-002110,Anjali,Das,General Ward,GW-03,High,58.7
+PAT-002111,Anaya,Pawar,General Inpatient Hall,HALL-02,Moderate,59.0
+PAT-002112,Ishaan,Iyer,General Ward,GW-01,High,56.2
+PAT-002113,Meera,Jadhav,General Ward,GW-10,Moderate,53.7
+PAT-002114,Saanvi,Khan,General Ward,GW-09,Moderate,52.1
+PAT-002115,Arjun,Desai,Private Inpatient Unit,PR-127,Moderate,52.3
+PAT-002116,Neha,Patil,Day Care Unit,DC-03,Critical,59.3
+PAT-002117,Sneha,Joshi,General Ward,GW-03,High,55.9
+PAT-002118,Pooja,Kumar,Emergency Department,ER-01,High,58.2
+PAT-002119,Aarav,Mehta,General Ward,GW-13,High,59.3
+PAT-002120,Diya,Singh,General Ward,GW-11,Moderate,59.3
+PAT-002121,Mira,Mehta,Emergency Department,ER-02,High,62.4
+PAT-002122,Diya,Mane,General Ward,GW-13,Low,51.3
+PAT-002123,Neha,Gupta,Emergency Department,ER-06,Moderate,52.1
+PAT-002124,Mira,Sharma,Private Inpatient Unit,PR-108,High,59.4
+PAT-002125,Nikhil,Sharma,General Ward,GW-11,High,58.4
+PAT-002126,Pranav,Singh,General Ward,GW-13,High,59.4
+PAT-002127,Om,Sharma,General Inpatient Hall,HALL-02,Moderate,54.6
+PAT-002128,Kavya,Gupta,General Ward,GW-07,Low,55.1
+PAT-002129,Aarav,Patil,General Ward,GW-14,Moderate,53.1
+PAT-002130,Kavya,Mehta,Emergency Department,ER-03,High,55.5
+PAT-002131,Yash,More,Intensive Care Unit,ICU-09,Low,55.1
+PAT-002132,Dev,Joshi,General Ward,GW-13,High,58.7
+PAT-002133,Pooja,Patil,General Inpatient Hall,HALL-04,Low,45.9
+PAT-002134,Ishita,Shah,Intensive Care Unit,ICU-01,Low,52.5
+PAT-002135,Kunal,Joshi,General Ward,GW-19,High,58.6
+PAT-002136,Anjali,Kulkarni,Emergency Department,ER-01,Moderate,54.5
+PAT-002137,Kavya,Mehta,Private Inpatient Unit,PR-153,Low,50.7
+PAT-002138,Yash,Nair,Intensive Care Unit,ICU-02,High,60.4
+PAT-002139,Kavya,Nair,General Ward,GW-12,High,55.7
+PAT-002140,Ishita,Khan,Isolation Unit,ISO-09,Low,53.2
+PAT-002141,Kavita,Khan,General Ward,GW-18,High,59.2
+PAT-002142,Anaya,Iyer,Intensive Care Unit,ICU-06,Low,47.5
+PAT-002143,Pranav,Sharma,General Ward,GW-15,Low,50.9
+PAT-002144,Kunal,Mehta,General Ward,GW-03,High,54.3
+PAT-002145,Aditya,Singh,General Ward,GW-11,High,58.1
+PAT-002146,Ishita,Singh,General Ward,GW-19,Moderate,51.0
+PAT-002147,Om,Singh,General Ward,GW-04,Low,51.7
+PAT-002148,Kavita,Mane,General Inpatient Hall,HALL-04,Moderate,56.3
+PAT-002149,Aditya,Patil,General Ward,GW-17,Moderate,61.7
+PAT-002150,Pooja,Singh,General Ward,GW-10,Moderate,59.3
+PAT-002151,Mira,Iyer,General Ward,GW-20,High,63.6
+PAT-002152,Aditya,Verma,Intensive Care Unit,ICU-05,High,58.3
+PAT-002153,Rohan,Iyer,General Ward,GW-17,Moderate,57.6
+PAT-002154,Ishita,Mane,Intensive Care Unit,ICU-09,Critical,62.1
+PAT-002155,Rahul,Patil,Emergency Department,ER-04,Moderate,62.2
+PAT-002156,Neha,Das,Day Care Unit,DC-03,High,56.7
+PAT-002157,Ishita,Nair,General Ward,GW-15,Critical,63.3
+PAT-002158,Kabir,Jadhav,General Ward,GW-16,High,57.9
+PAT-002159,Sagar,Mane,General Ward,GW-12,Low,53.7
+PAT-002160,Amit,Verma,Emergency Department,ER-04,Moderate,53.9
+PAT-002161,Nikhil,Kumar,General Inpatient Hall,HALL-02,Low,53.3
+PAT-002162,Yash,Kumar,General Ward,GW-15,Moderate,58.3
+PAT-002163,Rahul,Kulkarni,General Ward,GW-10,Low,55.7
+PAT-002164,Kunal,Sharma,General Ward,GW-15,Moderate,60.1
+PAT-002165,Ira,Mehta,General Ward,GW-09,High,55.1
+PAT-002166,Meera,Pawar,General Ward,GW-19,High,56.8
+PAT-002167,Sneha,Khan,General Ward,GW-18,Moderate,58.4
+PAT-002168,Arjun,Kulkarni,General Ward,GW-14,Moderate,58.8
+PAT-002169,Kunal,Iyer,Intensive Care Unit,ICU-12,High,57.6
+PAT-002170,Amit,Sharma,Emergency Department,ER-02,High,57.1
+PAT-002171,Ira,Shah,Private Inpatient Unit,PR-128,High,55.7
+PAT-002172,Ishita,Singh,Intensive Care Unit,ICU-12,Moderate,49.6
+PAT-002173,Pooja,Mane,General Ward,GW-06,Moderate,54.5
+PAT-002174,Pooja,Gupta,Emergency Department,ER-03,High,58.5
+PAT-002175,Aanya,Singh,General Ward,GW-12,Moderate,57.3
+PAT-002176,Tara,Kumar,General Ward,GW-20,Moderate,53.8
+PAT-002177,Kabir,Sharma,General Ward,GW-02,Moderate,60.2
+PAT-002178,Mira,Khan,Private Inpatient Unit,PR-125,High,56.4
+PAT-002179,Kavita,Joshi,General Ward,GW-19,Moderate,55.4
+PAT-002180,Aditi,Jadhav,General Ward,GW-15,Low,55.0
+PAT-002181,Rohan,Jadhav,General Ward,GW-18,High,59.3
+PAT-002182,Rahul,Sharma,General Ward,GW-08,Moderate,57.4
+PAT-002183,Dev,Joshi,Emergency Department,ER-01,Low,52.4
+PAT-002184,Aarav,Nair,Private Inpatient Unit,PR-128,High,54.9
+PAT-002185,Yash,Patil,General Ward,GW-02,High,56.3
+PAT-002186,Anjali,Joshi,General Ward,GW-14,High,56.0
+PAT-002187,Ira,Shah,General Ward,GW-17,High,60.9
+PAT-002188,Kavita,Desai,Intensive Care Unit,ICU-06,Moderate,52.5
+PAT-002189,Saanvi,Verma,Intensive Care Unit,ICU-05,High,51.6
+PAT-002190,Om,Iyer,Intensive Care Unit,ICU-05,Low,49.9
+PAT-002191,Diya,Mehta,General Ward,GW-15,Moderate,58.0
+PAT-002192,Meera,Sharma,General Ward,GW-03,Moderate,56.0
+PAT-002193,Anjali,Nair,General Ward,GW-06,High,56.6
+PAT-002194,Rohan,Iyer,Private Inpatient Unit,PR-156,Moderate,52.5
+PAT-002195,Pooja,Desai,General Inpatient Hall,HALL-04,Critical,60.9
+PAT-002196,Riya,Reddy,Intensive Care Unit,ICU-05,Critical,63.0
+PAT-002197,Anjali,Verma,Intensive Care Unit,ICU-10,Moderate,57.8
+PAT-002198,Aarav,Mane,General Inpatient Hall,HALL-02,High,53.8
+PAT-002199,Aanya,Iyer,Emergency Department,ER-06,High,57.2
+PAT-002200,Neha,Mehta,Emergency Department,ER-02,High,61.1
+PAT-002201,Dev,Nair,Private Inpatient Unit,PR-112,Moderate,56.3
+PAT-002202,Riya,Shah,General Ward,GW-15,Moderate,54.2
+PAT-002203,Tara,Mane,General Ward,GW-09,Moderate,56.7
+PAT-002204,Aarav,Kulkarni,Intensive Care Unit,ICU-11,High,60.3
+PAT-002205,Kunal,Nair,General Inpatient Hall,HALL-02,Moderate,54.1
+PAT-002206,Kavita,More,General Ward,GW-20,High,58.0
+PAT-002207,Dev,Reddy,Emergency Department,ER-05,Critical,64.5
+PAT-002208,Mahesh,Shah,Emergency Department,ER-04,Moderate,55.7
+PAT-002209,Ishaan,Kulkarni,General Ward,GW-18,Moderate,59.6
+PAT-002210,Sneha,Iyer,General Ward,GW-03,Moderate,57.4
+PAT-002211,Riya,Kumar,General Ward,GW-13,Moderate,49.9
+PAT-002212,Neha,Patil,General Ward,GW-08,High,57.5
+PAT-002213,Kabir,Jadhav,Private Inpatient Unit,PR-140,Moderate,59.3
+PAT-002214,Pranav,Reddy,Intensive Care Unit,ICU-08,Low,51.5
+PAT-002215,Saanvi,Joshi,General Ward,GW-19,Moderate,55.2
+PAT-002216,Ishaan,Reddy,Private Inpatient Unit,PR-107,Moderate,55.5
+PAT-002217,Pooja,Joshi,General Ward,GW-18,Moderate,50.9
+PAT-002218,Vivaan,Nair,General Ward,GW-15,Critical,60.9
+PAT-002219,Priya,Gupta,General Ward,GW-09,High,55.7
+PAT-002220,Pranav,Joshi,Emergency Department,ER-06,Low,47.8
+PAT-002221,Rohan,Joshi,Isolation Unit,ISO-03,Moderate,52.3
+PAT-002222,Sneha,Shah,Intensive Care Unit,ICU-06,High,55.6
+PAT-002223,Sneha,Reddy,General Ward,GW-08,Low,48.0
+PAT-002224,Sameer,Mane,Emergency Department,ER-05,High,60.3
+PAT-002225,Saanvi,Khan,General Ward,GW-15,Moderate,56.7
+PAT-002226,Kavya,Gupta,General Ward,GW-18,Moderate,54.7
+PAT-002227,Kunal,Kulkarni,Intensive Care Unit,ICU-07,High,57.5
+PAT-002228,Ishita,Mehta,General Ward,GW-09,Moderate,55.5
+PAT-002229,Diya,Nair,Emergency Department,ER-01,Low,50.3
+PAT-002230,Ishaan,Jadhav,General Ward,GW-03,Moderate,56.7
+PAT-002231,Nikhil,Gupta,Private Inpatient Unit,PR-104,Moderate,52.9
+PAT-002232,Sameer,Mane,Private Inpatient Unit,PR-133,Moderate,55.0
+PAT-002233,Om,Sharma,Emergency Department,ER-03,Low,40.7
+PAT-002234,Sameer,Sharma,Emergency Department,ER-06,Low,54.8
+PAT-002235,Aanya,Reddy,Emergency Department,ER-04,High,59.3
+PAT-002236,Diya,More,General Ward,GW-08,Critical,60.9
+PAT-002237,Kabir,Mehta,General Ward,GW-19,Moderate,60.5
+PAT-002238,Amit,Sharma,General Inpatient Hall,HALL-03,High,57.9
+PAT-002239,Neha,Iyer,Emergency Department,ER-01,Low,54.4
+PAT-002240,Diya,Jadhav,General Ward,GW-16,Low,53.2
+PAT-002241,Kavita,Shah,Intensive Care Unit,ICU-07,Low,48.5
+PAT-002242,Sameer,More,Private Inpatient Unit,PR-125,High,58.4
+PAT-002243,Aarav,Joshi,General Ward,GW-13,Moderate,58.2
+PAT-002244,Kabir,Khan,General Ward,GW-09,Critical,57.7
+PAT-002245,Anjali,Jadhav,Emergency Department,ER-03,Moderate,59.1
+PAT-002246,Rahul,Kumar,General Ward,GW-13,Moderate,53.3
+PAT-002247,Aarav,Patil,General Ward,GW-07,Moderate,53.7
+PAT-002248,Nikhil,Jadhav,Isolation Unit,ISO-01,High,58.3
+PAT-002249,Aditi,Das,General Inpatient Hall,HALL-04,Moderate,57.4
+PAT-002250,Amit,Desai,General Ward,GW-02,High,58.1
+PAT-002251,Mahesh,Verma,General Ward,GW-12,High,62.7
+PAT-002252,Rahul,Desai,General Ward,GW-05,Moderate,51.2
+PAT-002253,Riya,Khan,General Ward,GW-19,High,56.0
+PAT-002254,Saanvi,Kulkarni,General Inpatient Hall,HALL-04,Moderate,51.9
+PAT-002255,Aditya,Jadhav,Private Inpatient Unit,PR-126,Moderate,56.5
+PAT-002256,Om,Iyer,Private Inpatient Unit,PR-102,High,56.4
+PAT-002257,Kunal,Joshi,Intensive Care Unit,ICU-05,High,57.0
+PAT-002258,Arjun,Kumar,Private Inpatient Unit,PR-115,Moderate,50.1
+PAT-002259,Aditya,Gupta,General Ward,GW-02,Moderate,57.2
+PAT-002260,Yash,Mane,General Inpatient Hall,HALL-03,High,55.4
+PAT-002261,Pranav,Singh,General Ward,GW-07,Low,56.2
+PAT-002262,Pranav,Shah,Intensive Care Unit,ICU-06,High,59.7
+PAT-002263,Kabir,Kulkarni,Intensive Care Unit,ICU-03,Low,52.4
+PAT-002264,Kavya,Sharma,General Ward,GW-03,Moderate,50.9
+PAT-002265,Saanvi,Iyer,Emergency Department,ER-06,Low,54.7
+PAT-002266,Kavita,Shah,General Ward,GW-15,Moderate,54.4
+PAT-002267,Mira,Iyer,General Inpatient Hall,HALL-01,Moderate,53.7
+PAT-002268,Meera,More,Private Inpatient Unit,PR-143,Low,53.3
+PAT-002269,Meera,Reddy,General Ward,GW-10,Moderate,53.9
+PAT-002270,Sneha,Desai,Emergency Department,ER-04,Moderate,56.3
+PAT-002271,Meera,Reddy,Emergency Department,ER-04,High,56.6
+PAT-002272,Sagar,Das,Emergency Department,ER-05,Moderate,59.4
+PAT-002273,Sameer,Iyer,Intensive Care Unit,ICU-01,Moderate,52.7
+PAT-002274,Anaya,Shah,General Ward,GW-19,Low,49.1
+PAT-002275,Kunal,Joshi,General Ward,GW-19,Moderate,54.9
+PAT-002276,Mira,Kulkarni,General Inpatient Hall,HALL-04,Moderate,56.8
+PAT-002277,Pooja,Singh,Private Inpatient Unit,PR-105,High,63.1
+PAT-002278,Aditya,Reddy,Intensive Care Unit,ICU-07,High,58.6
+PAT-002279,Kunal,Mane,General Ward,GW-03,Moderate,60.6
+PAT-002280,Om,Nair,Emergency Department,ER-05,High,55.4
+PAT-002281,Riya,Singh,General Inpatient Hall,HALL-02,Moderate,56.2
+PAT-002282,Aditya,Pawar,General Ward,GW-16,Low,51.7
+PAT-002283,Ishaan,Das,General Ward,GW-08,High,56.5
+PAT-002284,Kunal,Iyer,Intensive Care Unit,ICU-05,Low,49.3
+PAT-002285,Aarav,Nair,General Ward,GW-08,High,59.6
+PAT-002286,Rahul,Desai,General Ward,GW-14,Moderate,51.5
+PAT-002287,Pranav,Joshi,General Ward,GW-19,Moderate,55.9
+PAT-002288,Pooja,Mehta,General Ward,GW-17,Moderate,56.6
+PAT-002289,Sneha,Iyer,Day Care Unit,DC-04,High,61.1
+PAT-002290,Ishaan,Desai,General Ward,GW-15,Moderate,58.2
+PAT-002291,Diya,Singh,Intensive Care Unit,ICU-01,Moderate,53.1
+PAT-002292,Sneha,Kulkarni,Day Care Unit,DC-01,High,62.0
+PAT-002293,Ishita,Joshi,Intensive Care Unit,ICU-02,High,58.4
+PAT-002294,Amit,Mane,General Ward,GW-03,Moderate,51.3
+PAT-002295,Amit,Nair,Intensive Care Unit,ICU-02,High,59.5
+PAT-002296,Saanvi,Joshi,General Ward,GW-16,Moderate,56.3
+PAT-002297,Saanvi,Reddy,General Ward,GW-15,Critical,61.7
+PAT-002298,Sneha,Verma,General Ward,GW-01,Critical,60.8
+PAT-002299,Ishita,Kulkarni,General Ward,GW-10,Moderate,54.1
+PAT-002300,Pranav,Desai,Emergency Department,ER-02,Low,49.2
+PAT-002301,Amit,Singh,Isolation Unit,ISO-01,High,56.9
+PAT-002302,Pranav,Pawar,Emergency Department,ER-05,Critical,57.0
+PAT-002303,Aditya,Nair,Day Care Unit,DC-04,High,58.1
+PAT-002304,Kavita,Gupta,General Ward,GW-03,Moderate,55.2
+PAT-002305,Mira,Kumar,Emergency Department,ER-02,Critical,58.4
+PAT-002306,Mira,Mehta,Intensive Care Unit,ICU-07,Moderate,55.3
+PAT-002307,Aditya,Singh,Day Care Unit,DC-04,Low,50.7
+PAT-002308,Kunal,Jadhav,General Ward,GW-05,Moderate,52.8
+PAT-002309,Tara,Singh,General Ward,GW-04,Moderate,55.7
+PAT-002310,Neha,Jadhav,Intensive Care Unit,ICU-06,Moderate,56.9
+PAT-002311,Aarav,Verma,Private Inpatient Unit,PR-140,High,58.0
+PAT-002312,Ishita,Jadhav,Private Inpatient Unit,PR-155,Moderate,52.1
+PAT-002313,Sneha,Nair,Intensive Care Unit,ICU-02,High,55.7
+PAT-002314,Dev,Jadhav,General Ward,GW-12,Low,48.9
+PAT-002315,Aditi,Joshi,Day Care Unit,DC-01,Low,52.7
+PAT-002316,Mahesh,Singh,Isolation Unit,ISO-04,Moderate,59.9
+PAT-002317,Riya,Desai,Private Inpatient Unit,PR-132,High,54.5
+PAT-002318,Mira,Iyer,General Ward,GW-03,Low,53.2
+PAT-002319,Amit,Kulkarni,General Ward,GW-10,Moderate,59.8
+PAT-002320,Ira,Khan,General Ward,GW-14,Moderate,54.0
+PAT-002321,Aarav,Patil,Intensive Care Unit,ICU-05,High,59.6
+PAT-002322,Aanya,Iyer,General Inpatient Hall,HALL-04,High,56.9
+PAT-002323,Dev,Sharma,General Ward,GW-11,Moderate,53.7
+PAT-002324,Mahesh,Mehta,Private Inpatient Unit,PR-155,Moderate,56.5
+PAT-002325,Meera,More,Private Inpatient Unit,PR-140,Moderate,58.2
+PAT-002326,Anaya,Sharma,General Ward,GW-03,Low,49.2
+PAT-002327,Saanvi,Khan,Private Inpatient Unit,PR-155,High,59.0
+PAT-002328,Sameer,Patil,Private Inpatient Unit,PR-158,Moderate,53.6
+PAT-002329,Om,Patil,Day Care Unit,DC-02,Moderate,58.1
+PAT-002330,Aditi,Iyer,Private Inpatient Unit,PR-113,Moderate,62.7
+PAT-002331,Mahesh,Jadhav,Private Inpatient Unit,PR-124,High,57.3
+PAT-002332,Sameer,Joshi,Private Inpatient Unit,PR-129,High,55.1
+PAT-002333,Ira,Kulkarni,General Ward,GW-02,Moderate,51.7
+PAT-002334,Mahesh,Verma,Isolation Unit,ISO-05,Moderate,62.8
+PAT-002335,Mahesh,Pawar,Emergency Department,ER-01,Low,41.8
+PAT-002336,Dev,Khan,General Inpatient Hall,HALL-01,Low,52.1
+PAT-002337,Aditya,Das,General Ward,GW-15,Moderate,55.1
+PAT-002338,Nikhil,Jadhav,General Ward,GW-06,Moderate,62.3
+PAT-002339,Anjali,Khan,Intensive Care Unit,ICU-07,High,56.1
+PAT-002340,Mahesh,Joshi,Emergency Department,ER-05,Low,50.9
+PAT-002341,Kavya,Kumar,General Inpatient Hall,HALL-03,Moderate,57.4
+PAT-002342,Neha,Mehta,General Ward,GW-08,Low,52.3
+PAT-002343,Dev,Reddy,General Inpatient Hall,HALL-04,Moderate,58.3
+PAT-002344,Kavya,Pawar,General Ward,GW-05,Moderate,55.8
+PAT-002345,Aditi,Iyer,Emergency Department,ER-06,Moderate,52.8
+PAT-002346,Priya,Nair,Intensive Care Unit,ICU-08,Moderate,53.3
+PAT-002347,Ishita,Shah,Day Care Unit,DC-05,Moderate,51.5
+PAT-002348,Ishaan,Kulkarni,General Ward,GW-06,Moderate,52.6
+PAT-002349,Aanya,Khan,Intensive Care Unit,ICU-11,High,52.3
+PAT-002350,Sagar,Sharma,Private Inpatient Unit,PR-102,Moderate,54.2
+PAT-002351,Tara,Iyer,General Ward,GW-10,Moderate,51.4
+PAT-002352,Anjali,Desai,Isolation Unit,ISO-03,Moderate,57.6
+PAT-002353,Sneha,Sharma,Private Inpatient Unit,PR-128,High,54.7
+PAT-002354,Ira,Kulkarni,General Inpatient Hall,HALL-02,High,57.6
+PAT-002355,Neha,Patil,Isolation Unit,ISO-03,Moderate,54.1
+PAT-002356,Tara,Reddy,Emergency Department,ER-03,Moderate,56.4
+PAT-002357,Neha,Jadhav,Emergency Department,ER-03,Moderate,54.6
+PAT-002358,Aditya,Patil,Isolation Unit,ISO-07,Moderate,60.3
+PAT-002359,Pranav,More,General Ward,GW-04,Moderate,52.1
+PAT-002360,Neha,Das,General Ward,GW-16,Moderate,55.0
+PAT-002361,Meera,Verma,General Ward,GW-12,Low,47.9
+PAT-002362,Anaya,Iyer,General Ward,GW-17,Moderate,54.6
+PAT-002363,Ishaan,Reddy,General Inpatient Hall,HALL-02,High,58.3
+PAT-002364,Vivaan,Das,General Inpatient Hall,HALL-02,High,58.0
+PAT-002365,Kavita,Pawar,Emergency Department,ER-03,Moderate,52.8
+PAT-002366,Kabir,Patil,General Ward,GW-18,Moderate,57.5
+PAT-002367,Yash,Reddy,Emergency Department,ER-06,High,50.3
+PAT-002368,Mahesh,More,Emergency Department,ER-04,High,56.7
+PAT-002369,Dev,Mehta,General Inpatient Hall,HALL-04,Moderate,56.8
+PAT-002370,Yash,Gupta,Intensive Care Unit,ICU-01,Moderate,55.6
+PAT-002371,Tara,Kulkarni,General Inpatient Hall,HALL-03,Moderate,55.2
+PAT-002372,Mahesh,Gupta,Intensive Care Unit,ICU-10,High,57.6
+PAT-002373,Aanya,Verma,Private Inpatient Unit,PR-123,Moderate,59.6
+PAT-002374,Aditya,Gupta,Isolation Unit,ISO-10,Moderate,53.8
+PAT-002375,Dev,Mehta,General Ward,GW-07,High,62.9
+PAT-002376,Neha,Singh,Private Inpatient Unit,PR-103,Moderate,53.0
+PAT-002377,Sameer,Jadhav,Private Inpatient Unit,PR-118,Moderate,57.3
+PAT-002378,Anjali,Shah,General Ward,GW-20,Moderate,53.5
+PAT-002379,Meera,Iyer,General Ward,GW-13,Moderate,58.1
+PAT-002380,Aditya,Kumar,Intensive Care Unit,ICU-07,Moderate,59.4
+PAT-002381,Priya,Khan,Private Inpatient Unit,PR-116,Moderate,52.5
+PAT-002382,Pranav,Reddy,General Ward,GW-08,Moderate,60.3
+PAT-002383,Nikhil,Joshi,Day Care Unit,DC-02,Moderate,58.6
+PAT-002384,Pranav,Shah,General Ward,GW-02,Moderate,51.6
+PAT-002385,Aditya,Mane,General Inpatient Hall,HALL-03,Moderate,55.1
+PAT-002386,Anjali,Khan,Private Inpatient Unit,PR-101,Moderate,51.4
+PAT-002387,Mahesh,Kulkarni,Emergency Department,ER-05,High,60.9
+PAT-002388,Amit,Verma,General Ward,GW-01,Moderate,53.9
+PAT-002389,Aditi,Pawar,General Ward,GW-08,High,60.2
+PAT-002390,Rohan,Sharma,Isolation Unit,ISO-08,Moderate,58.8
+PAT-002391,Priya,Jadhav,Private Inpatient Unit,PR-106,Moderate,59.0
+PAT-002392,Om,Mane,General Ward,GW-10,High,61.9
+PAT-002393,Nikhil,Kulkarni,General Ward,GW-02,Moderate,58.1
+PAT-002394,Anjali,Reddy,General Ward,GW-15,Moderate,59.6
+PAT-002395,Rahul,Iyer,General Inpatient Hall,HALL-04,Moderate,53.9
+PAT-002396,Ira,Joshi,General Ward,GW-14,Moderate,57.0
+PAT-002397,Aditi,Gupta,General Ward,GW-10,Moderate,55.8
+PAT-002398,Diya,Desai,Emergency Department,ER-01,Moderate,57.3
+PAT-002399,Om,Mehta,Private Inpatient Unit,PR-119,Moderate,57.1
+PAT-002400,Saanvi,Shah,General Ward,GW-08,High,55.3
+PAT-002401,Anaya,Mane,General Inpatient Hall,HALL-04,Moderate,56.1
+PAT-002402,Rohan,Patil,Private Inpatient Unit,PR-122,Moderate,57.4
+PAT-002403,Anjali,Reddy,Day Care Unit,DC-05,Moderate,52.5
+PAT-002404,Ishaan,Mehta,Isolation Unit,ISO-04,Moderate,52.9
+PAT-002405,Ishita,Patil,Private Inpatient Unit,PR-114,High,57.6
+PAT-002406,Priya,Shah,Private Inpatient Unit,PR-149,High,57.5
+PAT-002407,Kunal,Das,General Inpatient Hall,HALL-02,Moderate,59.4
+PAT-002408,Sneha,Desai,Isolation Unit,ISO-03,High,60.0
+PAT-002409,Aditi,Iyer,General Ward,GW-20,Moderate,51.2
+PAT-002410,Ishita,More,General Ward,GW-03,Moderate,52.1
+PAT-002411,Ira,Khan,Intensive Care Unit,ICU-09,High,61.5
+PAT-002412,Vivaan,Jadhav,General Inpatient Hall,HALL-01,Moderate,53.0
+PAT-002413,Anaya,Reddy,General Ward,GW-10,Moderate,52.7
+PAT-002414,Aditya,Pawar,General Ward,GW-03,Moderate,53.9
+PAT-002415,Anjali,Shah,Private Inpatient Unit,PR-134,High,56.9
+PAT-002416,Aditi,Jadhav,General Ward,GW-16,High,54.9
+PAT-002417,Arjun,Khan,Emergency Department,ER-03,Moderate,53.9
+PAT-002418,Sameer,More,Intensive Care Unit,ICU-07,Low,47.9
+PAT-002419,Kabir,Kulkarni,General Ward,GW-17,Low,50.5
+PAT-002420,Mira,Singh,General Ward,GW-06,Moderate,49.3
+PAT-002421,Pooja,Verma,General Ward,GW-12,High,56.0
+PAT-002422,Diya,Desai,Intensive Care Unit,ICU-09,Moderate,57.4
+PAT-002423,Sagar,Iyer,Isolation Unit,ISO-04,High,54.3
+PAT-002424,Rahul,Gupta,Emergency Department,ER-05,High,60.7
+PAT-002425,Mahesh,Das,Emergency Department,ER-06,Low,48.7
+PAT-002426,Saanvi,Sharma,General Ward,GW-10,High,56.8
+PAT-002427,Sagar,Desai,Day Care Unit,DC-04,Moderate,53.8
+PAT-002428,Ishaan,Singh,General Ward,GW-13,High,56.0
+PAT-002429,Sameer,Patil,General Ward,GW-19,Low,48.2
+PAT-002430,Kavita,Shah,General Ward,GW-17,High,58.2
+PAT-002431,Om,Iyer,Private Inpatient Unit,PR-110,High,58.2
+PAT-002432,Tara,Khan,Day Care Unit,DC-04,High,60.7
+PAT-002433,Nikhil,Mehta,General Ward,GW-11,Moderate,54.5
+PAT-002434,Kunal,Khan,General Ward,GW-09,High,56.9
+PAT-002435,Mira,Gupta,General Ward,GW-01,Moderate,50.7
+PAT-002436,Sameer,Nair,General Inpatient Hall,HALL-02,Moderate,57.9
+PAT-002437,Anaya,Reddy,General Ward,GW-01,Moderate,52.9
+PAT-002438,Anaya,Jadhav,Isolation Unit,ISO-10,High,56.8
+PAT-002439,Saanvi,Das,Emergency Department,ER-04,High,60.4
+PAT-002440,Pranav,Khan,General Inpatient Hall,HALL-01,Low,55.4
+PAT-002441,Rohan,Patil,General Ward,GW-01,High,56.0
+PAT-002442,Saanvi,Kulkarni,General Inpatient Hall,HALL-01,Moderate,53.1
+PAT-002443,Kavita,Sharma,General Ward,GW-09,Moderate,59.5
+PAT-002444,Saanvi,Sharma,General Ward,GW-20,Moderate,58.7
+PAT-002445,Nikhil,Khan,General Ward,GW-10,Critical,63.1
+PAT-002446,Kavita,Kumar,General Ward,GW-07,Moderate,50.5
+PAT-002447,Kavita,Gupta,General Ward,GW-12,Moderate,56.3
+PAT-002448,Vivaan,Sharma,General Ward,GW-14,Low,51.0
+PAT-002449,Kunal,Kumar,General Ward,GW-13,Moderate,56.2
+PAT-002450,Mahesh,Jadhav,Intensive Care Unit,ICU-08,Low,49.6
+PAT-002451,Dev,Mane,Intensive Care Unit,ICU-10,Moderate,53.2
+PAT-002452,Sneha,Khan,Intensive Care Unit,ICU-06,Moderate,61.0
+PAT-002453,Tara,Shah,General Ward,GW-03,Moderate,53.7
+PAT-002454,Priya,Jadhav,General Ward,GW-03,Moderate,60.0
+PAT-002455,Dev,Joshi,General Ward,GW-13,High,59.8
+PAT-002456,Neha,Sharma,General Ward,GW-01,Moderate,61.2
+PAT-002457,Anjali,Reddy,General Ward,GW-02,High,63.9
+PAT-002458,Rahul,Pawar,Intensive Care Unit,ICU-10,Moderate,49.9
+PAT-002459,Neha,Kulkarni,Isolation Unit,ISO-10,Moderate,61.8
+PAT-002460,Nikhil,Reddy,Private Inpatient Unit,PR-129,Moderate,58.1
+PAT-002461,Meera,Sharma,Day Care Unit,DC-05,Moderate,53.6
+PAT-002462,Sameer,Mane,General Ward,GW-13,High,60.2
+PAT-002463,Nikhil,Kulkarni,General Ward,GW-06,Moderate,54.6
+PAT-002464,Priya,Mehta,General Ward,GW-06,Moderate,59.5
+PAT-002465,Kavita,Verma,Private Inpatient Unit,PR-102,High,58.4
+PAT-002466,Nikhil,Kumar,Isolation Unit,ISO-09,Moderate,57.0
+PAT-002467,Sameer,Mehta,Intensive Care Unit,ICU-10,Moderate,58.0
+PAT-002468,Aditya,Desai,Intensive Care Unit,ICU-02,Moderate,57.0
+PAT-002469,Pooja,Jadhav,General Ward,GW-05,Critical,57.7
+PAT-002470,Neha,Mehta,General Ward,GW-03,High,54.3
+PAT-002471,Neha,Mane,General Ward,GW-09,High,57.0
+PAT-002472,Kavita,Patil,General Inpatient Hall,HALL-02,Moderate,57.0
+PAT-002473,Anaya,Joshi,General Ward,GW-05,High,55.8
+PAT-002474,Riya,Sharma,General Inpatient Hall,HALL-03,Low,52.3
+PAT-002475,Kavita,Verma,General Ward,GW-03,Moderate,57.4
+PAT-002476,Dev,Verma,Intensive Care Unit,ICU-08,High,62.0
+PAT-002477,Aarav,Khan,General Inpatient Hall,HALL-02,High,55.8
+PAT-002478,Priya,Gupta,Intensive Care Unit,ICU-03,High,58.1
+PAT-002479,Aarav,Verma,Private Inpatient Unit,PR-124,Moderate,59.5
+PAT-002480,Anaya,Sharma,Day Care Unit,DC-02,Moderate,59.0
+PAT-002481,Riya,Singh,Emergency Department,ER-05,Moderate,55.9
+PAT-002482,Riya,Joshi,General Ward,GW-06,Critical,59.5
+PAT-002483,Ishita,Sharma,General Ward,GW-18,Critical,60.3
+PAT-002484,Riya,Shah,General Ward,GW-17,High,61.0
+PAT-002485,Anjali,More,Emergency Department,ER-01,High,55.8
+PAT-002486,Mira,Reddy,Intensive Care Unit,ICU-09,Low,49.2
+PAT-002487,Amit,Joshi,General Ward,GW-01,Moderate,52.6
+PAT-002488,Tara,More,General Ward,GW-19,Moderate,55.6
+PAT-002489,Vivaan,Reddy,Intensive Care Unit,ICU-05,Critical,59.4
+PAT-002490,Om,Iyer,General Ward,GW-03,High,62.0
+PAT-002491,Mahesh,Verma,General Ward,GW-20,High,55.8
+PAT-002492,Arjun,Shah,Private Inpatient Unit,PR-101,Low,51.7
+PAT-002493,Sagar,Kulkarni,Emergency Department,ER-05,High,57.3
+PAT-002494,Aanya,Khan,Emergency Department,ER-03,Low,50.6
+PAT-002495,Meera,Nair,General Inpatient Hall,HALL-03,Moderate,55.2
+PAT-002496,Sagar,Gupta,General Inpatient Hall,HALL-04,Moderate,58.0
+PAT-002497,Meera,Pawar,General Ward,GW-08,High,60.4
+PAT-002498,Sagar,More,General Ward,GW-13,Low,55.2
+PAT-002499,Dev,Desai,Intensive Care Unit,ICU-01,High,57.7
+PAT-002500,Rohan,More,General Ward,GW-02,Moderate,52.4

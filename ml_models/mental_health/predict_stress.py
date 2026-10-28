@@ -1,7 +1,11 @@
 from pathlib import Path
 
-import joblib
-import pandas as pd
+try:
+	import joblib
+	import pandas as pd
+except ImportError:
+	joblib = None
+	pd = None
 
 
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -10,7 +14,7 @@ MODEL_PATH = BASE_DIR / 'ml_models' / 'trained_models' / 'mental_health_model.jo
 
 def _predict_with_trained_model(payload):
 	try:
-		if not MODEL_PATH.exists():
+		if joblib is None or pd is None or not MODEL_PATH.exists():
 			return None
 
 		artifact = joblib.load(MODEL_PATH)

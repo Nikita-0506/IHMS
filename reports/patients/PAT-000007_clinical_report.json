@@ -1,0 +1,209 @@
+{
+  "patient_id": "PAT-000007",
+  "full_name": "Ira Jadhav",
+  "age": 29,
+  "gender": "Female",
+  "city": "Mumbai",
+  "care_unit": "General Ward",
+  "location": "General Ward",
+  "room_no": "GW-10",
+  "bed_no": "GW-B05",
+  "allergies": "Unknown",
+  "monitoring_level": "Routine",
+  "predicted_level": "Routine",
+  "monitoring_frequency": "Every 6 hours",
+  "risk_score": 25.0,
+  "deterioration_risk": "Low",
+  "generated_at": "23-10-2026 17:06:13",
+  "tracker": {
+    "parameters": [
+      {
+        "key": "heart_rate_bpm",
+        "name": "Heart Rate",
+        "value": 93.0,
+        "unit": "bpm",
+        "normal_range": "60.0 - 100.0 bpm",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal resting heart rate: 60-100 bpm"
+      },
+      {
+        "key": "systolic_bp_mmhg",
+        "name": "Systolic BP",
+        "value": 114.0,
+        "unit": "mmHg",
+        "normal_range": "90.0 - 120.0 mmHg",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal SBP: 90-120 mmHg; Stage 2 HTN: >=160 mmHg"
+      },
+      {
+        "key": "diastolic_bp_mmhg",
+        "name": "Diastolic BP",
+        "value": 82.0,
+        "unit": "mmHg",
+        "normal_range": "60.0 - 80.0 mmHg",
+        "status": "Elevated",
+        "status_mr": "\u0935\u093e\u0922\u0932\u0947\u0932\u093e",
+        "color": "amber",
+        "severity": 2,
+        "description": "Normal DBP: 60-80 mmHg; Stage 2 HTN: >=90-100 mmHg"
+      },
+      {
+        "key": "respiratory_rate_bpm",
+        "name": "Respiratory Rate",
+        "value": 15.0,
+        "unit": "bpm",
+        "normal_range": "12.0 - 20.0 bpm",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal respiratory rate: 12-20 bpm"
+      },
+      {
+        "key": "spo2_percent",
+        "name": "SpO2 Saturation",
+        "value": 96.4,
+        "unit": "%",
+        "normal_range": "95.0 - 100.0 %",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal SpO2: 95-100%; Hypoxemia: <92%"
+      },
+      {
+        "key": "temperature_c",
+        "name": "Body Temperature",
+        "value": 37.1,
+        "unit": "\u00b0C",
+        "normal_range": "36.5 - 37.5 \u00b0C",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal core temp: 36.5-37.5\u00b0C; Fever: >=38.5\u00b0C"
+      },
+      {
+        "key": "blood_glucose_mg_dl",
+        "name": "Blood Glucose",
+        "value": 159.0,
+        "unit": "mg/dL",
+        "normal_range": "70.0 - 140.0 mg/dL",
+        "status": "Elevated",
+        "status_mr": "\u0935\u093e\u0922\u0932\u0947\u0932\u093e",
+        "color": "amber",
+        "severity": 2,
+        "description": "Normal random glucose: 70-140 mg/dL; Hyperglycemia: >=200"
+      },
+      {
+        "key": "gcs_score",
+        "name": "GCS Score",
+        "value": 15,
+        "unit": "/15",
+        "normal_range": "14 - 15 /15",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal GCS: 14-15; Severe impairment: <=8; Moderate: <=12"
+      },
+      {
+        "key": "pain_score",
+        "name": "Pain Score",
+        "value": 0,
+        "unit": "/10",
+        "normal_range": "0 - 3 /10",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Mild: 0-3; Moderate: 4-6; Severe: 7-10"
+      },
+      {
+        "key": "urine_output_ml_hr",
+        "name": "Urine Output",
+        "value": 51.2,
+        "unit": "mL/hr",
+        "normal_range": "30.0 - 80.0 mL/hr",
+        "status": "Normal",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f",
+        "color": "green",
+        "severity": 0,
+        "description": "Normal: 30-80 mL/hr; Oliguria: <30 mL/hr"
+      },
+      {
+        "key": "ecg_rhythm",
+        "name": "ECG Rhythm",
+        "value": "Not Ordered",
+        "unit": "rhythm",
+        "normal_range": "Sinus Rhythm",
+        "status": "Normal Sinus",
+        "status_mr": "\u0938\u093e\u092e\u093e\u0928\u094d\u092f \u0908\u0938\u0940\u091c\u0940",
+        "color": "green",
+        "severity": 0,
+        "description": "Electrocardiogram cardiac conduction profile"
+      }
+    ],
+    "summary": {
+      "total_parameters": 11,
+      "critical_count": 0,
+      "warning_count": 2,
+      "normal_count": 9,
+      "overall_status": "ATTENTION NEEDED",
+      "overall_status_mr": "\u0932\u0915\u094d\u0937 \u0920\u0947\u0935\u0923\u0947 \u0906\u0935\u0936\u094d\u092f\u0915",
+      "overall_color": "amber"
+    }
+  },
+  "diagnoses": [
+    {
+      "code": "DM-ELEVATED",
+      "disease": "Impaired Glycemic Control (\u0935\u093e\u0922\u0932\u0947\u0932\u0940 \u0938\u093e\u0916\u0930)",
+      "severity": "Moderate",
+      "severity_color": "amber",
+      "primary_parameter": "Blood Glucose: 159 mg/dL",
+      "clinical_rationale": "Mild to moderate postprandial/random hyperglycemia.",
+      "recommended_action": "Diabetic diet adherence, oral hypoglycemic adjustment (Metformin/Glimepiride)."
+    }
+  ],
+  "medications": {
+    "active_medications": [
+      {
+        "name": "Tab. Pantoprazole (\u092a\u0945\u0928\u094d\u091f\u094b\u092a\u094d\u0930\u0945\u091d\u094b\u0932)",
+        "dose": "40 mg Oral",
+        "frequency": "Before Breakfast (OD)",
+        "category": "GI Protection",
+        "status": "Active (\u091a\u093e\u0932\u0942)",
+        "notes": "Gastric mucosal protection."
+      },
+      {
+        "name": "Tab. Multivitamin & Zinc (\u092e\u0932\u094d\u091f\u0940\u0935\u094d\u0939\u093f\u091f\u0945\u092e\u093f\u0928)",
+        "dose": "1 Capsule",
+        "frequency": "Once Daily (OD)",
+        "category": "Nutritional Support",
+        "status": "Active (\u091a\u093e\u0932\u0942)",
+        "notes": "Nutritional and immunity maintenance."
+      }
+    ],
+    "added_medications": [],
+    "reduced_medications": [
+      {
+        "name": "No active drug contraindications detected",
+        "previous_dose": "N/A",
+        "new_status": "NO REDUCTIONS REQUIRED (\u0915\u092e\u0940 \u0915\u0930\u0923\u094d\u092f\u093e\u091a\u0940 \u0917\u0930\u091c \u0928\u093e\u0939\u0940)",
+        "category": "Maintenance",
+        "reason": "Current medication tolerance is stable with no adverse drug interactions or allergy triggers."
+      }
+    ],
+    "counts": {
+      "active": 2,
+      "added": 0,
+      "reduced": 1
+    }
+  }
+}
